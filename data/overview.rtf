@@ -1,0 +1,129 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww13480\viewh10440\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\f0\fs24 \cf0 CAMP = Compatibility Across Mobile Platforms\
+\
+\
+1) Android vs. iPhone: An Empirical Comparison of UI Elements and Application Behaviour\
+\
+Related Works:\
+\pard\pardeftab720\sl288\slmult1
+\cf0 - Inferring Likely Mappings between APIs \
+- Cloud Twin: Native execution of android applications on the Windows Phone\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+- Android UI elements: {\field{\*\fldinst{HYPERLINK "http://developer.android.com/guide/topics/ui/index.html"}}{\fldrslt http://developer.android.com/guide/topics/ui/index.html}}\
+\pard\pardeftab720\sl288\slmult1
+\cf0 - A Visual Guide to Android GUI Widgets {\field{\*\fldinst{HYPERLINK "http://www.droiddraw.org/widgetguide.html"}}{\fldrslt http://www.droiddraw.org/widgetguide.html}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 - iOS UI elements: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/ios/documentation/userexperience/conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1"}}{\fldrslt https://developer.apple.com/library/ios/documentation/userexperience/conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1}}\
+- iOS UI elements: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/ios/documentation/uikit/reference/uikit_framework/Introduction/Introduction.html#//apple_ref/doc/uid/TP40006955-CH1-SW1"}}{\fldrslt https://developer.apple.com/library/ios/documentation/uikit/reference/uikit_framework/Introduction/Introduction.html#//apple_ref/doc/uid/TP40006955-CH1-SW1}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 \
+- Mapping iOS and Android native UI controls in your designs: {\field{\*\fldinst{HYPERLINK "http://www.mobinett.com/2013/02/02/ios-android-native-ui-controls-in-your-designs/"}}{\fldrslt \shad0 http://www.mobinett.com/2013/02/02/ios-android-native-ui-controls-in-your-designs/}}\shad0 \
+\pard\pardeftab720\sl288\slmult1
+\cf0 - Comparing Common iPhone and Android UI Conventions {\field{\*\fldinst{HYPERLINK "http://cvil.ly/2011/01/27/comparing-common-iphone-and-android-ui-conventions/"}}{\fldrslt http://cvil.ly/2011/01/27/comparing-common-iphone-and-android-ui-conventions/}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\pard\pardeftab720\sl288\slmult1
+\cf0 - The API Mapping tool is open for feedback: {\field{\*\fldinst{HYPERLINK "http://wp7mapping.interoperabilitybridges.com/Home/Library?source=iPhone"}}{\fldrslt http://wp7mapping.interoperabilitybridges.com/Home/Library?source=iPhone}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\
+Motivation:\
+\pard\pardeftab720\sl288\slmult1
+\cf0 Software developers often wish to make their applications available on a wide variety of computing platforms. The key hurdle that he faces in doing so is to port  his app to these software and hardware platforms. Regarding iPhone and Android platforms, there are many situations that a mobile developer asked "I am an iPhone programmer, trying to create an Android version of an iPhone app. [and then ask a question on the iPhone/Android equivalent of methods/GUI elements/API calls/ etc. to Android/iPhone."\
+e.g., {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/3952991/ios-segmentedcontrol-equivalent-in-android"}}{\fldrslt http://stackoverflow.com/questions/3952991/ios-segmentedcontrol-equivalent-in-android}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+A quick search (of "iPhone" "android" "equivalent") on stack overflow shows that there exists around 100 questions that asks for the iPhone/Android equivalent of methods/GUI elements/API calls/ etc. to Android/iPhone or finding iPhone/Android equivalent code for Android/iPhone HTTP request/classes/methods/etc.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\b \cf0 GUI Comparison:
+\b0 \
+\pard\pardeftab720\sl288\slmult1
+\cf0 In total, there are 30+ UI Components. Almost all widgets have a related or similar one in each platform with the same functionalities. They may be displayed differently but it is evident the actions performed overlap and end up in the same end state. They may be called different names or use a different visual, but they map onto each other quite accurately. Moving forward, the mapping should be possible from the components\'92 stand point. \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\b \cf0 Cross-validation Interviews:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\b0 \cf0 \
+Interview: Wenjia, Gavin, Jack\
+\pard\pardeftab720\sl288\slmult1
+\cf0 	General CAMP Questions:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 		1) How important CAMP issue is?\
+		2) What are the challenges you have for CAMP issue? \
+		3) What are your strategies for CAMP issue?\
+\pard\pardeftab720\sl288\slmult1
+\cf0 	Cross-validation Questions:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 		1) Ask about the model\
+		\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\b \cf0 P1 (Senior iOS/Android Dev): 
+\b0 The CAMP issue is really important for us because we do the same app across multiple platforms, and it is hard to keep them consistent across multiple platforms and make sure that the behaviour is the same. Also testing, right now we do manual testing to make sure that the apps work the way that we want them to. We explored some tools that are available that are sort of cross-platform that you write automated test and how to run it on the different mobile platforms but none of them work. None of them take in to consideration the actual differences of the platforms although they claimed to do. we spend a lot of time here to automate that. So if we could automate that we can save a lot of time. \
+Usually quality assurance do check the CAMP issue as they responsible for testing it. What ends up happening in a lot of cases is one person tests the iPhone app and another person tests the android app, we don't have time to sit and have both platforms plus iPad test at the same time multiple people together going through each of them screen by screen. We just don't have time for that. The ideal way to see if they are consistent is multiple people sitting together with same inputs. it is really hard to do it manually. because there are platform differences. We don't really have time to do that for all our apps, but sometimes we do, where clients complain that your apps are very inconsistent and we have to go through and try to fix it. for example recently for a particular project, the client complain and a few people sat and went through the apps and they noticed about over 100 issues and pieces of inconsistencies for the same app between multiple platforms. The clients really want it consistent, saying that but also in a lot of cases people are usually iPhone users and when they see the android app, they'll be confused about the behaviour because it doesn't match with iOS. That is sort of a hard problem where educating our clients that it is a different platform and they are not familiar with it. The approach you show that makes sense. Because they are not equivalence, they are not one to one really. I know in iOS and Android you have the ability to set the accessibility labels that you can use that in your tests. \
+Basically you need to do abstract it in high level and lower level implementation details on each platform. In theory that should work for multiple platforms, if you can abstract high enough. \
+Between iOS and android, the APIs are totally different. That would be pretty hard to do. The GUI elements you could map because they have a consistence behaviour. \
+ \
+
+\b P2 (Intermediate iOS/Android Dev): 
+\b0 The CAMP issue is important. Functionality-wise, they should match but how users are actually using the functionality, it can be different. It is a time consuming thing, it is easier for QA to actually check. Our apps are very similar. I have heard some companies (EA) when they try to develop a cross platform app, the first thing they try to do is to match the life cycle of iOS and android apps. one best practice is change android life cycle to match the iOS. because for games cpu consuming in life cycle is very important.\
+\
+
+\b P3 (Tester Automation Developer): 
+\b0 you need a whole new representation of what UI looks like. you have to create a whole model of what the screen is supposed to be.\
+\
+\
+
+\b App Comparison:
+\b0 \
+\pard\pardeftab720\sl288\slmult1
+\cf0 a set of 30 independently-developed iPhone/ Android application pairs. Our approach is tailored to the case where the source and target platform each have independently-developed applications that implement similar functionality.\
+For each app, the Android version and the iPhone version will be crawled manually. The number of states and functions/edges will be gathered.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\pard\pardeftab720
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+
+\b \cf0 2) Automatic Functionality Checking
+\b0 \
+\
+Generate Mapping Approach:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\sl288\slmult1\pardirnatural
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 STEP 1: Collection of application pairs. \
+\
+\pard\pardeftab720
+\cf0 STEP 2: Execution and collection of states. Execution and collection of states. Since the states in each pair were obtained by exercising similar functionality in the source and target applications, these states must contain GUIs that can be mapped to each other. These applications were manually crawled and its states and transitions were documented having same input. The manual crawling process consisted of downloading and installing the application to the device, opening the application and recording each state change through any UI interaction. \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 \
+\pard\pardeftab720
+\cf0 STEP 3: State analysis and inference. \
+Title, number of GUIs, GUI Order, GUI position, Method/GUI names, GUI types/properties/events.\
+\pard\pardeftab720\sl288\slmult1
+\cf0 \
+\pard\pardeftab720
+\cf0 STEP 4: combine these attributes to output likely mappings. The output of this step is a probability for each pair states.\
+\pard\pardeftab720\sl288\slmult1
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl288\slmult1\pardirnatural
+\cf0 Evaluation and Controlled Experiments: We evaluated our tool with a set of twenty independently-developed iPhone/ Android application pairs. We do inter-state checking and intra-state checking.\
+\pard\pardeftab720\sl288\slmult1
+\cf0 \
+}
