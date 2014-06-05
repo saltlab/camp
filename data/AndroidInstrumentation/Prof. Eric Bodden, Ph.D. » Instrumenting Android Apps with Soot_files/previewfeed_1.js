@@ -1,0 +1,11 @@
+document.write('<table width=154 bgcolor=#576E98 cellspacing=2 cellpadding=0>');
+document.write('<tr><td align=center bgcolor=#7185A8>');
+document.write('<font face=arial size=-1><b>Latest Comics from:</b></font>');
+document.write('<table bgcolor=#ffffff cellspacing=0 cellpadding=5 border=0><tr><td>');
+document.write('<a href=http://www.phdcomics.com/comics>');
+document.write('<img src=http://www.phdcomics.com/images/rss_logo_02.gif border=0></a>');
+document.write('</td></tr>');document.write('<tr><td bgcolor=#D4DBE7 align=center><a href=http://www.phdcomics.com/comics.php?f=1714><img ');
+document.write('src=http://www.phdcomics.com/newspapers/preview/phd060414.gif');
+document.write(' border=0><br><font face=arial size=-2>06/4/14 - Art vs. Research</font></a></td></tr>');document.write('</table></td></tr>');
+document.write('<tr><td align=center bgcolor=#9DAAC1><font face=arial size=-2>');
+document.write('<a href=http://www.phdcomics.com>www.phdcomics.com</a></td></tr></table>');
