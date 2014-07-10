@@ -1,0 +1,9 @@
+Device * menu %thinktime=5000
+Menu * select "DL Counter" %thinktime=5000
+Button 1 tap 87 82 %thinktime=5000
+Button 4 tap 72 77 %thinktime=5000
+Button Undo tap 62 23 %thinktime=5000
+Button 3 tap 92 56 %thinktime=5000
+Button Reset tap 80 24 %thinktime=5000
+Device * menu %thinktime=5000
+Menu * select "Quick Ref." %thinktime=5000

@@ -1,0 +1,12 @@
+Device * menu %thinktime=5000
+Menu * select "Quick Ref." %thinktime=5000
+Table * select Penalties %thinktime=5000
+Device * back %thinktime=5000
+Table * select "Reviews / Feedback" %thinktime=5000
+Device * back %thinktime=5000
+Table * select "Resolving Spells / Copiable Characteristics" %thinktime=5000
+Device * back %thinktime=5000
+Device * menu %thinktime=5000
+Menu * select Oracle %thinktime=5000
+Table * select "Abandon Hope" %thinktime=5000
+Device * back %thinktime=5000
