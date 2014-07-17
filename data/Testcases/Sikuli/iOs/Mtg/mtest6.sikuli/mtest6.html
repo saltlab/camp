@@ -1,0 +1,102 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }  
+         
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>mtest6.sikuli</h2> <a href="mtest6.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="skw">find</span>(<img src="1405020264628.png" />)
+exists(<img src="1405020562766.png" />)
+<span class="skw">click</span>(<img src="1405020573536.png" />)
+<span class="kw">if</span> exists(<img src="1405020637880.png" />):
+    <span class="skw">click</span>(<img src="1405020667537.png" />)
+    <span class="skw">type</span>(<img src="1405020783045.png" />,<span class="str">"add"</span>)
+    exists(<img src="AdditionalCo.png" />)
+    <span class="skw">click</span>(<img src="AdditionalCo-1.png" />)
+    exists(<img src="AdditionalCo-2.png" />)
+    <span class="skw">find</span>(<img src="1405020844706.png" />)
+    <span class="skw">click</span>(<img src="1405020856236.png" />)
+    <span class="skw">find</span>(<img src="1405020870362.png" />)
+    <span class="skw">click</span>(<img src="1405020882775.png" />)
+    <span class="skw">find</span>(<img src="1405020910001.png" />)
+    <span class="skw">click</span>(<img src="1405020920260.png" />)
+    <span class="skw">find</span>(<img src="Glossary.png" />)
+    exists(<img src="Glossary-1.png" />)
+    <span class="skw">click</span>(<img src="Glossary-2.png" />)
+    <span class="skw">find</span>(<img src="Activate.png" />)
+    <span class="skw">click</span>(<img src="Activate-1.png" />)
+    exists(<img src="1405021047427.png" />)
+    <span class="skw">find</span>(<img src="1405021060148.png" />)
+    <span class="skw">click</span>(<img src="1405021069713.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1405021090249.png" />)
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="str">"Not founds"</span>)
+</pre>
+</body>
+</html>
