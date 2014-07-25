@@ -5,22 +5,22 @@
 //
 
 #import "UIState.h"
-#import "UIElement.h"
+#import "OutputComponent.h"
 
 @implementation UIState
 
-@synthesize uiElementsArray;
+@synthesize className, title, actionName, indexNumber, numberOfUIElements, uiElementsArray;
 
 
-- (void)setAllUIElements:(UIViewController*)currentViewController  {
+- (void)setAllUIElementsForViewController:(UIViewController*)currentViewController {
 	
 	NSMutableArray *elements = [[NSMutableArray alloc] init];
 	if ([currentViewController isKindOfClass:[UITableViewController class]]) {
 		UITableViewController* thisTableViewController = (UITableViewController*)currentViewController;
-		[self addTableView:thisTableViewController.tableView];
+		[elements addObject:[UIElement addTableView:thisTableViewController.tableView]];
     }
 	else if ([currentViewController.view isKindOfClass:[UITableView class]])
-		[self addTableView:(UITableView*)currentViewController.view];
+		[elements addObject:[UIElement addTableView:(UITableView*)currentViewController.view]];
     
     else
         [self addAllSubviewsOfView:currentViewController.view toArray:elements];
@@ -65,6 +65,10 @@
     //    [elements addObject:actionView];
     
 	self.uiElementsArray = elements;
+    self.numberOfUIElements = [elements count];
+    //self.actionName = ?;
+    
+    [[OutputComponent sharedOutput] writeXMLFile:self];
 }
 
 
@@ -127,24 +131,6 @@
         }
 	}
 }
-
-- (void)addTableView:(UITableView*)_tableView {
-    
-    NSArray *cellArray = _tableView.visibleCells;
-    NSLog(@"Number of cells: %i", cellArray.count);
-    NSLog(@"%@", cellArray);
-    
-    //for (UITableViewCell* cellItem in cellArray)
-    //cellItem.textLabel;
-    UIElement *element = [[UIElement alloc] init];
-    element.object = _tableView;
-    element.objectClass = [_tableView class];
-	element.className = [NSString stringWithFormat:@"%@", _tableView.class];
-	// list targets if there are any
-	[element addActionForTargetUIElement];
-}
-
-
 
 
 

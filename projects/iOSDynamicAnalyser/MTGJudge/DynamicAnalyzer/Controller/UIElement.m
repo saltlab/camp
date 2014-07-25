@@ -9,7 +9,7 @@
 
 @implementation UIElement
 
-@synthesize className, objectClass, object, action, target, visited;
+@synthesize className, objectClass, object, action, target, visited, details;
 
 
 #pragma mark -
@@ -40,6 +40,7 @@
     element.object = _object;
     element.objectClass = [_object class];
 	element.className = [NSString stringWithFormat:@"%@", element.objectClass];
+    element.details = [NSString stringWithFormat:@"%@", _object];
 	// list targets if there are any
 	[element addActionForTargetUIElement];
     
@@ -101,6 +102,7 @@
 	element.object = (id)barButtonItem;
 	element.objectClass = [element.object class];
     element.className = [NSString stringWithFormat:@"%@", element.objectClass];
+    element.details = [NSString stringWithFormat:@"%@", barButtonItem];
     
 	return element;
 }
@@ -113,8 +115,29 @@
 	element.object = (UIView*)thisBackButtonView;
 	element.objectClass = [element.object class]; 
     element.className = [NSString stringWithFormat:@"%@", element.objectClass];
-     
+    element.details = [NSString stringWithFormat:@"%@", thisBackButtonView];
+    
 	return element;
 }
+
++ (UIElement*)addTableView:(UITableView*)_tableView {
+    
+    //    NSArray *cellArray = _tableView.visibleCells;
+    //    NSLog(@"Number of cells: %i", cellArray.count);
+    //    NSLog(@"%@", cellArray);
+    //    for (UITableViewCell* cellItem in cellArray)
+    //    cellItem.textLabel;
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = _tableView;
+    element.objectClass = [_tableView class];
+	element.className = [NSString stringWithFormat:@"%@", _tableView.class];
+    element.details = [NSString stringWithFormat:@"Number of cells: %i - More details: %@", [_tableView.visibleCells count], _tableView.visibleCells];
+	// list targets if there are any
+	[element addActionForTargetUIElement];
+    return element;
+}
+
+
 
 @end

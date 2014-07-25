@@ -14,6 +14,7 @@
 @property(nonatomic, retain) NSString *action;
 @property(nonatomic, assign) id target;
 @property(nonatomic, assign) bool visited;
+@property(nonatomic, retain) NSString *details;
 
 
 - (void)addActionForTargetUIElement;
@@ -21,5 +22,6 @@
 + (UIElement*)addUIElement:(id)_object;
 + (UIElement*)addNavigationItem:(UIBarButtonItem*)barButtonItem withAction:(NSString*)action;
 + (UIElement*)addNavigationItemView:(UIView*)thisBackButtonView withAction:(NSString*)action;
++ (UIElement*)addTableView:(UITableView*)_tableView;
 
 @end

@@ -25,12 +25,10 @@
     //ignore if UINavigationController or UITabBarController
     if ((self.class != UINavigationController.class) && (self.class != UITabBarController.class) && ![self.class isKindOfClass: UINavigationController.class] && ![self.class isKindOfClass: UITabBarController.class])
     {
-        
-        NSLog(@"ViewController ClassName = %@", self.class);
-        NSLog(@"ViewController Title = %@", self.title);
-        
         UIState *thisState = [[UIState alloc] init];
-        [thisState setAllUIElements:self];
+        thisState.className = [NSString stringWithFormat:@"%@",self.class];
+        thisState.title = self.title;
+        [thisState setAllUIElementsForViewController:self];
     }
 
     [self swizzled_viewDidAppear:animated];

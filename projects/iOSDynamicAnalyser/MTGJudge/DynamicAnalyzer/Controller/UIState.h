@@ -5,13 +5,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIElement.h"
 
 @interface UIState : NSObject
 
+@property(nonatomic, retain) NSString *className;
+@property(nonatomic, retain) NSString *title;
+@property(nonatomic, retain) NSString *actionName;
+@property(nonatomic, assign) int indexNumber;
+@property(nonatomic, assign) int numberOfUIElements;
 @property(nonatomic, retain) NSMutableArray *uiElementsArray;
 
-- (void)setAllUIElements:(UIViewController*)currentViewController;
+- (void)setAllUIElementsForViewController:(UIViewController*)currentViewController;
 - (void)addAllSubviewsOfView:(UIView*)thisView toArray:(NSMutableArray*)elements;
-- (void)addTableView:(UITableView*)_tableView;
 
 @end

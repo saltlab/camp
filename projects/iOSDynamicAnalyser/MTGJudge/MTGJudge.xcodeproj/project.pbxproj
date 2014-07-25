@@ -101,6 +101,10 @@
 		AAA67E991109C4150005D2E0 /* DecklistCounterController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA67E971109C4150005D2E0 /* DecklistCounterController.m */; };
 		AAA67E9A1109C4150005D2E0 /* DecklistCounterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA67E981109C4150005D2E0 /* DecklistCounterController.xib */; };
 		AAA67F2A1109D3420005D2E0 /* OracleLookupController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA67F281109D3420005D2E0 /* OracleLookupController.m */; };
+		F96251461982DE770025CB24 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F96251451982DE770025CB24 /* XMLWriter.m */; };
+		F96251471982DE770025CB24 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F96251451982DE770025CB24 /* XMLWriter.m */; };
+		F962514B1982DE8A0025CB24 /* OutputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F962514A1982DE8A0025CB24 /* OutputComponent.m */; };
+		F962514C1982DE8A0025CB24 /* OutputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F962514A1982DE8A0025CB24 /* OutputComponent.m */; };
 		F976A12D195A05840043E63D /* QuickReferenceDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA67CC81109AB4E0005D2E0 /* QuickReferenceDetailController.xib */; };
 		F976A12E195A05840043E63D /* DecklistCounterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA67E981109C4150005D2E0 /* DecklistCounterController.xib */; };
 		F976A12F195A05840043E63D /* IPGContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA8B40EE1111637B0035D8B3 /* IPGContents.xib */; };
@@ -330,6 +334,10 @@
 		AAA67E981109C4150005D2E0 /* DecklistCounterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DecklistCounterController.xib; path = Classes/DecklistCounterController.xib; sourceTree = "<group>"; };
 		AAA67F271109D3420005D2E0 /* OracleLookupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OracleLookupController.h; sourceTree = "<group>"; };
 		AAA67F281109D3420005D2E0 /* OracleLookupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OracleLookupController.m; sourceTree = "<group>"; };
+		F96251441982DE770025CB24 /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLWriter.h; path = DynamicAnalyzer/XML/XMLWriter.h; sourceTree = "<group>"; };
+		F96251451982DE770025CB24 /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLWriter.m; path = DynamicAnalyzer/XML/XMLWriter.m; sourceTree = "<group>"; };
+		F96251491982DE8A0025CB24 /* OutputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputComponent.h; path = DynamicAnalyzer/Controller/OutputComponent.h; sourceTree = "<group>"; };
+		F962514A1982DE8A0025CB24 /* OutputComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputComponent.m; path = DynamicAnalyzer/Controller/OutputComponent.m; sourceTree = "<group>"; };
 		F976A191195A05840043E63D /* MTGJudge copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTGJudge copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F976A193195A05840043E63D /* MTGJudge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MTGJudge copy-Info.plist"; path = "/Users/Mona/Desktop/iPhone/MTGJudge copy-Info.plist"; sourceTree = "<absolute>"; };
 		F976A199195A078B0043E63D /* libMonkeyTalk-1.0.62.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMonkeyTalk-1.0.62.a"; sourceTree = "<group>"; };
@@ -643,6 +651,8 @@
 		F98B2235196AFE6D00E59414 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F96251491982DE8A0025CB24 /* OutputComponent.h */,
+				F962514A1982DE8A0025CB24 /* OutputComponent.m */,
 				F98B224B196BAB5E00E59414 /* UIElement.h */,
 				F98B224C196BAB5F00E59414 /* UIElement.m */,
 				F98B2242196AFED900E59414 /* UIState.h */,
@@ -662,6 +672,7 @@
 		F996B0F219649B6C008439A2 /* DynamicAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
+				F9B71686197F84DC005DC933 /* XML */,
 				F98B2235196AFE6D00E59414 /* Controller */,
 				F996B1051964AF35008439A2 /* DCIntrospect-Modified */,
 				F996B0F319649BB7008439A2 /* CategoryExtension */,
@@ -687,6 +698,15 @@
 				F98B2237196AFE8E00E59414 /* DCIntrospect.m */,
 			);
 			name = "DCIntrospect-Modified";
+			sourceTree = "<group>";
+		};
+		F9B71686197F84DC005DC933 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				F96251441982DE770025CB24 /* XMLWriter.h */,
+				F96251451982DE770025CB24 /* XMLWriter.m */,
+			);
+			name = XML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -941,6 +961,8 @@
 				F98B2240196AFEA600E59414 /* UIViewController+Additions.m in Sources */,
 				F98B2244196AFED900E59414 /* UIState.m in Sources */,
 				F98B224D196BAB5F00E59414 /* UIElement.m in Sources */,
+				F96251461982DE770025CB24 /* XMLWriter.m in Sources */,
+				F962514B1982DE8A0025CB24 /* OutputComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,6 +996,8 @@
 				F98B2241196AFEA600E59414 /* UIViewController+Additions.m in Sources */,
 				F98B2245196AFED900E59414 /* UIState.m in Sources */,
 				F98B224E196BAB5F00E59414 /* UIElement.m in Sources */,
+				F96251471982DE770025CB24 /* XMLWriter.m in Sources */,
+				F962514C1982DE8A0025CB24 /* OutputComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

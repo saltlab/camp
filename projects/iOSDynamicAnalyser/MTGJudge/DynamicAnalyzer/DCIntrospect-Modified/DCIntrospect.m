@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Helper Methods
 
-- (void)logPropertiesForObject:(id)object {
+- (NSMutableString*)logPropertiesForObject:(id)object {
 	
 	Class objectClass = [object class];
 	NSString *className = [NSString stringWithFormat:@"%@", objectClass];
@@ -88,11 +88,11 @@
 	}
 	
 	[outputString appendString:@"\n"];
-    //[OutputComponent outputUIElementsFile:outputString];
-	NSLog(@"%@", outputString);
     
     free(properties);
     free(buffer);
+    
+    return outputString;
 }
 
 

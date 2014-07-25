@@ -12,12 +12,10 @@
 /////////////////////////////
 // (Somewhat) Experimental //
 /////////////////////////////
-- (void)logPropertiesForObject:(id)object;
-
+- (NSMutableString*)logPropertiesForObject:(id)object;
 /////////////////////////
 // Description Methods //
 /////////////////////////
-
 - (NSString *)describeProperty:(NSString *)propertyName value:(id)value;
 - (NSString *)describeColor:(UIColor *)color;
 
