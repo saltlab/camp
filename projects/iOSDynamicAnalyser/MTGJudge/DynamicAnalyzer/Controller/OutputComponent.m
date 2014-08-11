@@ -6,6 +6,7 @@
 
 #import "OutputComponent.h"
 #import "DCIntrospect.h"
+#import "Xtrace.h"
 
 @implementation OutputComponent
 
@@ -155,9 +156,11 @@ OutputComponent *sharedInstance = nil;
 }
 
 - (void)logPropertiesForState:(UIState*)node {
+    [self.xmlWriter writeCharacters:@"\n\n\n"];
+    
 	[self.xmlWriter writeStartElement:@"State"];
 	
-    [self.xmlWriter writeStartElement:@"State_Number"];
+    [self.xmlWriter writeStartElement:@"State_ID"];
 	[self.xmlWriter writeCharacters:node.indexNumber?[NSString stringWithFormat:@"S%d", node.indexNumber]:@""];
 	[self.xmlWriter writeEndElement];
     
@@ -185,12 +188,16 @@ OutputComponent *sharedInstance = nil;
     for(UIElement * element in node.uiElementsArray){
         [self.xmlWriter writeStartElement:@"UIElement"];
         
-        [self.xmlWriter writeStartElement:@"UIElement_Number"];
+        [self.xmlWriter writeStartElement:@"UIElement_ID"];
         [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"E%d",[node.uiElementsArray indexOfObject:element]+1]];
         [self.xmlWriter writeEndElement];
         
-        [self.xmlWriter writeStartElement:@"UIElement_ClassName"];
+        [self.xmlWriter writeStartElement:@"UIElement_Type"];
         [self.xmlWriter writeCharacters:element.className?element.className:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"UIElement_Label"];
+        [self.xmlWriter writeCharacters:element.label?element.label:@""];
         [self.xmlWriter writeEndElement];
         
         [self.xmlWriter writeStartElement:@"UIElement_Action"];
@@ -198,7 +205,7 @@ OutputComponent *sharedInstance = nil;
         [self.xmlWriter writeEndElement];
         
         [self.xmlWriter writeStartElement:@"UIElement_Target"];
-        [self.xmlWriter writeCharacters:element.target?element.target:@""];
+        [self.xmlWriter writeCharacters:element.target?[NSString stringWithFormat:@"%@", element.target]:@""];
         [self.xmlWriter writeEndElement];
         
         [self.xmlWriter writeStartElement:@"UIElement_Details"];
@@ -209,6 +216,14 @@ OutputComponent *sharedInstance = nil;
     }
     [self.xmlWriter writeEndElement];
 	
+    [self.xmlWriter writeEndElement];
+    
+    // Create paths to output txt file
+    [self outputStateGraphFile:[self.xmlWriter toString]];
+    
+    self.xmlWriter = [[XMLWriter alloc]init];
+    
+    [self.xmlWriter writeCharacters:@"\n"];
 }
 
 //+ (void)writeAllStatesElements {
@@ -236,32 +251,47 @@ OutputComponent *sharedInstance = nil;
 //    NSLog(@"Total number of GUI elements %d", count);
 //}
 
-
-
 - (void)identifyEvent:(UIEvent*)event {
+
+    //[UIEvent xtrace];
+    //NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(aSEL));
     
-    //NSLog(@"%@", event);
-    NSSet *touches = [event allTouches];
-    UITouch *touch = [touches anyObject];
-    //NSLog(@"%@", touch.view);
-    NSMutableString* touchDetails = [[[DCIntrospect alloc] init] logPropertiesForObject:touch.view];
+    UIEventType thisEventType = [event type];
     
-    if ([[self.xmlWriter toString] length]>0) {
-    
-        [self.xmlWriter writeStartElement:@"State_TouchedView"];
-        [self.xmlWriter writeCharacters:touch.view?[NSString stringWithFormat:@"%@",touch.view]:@""];
-        [self.xmlWriter writeEndElement];
-    
-        [self.xmlWriter writeStartElement:@"State_TouchedDetails"];
-        [self.xmlWriter writeCharacters:touchDetails?touchDetails:@""];
-        [self.xmlWriter writeEndElement];
-    
-        [self.xmlWriter writeEndElement];
-    
-        // Create paths to output txt file
-        [self outputStateGraphFile:[self.xmlWriter toString]];
+    if(thisEventType == UIEventTypeTouches){
         
-        self.xmlWriter = [[XMLWriter alloc]init];
+        NSSet *touches = [event allTouches];
+        UITouch *touch = [touches anyObject];
+        NSMutableString* touchDetails = [[[DCIntrospect alloc] init] logPropertiesForObject:touch.view];
+    
+        //if (touch == UITouchPhaseBegan)
+        if ([[self.xmlWriter toString] length]>0) {
+        
+            [self.xmlWriter writeStartElement:@"State_TouchedView"];
+        
+            [self.xmlWriter writeStartElement:@"State_ID"];
+            [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
+            [self.xmlWriter writeEndElement];
+
+            [self.xmlWriter writeStartElement:@"TouchedView_Type"];
+            [self.xmlWriter writeCharacters:touch.view.class?[NSString stringWithFormat:@"%@",touch.view.class]:@""];
+            [self.xmlWriter writeEndElement];
+        
+            [self.xmlWriter writeStartElement:@"TouchedView_Frame"];
+            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]?[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]:@""];
+            [self.xmlWriter writeEndElement];
+    
+            [self.xmlWriter writeStartElement:@"TouchedView_Details"];
+            [self.xmlWriter writeCharacters:touchDetails?touchDetails:@""];
+            [self.xmlWriter writeEndElement];
+    
+            [self.xmlWriter writeEndElement];
+    
+            // Create paths to output txt file
+            [self outputStateGraphFile:[self.xmlWriter toString]];
+        
+            self.xmlWriter = [[XMLWriter alloc]init];
+        }
     }
 }
 

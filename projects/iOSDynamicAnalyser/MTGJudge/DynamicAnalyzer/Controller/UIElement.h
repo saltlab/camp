@@ -15,7 +15,7 @@
 @property(nonatomic, assign) id target;
 @property(nonatomic, assign) bool visited;
 @property(nonatomic, retain) NSString *details;
-
+@property(nonatomic, retain) NSString *label;
 
 - (void)addActionForTargetUIElement;
 - (BOOL)isEqualToUIElement:(UIElement*)e;
@@ -23,5 +23,8 @@
 + (UIElement*)addNavigationItem:(UIBarButtonItem*)barButtonItem withAction:(NSString*)action;
 + (UIElement*)addNavigationItemView:(UIView*)thisBackButtonView withAction:(NSString*)action;
 + (UIElement*)addTableView:(UITableView*)_tableView;
++ (UIElement*)addTabView:(UITabBarController*)_tabController;
++ (UIElement*)addLabel:(UILabel*)_label;
++ (UIElement*)addButton:(UIButton*)_button;
 
 @end

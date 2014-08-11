@@ -240,7 +240,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 			[self write:@"\""];			
 			
 			encoding = aEncoding;
-			[aEncoding retain];
+			
 		}
 		[self write:@" ?>"];	
 		
@@ -739,24 +739,6 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	}
 }
 
--(void) dealloc {
-    [writer release];
-	[encoding release];
-	
-	[elementLocalNames release];
-	[elementNamespaceURIs release];
-	
-	[namespaceURIs release];
-	[namespaceCounts release];
-	[namespaceWritten release];
-	
-	[namespaceURIPrefixMap release];
-	[prefixNamespaceURIMap release];
-	
-	[indentation release];
-	[lineBreak release];
-	
-    [super dealloc];
-}
+
 
 @end

@@ -16,7 +16,6 @@
         Method replacedMethod = 
 			class_getInstanceMethod(self, @selector(swizzled_viewDidAppear:));
         method_exchangeImplementations(originalMethod, replacedMethod);
-    
 	}
 }
 

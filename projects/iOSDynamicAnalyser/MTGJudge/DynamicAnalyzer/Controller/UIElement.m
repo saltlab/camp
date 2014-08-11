@@ -5,11 +5,12 @@
 //
 
 #import "UIElement.h"
+#import "DCIntrospect.h"
 
 
 @implementation UIElement
 
-@synthesize className, objectClass, object, action, target, visited, details;
+@synthesize className, objectClass, object, action, target, visited, details, label;
 
 
 #pragma mark -
@@ -121,23 +122,73 @@
 }
 
 + (UIElement*)addTableView:(UITableView*)_tableView {
-    
-    //    NSArray *cellArray = _tableView.visibleCells;
-    //    NSLog(@"Number of cells: %i", cellArray.count);
-    //    NSLog(@"%@", cellArray);
-    //    for (UITableViewCell* cellItem in cellArray)
-    //    cellItem.textLabel;
-    
+
+    NSInteger numberOfCells = 0;
+    //finding the number of cells in your table view by looping through its sections
+    for (NSInteger section = 0; section < [_tableView numberOfSections]; section++)
+        numberOfCells += [_tableView numberOfRowsInSection:section];
+
     UIElement *element = [[UIElement alloc] init];
     element.object = _tableView;
     element.objectClass = [_tableView class];
 	element.className = [NSString stringWithFormat:@"%@", _tableView.class];
-    element.details = [NSString stringWithFormat:@"Number of cells: %i - More details: %@", [_tableView.visibleCells count], _tableView.visibleCells];
-	// list targets if there are any
-	[element addActionForTargetUIElement];
+    
+    element.target = [NSString stringWithFormat:@"%@", _tableView.class];
+    element.action = _tableView.allowsSelection?@"tableCellClicked":@"";
+    element.label = @"";
+    
+    element.details = [NSString stringWithFormat:@"More details - \n Number of cells: %i \n Visible cells: %@", numberOfCells, _tableView.visibleCells];
+
     return element;
 }
 
++ (UIElement*)addTabView:(UITabBarController*)_tabController {
+    
+    UITabBarItem* thisUITabBarItem = _tabController.tabBar.selectedItem;
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = thisUITabBarItem;
+    element.objectClass = [thisUITabBarItem class];
+	element.className = [NSString stringWithFormat:@"%@ in %@", [thisUITabBarItem class], _tabController.class];
+    
+    element.target = [NSString stringWithFormat:@"%@", _tabController.class];
+    element.action = @"tabBarItemClicked";
+    element.label = thisUITabBarItem.title; 
 
+    element.details = [NSString stringWithFormat:@"More details - \n Number of tabs: %d \n SelectedTab: %@ ", _tabController.tabBar.items.count, [[[DCIntrospect alloc] init] logPropertiesForObject:thisUITabBarItem]];
+
+	return element;
+}
+
++ (UIElement*)addLabel:(UILabel*)_label {
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = _label;
+    element.objectClass = [_label class];
+	element.className = [NSString stringWithFormat:@"%@", [_label class]];
+    
+    element.target = @"";
+    element.action = @"";
+    element.label = _label.text;
+    
+    element.details = [NSString stringWithFormat:@"More details - \n Font:%@ \n Number of lines: %d \n Lable: %@ ", _label.font, _label.numberOfLines, [[[DCIntrospect alloc] init] logPropertiesForObject:_label]];
+    
+	return element;
+}
+
++ (UIElement*)addButton:(UIButton*)_button {
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = _button;
+    element.objectClass = [_button class];
+	element.className = [NSString stringWithFormat:@"%@", [_button class]];
+    
+    [element addActionForTargetUIElement];
+    element.label = _button.titleLabel.text;
+    
+    element.details = [NSString stringWithFormat:@"More details - \n Button: %@ ", [[[DCIntrospect alloc] init] logPropertiesForObject:_button]];
+    
+	return element;
+}
 
 @end

@@ -15,6 +15,12 @@
 - (void)setAllUIElementsForViewController:(UIViewController*)currentViewController {
 	
 	NSMutableArray *elements = [[NSMutableArray alloc] init];
+    
+    UITabBarController *thisTabController = currentViewController.tabBarController;
+    if (thisTabController) {
+		[elements addObject:[UIElement addTabView:(UITabBarController*)thisTabController]];
+    }
+    
 	if ([currentViewController isKindOfClass:[UITableViewController class]]) {
 		UITableViewController* thisTableViewController = (UITableViewController*)currentViewController;
 		[elements addObject:[UIElement addTableView:thisTableViewController.tableView]];
@@ -106,6 +112,15 @@
             else if (![subview isKindOfClass:[UITableView class]] && [subview isKindOfClass:[UIScrollView class]]) {
                 [elements addObject:[UIElement addUIElement:subview]];
                 [self addAllSubviewsOfView:subview toArray:elements];
+            }
+            else if ([subview isKindOfClass:[UITableView class]]) {
+                [elements addObject:[UIElement addTableView:(UITableView*)subview]];
+            }
+            else if ([subview isKindOfClass:[UILabel class]]) {
+                [elements addObject:[UIElement addLabel:(UILabel*)subview]];
+            }
+            else if ([subview isKindOfClass:[UIButton class]]) {
+                [elements addObject:[UIElement addButton:(UIButton*)subview]];
             }
             else if (!(([subview isKindOfClass:[UIControl class]])
                        || ([subview isKindOfClass:[UIWebView class]])
