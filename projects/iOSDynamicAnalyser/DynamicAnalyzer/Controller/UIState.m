@@ -9,7 +9,7 @@
 
 @implementation UIState
 
-@synthesize className, title, actionName, indexNumber, numberOfUIElements, uiElementsArray;
+@synthesize className, title, actionName, indexNumber, numberOfUIElements, uiElementsArray, viewController;
 
 
 - (void)setAllUIElementsForViewController:(UIViewController*)currentViewController {

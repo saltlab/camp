@@ -5,5 +5,6 @@
 
 + (void)load;
 - (void)swizzled_sendEvent:(UIEvent *)event;
+- (BOOL)swizzled_openURL:(NSURL*)url;
 
 @end

@@ -12,6 +12,7 @@
 
 @property(nonatomic, retain) XMLWriter *xmlWriter;
 @property(nonatomic, strong) NSMutableArray *stateNodesArray;
+@property(nonatomic, assign) int currentIndexNumber;
 
 + (OutputComponent*)sharedOutput;		// this returns nil when NOT in DEGBUG mode
 - (void)setup;
@@ -27,5 +28,9 @@
 - (void)logPropertiesForState:(UIState*)node;
 - (void)writeXMLFile:(UIState*)node;
 - (void)identifyEvent:(UIEvent*)event;
+- (void)identifyRequest:(NSMutableURLRequest*)request method:(NSString*)method parameters:(NSDictionary*)parameters;
+- (void)identifyRequest:(NSURLRequest*)request;
+- (void)identifyCall:(NSURL*)url;
+- (UIElement*)find:(UIView*)view inArray:(NSMutableArray*)uiElementsArray;
 
 @end

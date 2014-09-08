@@ -5,23 +5,12 @@
 #import "OutputComponent.h"
 #include <dlfcn.h>
 
-//#import <foundation foundation.h="">
-//#import <mach-o nlist.h="">
-
 
 // =======================================
 // = Implementation for UIApplication+Additions =
 // =======================================
 @implementation UIApplication (additions)
 
-
-//typedef int (*ObjCLogProc)(BOOL, const char *, const char *, SEL);
-//typedef void (*logObjcMessageSends_t)(ObjCLogProc logProc);
-//logObjcMessageSends_t logObjcMessageSends = 0;
-//
-//int main (int argc, const char * argv[]) {
-//    logObjcMessageSends = dlsym(RTLD_DEFAULT, "logObjcMessageSends");
-//}
 
 + (void)load {
     
@@ -44,6 +33,16 @@
     //instrumentObjcMessageSends(YES);
     [self swizzled_sendEvent:event];
     //instrumentObjcMessageSends(NO);
+}
+
+- (BOOL)swizzled_openURL:(NSURL*)url
+{
+    NSString *telString = [url absoluteString];
+    if ([[url absoluteString] rangeOfString:@"tel:"].location == NSNotFound)
+    //if ([telString rangeOfString:@"tel:"])
+        [[OutputComponent sharedOutput] identifyCall:url];
+    
+    return [self swizzled_openURL:url];
 }
 
 //int	MyLogObjCMessageSend (BOOL	isClassMethod,

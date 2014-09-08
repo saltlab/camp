@@ -6,6 +6,13 @@
 
 #import "OutputComponent.h"
 #import "DCIntrospect.h"
+#import <objc/runtime.h>
+
+
+
+typedef int (*ObjCLogProc)(BOOL, const char *, const char *, SEL);
+typedef void (*logObjcMessageSends_t)(ObjCLogProc logProc);
+
 
 @implementation OutputComponent
 
@@ -20,6 +27,7 @@ OutputComponent *sharedInstance = nil;
 		// intialize variables
 		self.stateNodesArray = [[NSMutableArray alloc]init];
         self.xmlWriter = [[XMLWriter alloc]init];
+        self.currentIndexNumber = 1;
     }
 	return self;
 }
@@ -42,13 +50,6 @@ OutputComponent *sharedInstance = nil;
 
 #pragma mark -
 #pragma mark Setup Directory Methods
-//- (void)setupOutputUIElementsFile {
-//	//Grab and empty a reference to the output txt file
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *path = [[NSString alloc] initWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:@"logUIElements.txt"]];
-//	[@"" writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
-//}
 
 - (void)setupOutputStateGraphFile {
 	//Grab and empty a reference to the output txt file
@@ -103,36 +104,13 @@ OutputComponent *sharedInstance = nil;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *directory = [documentsDirectory stringByAppendingPathComponent: @"/Screenshots"];
-	NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"S%d.jpg", node.indexNumber]]];
+	NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"S-%f-%d.jpg", [[NSDate date] timeIntervalSince1970],(node?node.indexNumber:0)]]];
 	[UIImageJPEGRepresentation(img, 1.0) writeToFile:path atomically:NO];
 }
 
 
 #pragma mark -
 #pragma mark Write Directory Methods
-//- (void)outputGraphFile:(NSMutableString*)outputString {
-//	// Create paths to Graph output txt file
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *path = [[NSString alloc] initWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:@"logGraphPath.txt"]];
-//	freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-//	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-//	[fileHandler seekToEndOfFile];
-//	[fileHandler writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
-//	[fileHandler closeFile];
-//}
-//
-//- (void)outputUIElementsFile:(NSMutableString*)outputString {
-//	// Create paths All UIElements to output txt file
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *path = [[NSString alloc] initWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:@"logUIElements.txt"]];
-//	freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-//	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-//	[fileHandler seekToEndOfFile];
-//	[fileHandler writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
-//	[fileHandler closeFile];
-//}
 
 - (void)outputStateGraphFile:(NSMutableString*)outputString {
 	// Create paths to State Graph output txt file
@@ -148,8 +126,10 @@ OutputComponent *sharedInstance = nil;
 
 //http://code.google.com/p/xswi/source/browse/trunk/xswi/Classes/?r=122
 - (void)writeXMLFile:(UIState*)node {
+    
     [self.stateNodesArray addObject:node];
-    node.indexNumber = [self.stateNodesArray count];
+    node.indexNumber = self.currentIndexNumber;
+    //node.indexNumber = [self.stateNodesArray count];
     [self logPropertiesForState:node];
 	
     //take screenshot
@@ -160,6 +140,10 @@ OutputComponent *sharedInstance = nil;
     [self.xmlWriter writeCharacters:@"\n\n\n"];
     
 	[self.xmlWriter writeStartElement:@"State"];
+    
+    [self.xmlWriter writeStartElement:@"TimeStamp"];
+    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+    [self.xmlWriter writeEndElement];
 	
     [self.xmlWriter writeStartElement:@"State_ID"];
 	[self.xmlWriter writeCharacters:node.indexNumber?[NSString stringWithFormat:@"S%d", node.indexNumber]:@""];
@@ -256,48 +240,270 @@ OutputComponent *sharedInstance = nil;
 //    NSLog(@"Total number of GUI elements %d", count);
 //}
 
+
+
+- (void)getNextScreen:(UIEvent*)event {
+    
+    if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"DynamicAnalyser_isViewControllerLoaded"] isEqualToString:@"ViewControllerLoaded"]) {
+        
+        UIState *currentState = self.stateNodesArray.lastObject;
+        UIViewController *currentViewController = currentState.viewController;
+        UIViewController *topViewController = currentViewController.navigationController.topViewController;
+        
+        UIState *thisState = [[UIState alloc] init];
+        thisState.className = [NSString stringWithFormat:@"%@",self.class];
+        thisState.title = currentViewController.title;
+        thisState.viewController = currentViewController;
+        [thisState setAllUIElementsForViewController:currentViewController];
+    }
+    
+    //instrumentObjcMessageSends(NO);
+//    UIEventType thisEventType = [event type];
+//    if(thisEventType == UIEventTypeTouches){
+//        
+//        NSSet *touches = [event allTouches];
+//        UITouch *touch = [touches anyObject];
+//       if (touch.phase == UITouchPhaseBegan)
+    
+}
+
+- (void)identifyCall:(NSURL*)url {
+
+}
+
+- (UIViewController*)initializeRootState {
+	
+    UIViewController *currentViewController;
+	
+	id mainController;
+	NSObject <UIApplicationDelegate> *appDelegate = (NSObject <UIApplicationDelegate> *)[[UIApplication sharedApplication] delegate];
+	Class appDelegateClass = object_getClass(appDelegate);
+    Class appDelegateSuperClass = [appDelegateClass superclass];
+    
+	unsigned int outCount, i;
+	objc_property_t *properties = class_copyPropertyList([appDelegateClass class], &outCount);
+    if (!properties && appDelegateSuperClass)
+        properties = class_copyPropertyList(appDelegateSuperClass, &outCount);
+    
+	for(i = 0; i < outCount; i++) {
+		objc_property_t property = properties[i];
+		const char *propName = property_getName(property);
+		if(propName) {
+			NSString *propertyName = [NSString stringWithUTF8String:propName];
+			mainController = [appDelegate valueForKey:propertyName];
+			
+			if ([mainController isKindOfClass:[UINavigationController class]]) {
+				//the app starts with NavigationController
+				UINavigationController *newNav = (UINavigationController*)mainController;
+				currentViewController = newNav.topViewController;
+				break;
+			}
+			else if ([mainController isKindOfClass:[UITabBarController class]]) {
+				//the app starts with TabBarController
+				UITabBarController *thisTabBarController = (UITabBarController*)mainController;
+				thisTabBarController.selectedIndex = 0;
+				currentViewController = thisTabBarController;
+				break;
+			}
+			else if ([mainController isKindOfClass:[UIViewController class]]) {
+				//the app starts with a UIViewController
+				UIViewController *mainViewController = [appDelegate valueForKey:propertyName];
+				currentViewController = mainViewController;
+				break;
+			}
+            //else if ([mainController isKindOfClass:[UIWindow class]]) {
+            //	UIWindow *window = [appDelegate valueForKey:propertyName];
+            //	UIViewController *mainViewController = window.rootViewController;
+            //	self.currentViewController = mainViewController;
+            //	break;
+            //}
+		}
+	}
+	
+    free(properties);
+    return currentViewController;
+}
+
+
 - (void)identifyEvent:(UIEvent*)event {
 
-    //[UIEvent xtrace];
-    //NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(aSEL));
-    
     UIEventType thisEventType = [event type];
     
     if(thisEventType == UIEventTypeTouches){
         
         NSSet *touches = [event allTouches];
         UITouch *touch = [touches anyObject];
-        NSMutableString* touchDetails = [[[DCIntrospect alloc] init] logPropertiesForObject:touch.view];
-    
-        //if (touch == UITouchPhaseBegan)
-        if ([[self.xmlWriter toString] length]>0) {
-        
-            [self.xmlWriter writeStartElement:@"State_TouchedView"];
-        
+        //CGPoint locationPoint = [touch locationInView:touch.view];
+        //UIView* viewYouWishToObtain = [touch.view hitTest:locationPoint withEvent:event];
+        //UIResponder
+        if (touch.phase == UITouchPhaseBegan) {
+            
+            UIState *currentState = self.stateNodesArray.lastObject;
+            UIElement * element = [self find:touch.view inArray:currentState.uiElementsArray];
+            
+            if (!element)
+                element = [UIElement addUIElement:touch.view];
+            
+            
+            [self.xmlWriter writeStartElement:@"TouchedElement"];
+            
+            [self.xmlWriter writeStartElement:@"TimeStamp"];
+            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+            [self.xmlWriter writeEndElement];
+            
             [self.xmlWriter writeStartElement:@"State_ID"];
             [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
             [self.xmlWriter writeEndElement];
-
-            [self.xmlWriter writeStartElement:@"TouchedView_Type"];
-            [self.xmlWriter writeCharacters:touch.view.class?[NSString stringWithFormat:@"%@",touch.view.class]:@""];
+            
+            [self.xmlWriter writeStartElement:@"TouchedElement_Type"];
+            [self.xmlWriter writeCharacters:element.className?element.className:@""];
             [self.xmlWriter writeEndElement];
-        
-            [self.xmlWriter writeStartElement:@"TouchedView_Frame"];
-            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]?[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]:@""];
+            
+            [self.xmlWriter writeStartElement:@"TouchedElement_Label"];
+            [self.xmlWriter writeCharacters:element.label?element.label:@""];
             [self.xmlWriter writeEndElement];
-    
-            [self.xmlWriter writeStartElement:@"TouchedView_Details"];
-            [self.xmlWriter writeCharacters:touchDetails?touchDetails:@""];
+            
+            [self.xmlWriter writeStartElement:@"TouchedElement_Action"];
+            [self.xmlWriter writeCharacters:element.action?element.action:@""];
             [self.xmlWriter writeEndElement];
-    
+            
+            [self.xmlWriter writeStartElement:@"UTouchedElement_Target"];
+            [self.xmlWriter writeCharacters:element.target?[NSString stringWithFormat:@"%@", element.target]:@""];
+            [self.xmlWriter writeEndElement];
+            
+            [self.xmlWriter writeStartElement:@"TouchedElement_Details"];
+            [self.xmlWriter writeCharacters:element.details?element.details:@""];
+            [self.xmlWriter writeEndElement];
+            
+            
+//            [self.xmlWriter writeStartElement:@"State_TouchedElement"];
+//            
+//            [self.xmlWriter writeStartElement:@"TimeStamp"];
+//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+//            [self.xmlWriter writeEndElement];
+//        
+//            [self.xmlWriter writeStartElement:@"State_ID"];
+//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"S%d", self.currentIndexNumber]];
+//            [self.xmlWriter writeEndElement];
+//
+//            [self.xmlWriter writeStartElement:@"TouchedElement_Type"];
+//            [self.xmlWriter writeCharacters:touch.view.class?[NSString stringWithFormat:@"%@",touch.view.class]:@""];
+//            [self.xmlWriter writeEndElement];
+//            
+//            __block NSString* thisTarget = @"";
+//            __block NSString* thisAction = @"";
+//            if ([touch.view respondsToSelector:@selector(allTargets)])
+//            {
+//                UIControl *control = (UIControl *)touch.view;
+//                UIControlEvents controlEvents = [control allControlEvents];
+//                NSSet *allTargets = [control allTargets];
+//                [allTargets enumerateObjectsUsingBlock:^(id target, BOOL *stop)
+//                 {
+//                     NSArray *actions = [control actionsForTarget:target forControlEvent:controlEvents];
+//                     [actions enumerateObjectsUsingBlock:^(id action, NSUInteger idx, BOOL *stop2)
+//                      {
+//                          thisTarget = target;
+//                          thisAction = action;
+//                      }];
+//                 }];
+//            }
+//            
+//            [self.xmlWriter writeStartElement:@"TouchedElement_Target"];
+//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",thisTarget]];
+//            [self.xmlWriter writeEndElement];
+//        
+//            [self.xmlWriter writeStartElement:@"TouchedElement_Action"];
+//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",thisAction]];
+//            [self.xmlWriter writeEndElement];
+//            
+//            [self.xmlWriter writeStartElement:@"TouchedElement_Frame"];
+//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]?[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]:@""];
+//            [self.xmlWriter writeEndElement];
+//    
+//            [self.xmlWriter writeStartElement:@"TouchedElement_Details"];
+//            [self.xmlWriter writeCharacters:touchDetails?touchDetails:@""];
+//            [self.xmlWriter writeEndElement];
+//    
             [self.xmlWriter writeEndElement];
     
             // Create paths to output txt file
             [self outputStateGraphFile:[self.xmlWriter toString]];
         
             self.xmlWriter = [[XMLWriter alloc]init];
+            
+            self.currentIndexNumber++;
+            [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"DynamicAnalyser_isViewControllerLoaded"];
+            [self performSelector:@selector(getNextScreen:) withObject:event afterDelay:2.0];
+            
         }
     }
+}
+
+- (void)identifyRequest:(NSMutableURLRequest*)request method:(NSString*)method parameters:(NSDictionary*)parameters  {
+    
+    [self.xmlWriter writeStartElement:@"State_Request"];
+    
+    [self.xmlWriter writeStartElement:@"TimeStamp"];
+    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+    [self.xmlWriter writeEndElement];
+    
+        [self.xmlWriter writeStartElement:@"State_ID"];
+        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"S%d", self.currentIndexNumber]];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"Request"];
+        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"Method"];
+        [self.xmlWriter writeCharacters:method?method:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"Parameters"];
+        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", parameters]?[NSString stringWithFormat:@"%@",parameters]:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeEndElement];
+            
+        // Create paths to output txt file
+        [self outputStateGraphFile:[self.xmlWriter toString]];
+            
+        self.xmlWriter = [[XMLWriter alloc]init];
+    //}
+}
+
+- (void)identifyRequest:(NSURLRequest*)request {
+    
+    [self.xmlWriter writeStartElement:@"State_Request2"];
+    
+    [self.xmlWriter writeStartElement:@"TimeStamp"];
+    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+    [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"State_ID"];
+        [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeStartElement:@"Request"];
+        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
+        [self.xmlWriter writeEndElement];
+        
+        [self.xmlWriter writeEndElement];
+        
+        // Create paths to output txt file
+        [self outputStateGraphFile:[self.xmlWriter toString]];
+        
+        self.xmlWriter = [[XMLWriter alloc]init];
+    //}
+}
+
+- (UIElement*)find:(UIView*)view inArray:(NSMutableArray*)uiElementsArray {
+	
+    for (UIElement* e in uiElementsArray)
+        if (e.object == view)
+            return e;
+    
+    return nil;
 }
 
 

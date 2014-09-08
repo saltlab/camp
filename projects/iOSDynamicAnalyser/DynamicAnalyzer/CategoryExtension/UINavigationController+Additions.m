@@ -1,43 +1,40 @@
 
-#import "UIViewController+Additions.h"
+#import "UINavigationController+Additions.h"
 #import <objc/runtime.h>
 #import "UIState.h"
 
 // =======================================
-// = Implementation for UIViewController+Additions =
+// = Implementation for UINavigationController+Additions =
 // =======================================
-@implementation UIViewController (additions)
+@implementation UIControl (additions)
 
 + (void)load {
-    if (self == [UIViewController class]) {
+    if (self == [UINavigationController class]) {
         
         Method originalMethod = 
-			class_getInstanceMethod(self, @selector(viewDidAppear:));
+        class_getInstanceMethod(self, @selector(touchesEnded:withEvent:));
         Method replacedMethod = 
-			class_getInstanceMethod(self, @selector(swizzled_viewDidAppear:));
+        class_getInstanceMethod(self, @selector(swizzled_navigationController:didShowViewController:animated:));
         method_exchangeImplementations(originalMethod, replacedMethod);
         
 	}
 }
 
-- (void)swizzled_viewDidAppear:(BOOL)animated
+- (void)swizzled_navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     //ignore if UINavigationController or UITabBarController
     if ((self.class != UINavigationController.class) && (self.class != UITabBarController.class) && ![self isKindOfClass: UINavigationController.class] && ![self isKindOfClass: UITabBarController.class])
     {
         if ([self isVisible]) {
             
-            [[NSUserDefaults standardUserDefaults] setValue:@"ViewControllerLoaded" forKey:@"DynamicAnalyser_isViewControllerLoaded"];
-            
             UIState *thisState = [[UIState alloc] init];
             thisState.className = [NSString stringWithFormat:@"%@",self.class];
             thisState.title = self.title;
-            thisState.viewController = self;
             [thisState setAllUIElementsForViewController:self];
         }
     }
 
-    [self swizzled_viewDidAppear:animated];
+    [self swizzled_navigationController:navigationController didShowViewController:viewController animated:animated];
 }
 
 

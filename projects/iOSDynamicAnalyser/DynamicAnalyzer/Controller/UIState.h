@@ -15,6 +15,7 @@
 @property(nonatomic, assign) int indexNumber;
 @property(nonatomic, assign) int numberOfUIElements;
 @property(nonatomic, retain) NSMutableArray *uiElementsArray;
+@property(nonatomic, retain) UIViewController *viewController;
 
 - (void)setAllUIElementsForViewController:(UIViewController*)currentViewController;
 - (void)addAllSubviewsOfView:(UIView*)thisView toArray:(NSMutableArray*)elements;

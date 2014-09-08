@@ -18,7 +18,15 @@
 
 - (void)addActionForTargetUIElement {
     
-	if ([self.object respondsToSelector:@selector(allTargets)]) {
+    if ([self.object isKindOfClass:[UITableViewController class]] || [self.object isKindOfClass:[UITableViewCell class]] || [NSStringFromClass([self.object class]) isEqualToString:@"UITableViewCellContentView"]) {
+        self.action = @"tableCellClicked";
+        self.target = [NSString stringWithFormat:@"%@", [UITableViewCell class]];
+    }
+    else if ([self.object isKindOfClass:[UITabBar class]] || [self.object isKindOfClass:[UITabBarItem class]] || [NSStringFromClass([self.object class]) isEqualToString:@"UITabBarButton"]) {
+        self.action = @"tabBarButtonClicked";
+        self.target = [NSString stringWithFormat:@"%@", [UITabBarItem class]];
+    }
+	else if ([self.object respondsToSelector:@selector(allTargets)]) {
 		
 		UIControl *control = (UIControl *)self.object;
 		UIControlEvents controlEvents = [control allControlEvents];
@@ -149,7 +157,7 @@
     UIElement *element = [[UIElement alloc] init];
     element.object = thisUITabBarItem;
     element.objectClass = [thisUITabBarItem class];
-	element.className = [NSString stringWithFormat:@"%@ in %@", [thisUITabBarItem class], _tabController.class];
+	element.className = [NSString stringWithFormat:@"%@", [thisUITabBarItem class]];
     
     element.target = [NSString stringWithFormat:@"%@", _tabController.class];
     element.action = @"tabBarItemClicked";
