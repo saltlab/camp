@@ -22,6 +22,14 @@
 @property (nonatomic, strong) NSMutableString *iphoneElementsCsv;
 @property (nonatomic, strong) NSMutableString *iphoneTouchedViewsCsv;
 
+@property (nonatomic, strong) NSMutableArray *androidStatesAry;
+@property (nonatomic, strong) NSMutableArray *androidElementsAry;
+@property (nonatomic, strong) NSMutableArray *androidTouchedViewsAry;
+
+@property (nonatomic, strong) NSMutableArray *iphoneStatesAry;
+@property (nonatomic, strong) NSMutableArray *iphoneElementsAry;
+@property (nonatomic, strong) NSMutableArray *iphoneTouchedViewsAry;
+
 @property (nonatomic, strong) NSTextField *instructionLabel;
 @property (nonatomic, strong) NSTextField *summaryLabel;
 @property (nonatomic, strong) NSButton *myButton;

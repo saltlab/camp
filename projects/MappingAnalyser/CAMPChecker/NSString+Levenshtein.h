@@ -14,4 +14,6 @@
 // return the minimum of a, b and c
 - (int) smallestOf: (int) a andOf: (int) b andOf: (int) c;
 
+- (NSUInteger)levenshteinDistanceToString:(NSString *)string;
+
 @end

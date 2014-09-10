@@ -35,6 +35,7 @@
 /* Begin PBXFileReference section */
 		F91EBD2C1992D6D6005C1E59 /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
 		F91EBD2D1992D6D6005C1E59 /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
+		F9C7745919A548CB00E6A1F6 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../SALTLab/saltlab/trunk/students/mona/research/gitProjects/ios/opencv2.framework; sourceTree = "<group>"; };
 		F9D00BA11779259600993318 /* XMLAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMLAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D00BA41779259600993318 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F9D00BA71779259600993318 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -106,6 +107,7 @@
 		F9D00B981779259500993318 = {
 			isa = PBXGroup;
 			children = (
+				F9C7745919A548CB00E6A1F6 /* opencv2.framework */,
 				F9D3D21A17A879CF00C4840C /* WebKit.framework */,
 				F9D3D1E917A5BCCF00C4840C /* libxml2.2.dylib */,
 				F9D00BC6177937E900993318 /* Libraries */,
@@ -426,6 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../SALTLab/saltlab/trunk/students/mona/research/gitProjects/ios\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XMLAnalyzer/XMLAnalyzer-Prefix.pch";
 				INFOPLIST_FILE = "XMLAnalyzer/XMLAnalyzer-Info.plist";
@@ -438,6 +444,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../SALTLab/saltlab/trunk/students/mona/research/gitProjects/ios\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XMLAnalyzer/XMLAnalyzer-Prefix.pch";
 				INFOPLIST_FILE = "XMLAnalyzer/XMLAnalyzer-Info.plist";
