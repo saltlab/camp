@@ -7,8 +7,9 @@
 #import "OutputComponent.h"
 #import "DCIntrospect.h"
 #import <objc/runtime.h>
-
-
+#import <QuartzCore/QuartzCore.h>
+#import "Aspects.h"
+#import "UIEdge.h"
 
 typedef int (*ObjCLogProc)(BOOL, const char *, const char *, SEL);
 typedef void (*logObjcMessageSends_t)(ObjCLogProc logProc);
@@ -18,7 +19,7 @@ typedef void (*logObjcMessageSends_t)(ObjCLogProc logProc);
 
 OutputComponent *sharedInstance = nil;
 
-@synthesize xmlWriter, stateNodesArray;
+@synthesize xmlWriter, stateNodesArray, methodCallsArray, currentIndexNumber, currentEdge;
 
 
 - (OutputComponent*) init {
@@ -26,6 +27,8 @@ OutputComponent *sharedInstance = nil;
 	if (self != nil) {
 		// intialize variables
 		self.stateNodesArray = [[NSMutableArray alloc]init];
+        self.methodCallsArray = [[NSMutableArray alloc]init];
+        self.currentEdge = [[UIEdge alloc] init];
         self.xmlWriter = [[XMLWriter alloc]init];
         self.currentIndexNumber = 1;
     }
@@ -42,11 +45,58 @@ OutputComponent *sharedInstance = nil;
 }
 
 - (void)setup {
-    //[self setupOutputUIElementsFile];
 	[self setupOutputStateGraphFile];
+    [self setupOutputcallGraphFile];
 	[self removeOldScreenshotsDirectory];
     [self createScreenshotsDirectory];
 }
+
+//- (void)addAOPToMethodCalls {
+//	unsigned classNamesCount = 0;
+//    const char** classNames = objc_copyClassNamesForImage([[[NSBundle mainBundle] executablePath] UTF8String], &classNamesCount);
+//    
+//    for(unsigned classIdx = 0; classIdx < classNamesCount; ++classIdx){
+//        
+//        NSString* className = [NSString stringWithFormat:@"%s", classNames[classIdx]];
+//        
+//        // No need to log iOS analyser classes
+//        if (!([className isEqualToString:@"AspectInfo"] ||
+//              [className isEqualToString:@"AspectsContainer"] ||
+//              [className isEqualToString:@"AspectIdentifier"] ||
+//              [className isEqualToString:@"AspectTracker"] ||
+//              [className isEqualToString:@"OutputComponent"] ||
+//              [className isEqualToString:@"XMLWriter"] ||
+//              [className isEqualToString:@"UIElement"] ||
+//              [className isEqualToString:@"UIState"] ||
+//              [className isEqualToString:@"DCIntrospect"])) {
+//            
+//            [self traceAllClassesMethods:className];
+//            
+//            unsigned methodsCount = 0;
+//            Method* methods = class_copyMethodList(objc_getClass(classNames[classIdx]), &methodsCount);
+//            for(unsigned methodIdx = 0; methodIdx < methodsCount; ++methodIdx){
+//                
+//                [self traceAllClassesMethods:[NSString stringWithFormat:@"    %s", sel_getName(method_getName(methods[methodIdx]))]];
+//                
+//                [objc_getClass(classNames[classIdx]) aspect_hookSelector:method_getName(methods[methodIdx]) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
+//                    
+//                    NSString* string = [NSString stringWithFormat:@"%@", info.instance];
+//                    NSRange searchFromRange = [string rangeOfString:@"<"];
+//                    NSRange searchToRange = [string rangeOfString:@" "];
+//                    NSString *class1 = [string substringWithRange:NSMakeRange(searchFromRange.location+searchFromRange.length, searchToRange.location-searchFromRange.location-searchFromRange.length)];
+//                    NSString* method1 = [NSStringFromSelector(info.originalInvocation.selector) stringByReplacingOccurrencesOfString:@"aspects__" withString:@""];
+//                    
+//                    [self.methodCallsArray addObject:[NSString stringWithFormat:@"[%@ %@]", class1, method1]];
+//                    [self traceMethod:[NSString stringWithFormat:@"[%@ %@]", class1, method1]];
+//                    
+//                } error:NULL];
+//                
+//            }
+//            free(methods);
+//        }
+//    }
+//    free(classNames);
+//}
 
 #pragma mark -
 #pragma mark Setup Directory Methods
@@ -59,6 +109,14 @@ OutputComponent *sharedInstance = nil;
 	[@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?> \n\
      <!DOCTYPE document SYSTEM \"\" > \n \
      <States>" writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+
+- (void)setupOutputcallGraphFile {
+	//Grab and empty a reference to the output txt file
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *path = [[NSString alloc] initWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:@"methodCalls.txt"]];
+	[@"" writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 }
 
 - (void)removeOldScreenshotsDirectory {
@@ -124,6 +182,18 @@ OutputComponent *sharedInstance = nil;
 	[fileHandler closeFile];
 }
 
+- (void)outputCallGraphFile:(NSMutableString*)outputString {
+	// Create paths to State Graph output txt file
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *path = [[NSString alloc] initWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:@"methodCalls.txt"]];
+	freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
+	[fileHandler seekToEndOfFile];
+	[fileHandler writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
+	[fileHandler closeFile];
+}
+
 //http://code.google.com/p/xswi/source/browse/trunk/xswi/Classes/?r=122
 - (void)writeXMLFile:(UIState*)node {
     
@@ -137,8 +207,25 @@ OutputComponent *sharedInstance = nil;
 }
 
 - (void)logPropertiesForState:(UIState*)node {
-    [self.xmlWriter writeCharacters:@"\n\n\n"];
     
+    //log initial Edge
+    if (self.currentEdge.touchedElement == nil) {
+        self.currentEdge = [[UIEdge alloc] init];
+        self.currentEdge.timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
+        self.currentEdge.sourceStateID = @"S0";
+        self.currentEdge.targetStateID = node.indexNumber?[NSString stringWithFormat:@"S%d", node.indexNumber]:@"";
+        self.currentEdge.touchedElement = nil;
+        self.currentEdge.methodsArray = self.methodCallsArray;
+        //[self logPropertiesForEdge:self.currentEdge];
+        [self performSelector:@selector(logPropertiesForEdge:) withObject:self.currentEdge afterDelay:2.0];
+    }
+    else {
+        self.currentEdge.targetStateID = node.indexNumber?[NSString stringWithFormat:@"S%d", node.indexNumber]:@"";
+        [self performSelector:@selector(logPropertiesForEdge:) withObject:self.currentEdge afterDelay:2.0];
+    }
+        
+    [self.xmlWriter writeCharacters:@"\n\n\n"];
+
 	[self.xmlWriter writeStartElement:@"State"];
     
     [self.xmlWriter writeStartElement:@"TimeStamp"];
@@ -170,7 +257,9 @@ OutputComponent *sharedInstance = nil;
 	[self.xmlWriter writeEndElement];
     
     [self.xmlWriter writeStartElement:@"UIElements"];
+    
     for(UIElement * element in node.uiElementsArray){
+        
         [self.xmlWriter writeStartElement:@"UIElement"];
         
         [self.xmlWriter writeStartElement:@"State_ID"];
@@ -193,9 +282,9 @@ OutputComponent *sharedInstance = nil;
         [self.xmlWriter writeCharacters:element.action?element.action:@""];
         [self.xmlWriter writeEndElement];
         
-        [self.xmlWriter writeStartElement:@"UIElement_Target"];
-        [self.xmlWriter writeCharacters:element.target?[NSString stringWithFormat:@"%@", element.target]:@""];
-        [self.xmlWriter writeEndElement];
+//        [self.xmlWriter writeStartElement:@"UIElement_Target"];
+//        [self.xmlWriter writeCharacters:element.target?[NSString stringWithFormat:@"%@", element.target]:@""];
+//        [self.xmlWriter writeEndElement];
         
         [self.xmlWriter writeStartElement:@"UIElement_Details"];
         [self.xmlWriter writeCharacters:element.details?element.details:@""];
@@ -203,44 +292,17 @@ OutputComponent *sharedInstance = nil;
          
         [self.xmlWriter writeEndElement];
     }
+    
     [self.xmlWriter writeEndElement];
-	
+
     [self.xmlWriter writeEndElement];
     
     // Create paths to output txt file
     [self outputStateGraphFile:[self.xmlWriter toString]];
-    
     self.xmlWriter = [[XMLWriter alloc]init];
-    
-    [self.xmlWriter writeCharacters:@"\n"];
+    //[self.xmlWriter writeCharacters:@"\n"];
+
 }
-
-//+ (void)writeAllStatesElements {
-//    
-//    DCIntrospect *dcIntrospect = [[DCIntrospect alloc] init];
-//    NSArray *statesArray =[[ICrawlerController sharedICrawler] visitedStates];
-//    
-//    int count = 0;
-//    for (State* s in statesArray) {
-//        for (UIElement* e in s.uiElementsArray) {
-//            count++;
-//            if ([e.className isEqualToString:@"UINavigationItemButtonView"] || [e.className isEqualToString:@"UIActivityIndicatorView"])
-//                [dcIntrospect logPropertiesForObject:(UIView*)e.object
-//                                  withViewController:NSStringFromClass([s.selfViewController class])
-//                                       andStateIndex:s.visitedStateIndex];
-//            else if ([e.objectClass isKindOfClass:[NSString class]])
-//                NSLog(@"Unknow element %@", e.objectClass);
-//            else
-//                [dcIntrospect logPropertiesForObject:e.object
-//                                  withViewController:NSStringFromClass([s.selfViewController class])
-//                                       andStateIndex:s.visitedStateIndex];
-//        }
-//    }
-//    
-//    NSLog(@"Total number of GUI elements %d", count);
-//}
-
-
 
 - (void)getNextScreen:(UIEvent*)event {
     
@@ -248,23 +310,14 @@ OutputComponent *sharedInstance = nil;
         
         UIState *currentState = self.stateNodesArray.lastObject;
         UIViewController *currentViewController = currentState.viewController;
-        UIViewController *topViewController = currentViewController.navigationController.topViewController;
+        //UIViewController *topViewController = currentViewController.navigationController.topViewController;
         
         UIState *thisState = [[UIState alloc] init];
-        thisState.className = [NSString stringWithFormat:@"%@",self.class];
+        thisState.className = [NSString stringWithFormat:@"%@",currentViewController.class];
         thisState.title = currentViewController.title;
         thisState.viewController = currentViewController;
         [thisState setAllUIElementsForViewController:currentViewController];
     }
-    
-    //instrumentObjcMessageSends(NO);
-//    UIEventType thisEventType = [event type];
-//    if(thisEventType == UIEventTypeTouches){
-//        
-//        NSSet *touches = [event allTouches];
-//        UITouch *touch = [touches anyObject];
-//       if (touch.phase == UITouchPhaseBegan)
-    
 }
 
 - (void)identifyCall:(NSURL*)url {
@@ -324,8 +377,77 @@ OutputComponent *sharedInstance = nil;
     return currentViewController;
 }
 
+- (void)logPropertiesForEdge:(UIEdge*)edge {
+    
+    edge.methodsArray = self.methodCallsArray;
+    
+    [self.xmlWriter writeCharacters:@"\n\n\n"];
+    
+    [self.xmlWriter writeStartElement:@"Edge"];
+    
+    [self.xmlWriter writeStartElement:@"TimeStamp"];
+    [self.xmlWriter writeCharacters:edge.timeStamp];
+    [self.xmlWriter writeEndElement];
+    
+    [self.xmlWriter writeStartElement:@"Source_State_ID"];
+    [self.xmlWriter writeCharacters:edge.sourceStateID];
+    [self.xmlWriter writeEndElement];
+    
+    [self.xmlWriter writeStartElement:@"Target_State_ID"];
+    [self.xmlWriter writeCharacters:edge.targetStateID];
+    [self.xmlWriter writeEndElement];
+    
+    [self.xmlWriter writeStartElement:@"TouchedElement"];
+    
+    if (edge.touchedElement) {
+    
+        [self.xmlWriter writeStartElement:@"UIElement_Type"];
+        [self.xmlWriter writeCharacters:edge.touchedElement.className?edge.touchedElement.className:@""];
+        [self.xmlWriter writeEndElement];
+    
+        [self.xmlWriter writeStartElement:@"UIElement_Label"];
+        [self.xmlWriter writeCharacters:edge.touchedElement.label?edge.touchedElement.label:@""];
+        [self.xmlWriter writeEndElement];
+    
+        [self.xmlWriter writeStartElement:@"UIElement_Action"];
+        [self.xmlWriter writeCharacters:edge.touchedElement.action?edge.touchedElement.action:@""];
+        [self.xmlWriter writeEndElement];
+    
+        //        [self.xmlWriter writeStartElement:@"UIElement_Target"];
+        //        [self.xmlWriter writeCharacters:edge.touchedElement.target?[NSString stringWithFormat:@"%@", edge.touchedElement.target]:@""];
+        //        [self.xmlWriter writeEndElement];
+    
+        [self.xmlWriter writeStartElement:@"UIElement_Details"];
+        [self.xmlWriter writeCharacters:edge.touchedElement.details?edge.touchedElement.details:@""];
+        [self.xmlWriter writeEndElement];
+    }
+    
+    [self.xmlWriter writeEndElement];
+    
+    [self.xmlWriter writeStartElement:@"Methods"];
+    
+    if ([self.methodCallsArray count]>0) {
+        
+        for(NSString * method in self.methodCallsArray){
+            
+            [self.xmlWriter writeStartElement:@"Method"];
+            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", method]];
+            [self.xmlWriter writeEndElement];
+        }
+        [self.methodCallsArray removeAllObjects];
+    }
+    [self.xmlWriter writeEndElement];
+    
+    [self.xmlWriter writeEndElement];
+    
+    // Create paths to output txt file
+    [self outputStateGraphFile:[self.xmlWriter toString]];
+    
+    self.xmlWriter = [[XMLWriter alloc]init];
 
-- (void)identifyEvent:(UIEvent*)event {
+}
+
+- (void)createEdge:(UIEvent*)event {
 
     UIEventType thisEventType = [event type];
     
@@ -333,103 +455,14 @@ OutputComponent *sharedInstance = nil;
         
         NSSet *touches = [event allTouches];
         UITouch *touch = [touches anyObject];
-        //CGPoint locationPoint = [touch locationInView:touch.view];
-        //UIView* viewYouWishToObtain = [touch.view hitTest:locationPoint withEvent:event];
-        //UIResponder
+       
         if (touch.phase == UITouchPhaseBegan) {
             
-            UIState *currentState = self.stateNodesArray.lastObject;
-            UIElement * element = [self find:touch.view inArray:currentState.uiElementsArray];
-            
-            if (!element)
-                element = [UIElement addUIElement:touch.view];
-            
-            
-            [self.xmlWriter writeStartElement:@"TouchedElement"];
-            
-            [self.xmlWriter writeStartElement:@"TimeStamp"];
-            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"State_ID"];
-            [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"TouchedElement_Type"];
-            [self.xmlWriter writeCharacters:element.className?element.className:@""];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"TouchedElement_Label"];
-            [self.xmlWriter writeCharacters:element.label?element.label:@""];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"TouchedElement_Action"];
-            [self.xmlWriter writeCharacters:element.action?element.action:@""];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"UTouchedElement_Target"];
-            [self.xmlWriter writeCharacters:element.target?[NSString stringWithFormat:@"%@", element.target]:@""];
-            [self.xmlWriter writeEndElement];
-            
-            [self.xmlWriter writeStartElement:@"TouchedElement_Details"];
-            [self.xmlWriter writeCharacters:element.details?element.details:@""];
-            [self.xmlWriter writeEndElement];
-            
-            
-//            [self.xmlWriter writeStartElement:@"State_TouchedElement"];
-//            
-//            [self.xmlWriter writeStartElement:@"TimeStamp"];
-//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
-//            [self.xmlWriter writeEndElement];
-//        
-//            [self.xmlWriter writeStartElement:@"State_ID"];
-//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"S%d", self.currentIndexNumber]];
-//            [self.xmlWriter writeEndElement];
-//
-//            [self.xmlWriter writeStartElement:@"TouchedElement_Type"];
-//            [self.xmlWriter writeCharacters:touch.view.class?[NSString stringWithFormat:@"%@",touch.view.class]:@""];
-//            [self.xmlWriter writeEndElement];
-//            
-//            __block NSString* thisTarget = @"";
-//            __block NSString* thisAction = @"";
-//            if ([touch.view respondsToSelector:@selector(allTargets)])
-//            {
-//                UIControl *control = (UIControl *)touch.view;
-//                UIControlEvents controlEvents = [control allControlEvents];
-//                NSSet *allTargets = [control allTargets];
-//                [allTargets enumerateObjectsUsingBlock:^(id target, BOOL *stop)
-//                 {
-//                     NSArray *actions = [control actionsForTarget:target forControlEvent:controlEvents];
-//                     [actions enumerateObjectsUsingBlock:^(id action, NSUInteger idx, BOOL *stop2)
-//                      {
-//                          thisTarget = target;
-//                          thisAction = action;
-//                      }];
-//                 }];
-//            }
-//            
-//            [self.xmlWriter writeStartElement:@"TouchedElement_Target"];
-//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",thisTarget]];
-//            [self.xmlWriter writeEndElement];
-//        
-//            [self.xmlWriter writeStartElement:@"TouchedElement_Action"];
-//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",thisAction]];
-//            [self.xmlWriter writeEndElement];
-//            
-//            [self.xmlWriter writeStartElement:@"TouchedElement_Frame"];
-//            [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]?[NSString stringWithFormat:@"%@",NSStringFromCGRect(touch.view.frame)]:@""];
-//            [self.xmlWriter writeEndElement];
-//    
-//            [self.xmlWriter writeStartElement:@"TouchedElement_Details"];
-//            [self.xmlWriter writeCharacters:touchDetails?touchDetails:@""];
-//            [self.xmlWriter writeEndElement];
-//    
-            [self.xmlWriter writeEndElement];
-    
-            // Create paths to output txt file
-            [self outputStateGraphFile:[self.xmlWriter toString]];
-        
-            self.xmlWriter = [[XMLWriter alloc]init];
+            self.currentEdge = [[UIEdge alloc] init];
+            self.currentEdge.timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
+            self.currentEdge.sourceStateID = [self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@"S0";
+            self.currentEdge.touchedElement = [UIElement addUIElement:touch.view];
+            self.currentEdge.methodsArray = self.methodCallsArray;
             
             self.currentIndexNumber++;
             [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"DynamicAnalyser_isViewControllerLoaded"];
@@ -439,63 +472,61 @@ OutputComponent *sharedInstance = nil;
     }
 }
 
-- (void)identifyRequest:(NSMutableURLRequest*)request method:(NSString*)method parameters:(NSDictionary*)parameters  {
-    
-    [self.xmlWriter writeStartElement:@"State_Request"];
-    
-    [self.xmlWriter writeStartElement:@"TimeStamp"];
-    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
-    [self.xmlWriter writeEndElement];
-    
-        [self.xmlWriter writeStartElement:@"State_ID"];
-        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"S%d", self.currentIndexNumber]];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeStartElement:@"Request"];
-        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeStartElement:@"Method"];
-        [self.xmlWriter writeCharacters:method?method:@""];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeStartElement:@"Parameters"];
-        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", parameters]?[NSString stringWithFormat:@"%@",parameters]:@""];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeEndElement];
-            
-        // Create paths to output txt file
-        [self outputStateGraphFile:[self.xmlWriter toString]];
-            
-        self.xmlWriter = [[XMLWriter alloc]init];
-    //}
-}
-
-- (void)identifyRequest:(NSURLRequest*)request {
-    
-    [self.xmlWriter writeStartElement:@"State_Request2"];
-    
-    [self.xmlWriter writeStartElement:@"TimeStamp"];
-    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
-    [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeStartElement:@"State_ID"];
-        [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeStartElement:@"Request"];
-        [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
-        [self.xmlWriter writeEndElement];
-        
-        [self.xmlWriter writeEndElement];
-        
-        // Create paths to output txt file
-        [self outputStateGraphFile:[self.xmlWriter toString]];
-        
-        self.xmlWriter = [[XMLWriter alloc]init];
-    //}
-}
+//- (void)identifyRequest:(NSMutableURLRequest*)request method:(NSString*)method parameters:(NSDictionary*)parameters  {
+//    
+//    [self.xmlWriter writeStartElement:@"State_Request"];
+//    
+//    [self.xmlWriter writeStartElement:@"TimeStamp"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+//    [self.xmlWriter writeEndElement];
+//    
+//    [self.xmlWriter writeStartElement:@"State_ID"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"S%d", self.currentIndexNumber]];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeStartElement:@"Request"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeStartElement:@"Method"];
+//    [self.xmlWriter writeCharacters:method?method:@""];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeStartElement:@"Parameters"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", parameters]?[NSString stringWithFormat:@"%@",parameters]:@""];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeEndElement];
+//            
+//    // Create paths to output txt file
+//    [self outputStateGraphFile:[self.xmlWriter toString]];
+//            
+//    self.xmlWriter = [[XMLWriter alloc]init];
+//}
+//
+//- (void)identifyRequest:(NSURLRequest*)request {
+//    
+//    [self.xmlWriter writeStartElement:@"State_Request2"];
+//    
+//    [self.xmlWriter writeStartElement:@"TimeStamp"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeStartElement:@"State_ID"];
+//    [self.xmlWriter writeCharacters:[self.stateNodesArray count]?[NSString stringWithFormat:@"S%d", [self.stateNodesArray count]]:@""];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeStartElement:@"Request"];
+//    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", request]?[NSString stringWithFormat:@"%@", request]:@""];
+//    [self.xmlWriter writeEndElement];
+//        
+//    [self.xmlWriter writeEndElement];
+//        
+//    // Create paths to output txt file
+//    [self outputStateGraphFile:[self.xmlWriter toString]];
+//        
+//    self.xmlWriter = [[XMLWriter alloc]init];
+//}
 
 - (UIElement*)find:(UIView*)view inArray:(NSMutableArray*)uiElementsArray {
 	
@@ -504,6 +535,34 @@ OutputComponent *sharedInstance = nil;
             return e;
     
     return nil;
+}
+
+- (void)traceMethod:(NSString*)method {
+    
+    NSMutableString* outputTxt = [NSMutableString stringWithFormat:@"\n%@", method];
+    
+    // Create paths to output txt file
+    [self outputCallGraphFile:outputTxt];
+    
+    //[self.xmlWriter writeStartElement:@"TouchedElement"];
+    self.xmlWriter = [[XMLWriter alloc]init];
+    
+    [self.xmlWriter writeCharacters:@"\n"];
+    [self.xmlWriter writeStartElement:@"Method"];
+    [self.xmlWriter writeCharacters:[NSString stringWithFormat:@"%@", method]];
+    [self.xmlWriter writeEndElement];
+    
+    // Create paths to output txt file
+    [self outputStateGraphFile:[self.xmlWriter toString]];
+    
+    
+}
+
+- (void)traceAllClassesMethods:(NSString*)method {
+    
+    NSMutableString* outputTxt = [NSMutableString stringWithFormat:@"\n%@", method];
+    // Create paths to output txt file
+    [self outputCallGraphFile:outputTxt];
 }
 
 

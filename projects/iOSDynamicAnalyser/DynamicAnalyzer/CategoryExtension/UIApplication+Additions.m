@@ -29,35 +29,16 @@
 
 - (void)swizzled_sendEvent:(UIEvent *)event
 {
-    [[OutputComponent sharedOutput] identifyEvent:event];
-    //instrumentObjcMessageSends(YES);
+    [[OutputComponent sharedOutput] createEdge:event];
     [self swizzled_sendEvent:event];
-    //instrumentObjcMessageSends(NO);
 }
 
-- (BOOL)swizzled_openURL:(NSURL*)url
-{
-    NSString *telString = [url absoluteString];
-    if ([[url absoluteString] rangeOfString:@"tel:"].location == NSNotFound)
-    //if ([telString rangeOfString:@"tel:"])
-        [[OutputComponent sharedOutput] identifyCall:url];
-    
-    return [self swizzled_openURL:url];
-}
-
-//int	MyLogObjCMessageSend (BOOL	isClassMethod,
-//                          const char *	objectsClass,
-//                          const char *	implementingClass,
-//                          SEL	selector)
+//- (BOOL)swizzled_openURL:(NSURL*)url
 //{
-//    // Make the log entry -- Replace this function's code by anything you want
-//    NSLog( @"That's me %c %s %s %s\n",
-//          isClassMethod ? '+' : '-',
-//          objectsClass,
-//          implementingClass,
-//          (char *) selector);
-//    return 0;
+//    if ([[url absoluteString] rangeOfString:@"tel:"].location == NSNotFound)
+//        [[OutputComponent sharedOutput] identifyCall:url];
+//    
+//    return [self swizzled_openURL:url];
 //}
-
 
 @end

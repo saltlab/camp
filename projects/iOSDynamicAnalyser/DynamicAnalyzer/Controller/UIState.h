@@ -5,7 +5,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIElement.h"
 
 @interface UIState : NSObject
 

@@ -6,6 +6,7 @@
 
 #import "UIState.h"
 #import "OutputComponent.h"
+#import "UIElement.h"
 
 @implementation UIState
 

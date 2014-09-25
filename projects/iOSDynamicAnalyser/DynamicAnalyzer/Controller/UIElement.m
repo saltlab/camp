@@ -18,9 +18,14 @@
 
 - (void)addActionForTargetUIElement {
     
-    if ([self.object isKindOfClass:[UITableViewController class]] || [self.object isKindOfClass:[UITableViewCell class]] || [NSStringFromClass([self.object class]) isEqualToString:@"UITableViewCellContentView"]) {
+    if ([self.object isKindOfClass:[UITableViewController class]] || [self.object isKindOfClass:[UITableViewCell class]]) {
         self.action = @"tableCellClicked";
         self.target = [NSString stringWithFormat:@"%@", [UITableViewCell class]];
+    }
+    else if ([NSStringFromClass([self.object class]) isEqualToString:@"UITableViewCellContentView"]) {
+        self.action = @"tableCellClicked";
+        self.target = [NSString stringWithFormat:@"%@", [UITableViewCell class]];
+        //self.details = [NSString stringWithFormat:@"%@", [self.object recursiveDescription]];
     }
     else if ([self.object isKindOfClass:[UITabBar class]] || [self.object isKindOfClass:[UITabBarItem class]] || [NSStringFromClass([self.object class]) isEqualToString:@"UITabBarButton"]) {
         self.action = @"tabBarButtonClicked";
@@ -49,8 +54,8 @@
     element.object = _object;
     element.objectClass = [_object class];
 	element.className = [NSString stringWithFormat:@"%@", element.objectClass];
-    element.details = [NSString stringWithFormat:@"%@", _object];
-	// list targets if there are any
+    element.details = [NSString stringWithFormat:@"%@", [_object performSelector:@selector(recursiveDescription)]];
+    // list targets if there are any
 	[element addActionForTargetUIElement];
     
 	return element;
