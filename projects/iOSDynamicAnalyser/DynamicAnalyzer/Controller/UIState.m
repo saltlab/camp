@@ -18,7 +18,7 @@
 	NSMutableArray *elements = [[NSMutableArray alloc] init];
     
     UITabBarController *thisTabController = currentViewController.tabBarController;
-    if (thisTabController) {
+    if (thisTabController && [[thisTabController tabBar] window]) { //&& thisTabController.tabBar.userInteractionEnabled
 		[elements addObject:[UIElement addTabView:(UITabBarController*)thisTabController]];
     }
     
@@ -45,15 +45,15 @@
             else if (currentViewController.navigationItem.backBarButtonItem
                      && !currentViewController.navigationItem.hidesBackButton
                      && currentViewController.navigationItem.backBarButtonItem.width>0)
-                [elements addObject:[UIElement addNavigationItem:currentViewController.navigationItem.backBarButtonItem withAction:@"BackBarButtonItem"]];
+                [elements addObject:[UIElement addNavigationItem:currentViewController.navigationItem.backBarButtonItem withAction:@"goBack"]];
             else if (!thisNav.navigationBar.hidden) {
                 NSArray *thisArray = thisNav.navigationBar.items;
                 for (UINavigationItem *item in thisArray) {
                     UIView *thisBackButtonView = [item valueForKey:@"_backButtonView"];
                     if (item.backBarButtonItem && !item.hidesBackButton && item.backBarButtonItem.width>0)
-                        [elements addObject:[UIElement addNavigationItem:item.backBarButtonItem withAction:@"BackBarButtonItem"]];
-                    else if (thisBackButtonView && !(thisBackButtonView.frame.origin.x <0 || thisBackButtonView.frame.origin.y <0))
-                        [elements addObject:[UIElement addNavigationItemView:thisBackButtonView withAction:@"UndefinedBackButtonItem"]];
+                        [elements addObject:[UIElement addNavigationItem:item.backBarButtonItem withAction:@"goBack"]];
+                    else if (thisBackButtonView && thisBackButtonView.userInteractionEnabled && !(thisBackButtonView.frame.origin.x <0 || thisBackButtonView.frame.origin.y <0))
+                        [elements addObject:[UIElement addNavigationItemView:thisBackButtonView withAction:@"goBack"]];
                     else if (item.leftBarButtonItem)
                         [elements addObject:[UIElement addNavigationItem:item.leftBarButtonItem withAction:@"LeftBarButtonItem"]];
                 }
@@ -92,9 +92,9 @@
                 for (UINavigationItem *item in thisArray) {
                     UIView *thisBackButtonView = [item valueForKey:@"_backButtonView"];
                     if (item.backBarButtonItem && !item.hidesBackButton && item.backBarButtonItem.width>0)
-                        [elements addObject:[UIElement addNavigationItem:(UIBarButtonItem*)item.backBarButtonItem withAction:@"BackBarButtonItem"]];
+                        [elements addObject:[UIElement addNavigationItem:(UIBarButtonItem*)item.backBarButtonItem withAction:@"goBack"]];
                     else if (thisBackButtonView && !(thisBackButtonView.frame.origin.x <0 || thisBackButtonView.frame.origin.y <0))
-                        [elements addObject:[UIElement addNavigationItemView:thisBackButtonView withAction:@"UndefinedBackButtonItem"]];
+                        [elements addObject:[UIElement addNavigationItemView:thisBackButtonView withAction:@"goBack"]];
                     else if (item.leftBarButtonItem)
                         [elements addObject:[UIElement addNavigationItem:(UIBarButtonItem*)item.leftBarButtonItem withAction:@"LeftBarButtonItem"]];
                     else if (item.rightBarButtonItem)

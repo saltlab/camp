@@ -10,8 +10,8 @@
 @interface UIEdge : NSObject
 
 @property(nonatomic, retain) NSString *timeStamp;
-@property(nonatomic, retain) NSString *sourceStateID;
-@property(nonatomic, retain) NSString *targetStateID;
+@property(nonatomic, assign) int sourceStateID;
+@property(nonatomic, assign) int targetStateID;
 @property(nonatomic, retain) UIElement *touchedElement;
 @property(nonatomic, retain) NSMutableArray *methodsArray;
 

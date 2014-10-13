@@ -14,6 +14,7 @@
 
 @property(nonatomic, retain) XMLWriter *xmlWriter;
 @property(nonatomic, retain) UIEdge *currentEdge;
+@property(nonatomic, retain) UIState *currentNode;
 @property(nonatomic, retain) NSMutableArray *stateNodesArray;
 @property(nonatomic, retain) NSMutableArray *methodCallsArray;
 @property(nonatomic, assign) int currentIndexNumber;
@@ -24,10 +25,13 @@
 - (void)setupOutputStateGraphFile;
 - (void)removeOldScreenshotsDirectory;
 - (void)createScreenshotsDirectory;
-- (void)takeScreenshotOfState:(UIState*)node;
+- (void)takeScreenshotOfState;
 - (void)outputStateGraphFile:(NSMutableString*)outputString;
-- (void)logPropertiesForState:(UIState*)node;
+
 - (void)writeXMLFile:(UIState*)node;
+- (void)logPropertiesForEdge;
+- (void)logPropertiesForState;
+
 - (void)createEdge:(UIEvent*)event;
 //- (void)identifyRequest:(NSMutableURLRequest*)request method:(NSString*)method parameters:(NSDictionary*)parameters;
 //- (void)identifyRequest:(NSURLRequest*)request;
