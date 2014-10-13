@@ -14,13 +14,13 @@
 @property (nonatomic, strong) NSMutableData *androidXmlData;
 @property (nonatomic, strong) NSMutableData *iphoneXmlData;
 
-@property (nonatomic, strong) NSMutableString *androidStatesCsv;
-@property (nonatomic, strong) NSMutableString *androidElementsCsv;
-@property (nonatomic, strong) NSMutableString *androidTouchedViewsCsv;
+@property (nonatomic, retain) NSMutableString *androidStatesCsv;
+@property (nonatomic, retain) NSMutableString *androidElementsCsv;
+@property (nonatomic, retain) NSMutableString *androidEdgesCsv;
 
-@property (nonatomic, strong) NSMutableString *iphoneStatesCsv;
-@property (nonatomic, strong) NSMutableString *iphoneElementsCsv;
-@property (nonatomic, strong) NSMutableString *iphoneTouchedViewsCsv;
+@property (nonatomic, retain) NSMutableString *iphoneStatesCsv;
+@property (nonatomic, retain) NSMutableString *iphoneElementsCsv;
+@property (nonatomic, retain) NSMutableString *iphoneEdgesCsv;
 
 @property (nonatomic, strong) NSMutableArray *androidStatesAry;
 @property (nonatomic, strong) NSMutableArray *androidElementsAry;
@@ -39,6 +39,6 @@
 
 @property (nonatomic, strong) NSURL * jiraUrl;
 
-- (IBAction)selectFile;
+-(IBAction)selectFile;
 
 @end

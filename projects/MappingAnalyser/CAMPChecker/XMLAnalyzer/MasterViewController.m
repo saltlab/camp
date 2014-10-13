@@ -13,7 +13,6 @@
 #import "TFHpple.h"
 #import "NSString+Levenshtein.h"
 
-
 //Heuristical Weights and Threshold
 #define WEIGHT_S_CLASS 100
 #define WEIGHT_S_TITLE 100
@@ -24,18 +23,11 @@
 #define WEIGHT_E_HIDDEN 1
 #define WEIGHT_E_IMAGE 1
 #define WEIGHT_E_VALUE 1
-#define WEIGHT_E_TARGET 10
 #define WEIGHT_E_ACTION 50
-
-
-
-@interface MasterViewController ()
-
-@end
 
 @implementation MasterViewController
 
-@synthesize androidXmlData, iphoneXmlData, androidStatesCsv, androidElementsCsv, androidTouchedViewsCsv, iphoneStatesCsv, iphoneElementsCsv, iphoneTouchedViewsCsv, responseData, statusCode, jiraUrl, androidStatesAry, androidElementsAry, androidTouchedViewsAry, iphoneStatesAry, iphoneElementsAry, iphoneTouchedViewsAry;
+@synthesize androidXmlData, iphoneXmlData, androidStatesCsv, androidElementsCsv, androidEdgesCsv, iphoneStatesCsv, iphoneElementsCsv, iphoneEdgesCsv, responseData, statusCode, jiraUrl, androidStatesAry, androidElementsAry, androidTouchedViewsAry, iphoneStatesAry, iphoneElementsAry, iphoneTouchedViewsAry;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,11 +65,11 @@
     
     self.androidStatesCsv = [[NSMutableString alloc] init];
     self.androidElementsCsv = [[NSMutableString alloc] init];
-    self.androidTouchedViewsCsv = [[NSMutableString alloc] init];
+    self.androidEdgesCsv = [[NSMutableString alloc] init];
     
     self.iphoneStatesCsv = [[NSMutableString alloc] init];
     self.iphoneElementsCsv = [[NSMutableString alloc] init];
-    self.iphoneTouchedViewsCsv = [[NSMutableString alloc] init];
+    self.iphoneEdgesCsv = [[NSMutableString alloc] init];
     
     self.androidStatesAry = [NSMutableArray array];
     self.androidElementsAry = [NSMutableArray array];
@@ -107,7 +99,7 @@
     }
 }
 
--(void) xmlSplit:(NSArray*)urls
+-(void)xmlSplit:(NSArray*)urls
 {
     NSUInteger i=0;
     NSUInteger j=0;
@@ -137,78 +129,58 @@
                 self.androidXmlData = [NSMutableData dataWithContentsOfURL:filePath];
                 CXMLDocument* xmlParser = [[CXMLDocument alloc] initWithData:self.androidXmlData options:0 error:nil];
                 
-                if (self.androidXmlData) {
+                if (xmlParser) {
                     
                     [self.androidStatesCsv appendString:@"TimeStamp,State_ID,State_ClassName,State_Title,State_ScreenshotPath,State_NumberOfElements\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//State" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:i];
+                    i = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
                         [self parseStatesXMLFiles:resultElement appendTo:self.androidStatesCsv];
                         
-                        i= [resultNodes indexOfObject:resultElement] + 1;
-                    }
-                    
-                    [self.androidElementsCsv appendString:@"State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Target,UIElement_Details\n"]; //UIElement_Position
+                    [self.androidElementsCsv appendString:@"State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Details\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//State/UIElements/UIElement" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:j];
+                    j = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
                         [self parseElementsXMLFiles:resultElement appendTo:self.androidElementsCsv];
-                        
-                        j= [resultNodes indexOfObject:resultElement] + 1;
-                    }
                     
-                    [self.androidTouchedViewsCsv appendString:@"TimeStamp,State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,UTouchedElement_Target,TouchedElement_Details\n"];
-                    resultNodes = [xmlParser nodesForXPath:@"//TouchedElement" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:k];
-                        [self parseTouchedViewsXMLFiles:resultElement appendTo:self.androidTouchedViewsCsv];
-                        
-                        k= [resultNodes indexOfObject:resultElement] + 1;
-                    }
+                    [self.androidEdgesCsv appendString:@"TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods\n"];
+                    resultNodes = [xmlParser nodesForXPath:@"//Edge" error:nil];
+                    k = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
+                        [self parseTouchedViewsXMLFiles:resultElement appendTo:self.androidEdgesCsv];
                     
-                    [self outputAndroidStatesCsvFile:self.androidStatesCsv];
-                    [self outputAndroidElementsCsvFile:self.androidElementsCsv];
-                    [self outputAndroidTouchedViewsCsvFile:self.androidTouchedViewsCsv];
+                    [self trimAndroidStatesEdges];
+                    [self outputAndroidCsvFiles];
                 }
             }
             //check if it is iPhone file
             else if (iphoneRange.location != NSNotFound)
             {
                 self.iphoneXmlData = [NSMutableData dataWithContentsOfURL:filePath];
-                CXMLDocument* xmlParser = [[CXMLDocument alloc] initWithData:self.androidXmlData options:0 error:nil];
+                CXMLDocument* xmlParser = [[CXMLDocument alloc] initWithData:self.iphoneXmlData options:0 error:nil];
                 
-                if (self.iphoneXmlData) {
+                if (xmlParser) {
                     
                     [self.iphoneStatesCsv appendString:@"TimeStamp,State_ID,State_ClassName,State_Title,State_ScreenshotPath,State_NumberOfElements\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//State" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:l];
+                    l = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
                         [self parseStatesXMLFiles:resultElement appendTo:self.iphoneStatesCsv];
-                        
-                        l= [resultNodes indexOfObject:resultElement] + 1;
-                    }
                     
-                    [self.iphoneElementsCsv appendString:@"State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Target,UIElement_Details\n"]; //UIElement_Position
+                    [self.iphoneElementsCsv appendString:@"State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Details\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//State/UIElements//UIElement" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:m];
+                    m = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
                         [self parseElementsXMLFiles:resultElement appendTo:self.iphoneElementsCsv];
-                        
-                        m= [resultNodes indexOfObject:resultElement] + 1;
-                    }
                     
-                    [self.iphoneTouchedViewsCsv appendString:@"TimeStamp,State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,UTouchedElement_Target,TouchedElement_Details\n"];
-                    resultNodes = [xmlParser nodesForXPath:@"//TouchedElement" error:nil];
-                    for (CXMLElement* resultElement in resultNodes) {
-                        CXMLElement* resultElement = [resultNodes objectAtIndex:n];
-                        [self parseTouchedViewsXMLFiles:resultElement appendTo:self.iphoneTouchedViewsCsv];
-                        
-                        n= [resultNodes indexOfObject:resultElement] + 1;
-                    }
-
-                    [self outputiPhoneStatesCsvFile:self.iphoneStatesCsv];
-                    [self outputiPhoneElementsCsvFile:self.iphoneElementsCsv];
-                    [self outputiPhoneTouchedViewsCsvFile:self.iphoneTouchedViewsCsv];
+                    [self.iphoneEdgesCsv appendString:@"TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods\n"];
+                    resultNodes = [xmlParser nodesForXPath:@"//Edge" error:nil];
+                    n = resultNodes.count;
+                    for (CXMLElement* resultElement in resultNodes)
+                        [self parseTouchedViewsXMLFiles:resultElement appendTo:self.iphoneEdgesCsv];
+                    
+                    [self trimiPhoneStatesEdges];
+                    [self outputiPhoneCsvFile];
                 }
             }
             else
@@ -226,15 +198,13 @@
         }
     }
     
-    [self.summaryLabel setStringValue:[NSString stringWithFormat:@"Android (%tu States, %tu Elements, %tu TouchedElements) and iPhone(%tu States, %tu Elements, %tu TouchedElements) are saved in ../Desktop/mapping-projects/CAMPChecker/outputFiles/", i,(unsigned long)j,(unsigned long)k,(unsigned long)l,(unsigned long)m,(unsigned long)n]];
+    float similarity = [self outputInconsistencies];
+    [self.summaryLabel setStringValue:[NSString stringWithFormat:@"Android (%tu States, %tu Elements, %tu Edges) and iPhone(%tu States, %tu Elements, %tu Edges) with similarity of %tu are saved in ../Desktop/mapping-projects/CAMPChecker/outputFiles/", i,(unsigned long)j,(unsigned long)k,(unsigned long)l,(unsigned long)m,(unsigned long)n, similarity]];
     [self.view addSubview:self.summaryLabel];
-    
-    [self outputInconsistencies];
-    
 }
 
-- (void)parseStatesXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
-    
+-(void)parseStatesXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString
+{
     //add TimeStamp
     NSArray *timeStampNodes = [resultElement elementsForName:@"TimeStamp"];
     NSString *timeStamp = [[timeStampNodes objectAtIndex:0] stringValue];
@@ -266,10 +236,9 @@
     [csvString appendString:[NSString stringWithFormat:@"%@,", [elementsNumber stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
     [csvString appendString:@"\n"];
-    
 }
 
-- (void)parseElementsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
+-(void)parseElementsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
     //add state ID
     NSArray *stateIdNodes = [resultElement elementsForName:@"State_ID"];
@@ -297,77 +266,136 @@
     NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
     [csvString appendString:[NSString stringWithFormat:@"%@,", [elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
-    //add element target
-    NSArray *elementTargetNodes = [resultElement elementsForName:@"UIElement_Target"];
-    NSString *elementTarget = [[elementTargetNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementTarget stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
-    
     //add element details
     NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
     NSString *elementDetails = [[elementDetailsNodes objectAtIndex:0] stringValue];
-    elementDetails = [elementDetails stringByReplacingOccurrencesOfString:@"\n" withString:@"*"];
     [csvString appendString:[NSString stringWithFormat:@"%@,", [elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
-    //add element position
-    //NSArray *elementPositionNodes = [resultElement elementsForName:@"UIElement_Position"];
-    //NSString *elementPosition = [[elementPositionNodes objectAtIndex:0] stringValue];
-    //[csvString appendString:[NSString stringWithFormat:@"%@,", [elementPosition stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
-    
     [csvString appendString:@"\n"];
-    
 }
 
-- (void)parseTouchedViewsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
+-(void)parseTouchedViewsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
     //add TimeStamp
     NSArray *timeStampNodes = [resultElement elementsForName:@"TimeStamp"];
     NSString *timeStamp = [[timeStampNodes objectAtIndex:0] stringValue];
     [csvString appendString:[NSString stringWithFormat:@"%@,", [timeStamp stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
-    //add state ID
-    NSArray *stateIdNodes = [resultElement elementsForName:@"State_ID"];
-    NSString *stateId = [[stateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+    //add Source State ID
+    NSArray *srcStateIdNodes = [resultElement elementsForName:@"Source_State_ID"];
+    NSString *srcStateId = [[srcStateIdNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", [srcStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
-    //add element type
-    NSArray *elementTypeNodes = [resultElement elementsForName:@"TouchedElement_Type"];
-    NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+    //add Target State ID
+    NSArray *trgStateIdNodes = [resultElement elementsForName:@"Target_State_ID"];
+    NSString *trgStateId = [[trgStateIdNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", [trgStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
     
-    //add element label
-    NSArray *elementLabelNodes = [resultElement elementsForName:@"TouchedElement_Label"];
-    NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
-    elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+    NSArray* resultNodes = [resultElement elementsForName:@"TouchedElement"];
+    CXMLElement* resultUIElement = resultNodes[0];
     
-    //add element action
-    NSArray *elementActionNodes = [resultElement elementsForName:@"TouchedElement_Action"];
-    NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+    if ([resultUIElement.children count]>0){
+        //add element type
+        NSArray *elementTypeNodes = [resultUIElement elementsForName:@"UIElement_Type"];
+        NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
+        [csvString appendString:[NSString stringWithFormat:@"%@,", [elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+        
+        //add element label
+        NSArray *elementLabelNodes = [resultUIElement elementsForName:@"UIElement_Label"];
+        NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
+        elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+        [csvString appendString:[NSString stringWithFormat:@"%@,", [elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+        
+        //add element action
+        NSArray *elementActionNodes = [resultUIElement elementsForName:@"UIElement_Action"];
+        NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
+        [csvString appendString:[NSString stringWithFormat:@"%@,", [elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+        
+        //add element details
+        NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
+        NSString *elementDetails = [elementDetailsNodes count]?[[elementDetailsNodes objectAtIndex:0] stringValue]:@"";
+        [csvString appendString:[NSString stringWithFormat:@"%@,", [elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
+    }
+    else
+        [csvString appendString:@",,,,"];
     
-    //add element target
-    NSArray *elementTargetNodes = [resultElement elementsForName:@"UTouchedElement_Target"];
-    NSString *elementTarget = [[elementTargetNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementTarget stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
-    
-    //add element details
-    NSArray *elementDetailsNodes = [resultElement elementsForName:@"TouchedElement_Details"];
-    NSString *elementDetails = [[elementDetailsNodes objectAtIndex:0] stringValue];
-    elementDetails = [elementDetails stringByReplacingOccurrencesOfString:@"\n" withString:@"*"];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", [elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
-    
-    //add element position
-    //NSArray *elementPositionNodes = [resultElement elementsForName:@"TouchedView_Position"];
-    //NSString *elementPosition = [[elementPositionNodes objectAtIndex:0] stringValue];
-    //[csvString appendString:[NSString stringWithFormat:@"%@,", [elementPosition stringByReplacingOccurrencesOfString:@"," withString:@";"]]];
-    
+    //add methods
+    resultNodes = [resultElement elementsForName:@"Methods"];
+    NSArray *methodNodes = [resultNodes[0] elementsForName:@"Method"];
+    for (CXMLElement* resultElement in methodNodes){
+        NSString *methodDetails = [resultElement stringValue];
+        [csvString appendString:[NSString stringWithFormat:@"%@;", methodDetails]];
+    }
+    [csvString appendString:@","];
     [csvString appendString:@"\n"];
-    
 }
 
--(NSString*) getStringForTFHppleElement:(TFHppleElement *)element
+-(void)trimiPhoneStatesEdges
 {
+    NSArray* rows = [self.iphoneStatesCsv componentsSeparatedByString:@"\n"];
     
+    for (int i=1;i<rows.count-1;i++){
+        NSString* row1 = [rows objectAtIndex:i];
+        NSArray* columns1 = [row1 componentsSeparatedByString:@","];
+        
+        for (int j=i+1;j<rows.count-1;j++){
+            NSString* row2 = [rows objectAtIndex:j];
+            NSArray* columns2 = [row2 componentsSeparatedByString:@","];
+            if ([columns1[2] isEqualToString:columns2[2]] &&
+                [columns1[3] isEqualToString:columns2[3]] &&
+                [columns1[5] isEqualToString:columns2[5]]) {
+                
+                //remove identical states
+                self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
+                
+                //rename identical states
+                self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                
+                //remove identical states
+                NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                for (NSString* otherRow1 in otherRows){
+                    if([otherRow1 rangeOfString:columns2[1] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                }
+            }
+        }
+    }
+}
+
+-(void)trimAndroidStatesEdges
+{
+    NSArray* rows = [self.androidStatesCsv componentsSeparatedByString:@"\n"];
+    
+    for (int i=1;i<rows.count-1;i++){
+        NSString* row1 = [rows objectAtIndex:i];
+        NSArray* columns1 = [row1 componentsSeparatedByString:@","];
+        
+        for (int j=i+1;j<rows.count-1;j++){
+            NSString* row2 = [rows objectAtIndex:j];
+            NSArray* columns2 = [row2 componentsSeparatedByString:@","];
+            if ([columns1[2] isEqualToString:columns2[2]] &&
+                [columns1[3] isEqualToString:columns2[3]] &&
+                [columns1[5] isEqualToString:columns2[5]]) {
+                
+                //remove identical states
+                self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
+                
+                //rename identical states
+                self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                
+                //remove identical states
+                NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                for (NSString* otherRow1 in otherRows){
+                    if([otherRow1 rangeOfString:columns2[1] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                }
+            }
+        }
+    }
+}
+
+-(NSString*)getStringForTFHppleElement:(TFHppleElement *)element
+{
     NSMutableString *result = [NSMutableString new];
     
     // Iterate recursively through all children
@@ -381,16 +409,15 @@
     return result;
 }
 
-
-- (void) outputInconsistencies{
-    
-    [self compareInitialStateAndTouchedElementPairs];
-    [self compareStateAndTouchedElementPairs];
+- (float)outputInconsistencies
+{
+    float similarity =[self compareInitialStateAndTouchedElementPairs];
+    float similarity2 = [self compareStateAndTouchedElementPairs];
+    return similarity;
 }
 
-
-- (void) compareStateAndTouchedElementPairs{
-    
+-(float)compareStateAndTouchedElementPairs
+{
     NSString *line;
     for(int i=2; i< [[self.iphoneStatesCsv componentsSeparatedByString:@"\n"] count]; i++) {
         line = [self.iphoneStatesCsv componentsSeparatedByString:@"\n"][i];
@@ -417,8 +444,7 @@
                     [element setObject:rows[2]?rows[2]:@"" forKey:@"UIElement_Type"];
                     [element setObject:rows[3]?rows[3]:@"" forKey:@"UIElement_Label"];
                     [element setObject:rows[4]?rows[4]:@"" forKey:@"UIElement_Action"];
-                    [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Target"];
-                    [element setObject:rows[6]?rows[6]:@"" forKey:@"UIElement_Details"];
+                    [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Details"];
                     
                     if ([row[@"State_ID"] isEqualToString:element[@"State_ID"]])
                         [elements addObject:element];
@@ -457,8 +483,7 @@
                     [element setObject:rows[2]?rows[2]:@"" forKey:@"UIElement_Type"];
                     [element setObject:rows[3]?rows[3]:@"" forKey:@"UIElement_Label"];
                     [element setObject:rows[4]?rows[4]:@"" forKey:@"UIElement_Action"];
-                    [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Target"];
-                    [element setObject:rows[6]?rows[6]:@"" forKey:@"UIElement_Details"];
+                    [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Details"];
                     
                     if ([row[@"State_ID"] isEqualToString:element[@"State_ID"]])
                         [elements addObject:element];
@@ -477,15 +502,12 @@
             
             NSUInteger r1 = [self.iphoneStatesAry[i][@"State_ClassName"] levenshteinDistanceToString:self.androidStatesAry[i][@"State_ClassName"]];
             float r2 = [self.iphoneStatesAry[i][@"State_Title"] compareWithWord:self.androidStatesAry[i][@"State_Title"]];
-            
-            
         }
     }
-    
 }
 
 
-- (void) compareInitialStateAndTouchedElementPairs{
+-(float)compareInitialStateAndTouchedElementPairs{
     
     //get the iphone initial state
     NSString *firstLine = [self.iphoneStatesCsv componentsSeparatedByString:@"\n"][1];
@@ -512,8 +534,7 @@
                 [element setObject:rows[2]?rows[2]:@"" forKey:@"UIElement_Type"];
                 [element setObject:rows[3]?rows[3]:@"" forKey:@"UIElement_Label"];
                 [element setObject:rows[4]?rows[4]:@"" forKey:@"UIElement_Action"];
-                [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Target"];
-                [element setObject:rows[6]?rows[6]:@"" forKey:@"UIElement_Details"];
+                [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Details"];
                 
                 if ([iphoneState[@"State_ID"] isEqualToString:element[@"State_ID"]])
                     [elements addObject:element];
@@ -551,8 +572,7 @@
                 [element setObject:rows[2]?rows[2]:@"" forKey:@"UIElement_Type"];
                 [element setObject:rows[3]?rows[3]:@"" forKey:@"UIElement_Label"];
                 [element setObject:rows[4]?rows[4]:@"" forKey:@"UIElement_Action"];
-                [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Target"];
-                [element setObject:rows[6]?rows[6]:@"" forKey:@"UIElement_Details"];
+                [element setObject:rows[5]?rows[5]:@"" forKey:@"UIElement_Details"];
                 
                 if ([androidState[@"State_ID"] isEqualToString:element[@"State_ID"]])
                     [elements addObject:element];
@@ -565,14 +585,13 @@
         [self.androidStatesAry addObject:androidState];
     }
     
-    
     float similarity = [self calculateStatePairsSimilarityS1:[self.iphoneStatesAry objectAtIndex:0] withS2:[self.androidStatesAry objectAtIndex:0]];
-    NSLog(@"Need to update %f", similarity);
     
+    return similarity;
 }
 
-- (float) calculateStatePairsSimilarityS1:(NSMutableDictionary*)iphoneState withS2:(NSMutableDictionary*)androidState{
-    
+-(float)calculateStatePairsSimilarityS1:(NSMutableDictionary*)iphoneState withS2:(NSMutableDictionary*)androidState
+{
     float classSimilarity = [iphoneState[@"State_ClassName"] compareWithWord:androidState[@"State_ClassName"]];
     float titleSimilarity = [iphoneState[@"State_Title"] compareWithWord:androidState[@"State_Title"]];
     
@@ -583,8 +602,8 @@
     return similarity;
 }
 
-- (float) calculateElementsPairsSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements{
-    
+-(float)calculateElementsPairsSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements
+{
     float similarity = 0;
     float maxSimilarity = 0;
     float totalSimilarity = 0;
@@ -594,12 +613,11 @@
     
         for (NSMutableDictionary* element2 in androidElements) {
         
-            float targetSimilarity = [element1[@"UIElement_Target"] compareWithWord:element2[@"UIElement_Target"]];
             float actionSimilarity = [element1[@"UIElement_Action"] compareWithWord:element2[@"UIElement_Action"]];
             float labelSimilarity = [element1[@"UIElement_Label"] compareWithWord:element2[@"UIElement_Label"]];
             float typeSimilarity = [self mappedE1:element1[@"UIElement_Type"] withE2:element2[@"UIElement_Type"]];
             
-            similarity = WEIGHT_E_TITLE*labelSimilarity + WEIGHT_E_TARGET*targetSimilarity + WEIGHT_E_ACTION*actionSimilarity + WEIGHT_E_CLASS*typeSimilarity;
+            similarity = WEIGHT_E_TITLE*labelSimilarity + WEIGHT_E_ACTION*actionSimilarity + WEIGHT_E_CLASS*typeSimilarity;
             if (similarity > maxSimilarity) {
                 maxSimilarity = similarity;
                 correspondentElement = element2;
@@ -608,7 +626,6 @@
         //element1 ~ correspondentElement
         totalSimilarity++;
     }
-
     return totalSimilarity/[iphoneElements count];
 }
     
@@ -629,8 +646,8 @@
 //    return correspondentElement;
 //}
 
-- (float) mappedE1:(NSString*)iphoneElement withE2:(NSString*)androidElement{
-    
+-(float)mappedE1:(NSString*)iphoneElement withE2:(NSString*)androidElement
+{
     float similarity = 0;
     
     //string contains sub-string
@@ -765,68 +782,11 @@
     else if (([iphoneElement rangeOfString:@"UIMenuController"].location != NSNotFound) &&
              ([androidElement rangeOfString:@"PopupMenu"].location != NSNotFound))
         similarity = 1;
-    
 
     return similarity;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (NSString*)getLibraryCachesDirectory
-{
-    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains (NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cachesPath = searchPaths[0];
-    return cachesPath;
-}
-
-- (void)createXMLFilesDirectory:(NSString*)name
-{
-    NSString *directory = [@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles" stringByAppendingPathComponent: [NSString stringWithFormat:@"/%@XMLFiles", name]];
-    NSFileManager *fileManager= [NSFileManager defaultManager];
-    if(![fileManager fileExistsAtPath:directory]) {
-        if(![fileManager createDirectoryAtPath:directory withIntermediateDirectories:NO attributes:nil error:NULL]) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:@"Create folder failed. Please check the directory."];
-            [alert runModal];
-        }
-    }
-}
-
-- (void) writeXMLFile:(CXMLElement*)resultElement withIndex:(NSUInteger)i
-{
-    XMLWriter* xmlWriter = [[XMLWriter alloc]init];
-    [xmlWriter writeStartDocumentWithEncodingAndVersion:@"UTF-8" version:@"1.0"];
-    NSMutableString *theMutableCopy = [[resultElement XMLString] mutableCopy];
-    [theMutableCopy replaceOccurrencesOfString:@" & " withString:@" &amp; " options:0 range:NSMakeRange(0, [theMutableCopy length])];
-    [xmlWriter write:theMutableCopy];
-    // Create paths to output txt file
-    [self outputXMLFile:[xmlWriter toString] withIndex:i];
-}
-
-- (void)outputXMLFile:(NSMutableString *)outputString withIndex:(NSUInteger)i 
+-(void)outputXMLFile:(NSMutableString *)outputString withIndex:(NSUInteger)i
 {
     NSString *directory = [@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles" stringByAppendingPathComponent: [NSString stringWithFormat:@"/%@XMLFiles", @"Android"]];
     NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"xmlFile_%ld.xml", (unsigned long)i]]];
@@ -837,64 +797,52 @@
     [fileHandler closeFile];
 }
 
-- (void)outputAndroidStatesCsvFile:(NSMutableString*)csvString
+-(void)outputAndroidCsvFiles
 {
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
+    freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
+    //[fileHandler1 seekToEndOfFile];
+    [fileHandler1 writeData:[self.androidStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler1 closeFile];
+
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
+    freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
+    //[fileHandler2 seekToEndOfFile];
+    [fileHandler2 writeData:[self.androidElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler2 closeFile];
+
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidEdges.csv"]];
+    freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
+    //[fileHandler3 seekToEndOfFile];
+    [fileHandler3 writeData:[self.androidEdgesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler3 closeFile];
 }
 
-- (void)outputAndroidElementsCsvFile:(NSMutableString*)csvString
+-(void)outputiPhoneCsvFile
 {
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
-}
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
+    freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
+    //[fileHandler1 seekToEndOfFile];
+    [fileHandler1 writeData:[self.iphoneStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler1 closeFile];
 
-- (void)outputAndroidTouchedViewsCsvFile:(NSMutableString*)csvString
-{
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidTouchedElements.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
-}
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
+    freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
+    //[fileHandler2 seekToEndOfFile];
+    [fileHandler2 writeData:[self.iphoneElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler2 closeFile];
 
-- (void)outputiPhoneStatesCsvFile:(NSMutableString*)csvString
-{
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
-}
-
-- (void)outputiPhoneElementsCsvFile:(NSMutableString*)csvString
-{
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
-}
-
-- (void)outputiPhoneTouchedViewsCsvFile:(NSMutableString*)csvString
-{
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneTouchedElements.csv"]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[csvString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneEdges.csv"]];
+    freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
+    //[fileHandler3 seekToEndOfFile];
+    [fileHandler3 writeData:[self.iphoneEdgesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler3 closeFile];
 }
 
 @end
