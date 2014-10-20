@@ -50,6 +50,8 @@ import android.view.ViewGroup;
 import android.graphics.*;
 import android.view.*;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * The Trace aspect injects tracing messages before and after method main of
@@ -57,103 +59,10 @@ import android.widget.LinearLayout;
  */
 
 aspect Trace   {
-	
-//	void around():call(void android.app.Activity.setContentView(int) ){
-//		
-//		
-//		return;
-//		
-//	}
-	
-	
-//	pointcut tolog() :execution(* Activity+.onCreate*(..));
-//	
-//	after(Activity activity) throws InterruptedException:tolog() &&this(activity){
-//		ViewGroup rootView=(ViewGroup) activity.findViewById(android.R.id.content).getRootView();
-//		globalRootView=rootView;
-//		//getUiElements(rootView);
-//		//Log.d("menfis", "=============END=========");
-//	}
-	/*
-	after(Activity activity): call(* Activity+.setContentView(int)) && this(activity){
-		
-		//View v=activity.getWindow().getDecorView().getRootView();
-		System.out.println(	activity.getComponentName());
-		View v=activity.findViewById(android.R.id.content).getRootView();
-		ViewGroup rootView=(ViewGroup) activity.findViewById(android.R.id.content).getRootView();
-		globalRootView=rootView;
-		
-		//System.out.println(	activity.getComponentName()+"Ui elements:"+rootView.getChildCount());
-		
-		//rootView.getChildCount();
-		getUiElements(rootView);
-		Log.d("menfis", "=============END=========");
-		
-		/*
-		v.setDrawingCacheEnabled(true);
 
-		// this is the important code :)  
-		// Without it the view will have a dimension of 0,0 and the bitmap will be null          
-		v.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY)), 
-		            MeasureSpec.makeMeasureSpec(0, MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY)));
-		v.layout(0, 0, 1000, 100); 
-
-		v.buildDrawingCache(true);
-		Bitmap b = Bitmap.createBitmap(v.getDrawingCache());
-		v.setDrawingCacheEnabled(false); // clear drawing cache
-		
-		
-		if(isExternalStorageWritable()){
-	        try {
-	            FileOutputStream fos = new FileOutputStream(new File(Environment.getExternalStorageDirectory().toString(), "Moe"
-	                    + System.currentTimeMillis() + ".png"));
-	            b.compress(CompressFormat.PNG, 100, fos);
-	            fos.flush();
-	            fos.close();
-	        } catch (FileNotFoundException e) {
-	            e.printStackTrace();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-
-			System.out.println("Captured");
-		}
-
-		
-	}
-	
-*/
-	
-	
-	
-//	pointcut createCalls(): 
-//		execution(* com.mtgjudge..*.onCreate(..))&& !within(com.mtgjudge.Trace);
-//	
-//	 after() : createCalls() {
-//	    	System.out.print("ONCREATEEEE\n");
-//	    	
-//
-//	    }
-	
-//	pointcut methodCalls(): 
-//		  execution(* com.mtgjudge..*(..))&& !within(com.mtgjudge.Trace);// && !execution(* Activity+.onCreate*(..));
-
-	
-//	after(Activity activity) :methodCalls() &&this(activity)
-//	{
-//				//ViewGroup rootView=(ViewGroup) activity.findViewById(android.R.id.content).getRootView();
-//				System.out.println( thisJoinPointStaticPart.getSignature().toString());
-//				Log.d("menfis",activity.getComponentName().toString());
-//				//getUiElements(rootView);
-//				Log.d("menfis", "=============END=========");
-//			
-//		}
-	
-	
-	
 
 	pointcut methodCalls(): 
-	  execution(* com.mtgjudge..*(..))&& !within(com.mtgjudge.Trace);
+	  execution(* com.mtgjudge..*(..))&& !within (com.mtgjudge.Trace);
 
 	Object around(Activity activity) : methodCalls() &&this(activity) {
 		if(control){
@@ -254,6 +163,7 @@ aspect Trace   {
 			methodss.add(thisJoinPointStaticPart.getSignature().toString());
 			if(stackDepth==1){
 				ViewGroup rootView=(ViewGroup) activity.findViewById(android.R.id.content).getRootView();
+				Log.d("menfis",String.valueOf( rootView.getTouchables().toString()));
 				getUiElements(rootView);
 				//statess=tempList;
 				//states.put(counterStates, statess);
@@ -289,11 +199,11 @@ aspect Trace   {
 						Date date = new Date();
 						SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 						String formattedDate = sdf.format(date);
-						String temp=String.valueOf(counterStates);
+						String temp="S"+String.valueOf(counterStates);
 						String temp2=String.valueOf(counterEdges);
 						
-						String s1=String.valueOf(counterStates-1);
-						String t1=String.valueOf(counterStates);
+						String s1="S"+String.valueOf(counterStates-1);
+						String t1="S"+String.valueOf(counterStates);
 				
 						Element state = document.createElement("State");
 						
@@ -305,20 +215,94 @@ aspect Trace   {
 						stateId.appendChild(document.createTextNode(temp));
 						state.appendChild(stateId);
 						
+						Element stateClassName=document.createElement("State_ClassName");
+						stateClassName.appendChild(document.createTextNode(activity.getComponentName().toString()));
+						state.appendChild(stateClassName);
+						
+						Element stateTitle=document.createElement("State_Title");
+						stateTitle.appendChild(document.createTextNode(activity.getComponentName().toString()));
+						state.appendChild(stateTitle);
+						
+						
+						Element stateScreenshot=document.createElement("State_ScreenshotPath");
+						state.appendChild(stateScreenshot);
+						
+						Element stateNumberOfElements=document.createElement("State_NumberOfElements");
+						stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(statess.size())));
+						state.appendChild(stateNumberOfElements);
+						
 						
 						Element uiElements=document.createElement("UIElements");
 						System.out.println("\n"+"TTHE SIIIZE"+statess.size()+"\n");
-						for(int i=0;i<statess.size();i++){
+//						for(int i=0;i<statess.size();i++){
+//							Element uiElement=document.createElement("UIElement");
+//							
+//							
+//							Element uiElementStateId=document.createElement("State_ID");
+//							Element uiId=document.createElement("UIElement_ID");
+//							Element uiElementType=document.createElement("UIElement_Type");
+//							Element uiElementLabel=document.createElement("UIElement_Label");
+//							Element uiElementAction=document.createElement("UIElement_Action");
+//							Element uiElementDetails=document.createElement("UIElement_Details");
+//							
+//							
+//							uiId.appendChild(document.createTextNode("E"+String.valueOf(i+1)));
+//							uiElementType.appendChild(document.createTextNode(statess.get(i)));
+//							
+//							uiElement.appendChild(uiElementStateId);
+//							uiElement.appendChild(uiId);
+//							uiElement.appendChild(uiElementType);
+//							uiElement.appendChild(uiElementLabel);
+//							uiElement.appendChild(uiElementAction);
+//							uiElement.appendChild(uiElementDetails);
+//							
+//							
+//							uiElements.appendChild(uiElement);
+//							
+//						}
+						
+						System.out.println("\n"+"TTHE SIIIZE"+statess.size()+"\n");
+						for(int i=0;i<statesView.size();i++){
+							
+							if(statesView.get(i).toString().contains("DecorView") ||statesView.get(i).toString().contains("LinearLayout") ||statesView.get(i).toString().contains("ViewStub")||statesView.get(i).toString().contains("FrameLayout")  ){
+								
+							}
+							else {
 							Element uiElement=document.createElement("UIElement");
+							Element uiElementStateId=document.createElement("State_ID");
 							Element uiId=document.createElement("UIElement_ID");
 							Element uiElementType=document.createElement("UIElement_Type");
+							Element uiElementLabel=document.createElement("UIElement_Label");
+							Element uiElementAction=document.createElement("UIElement_Action");
+							Element uiElementDetails=document.createElement("UIElement_Details");
 							
-							uiId.appendChild(document.createTextNode(String.valueOf(i)));
-							uiElementType.appendChild(document.createTextNode(statess.get(i)));
+							
+							uiId.appendChild(document.createTextNode("E"+String.valueOf(i+1)));
+							String tempType=statesView.get(i).toString();
+							String[] parts=tempType.split("\\{");
+							String part1 = parts[0];
+							uiElementType.appendChild(document.createTextNode(part1));
+							
+							if(statesView.get(i) instanceof TextView){
+								TextView tv1=(TextView) statesView.get(i);
+								uiElementLabel.appendChild(document.createTextNode(tv1.getText().toString()));
+							}
+							
+							if(statesView.get(i) instanceof ListView){
+								ListView lv1=(ListView) statesView.get(i);
+								uiElementDetails.appendChild(document.createTextNode(String.valueOf(lv1.getCount())));
+							}
+							
+							uiElement.appendChild(uiElementStateId);
 							uiElement.appendChild(uiId);
 							uiElement.appendChild(uiElementType);
-							uiElements.appendChild(uiElement);
+							uiElement.appendChild(uiElementLabel);
+							uiElement.appendChild(uiElementAction);
+							uiElement.appendChild(uiElementDetails);
 							
+							
+							uiElements.appendChild(uiElement);
+							}
 						}
 						
 						state.appendChild(uiElements);
@@ -330,17 +314,21 @@ aspect Trace   {
 						timeStampEdge.appendChild(document.createTextNode(formattedDate));
 						edge.appendChild(timeStampEdge);
 						
-						Element EdgeId = document.createElement("Edge_ID");
-						EdgeId.appendChild(document.createTextNode(temp2));
-						edge.appendChild(EdgeId);
+//						Element EdgeId = document.createElement("Edge_ID");
+//						EdgeId.appendChild(document.createTextNode(temp2));
+//						edge.appendChild(EdgeId);
 						
 						Element sourceStateId = document.createElement("Source_State_ID");
 						sourceStateId.appendChild(document.createTextNode(s1));
 						edge.appendChild(sourceStateId);
 						
-						Element sourceTargetId = document.createElement("Source_Target_ID");
+						Element sourceTargetId = document.createElement("Target_State_ID");
 						sourceTargetId.appendChild(document.createTextNode(t1));
 						edge.appendChild(sourceTargetId);
+						
+						Element touchedElement=document.createElement("TouchedElement");
+						edge.appendChild(touchedElement);
+						
 						
 						Element methods=document.createElement("Methods");
 						for(int i=0; i<methodss.size();i++){
@@ -397,6 +385,7 @@ aspect Trace   {
 				System.out.print("===========\n");
 				methodss.clear();
 				statess.clear();
+				statesView.clear();
 				counterStates++;
 				counterEdges++;
 			}
@@ -441,21 +430,31 @@ aspect Trace   {
 	{  
 		
 		 ArrayList<String> list = new ArrayList<String>();
-		
-		Log.d("menfis", parent.toString());
+		//Log.d("menfis", parent.toString());
 		statess.add(parent.toString());
+		statesView.add(parent);
 	    for(int i = 0; i < parent.getChildCount(); i++)
 	    {
 	        View child = parent.getChildAt(i);            
 	        if(child instanceof ViewGroup) 
 	        {
 	        	getUiElements((ViewGroup)child);
+	        	
+	        	
+	        	
 	        }
 	        else if(child != null)
 	        {
 	        	statess.add(child.toString());
-	            Log.d("menfis", child.toString());
-	           // child.
+	        	statesView.add(child);
+	            //Log.d("menfis", child.toString());
+	          
+	            //Log.d("menfis",String.valueOf( child.isActivated()));
+	           // child
+	            //child.has
+	        	//child.
+	        	
+	        	
 	          
 	        }                
 	    }
@@ -464,28 +463,7 @@ aspect Trace   {
 	}
 	
 	
-	
-	
-	private void captureScreen(View x) {
-        View v = x;
-        v.setDrawingCacheEnabled(true);
-        Bitmap bmp = Bitmap.createBitmap(v.getDrawingCache());
-        v.setDrawingCacheEnabled(false);
-        try {
-            FileOutputStream fos = new FileOutputStream(new File(Environment
-                    .getExternalStorageDirectory().toString(), "SCREEN"
-                    + System.currentTimeMillis() + ".png"));
-            bmp.compress(CompressFormat.PNG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-	
-	public boolean isExternalStorageWritable() {
+	  boolean isExternalStorageWritable() {  
 	    String state = Environment.getExternalStorageState();
 	    if (Environment.MEDIA_MOUNTED.equals(state)) {
 	        return true;
@@ -500,51 +478,12 @@ aspect Trace   {
 	private static Map<Integer, ArrayList<String>> states= new HashMap<Integer,ArrayList<String>>();
 	 ArrayList<String> methodss = new ArrayList<String>();
 	 ArrayList<String> statess = new ArrayList<String>();
+	 ArrayList<View> statesView = new ArrayList<View>();
 	private static Map<String, Integer> threadMap= new HashMap<String,Integer>();
 	ViewGroup globalRootView=null;
-	private Vector<Node> nodes;
-	private Vector<Edge> edges;
-	private int edgeIdCounter;
-	private int nodeIdCounter;
 	private boolean control=true;
 	
-private Transformer createXML(){
-	
-	DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder docBuilder = null;
-	try {
-		docBuilder = docFactory.newDocumentBuilder();
-	} catch (ParserConfigurationException e2) {
-		// TODO Auto-generated catch block
-		e2.printStackTrace();
-	}
 
-	// root elements
-	Document doc = docBuilder.newDocument();
-	Element rootElement = doc.createElement("company");
-	doc.appendChild(rootElement);
-
-	// staff elements
-	Element staff = doc.createElement("Staff");
-	rootElement.appendChild(staff);
-
-
-		
-		// write the content into xml file
-				TransformerFactory transformerFactory = TransformerFactory.newInstance();
-				Transformer transformer = null;
-				
-				try {
-					transformer = transformerFactory.newTransformer();
-				} catch (TransformerConfigurationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				DOMSource source = new DOMSource(doc);
-				return transformer;
-				
-				
-	}
 
 }
 
