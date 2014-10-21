@@ -51,13 +51,19 @@
     }
 }
 
-+ (UIElement*)addUIElement:(id)_object {
++ (UIElement*)addUIElement:(UIView*)_object {
 
     if ([_object isKindOfClass:[UILabel class]])
         return [self addLabel:(UILabel*)_object];
         
     else if ([_object isKindOfClass:[UIButton class]])
         return [self addButton:(UIButton*)_object];
+    
+    else if ([[NSString stringWithFormat:@"%@", [_object class]] isEqualToString:@"UITabBarButton"])
+        return [self addTabItem1:(id)_object];
+    
+    //else if ([_object.superview isKindOfClass:[UITabBar class]])
+    //    return [self addTabItem2:(UITabBar*)_object.superview];
     
     else if ([[NSString stringWithFormat:@"%@", [_object class]] isEqualToString:@"UITableViewCellContentView"])
         return [self addTableCell:(UITableViewCell*)_object];
@@ -162,7 +168,7 @@
 
 + (UIElement*)addTableView:(UITableView*)_tableView {
 
-    NSInteger numberOfCells = 0;
+    int numberOfCells = 0;
     //finding the number of cells in your table view by looping through its sections
     for (NSInteger section = 0; section < [_tableView numberOfSections]; section++)
         numberOfCells += [_tableView numberOfRowsInSection:section];
@@ -183,6 +189,25 @@
     return element;
 }
 
++ (UIElement*)addTableCell:(UITableViewCell*)cell {
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = cell;
+    element.objectClass = [cell class];
+	element.className = [NSString stringWithFormat:@"%@", [UITableViewCell class]];
+    
+    [element addActionForTargetUIElement];
+    element.label = @"";
+    for (UIView *v in [cell subviews])
+		if ([v isKindOfClass:[UILabel class]])
+            element.label = [(UILabel*)v text];
+    
+    element.details = @"";
+    //element.details = [NSString stringWithFormat:@"More details - \n Button: %@ ", [[[DCIntrospect alloc] init] logPropertiesForObject:_button]];
+    
+	return element;
+}
+
 + (UIElement*)addTabView:(UITabBarController*)_tabController {
     
     //UITabBarItem* thisUITabBarItem = _tabController.tabBar.selectedItem;
@@ -196,11 +221,50 @@
     element.action = @"itemClicked";
     element.label = @"";//thisUITabBarItem.title;
 
-    UITabBar* a = _tabController.tabBar;
-    NSArray *items = a.items;
-    element.details = [NSString stringWithFormat:@"%d", _tabController.tabBar.items.count];
+    element.details = [NSString stringWithFormat:@"%i", (int)_tabController.tabBar.items.count];
     //element.details = [NSString stringWithFormat:@"More details - \n Number of tabs: %d \n SelectedTab: %@ ", _tabController.tabBar.items.count, [[[DCIntrospect alloc] init] logPropertiesForObject:thisUITabBarItem]];
 
+	return element;
+}
+
++ (UIElement*)addTabItem1:(UIBarButtonItem*)tabItem {
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = tabItem;
+    element.objectClass = [tabItem class];
+	element.className = [NSString stringWithFormat:@"%@", [tabItem class]];
+    
+    element.action = @"itemClicked";
+    element.label = @"";
+    NSString* detail = [NSString stringWithFormat:@"%@", [tabItem performSelector:@selector(recursiveDescription)]];
+    if([detail rangeOfString:@"text = '" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        NSRange firstInstance = [detail rangeOfString:@"text = '"];
+        detail = [detail substringFromIndex:firstInstance.location + firstInstance.length];
+        firstInstance = [detail rangeOfString:@"'"];
+        element.label = [detail substringToIndex:firstInstance.location];
+    }
+                         
+    element.details = @"";
+    //element.details = [NSString stringWithFormat:@"More details - \n Number of tabs: %d \n SelectedTab: %@ ", _tabController.tabBar.items.count, [[[DCIntrospect alloc] init] logPropertiesForObject:thisUITabBarItem]];
+    
+	return element;
+}
+
++ (UIElement*)addTabItem2:(UITabBar*)tabBar {
+    
+    UITabBarItem* thisUITabBarItem = tabBar.selectedItem;
+    
+    UIElement *element = [[UIElement alloc] init];
+    element.object = thisUITabBarItem;
+    element.objectClass = [thisUITabBarItem class];
+	element.className = [NSString stringWithFormat:@"%@", [thisUITabBarItem class]];
+    
+    element.action = @"itemClicked";
+    element.label = thisUITabBarItem.title;
+    
+    element.details = @"";
+    //element.details = [NSString stringWithFormat:@"More details - \n Number of tabs: %d \n SelectedTab: %@ ", _tabController.tabBar.items.count, [[[DCIntrospect alloc] init] logPropertiesForObject:thisUITabBarItem]];
+    
 	return element;
 }
 
@@ -237,23 +301,22 @@
 	return element;
 }
 
-+ (UIElement*)addTableCell:(UITableViewCell*)cell {
+
+
++ (UIElement*)addAlertView:(UIAlertView*)view {
     
     UIElement *element = [[UIElement alloc] init];
-    element.object = cell;
-    element.objectClass = [cell class];
-	element.className = [NSString stringWithFormat:@"%@", [UITableViewCell class]];
+    element.object = view;
+    element.objectClass = [view class];
+	element.className = [NSString stringWithFormat:@"%@", [UIAlertView class]];
     
     [element addActionForTargetUIElement];
-    element.label = @"";
-    for (UIView *v in [cell subviews])
-		if ([v isKindOfClass:[UILabel class]])
-            element.label = [(UILabel*)v text];
+    //element.label = view.title;
     
-    element.details = @"";
-    //element.details = [NSString stringWithFormat:@"More details - \n Button: %@ ", [[[DCIntrospect alloc] init] logPropertiesForObject:_button]];
+    element.details = [NSString stringWithFormat:@"More details - \n Button: %@ ", [[[DCIntrospect alloc] init] logPropertiesForObject:view]];
     
 	return element;
 }
+
 
 @end

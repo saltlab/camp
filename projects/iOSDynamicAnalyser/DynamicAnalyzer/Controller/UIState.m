@@ -62,17 +62,29 @@
     }
     
     //detecting if a UIAlert is open
-//    UIAlertView* alertView = [self doesAlertViewExist];
-//    if (alertView)
-//        [elements addObject:alertView];
-//    
+    if([[NSString stringWithFormat:@"%@",currentViewController.class] isEqualToString:@"_UIModalItemsPresentingViewController"])
+    {
+        //UIAlertView* v = (UIAlertView*)currentViewController.view;
+        //UILabel* title = [currentViewController.view valueForKey:@"_titleLabel"];
+        //NSMutableArray* i = [currentViewController.view valueForKey:@"_buttons"];
+        [elements addObject:[UIElement addAlertView:(UIAlertView*)currentViewController.view]];
+        
+        //        UIView *subView=nil;
+        //        for (UIWindow* window in [UIApplication sharedApplication].windows){
+        //            for (subView in [window subviews]){
+        //                if ([subView isKindOfClass:[UIAlertView class]])
+        //                    [elements addObject:[UIElement addAlertView:(UIAlertView*)subView]];
+        //            }
+        //        }
+    }
+
     //detecting if a UIActionSheet is open
     //UIActionSheet* actionView = [UIElement doesActionSheetExist];
     //if (actionView)
     //    [elements addObject:actionView];
     
 	self.uiElementsArray = elements;
-    self.numberOfUIElements = [elements count];
+    self.numberOfUIElements = (int)[elements count];
     //self.actionName = ?;
     
     [[OutputComponent sharedOutput] writeXMLFile:self];

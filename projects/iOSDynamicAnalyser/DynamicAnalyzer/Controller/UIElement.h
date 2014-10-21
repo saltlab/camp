@@ -26,5 +26,6 @@
 + (UIElement*)addTabView:(UITabBarController*)_tabController;
 + (UIElement*)addLabel:(UILabel*)_label;
 + (UIElement*)addButton:(UIButton*)_button;
++ (UIElement*)addAlertView:(UIAlertView*)view;
 
 @end
