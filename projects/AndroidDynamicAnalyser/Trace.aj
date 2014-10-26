@@ -66,7 +66,7 @@ aspect Trace   {
 
 	Object around(Activity activity) : methodCalls() &&this(activity) {
 		if(control){
-			
+			System.out.println("COMP name:"+activity.getComponentName());
 			control=false;
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = null;
@@ -199,7 +199,7 @@ aspect Trace   {
 						Date date = new Date();
 						SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 						String formattedDate = sdf.format(date);
-						String temp="S"+String.valueOf(counterStates);
+						String tempStateId="S"+String.valueOf(counterStates);
 						String temp2=String.valueOf(counterEdges);
 						
 						String s1="S"+String.valueOf(counterStates-1);
@@ -212,15 +212,23 @@ aspect Trace   {
 						state.appendChild(timeStamp);
 						
 						Element stateId = document.createElement("State_ID");
-						stateId.appendChild(document.createTextNode(temp));
+						stateId.appendChild(document.createTextNode(tempStateId));
 						state.appendChild(stateId);
 						
 						Element stateClassName=document.createElement("State_ClassName");
-						stateClassName.appendChild(document.createTextNode(activity.getComponentName().toString()));
+						
+						//get rid of redudant info
+						String tempCompName=activity.getComponentName().toString();
+						String[] partsCompName=tempCompName.split("\\.");
+						String compName=partsCompName[partsCompName.length-1];
+						String compNameTrimmed=compName.replace('}', ' ');
+						System.out.println("NEWComp:"+compNameTrimmed+"\n");
+						
+						stateClassName.appendChild(document.createTextNode(compNameTrimmed));
 						state.appendChild(stateClassName);
 						
 						Element stateTitle=document.createElement("State_Title");
-						stateTitle.appendChild(document.createTextNode(activity.getComponentName().toString()));
+						//stateTitle.appendChild(document.createTextNode(activity.getComponentName().toString()));
 						state.appendChild(stateTitle);
 						
 						
@@ -228,7 +236,7 @@ aspect Trace   {
 						state.appendChild(stateScreenshot);
 						
 						Element stateNumberOfElements=document.createElement("State_NumberOfElements");
-						stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(statess.size())));
+						//stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(statess.size())));
 						state.appendChild(stateNumberOfElements);
 						
 						
@@ -262,12 +270,20 @@ aspect Trace   {
 //						}
 						
 						System.out.println("\n"+"TTHE SIIIZE"+statess.size()+"\n");
+						int tempSize=0;
 						for(int i=0;i<statesView.size();i++){
 							
-							if(statesView.get(i).toString().contains("DecorView") ||statesView.get(i).toString().contains("LinearLayout") ||statesView.get(i).toString().contains("ViewStub")||statesView.get(i).toString().contains("FrameLayout")  ){
+							if(statesView.get(i).toString().contains("DecorView") 
+									||statesView.get(i).toString().contains("LinearLayout") 
+									||statesView.get(i).toString().contains("ViewStub")
+									||statesView.get(i).toString().contains("TabHost")
+									||statesView.get(i).toString().contains("TabWidget")
+									||statesView.get(i).toString().contains("RelativeLayout")
+									||statesView.get(i).toString().contains("FrameLayout")){
 								
 							}
 							else {
+							tempSize++;
 							Element uiElement=document.createElement("UIElement");
 							Element uiElementStateId=document.createElement("State_ID");
 							Element uiId=document.createElement("UIElement_ID");
@@ -277,11 +293,15 @@ aspect Trace   {
 							Element uiElementDetails=document.createElement("UIElement_Details");
 							
 							
+							uiElementStateId.appendChild(document.createTextNode(tempStateId));
 							uiId.appendChild(document.createTextNode("E"+String.valueOf(i+1)));
 							String tempType=statesView.get(i).toString();
 							String[] parts=tempType.split("\\{");
 							String part1 = parts[0];
-							uiElementType.appendChild(document.createTextNode(part1));
+							String[] types=part1.split("\\.");
+							String finalType=types[types.length-1];
+							System.out.println("Type of ELE:"+finalType+"\n");
+							uiElementType.appendChild(document.createTextNode(finalType));
 							
 							if(statesView.get(i) instanceof TextView){
 								TextView tv1=(TextView) statesView.get(i);
@@ -305,6 +325,8 @@ aspect Trace   {
 							}
 						}
 						
+						stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(tempSize)));
+						tempSize=0;
 						state.appendChild(uiElements);
 						//APPEND EDGES
 						
@@ -333,7 +355,13 @@ aspect Trace   {
 						Element methods=document.createElement("Methods");
 						for(int i=0; i<methodss.size();i++){
 							Element method=document.createElement("Method");
-							method.appendChild(document.createTextNode(methodss.get(i)));
+							String tempMethod=methodss.get(i);
+							String[] tempMethodSplit=tempMethod.split("\\.");
+							String[] nameWithoutArgument=tempMethodSplit[tempMethodSplit.length-1].split("\\(");
+							
+							String finalMethodName=tempMethodSplit[tempMethodSplit.length-2]+":"+nameWithoutArgument[0];
+							System.out.println("FINAL method Name:"+finalMethodName+"\n");
+							method.appendChild(document.createTextNode(finalMethodName));
 							methods.appendChild(method);
 						}
 						edge.appendChild(methods);
@@ -433,6 +461,8 @@ aspect Trace   {
 		//Log.d("menfis", parent.toString());
 		statess.add(parent.toString());
 		statesView.add(parent);
+		
+		//parent.onI
 	    for(int i = 0; i < parent.getChildCount(); i++)
 	    {
 	        View child = parent.getChildAt(i);            
