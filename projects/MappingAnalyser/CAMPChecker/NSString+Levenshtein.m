@@ -69,12 +69,11 @@
     stringA = [stringA lowercaseString];
     stringB = [stringB lowercaseString];
     
-    
     // Step 1
     int k, i, j, cost, * d, distance;
     
-    int n = [stringA length];
-    int m = [stringB length];
+    int n = (int)[stringA length];
+    int m = (int)[stringB length];
     
     if( n++ != 0 && m++ != 0 ) {
         

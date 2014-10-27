@@ -17,26 +17,21 @@
 @property (nonatomic, retain) NSMutableString *androidStatesCsv;
 @property (nonatomic, retain) NSMutableString *androidElementsCsv;
 @property (nonatomic, retain) NSMutableString *androidEdgesCsv;
-
 @property (nonatomic, retain) NSMutableString *iphoneStatesCsv;
 @property (nonatomic, retain) NSMutableString *iphoneElementsCsv;
 @property (nonatomic, retain) NSMutableString *iphoneEdgesCsv;
+@property (nonatomic, strong) NSMutableString *similarityCsv;
 
 @property (nonatomic, strong) NSMutableArray *androidStatesAry;
-@property (nonatomic, strong) NSMutableArray *androidElementsAry;
-@property (nonatomic, strong) NSMutableArray *androidTouchedViewsAry;
-
+@property (nonatomic, strong) NSMutableArray *androidEdgesAry;
 @property (nonatomic, strong) NSMutableArray *iphoneStatesAry;
-@property (nonatomic, strong) NSMutableArray *iphoneElementsAry;
-@property (nonatomic, strong) NSMutableArray *iphoneTouchedViewsAry;
+@property (nonatomic, strong) NSMutableArray *iphoneEdgesAry;
 
 @property (nonatomic, strong) NSTextField *instructionLabel;
 @property (nonatomic, strong) NSTextField *summaryLabel;
 @property (nonatomic, strong) NSButton *myButton;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, assign) NSInteger statusCode;
-
-
 @property (nonatomic, strong) NSURL * jiraUrl;
 
 -(IBAction)selectFile;
