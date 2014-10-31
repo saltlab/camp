@@ -1,0 +1,178 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceController      Quick Ref.      2
+S2            CompRulesContents      Comp. Rules      4
+S3            CompRulesSubContents      1. Game Concepts      2
+S4            CompRulesDetails      100. General      2
+S11            MoreViewsController      More Features      2
+S12            DecklistCounterController      Decklist Counter      8
+S18            DraftTimer      Draft Timer      7
+S19            DraftTimer      Draft Timer      7
+S22            CheckForUpdatesController      Update      3
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceController          Quick Ref.      2
+S2            CompRulesContents          Comp. Rules      4
+S3            CompRulesSubContents          1. Game Concepts      2
+S4            CompRulesDetails          100. General      2
+S11            MoreViewsController          More Features      2
+S12            DecklistCounterController          Decklist Counter      8
+S18            DraftTimer          Draft Timer      7
+S19            DraftTimer          Draft Timer      7
+S22            CheckForUpdatesController          Update      3
+
+
+***iPhone Actions
+Source -> Target     TouchedElement(Type     Label       Action       Details)
+S0    ->  S1                        
+S1    ->  S2      UITabBarButton      Comp. Rules      itemClicked      
+S2    ->  S3      UITableViewCell      1. Game Concepts      tableCellClicked      
+S3    ->  S4      UITableViewCell      100. General      tableCellClicked      
+S4    ->  S4      UIWebBrowserView                  
+S4    ->  S4      UIWebBrowserView                  
+S4    ->  S3      UIButton      Back      goBack      
+S3    ->  S2      UIButton      Back      goBack      
+S2    ->  S2      UISearchBarTextField                  
+S2    ->  S2      UIButton      Cancel      _cancelButtonPressed      
+S2    ->  S11      UITabBarButton      More      itemClicked      
+S11    ->  S12      UITableViewCell      Decklist Counter      tableCellClicked      
+S12    ->  S12      UIButton      2      button2Pressed      
+S12    ->  S12      UIButton      Undo      undoPressed      
+S12    ->  S12      UIButton      4      button4Pressed      
+S12    ->  S12      UIButton      Reset      resetPressed      
+S12    ->  S11      UITabBarButton      More      itemClicked      
+S11    ->  S18      UITableViewCell      Draft Timer      tableCellClicked      
+S18    ->  S19      UIButton      Next      nextClicked:      
+S19    ->  S18      UIButton      Previous      previousClicked:      
+S18    ->  S11      UIButton      Back      goBack      
+S11    ->  S22      UITableViewCell      Check for Updates      tableCellClicked      
+S22    ->  S11      UIButton      Back      goBack      
+S11    ->  S1      UITabBarButton      Quick Ref.      itemClicked      
+
+
+***Android Actions
+Source_ID -> Target_ID     TouchedElement(Type     Label       Action       Details)
+S0    ->  S1                        
+S1    ->  S2      UITabBarButton      Comp. Rules      itemClicked      
+S2    ->  S3      UITableViewCell      1. Game Concepts      tableCellClicked      
+S3    ->  S4      UITableViewCell      100. General      tableCellClicked      
+S4    ->  S4      UIWebBrowserView                  
+S4    ->  S4      UIWebBrowserView                  
+S4    ->  S3      UIButton      Back      goBack      
+S3    ->  S2      UIButton      Back      goBack      
+S2    ->  S2      UISearchBarTextField                  
+S2    ->  S2      UIButton      Cancel      _cancelButtonPressed      
+S2    ->  S11      UITabBarButton      More      itemClicked      
+S11    ->  S12      UITableViewCell      Decklist Counter      tableCellClicked      
+S12    ->  S12      UIButton      2      button2Pressed      
+S12    ->  S12      UIButton      Undo      undoPressed      
+S12    ->  S12      UIButton      4      button4Pressed      
+S12    ->  S12      UIButton      Reset      resetPressed      
+S12    ->  S11      UITabBarButton      More      itemClicked      
+S11    ->  S18      UITableViewCell      Draft Timer      tableCellClicked      
+S18    ->  S19      UIButton      Next      nextClicked:      
+S19    ->  S18      UIButton      Previous      previousClicked:      
+S18    ->  S11      UIButton      Back      goBack      
+S11    ->  S22      UITableViewCell      Check for Updates      tableCellClicked      
+S22    ->  S11      UIButton      Back      goBack      
+S11    ->  S1      UITabBarButton      Quick Ref.      itemClicked      
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S1, androidState: S1, Diff: 10 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S1->S2 (itemClicked, Comp. Rules), androidEdge: S1->S2 (itemClicked, Comp. Rules), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S2, androidState: S2, Diff: 0 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S2->S3 (tableCellClicked, 1. Game Concepts), androidEdge: S2->S3 (tableCellClicked, 1. Game Concepts), Diff: 13 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S2->S2 (, ), androidEdge: S2->S2 (, ), Diff: 15 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S2->S2 (_cancelButtonPressed, Cancel), androidEdge: S2->S2 (_cancelButtonPressed, Cancel), Diff: 22 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S2->S11 (itemClicked, More), androidEdge: S2->S11 (itemClicked, More), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S3, androidState: S3, Diff: 0 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S3->S4 (tableCellClicked, 100. General), androidEdge: S3->S4 (tableCellClicked, 100. General), Diff: 12 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S3->S2 (goBack, Back), androidEdge: S3->S2 (goBack, Back), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S4, androidState: S4, Diff: 0 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S4->S4 (, ), androidEdge: S4->S4 (, ), Diff: 10 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S4->S4 (, ), androidEdge: S4->S4 (, ), Diff: 10 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S4->S3 (goBack, Back), androidEdge: S4->S3 (goBack, Back), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S11, androidState: S11, Diff: 8 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S11->S12 (tableCellClicked, Decklist Counter), androidEdge: S11->S12 (tableCellClicked, Decklist Counter), Diff: 19 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S11->S18 (tableCellClicked, Draft Timer), androidEdge: S11->S18 (tableCellClicked, Draft Timer), Diff: 18 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S11->S22 (tableCellClicked, Check for Updates), androidEdge: S11->S22 (tableCellClicked, Check for Updates), Diff: 19 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S11->S1 (itemClicked, Quick Ref.), androidEdge: S11->S1 (itemClicked, Quick Ref.), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S12, androidState: S12, Diff: 10 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S12->S12 (button2Pressed, 2), androidEdge: S12->S12 (button2Pressed, 2), Diff: 14 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S12->S12 (undoPressed, Undo), androidEdge: S12->S12 (undoPressed, Undo), Diff: 13 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S12->S12 (button4Pressed, 4), androidEdge: S12->S12 (button4Pressed, 4), Diff: 14 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S12->S12 (resetPressed, Reset), androidEdge: S12->S12 (resetPressed, Reset), Diff: 13 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S12->S11 (itemClicked, More), androidEdge: S12->S11 (itemClicked, More), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S18, androidState: S18, Diff: 0 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S18->S19 (nextClicked:, Next), androidEdge: S18->S19 (nextClicked:, Next), Diff: 11 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S18->S11 (goBack, Back), androidEdge: S18->S11 (goBack, Back), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S19, androidState: S19, Diff: 0 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S19->S18 (previousClicked:, Previous), androidEdge: S19->S18 (previousClicked:, Previous), Diff: 0 
+
+***Closest States in Combination 1: State (ClassName, Title)
+iPhoneState: S22, androidState: S22, Diff: 10 
+
+***Closest Edges in Combination 1: Edge (Label, Action)
+iPhoneEdge: S22->S11 (goBack, Back), androidEdge: S22->S11 (goBack, Back), Diff: 0 
