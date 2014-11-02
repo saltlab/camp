@@ -145,6 +145,7 @@
                     for (CXMLElement* resultElement in resultNodes)
                         [self parseEdgesXMLFiles:resultElement appendTo:self.androidEdgesCsv];
                     
+                    //[self outputAndroidCsvFiles];
                     [self clusterAndroidStatesEdges];
                     [self outputAndroidCsvFiles];
                 }
@@ -337,53 +338,18 @@
     
     for (int i=1;i<rows.count-1;i++){
         NSString* row1 = [rows objectAtIndex:i];
-        NSArray* columns1 = [row1 componentsSeparatedByString:@","];
         
-        for (int j=i+1;j<rows.count-1;j++){
-            NSString* row2 = [rows objectAtIndex:j];
-            NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-            if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) {  //classnames and titles
-                if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
-                    
-                    //compare the elements
-                    for (int l=1;l<elRows.count-1;l++){
-                        NSString* elRow1 = [elRows objectAtIndex:l];
-                        NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+        if([self.iphoneStatesCsv rangeOfString:row1 options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            
+            NSArray* columns1 = [row1 componentsSeparatedByString:@","];
+            
+            for (int j=i+1;j<rows.count-1;j++){
+                NSString* row2 = [rows objectAtIndex:j];
+                NSArray* columns2 = [row2 componentsSeparatedByString:@","];
+                if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) {  //classnames and titles
+                    if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
                         
-                        if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                            for (int k=l+1;k<elRows.count-1;k++){
-                                NSString* elRow2 = [elRows objectAtIndex:k];
-                                NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                    if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
-                                        // are exactly equal
-                                        flag= true;
-                                        break;
-                                    }
-                                    flag= false;
-                                }
-                            }
-                        }
-                    }
-                    
-                    if (flag) {
-                        //remove identical states from the states array
-                        self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
-                        
-                        //rename identical states in the edges array
-                        self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                        
-                        //remove identical states in the elements array
-                        NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
-                        for (NSString* otherRow1 in otherRows){
-                            if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
-                        }
-                    }
-                }
-                else {  //number of UI elements are NOT equal
-                    
-                    if ([columns1[5] intValue] > [columns2[5] intValue]) {
+                        //compare the elements
                         for (int l=1;l<elRows.count-1;l++){
                             NSString* elRow1 = [elRows objectAtIndex:l];
                             NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
@@ -393,7 +359,7 @@
                                     NSString* elRow2 = [elRows objectAtIndex:k];
                                     NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                     if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
+                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
                                             // are exactly equal
                                             flag= true;
                                             break;
@@ -419,52 +385,91 @@
                             }
                         }
                     }
-                    else if ([columns1[5] intValue] < [columns2[5] intValue]){
-                        for (int l=1;l<elRows.count-1;l++){
-                            NSString* elRow1 = [elRows objectAtIndex:l];
-                            NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                            
-                            if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                for (int k=l+1;k<elRows.count-1;k++){
-                                    NSString* elRow2 = [elRows objectAtIndex:k];
-                                    NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                    if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
-                                            // are exactly equal
-                                            flag= true;
-                                            break;
+                    else {  //number of UI elements are NOT equal
+                        
+                        if ([columns1[5] intValue] > [columns2[5] intValue]) {
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
                                         }
-                                        flag= false;
                                     }
                                 }
                             }
-                        }
-                
-                        if (flag) {
-                            NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
                             
-                            //remove identical states from the states array
-                            self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row1] withString:[NSString stringWithFormat:@"%@\n",temp]] mutableCopy];
-                            row1 = temp;
-                            columns1 = [row1 componentsSeparatedByString:@","];
-                            
-                            self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
-                            
-                            //rename identical states in the edges array
-                            self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                            
-                            //remove identical states in the elements array
-                            NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns1[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                    self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                            if (flag) {
+                                //remove identical states from the states array
+                                self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
+                                
+                                //rename identical states in the edges array
+                                self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                
+                                //remove identical states in the elements array
+                                NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                }
                             }
-                            otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound){
-                                    
-                                    NSString* otherRow2 = [[otherRow1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                                    self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:[NSString stringWithFormat:@"%@\n",otherRow2]] mutableCopy];
+                        }
+                        else if ([columns1[5] intValue] < [columns2[5] intValue]){
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if (flag) {
+                                NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
+                                
+                                //remove identical states from the states array
+                                self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row1] withString:[NSString stringWithFormat:@"%@\n",temp]] mutableCopy];
+                                row1 = temp;
+                                columns1 = [row1 componentsSeparatedByString:@","];
+                                
+                                self.iphoneStatesCsv = [[self.iphoneStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
+                                
+                                //rename identical states in the edges array
+                                self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                
+                                //remove identical states in the elements array
+                                NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns1[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                }
+                                otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound){
+                                        
+                                        NSString* otherRow2 = [[otherRow1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:[NSString stringWithFormat:@"%@\n",otherRow2]] mutableCopy];
+                                    }
                                 }
                             }
                         }
@@ -483,63 +488,28 @@
     
     for (int i=1;i<rows.count-1;i++){
         NSString* row1 = [rows objectAtIndex:i];
-        NSArray* columns1 = [row1 componentsSeparatedByString:@","];
         
-        for (int j=i+1;j<rows.count-1;j++){
-            NSString* row2 = [rows objectAtIndex:j];
-            NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-            if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) { // classnames && titles
+        if([self.androidStatesCsv rangeOfString:row1 options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            
+            NSArray* columns1 = [row1 componentsSeparatedByString:@","];
+            
+            for (int j=i+1;j<rows.count-1;j++){
+                NSString* row2 = [rows objectAtIndex:j];
+                NSArray* columns2 = [row2 componentsSeparatedByString:@","];
+                if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) { // classnames && titles
                     
-                if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
-                    //compare the elements
-                    for (int l=1;l<elRows.count-1;l++){
-                        NSString* elRow1 = [elRows objectAtIndex:l];
-                        NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                        
-                        if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                            for (int k=l+1;k<elRows.count-1;k++){
-                                NSString* elRow2 = [elRows objectAtIndex:k];
-                                NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                    if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
-                                        // are exactly equal
-                                        flag= true;
-                                        break;
-                                    }
-                                    flag= false;
-                                }
-                            }
-                        }
-                    }
-                    
-                    if (flag) {
-                        //remove identical states from the states array
-                        self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
-                        
-                        //rename identical states in the edges array
-                        self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                        
-                        //remove identical states in the elements array
-                        NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
-                        for (NSString* otherRow1 in otherRows){
-                            if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
-                        }
-                    }
-                }
-                else {  //number of UI elements are NOT equal
-                    
-                    if ([columns1[5] intValue] > [columns2[5] intValue]) {
+                    if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
+                        //compare the elements
                         for (int l=1;l<elRows.count-1;l++){
                             NSString* elRow1 = [elRows objectAtIndex:l];
                             NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
                             
-                            if ([columns2[1] isEqualToString:elColumns1[0]]) {
+                            if ([columns1[1] isEqualToString:elColumns1[0]]) {
                                 for (int k=l+1;k<elRows.count-1;k++){
                                     NSString* elRow2 = [elRows objectAtIndex:k];
                                     NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                    if ([columns1[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
+                                    if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
                                             // are exactly equal
                                             flag= true;
                                             break;
@@ -565,53 +535,92 @@
                             }
                         }
                     }
-                    else if ([columns1[5] intValue] < [columns2[5] intValue]){
-                        for (int l=1;l<elRows.count-1;l++){
-                            NSString* elRow1 = [elRows objectAtIndex:l];
-                            NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                            
-                            if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                for (int k=l+1;k<elRows.count-1;k++){
-                                    NSString* elRow2 = [elRows objectAtIndex:k];
-                                    NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                    if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) {
-                                            // are exactly equal
-                                            flag= true;
-                                            break;
+                    else {  //number of UI elements are NOT equal
+                        
+                        if ([columns1[5] intValue] > [columns2[5] intValue]) {
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns2[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns1[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
                                         }
-                                        flag= false;
                                     }
                                 }
                             }
-                        }
-
-                        if (flag) {
-                            NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
                             
-                            //remove identical states from the states array
-                            self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row1] withString:[NSString stringWithFormat:@"%@\n",temp]] mutableCopy];
-                            row1 = temp;
-                            columns1 = [row1 componentsSeparatedByString:@","];
-                            
-                            self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
-                            
-                            //rename identical states in the edges array
-                            self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                            
-                            //remove identical states in the elements array
-                            NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns1[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                    self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                            if (flag) {
+                                //remove identical states from the states array
+                                self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
                                 
+                                //rename identical states in the edges array
+                                self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                
+                                //remove identical states in the elements array
+                                NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                }
                             }
-                            otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound){
+                        }
+                        else if ([columns1[5] intValue] < [columns2[5] intValue]){
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if (flag) {
+                                NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
+                                
+                                //remove identical states from the states array
+                                self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row1] withString:[NSString stringWithFormat:@"%@\n",temp]] mutableCopy];
+                                row1 = temp;
+                                columns1 = [row1 componentsSeparatedByString:@","];
+                                
+                                self.androidStatesCsv = [[self.androidStatesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",row2] withString:@""] mutableCopy];
+                                
+                                //rename identical states in the edges array
+                                self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                
+                                //remove identical states in the elements array
+                                NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns1[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
                                     
-                                    NSString* otherRow2 = [[otherRow1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
-                                    self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:[NSString stringWithFormat:@"%@\n",otherRow2]] mutableCopy];
+                                }
+                                otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound){
+                                        
+                                        NSString* otherRow2 = [[otherRow1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
+                                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:[NSString stringWithFormat:@"%@\n",otherRow2]] mutableCopy];
+                                    }
                                 }
                             }
                         }
@@ -1210,6 +1219,14 @@
    
     else if (([iphoneElement rangeOfString:@"UIMenuController"].location != NSNotFound) &&
              ([androidElement rangeOfString:@"PopupMenu"].location != NSNotFound))
+        similarity = 1;
+    
+    else if (([iphoneElement rangeOfString:@"UITabBarButton"].location != NSNotFound) &&
+             ([androidElement rangeOfString:@"MenuItem"].location != NSNotFound))
+        similarity = 1;
+    
+    else if (([iphoneElement rangeOfString:@"UITableViewCell"].location != NSNotFound) &&
+             ([androidElement rangeOfString:@"ListViewCell"].location != NSNotFound))
         similarity = 1;
 
     return similarity;
