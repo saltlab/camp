@@ -9,6 +9,7 @@ import java.io.StringWriter;
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSOutput;
@@ -49,6 +51,8 @@ import android.app.*;
 import android.view.ViewGroup;
 import android.graphics.*;
 import android.view.*;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -60,6 +64,15 @@ import android.widget.TextView;
 
 aspect Trace   {
 
+//	after(Activity activity):call(* Activity+.onCreateOptionsMenu(..)) &&this(activity){
+//		
+//	}
+	
+//	pointcut tolog1():execution(* Activity+.*(..));
+//	before():tolog1(){
+//		String method=thisJoinPoint.getSignature().toShortString();
+//		Log.d("ATAG","==========entering"+method+",params="+Arrays.toString(thisJoinPoint.getArgs()));
+//	}
 
 	pointcut methodCalls(): 
 	  execution(* com.mtgjudge..*(..))&& !within (com.mtgjudge.Trace);
@@ -145,7 +158,64 @@ aspect Trace   {
 
 		System.out.println("STACK:"+stackDepth+"\n"+name+":"+indent + ">>>>    "
 				+ thisJoinPointStaticPart.getSignature().toString());
+		methodss.add(thisJoinPointStaticPart.getSignature().toString()+"|"+Arrays.toString(thisJoinPoint.getArgs()));
+		methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(), thisJoinPoint.getArgs());
+////////////////*//////////
 		
+		
+//		if(!thisJoinPointStaticPart.getSignature().toString().contains("onCreate")){
+//			methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(), thisJoinPoint.getArgs());
+//		}
+//		else{
+//			Object[] objs=new Object[1];
+//			methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(),objs );
+//		}
+		
+		
+	/*	
+		Object[] tempArguments=methodsArguments.get(thisJoinPointStaticPart.getSignature().toString());
+		
+		//Clicking on a list item
+		if(methodss.get(0).contains("onListItem")){
+			for(int z=0;z<(tempArguments.length);z++){
+			Log.d("Class","List:"+tempArguments[z].getClass().toString());
+			
+			if(tempArguments[z] instanceof TextView ){
+				TextView tempLabel=(TextView) tempArguments[z];
+				Log.d("Class", tempLabel.getText().toString());
+			}
+		}
+	  }
+		
+		//Button
+		if(!methodss.get(0).contains("onCreate")){
+			for(int z=0;z<(tempArguments.length);z++){
+			Log.d("Class","Class:"+tempArguments[z].getClass().toString());
+			
+			if(tempArguments[z] instanceof Button ){
+				Button tempLabel=(Button) tempArguments[z];
+				Log.d("Class", "Button"+tempLabel.getText().toString());
+
+			}
+		 }
+		}
+		
+	  //Clicking a menu item
+			if(methodss.get(0).contains("onOptionsItemSelected")){
+		
+				//Log.d("CLASS","Class:"+tempArguments[z].getClass().toString());
+		
+					//TextView tempLabel=(TextView) tempArguments[z];
+					Log.d("Class", "Menu");
+				    if(tempArguments[0] instanceof String){
+				    	String tempLabel=(String) tempArguments[0];
+
+				    } 	
+		
+		  }
+		  
+		  */
+////////////////*//////////
 		long start = System.currentTimeMillis();
 		try {
 			return proceed(activity);
@@ -156,11 +226,13 @@ aspect Trace   {
 			System.out.println(name+":"+indent + "<<<< "
 					+ thisJoinPointStaticPart.getSignature().toString() + "("
 					+ (end - start) + " milliseconds)");
-
+			Log.d("ATAG","==========entering"+thisJoinPoint.getSignature().toString()+",related Elements="+Arrays.toString(thisJoinPoint.getArgs()));
 			 
 			threadMap.put(threadName,stackDepth - 1);
 		//	methods.put(counterEdges, thisJoinPointStaticPart.getSignature().toString() );
-			methodss.add(thisJoinPointStaticPart.getSignature().toString());
+			//methodss.add(thisJoinPointStaticPart.getSignature().toString()+"|"+Arrays.toString(thisJoinPoint.getArgs()));
+			methodssArguments.add(Arrays.toString(thisJoinPoint.getArgs()));
+
 			if(stackDepth==1){
 				ViewGroup rootView=(ViewGroup) activity.findViewById(android.R.id.content).getRootView();
 				Log.d("menfis",String.valueOf( rootView.getTouchables().toString()));
@@ -241,35 +313,7 @@ aspect Trace   {
 						
 						
 						Element uiElements=document.createElement("UIElements");
-						System.out.println("\n"+"TTHE SIIIZE"+statess.size()+"\n");
-//						for(int i=0;i<statess.size();i++){
-//							Element uiElement=document.createElement("UIElement");
-//							
-//							
-//							Element uiElementStateId=document.createElement("State_ID");
-//							Element uiId=document.createElement("UIElement_ID");
-//							Element uiElementType=document.createElement("UIElement_Type");
-//							Element uiElementLabel=document.createElement("UIElement_Label");
-//							Element uiElementAction=document.createElement("UIElement_Action");
-//							Element uiElementDetails=document.createElement("UIElement_Details");
-//							
-//							
-//							uiId.appendChild(document.createTextNode("E"+String.valueOf(i+1)));
-//							uiElementType.appendChild(document.createTextNode(statess.get(i)));
-//							
-//							uiElement.appendChild(uiElementStateId);
-//							uiElement.appendChild(uiId);
-//							uiElement.appendChild(uiElementType);
-//							uiElement.appendChild(uiElementLabel);
-//							uiElement.appendChild(uiElementAction);
-//							uiElement.appendChild(uiElementDetails);
-//							
-//							
-//							uiElements.appendChild(uiElement);
-//							
-//						}
-						
-						System.out.println("\n"+"TTHE SIIIZE"+statess.size()+"\n");
+
 						int tempSize=0;
 						for(int i=0;i<statesView.size();i++){
 							
@@ -335,10 +379,7 @@ aspect Trace   {
 						Element timeStampEdge = document.createElement("TimeStamp");
 						timeStampEdge.appendChild(document.createTextNode(formattedDate));
 						edge.appendChild(timeStampEdge);
-						
-//						Element EdgeId = document.createElement("Edge_ID");
-//						EdgeId.appendChild(document.createTextNode(temp2));
-//						edge.appendChild(EdgeId);
+
 						
 						Element sourceStateId = document.createElement("Source_State_ID");
 						sourceStateId.appendChild(document.createTextNode(s1));
@@ -349,6 +390,92 @@ aspect Trace   {
 						edge.appendChild(sourceTargetId);
 						
 						Element touchedElement=document.createElement("TouchedElement");
+						Element TeUiElementType=document.createElement("UIElement_Type");
+						Element TeUiElementLabel=document.createElement("UIElement_Label");
+						Element TeUiElementAction=document.createElement("UIElement_Action");
+						Element TeUiElementDetails=document.createElement("UIElement_Details");
+						
+						
+						String[] arguments=methodss.get(0).split("\\|");
+						String touchedElementString=arguments[1];
+						String tempMethodValue=arguments[0];
+						//touchedElement.appendChild(document.createTextNode(touchedElementString));
+		
+							Object[] tempArguments=methodsArguments.get(tempMethodValue);
+							//Clicking on a list item
+							if(methodss.get(0).contains("onListItem")){
+								for(int z=0;z<(tempArguments.length);z++){
+								Log.d("CLASS","Class:"+tempArguments[z].getClass().toString());
+								
+								if(tempArguments[z] instanceof TextView ){
+									TextView tempLabel=(TextView) tempArguments[z];
+									Log.d("Class", tempLabel.getText().toString());
+									TeUiElementType.appendChild(document.createTextNode("ListViewCell"));
+									TeUiElementLabel.appendChild(document.createTextNode(tempLabel.getText().toString()));
+									TeUiElementAction.appendChild(document.createTextNode("ListViewCellClicked"));
+								}
+							}
+						  }
+							
+							//Button
+							if(!methodss.get(0).contains("onCreate")){
+								for(int z=0;z<(tempArguments.length);z++){
+								Log.d("CLASS","Class:"+tempArguments[z].getClass().toString());
+								
+								if(tempArguments[z] instanceof Button ){
+									Button tempLabel=(Button) tempArguments[z];
+									Log.d("Class", tempLabel.getText().toString());
+									TeUiElementType.appendChild(document.createTextNode("Button"));
+									String [] trim=tempMethodValue.split("\\.");
+									String action=trim[trim.length-1];
+									String actionNoArgument[]=action.split("\\(");
+									TeUiElementLabel.appendChild(document.createTextNode(tempLabel.getText().toString()));
+									TeUiElementAction.appendChild(document.createTextNode(actionNoArgument[0]));
+								}
+							 }
+							}
+							
+							//Edit Text
+							if(!methodss.get(0).contains("onCreate")){
+								for(int z=0;z<(tempArguments.length);z++){
+								Log.d("CLASS","Class:"+tempArguments[z].getClass().toString());
+								
+								if(tempArguments[z] instanceof EditText ){
+									Button tempLabel=(Button) tempArguments[z];
+									Log.d("Class", tempLabel.getText().toString());
+									TeUiElementType.appendChild(document.createTextNode("UIButton"));
+									String [] trim=tempMethodValue.split("\\.");
+									String action=trim[trim.length-1];
+									String actionNoArgument[]=action.split("\\(");
+									TeUiElementLabel.appendChild(document.createTextNode(tempLabel.getText().toString()));
+									TeUiElementAction.appendChild(document.createTextNode(actionNoArgument[0]));
+								}
+							 }
+							}
+							  //Clicking a menu button
+							if(methodss.get(0).contains("onCreateOptions")){
+										Log.d("Class","Menu Button clicked");
+								
+								    	TeUiElementType.appendChild(document.createTextNode("MenuButton"));
+								    	TeUiElementLabel.appendChild(document.createTextNode("MenuButton"));
+								    	TeUiElementAction.appendChild(document.createTextNode("MenuButtonClicked"));
+								    	
+						
+						  }
+						  //Clicking a menu item
+								if(methodss.get(0).contains("onOptionsItemSelected")){
+									    	TeUiElementType.appendChild(document.createTextNode("MenuItem"));
+									    	TeUiElementLabel.appendChild(document.createTextNode(touchedElementString));
+									    	TeUiElementAction.appendChild(document.createTextNode("MenuItemClicked")); 	
+							
+							  } 
+							
+						
+						
+						touchedElement.appendChild(TeUiElementType);
+						touchedElement.appendChild(TeUiElementLabel);
+						touchedElement.appendChild(TeUiElementAction);
+						touchedElement.appendChild(TeUiElementDetails);
 						edge.appendChild(touchedElement);
 						
 						
@@ -356,7 +483,9 @@ aspect Trace   {
 						for(int i=0; i<methodss.size();i++){
 							Element method=document.createElement("Method");
 							String tempMethod=methodss.get(i);
-							String[] tempMethodSplit=tempMethod.split("\\.");
+							String[] tempMethodPlusArguments=tempMethod.split("\\|");
+							
+							String[] tempMethodSplit=tempMethodPlusArguments[0].split("\\.");
 							String[] nameWithoutArgument=tempMethodSplit[tempMethodSplit.length-1].split("\\(");
 							
 							String finalMethodName=tempMethodSplit[tempMethodSplit.length-2]+":"+nameWithoutArgument[0];
@@ -414,6 +543,7 @@ aspect Trace   {
 				methodss.clear();
 				statess.clear();
 				statesView.clear();
+				methodsArguments.clear();
 				counterStates++;
 				counterEdges++;
 			}
@@ -507,8 +637,10 @@ aspect Trace   {
 	//private static Map<Integer, String> methods= new HashMap<Integer,String>();
 	private static Map<Integer, ArrayList<String>> states= new HashMap<Integer,ArrayList<String>>();
 	 ArrayList<String> methodss = new ArrayList<String>();
+	 ArrayList<String> methodssArguments = new ArrayList<String>();
 	 ArrayList<String> statess = new ArrayList<String>();
 	 ArrayList<View> statesView = new ArrayList<View>();
+	 private static Map<String, Object[]> methodsArguments= new HashMap<String, Object[]>();
 	private static Map<String, Integer> threadMap= new HashMap<String,Integer>();
 	ViewGroup globalRootView=null;
 	private boolean control=true;
