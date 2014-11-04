@@ -160,62 +160,7 @@ aspect Trace   {
 				+ thisJoinPointStaticPart.getSignature().toString());
 		methodss.add(thisJoinPointStaticPart.getSignature().toString()+"|"+Arrays.toString(thisJoinPoint.getArgs()));
 		methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(), thisJoinPoint.getArgs());
-////////////////*//////////
-		
-		
-//		if(!thisJoinPointStaticPart.getSignature().toString().contains("onCreate")){
-//			methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(), thisJoinPoint.getArgs());
-//		}
-//		else{
-//			Object[] objs=new Object[1];
-//			methodsArguments.put(thisJoinPointStaticPart.getSignature().toString(),objs );
-//		}
-		
-		
-	/*	
-		Object[] tempArguments=methodsArguments.get(thisJoinPointStaticPart.getSignature().toString());
-		
-		//Clicking on a list item
-		if(methodss.get(0).contains("onListItem")){
-			for(int z=0;z<(tempArguments.length);z++){
-			Log.d("Class","List:"+tempArguments[z].getClass().toString());
-			
-			if(tempArguments[z] instanceof TextView ){
-				TextView tempLabel=(TextView) tempArguments[z];
-				Log.d("Class", tempLabel.getText().toString());
-			}
-		}
-	  }
-		
-		//Button
-		if(!methodss.get(0).contains("onCreate")){
-			for(int z=0;z<(tempArguments.length);z++){
-			Log.d("Class","Class:"+tempArguments[z].getClass().toString());
-			
-			if(tempArguments[z] instanceof Button ){
-				Button tempLabel=(Button) tempArguments[z];
-				Log.d("Class", "Button"+tempLabel.getText().toString());
 
-			}
-		 }
-		}
-		
-	  //Clicking a menu item
-			if(methodss.get(0).contains("onOptionsItemSelected")){
-		
-				//Log.d("CLASS","Class:"+tempArguments[z].getClass().toString());
-		
-					//TextView tempLabel=(TextView) tempArguments[z];
-					Log.d("Class", "Menu");
-				    if(tempArguments[0] instanceof String){
-				    	String tempLabel=(String) tempArguments[0];
-
-				    } 	
-		
-		  }
-		  
-		  */
-////////////////*//////////
 		long start = System.currentTimeMillis();
 		try {
 			return proceed(activity);
@@ -262,9 +207,206 @@ aspect Trace   {
 						e.printStackTrace();
 					}
 					NodeList nList=document.getElementsByTagName("Model");
+					org.w3c.dom.Node model=nList.item(0);
 					
-					if(nList.getLength()==1){
-						org.w3c.dom.Node model=nList.item(0);
+
+					//fix onCreate problem
+					String branch = null;
+					boolean control=true;
+					for(int i=0; i<methodss.size();i++){
+						String tempMethod=methodss.get(i);
+						String[] tempMethodPlusArguments=tempMethod.split("\\|");
+						
+						String[] tempMethodSplit=tempMethodPlusArguments[0].split("\\.");
+						String[] nameWithoutArgument=tempMethodSplit[tempMethodSplit.length-1].split("\\(");
+						
+						String finalMethodName=tempMethodSplit[tempMethodSplit.length-2]+":"+nameWithoutArgument[0];
+						NodeList tempEdges=document.getElementsByTagName("Edge");
+						
+						if(tempEdges.getLength()>1 && nameWithoutArgument[0].equals("onCreate") ){
+							Log.d("Class","onCreateFixing");
+							//If its an onCreate call get the last EDGE in file, and attach the onCreate and its method to that file
+							//Replace the last State with the new UI elements from the onCreate state
+							
+							control=false;
+			
+							NodeList tempMethods=document.getElementsByTagName("Methods");
+							Node lastTempMethod=tempMethods.item(tempMethods.getLength()-1);
+							
+							NodeList states=document.getElementsByTagName("State");
+							Node state=states.item(states.getLength()-1);
+							clearChildNodes(state);
+							//Update the State
+							Date date = new Date();
+							SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+							String formattedDate = sdf.format(date);
+							String tempStateId="S"+String.valueOf(counterStates);
+							String temp2=String.valueOf(counterEdges);
+							
+							String s1="S"+String.valueOf(counterStates-1);
+							String t1="S"+String.valueOf(counterStates);
+					
+							//Element state = document.createElement("State");
+							
+							Element timeStamp = document.createElement("TimeStamp");
+							timeStamp.appendChild(document.createTextNode(formattedDate));
+							state.appendChild(timeStamp);
+							
+							Element stateId = document.createElement("State_ID");
+							stateId.appendChild(document.createTextNode(tempStateId));
+							state.appendChild(stateId);
+							
+							Element stateClassName=document.createElement("State_ClassName");
+							
+							//get rid of redudant info
+							String tempCompName=activity.getComponentName().toString();
+							String[] partsCompName=tempCompName.split("\\.");
+							String compName=partsCompName[partsCompName.length-1];
+							String compNameTrimmed=compName.replace('}', ' ');
+							System.out.println("NEWComp:"+compNameTrimmed+"\n");
+							
+							stateClassName.appendChild(document.createTextNode(compNameTrimmed));
+							state.appendChild(stateClassName);
+							
+							Element stateTitle=document.createElement("State_Title");
+							//stateTitle.appendChild(document.createTextNode(activity.getComponentName().toString()));
+							state.appendChild(stateTitle);
+							
+							
+							Element stateScreenshot=document.createElement("State_ScreenshotPath");
+							state.appendChild(stateScreenshot);
+							
+							Element stateNumberOfElements=document.createElement("State_NumberOfElements");
+							//stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(statess.size())));
+							state.appendChild(stateNumberOfElements);
+							
+							
+							Element uiElements=document.createElement("UIElements");
+
+							int tempSize=0;
+							for(int i1=0;i1<statesView.size();i1++){
+								
+								if(statesView.get(i1).toString().contains("DecorView") 
+										||statesView.get(i1).toString().contains("LinearLayout") 
+										||statesView.get(i1).toString().contains("ViewStub")
+										||statesView.get(i1).toString().contains("TabHost")
+										||statesView.get(i1).toString().contains("TabWidget")
+										||statesView.get(i1).toString().contains("RelativeLayout")
+										||statesView.get(i1).toString().contains("FrameLayout")){
+									
+								}
+								else {
+								tempSize++;
+								Element uiElement=document.createElement("UIElement");
+								Element uiElementStateId=document.createElement("Parent_State_ID");
+								Element uiId=document.createElement("UIElement_ID");
+								Element uiElementType=document.createElement("UIElement_Type");
+								Element uiElementLabel=document.createElement("UIElement_Label");
+								Element uiElementAction=document.createElement("UIElement_Action");
+								Element uiElementDetails=document.createElement("UIElement_Details");
+								
+								
+								uiElementStateId.appendChild(document.createTextNode(tempStateId));
+								uiId.appendChild(document.createTextNode("E"+String.valueOf(i1+1)));
+								String tempType=statesView.get(i1).toString();
+								String[] parts=tempType.split("\\{");
+								String part1 = parts[0];
+								String[] types=part1.split("\\.");
+								String finalType=types[types.length-1];
+								System.out.println("Type of ELE:"+finalType+"\n");
+								uiElementType.appendChild(document.createTextNode(finalType));
+								
+								if(statesView.get(i1) instanceof TextView){
+									TextView tv1=(TextView) statesView.get(i1);
+									uiElementLabel.appendChild(document.createTextNode(tv1.getText().toString()));
+								}
+								
+								if(statesView.get(i1) instanceof ListView){
+									ListView lv1=(ListView) statesView.get(i1);
+									uiElementDetails.appendChild(document.createTextNode(String.valueOf(lv1.getCount())));
+								}
+								
+								uiElement.appendChild(uiElementStateId);
+								uiElement.appendChild(uiId);
+								uiElement.appendChild(uiElementType);
+								uiElement.appendChild(uiElementLabel);
+								uiElement.appendChild(uiElementAction);
+								uiElement.appendChild(uiElementDetails);
+								
+								
+								uiElements.appendChild(uiElement);
+								}
+							}
+							
+							stateNumberOfElements.appendChild(document.createTextNode(String.valueOf(tempSize)));
+							tempSize=0;
+							state.appendChild(uiElements);
+							//Append methods to previous edge
+							for(int i1=0; i1<methodss.size();i1++){
+								Element method1=document.createElement("Method");
+								String tempMethod1=methodss.get(i1);
+								String[] tempMethodPlusArguments1=tempMethod1.split("\\|");
+								
+								String[] tempMethodSplit1=tempMethodPlusArguments1[0].split("\\.");
+								String[] nameWithoutArgument1=tempMethodSplit1[tempMethodSplit1.length-1].split("\\(");
+								
+								String finalMethodName1=tempMethodSplit1[tempMethodSplit1.length-2]+":"+nameWithoutArgument1[0];
+								System.out.println("FINAL method Name:"+finalMethodName1+"\n");
+								method1.appendChild(document.createTextNode(finalMethodName1));
+								
+								lastTempMethod.appendChild(method1);
+							}
+							
+							
+							
+							//end of fixing Ids
+							TransformerFactory transformerFactory = TransformerFactory.newInstance();
+							Transformer transformer = null;
+							
+							try {
+								transformer = transformerFactory.newTransformer();
+							} catch (TransformerConfigurationException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							DOMSource source = new DOMSource(document);
+							
+							
+							
+							if(isExternalStorageWritable()){
+						        try {
+						            FileOutputStream fos = new FileOutputStream(new File(Environment.getExternalStorageDirectory().toString()+"/MTG", "calls.xml"));
+						            StreamResult result = new StreamResult(fos);
+						        	try {
+										transformer.transform(source, result);
+									} catch (TransformerException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+						            fos.flush();
+						            fos.close();
+						        } catch (FileNotFoundException e) {
+						            e.printStackTrace();
+						        } catch (IOException e) {
+						            e.printStackTrace();
+						        }
+
+								System.out.println("Captured");
+							}
+							
+							fixIds(); 
+		
+						
+					 }
+					}
+					
+					
+					
+					//End of fix
+					
+			
+					if(nList.getLength()==1 && control==true){
+						//org.w3c.dom.Node model=nList.item(0);
 						
 						
 						//APPEND STATES AND EDGES
@@ -329,7 +471,7 @@ aspect Trace   {
 							else {
 							tempSize++;
 							Element uiElement=document.createElement("UIElement");
-							Element uiElementStateId=document.createElement("State_ID");
+							Element uiElementStateId=document.createElement("Parent_State_ID");
 							Element uiId=document.createElement("UIElement_ID");
 							Element uiElementType=document.createElement("UIElement_Type");
 							Element uiElementLabel=document.createElement("UIElement_Label");
@@ -531,6 +673,8 @@ aspect Trace   {
 
 							System.out.println("Captured");
 						}
+						
+						fixIds();
 					}
 					else{
 						System.out.println("error cant attach element");
@@ -553,36 +697,7 @@ aspect Trace   {
 
 	}
 
-	private static Element addNewState(Map<Integer, ArrayList<String>> states, int counter){
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = null;
-			Date date = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
-			String formattedDate = sdf.format(date);
-			String temp=String.valueOf(counter);
-			try {
-				docBuilder = docFactory.newDocumentBuilder();
-			} catch (ParserConfigurationException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
 
-			// root elements
-			Document doc = docBuilder.newDocument();
-			Element state = doc.createElement("State");
-			
-			Element timeStamp = doc.createElement("TimeStamp");
-			timeStamp.appendChild(doc.createTextNode(formattedDate));
-			state.appendChild(timeStamp);
-			
-			Element stateId = doc.createElement("State_ID");
-			stateId.appendChild(doc.createTextNode(temp));
-			state.appendChild(stateId);
-			
-			
-		
-		return state;
-	}
 	
 	ArrayList<String> getUiElements(ViewGroup parent) 
 	{  
@@ -607,23 +722,129 @@ aspect Trace   {
 	        {
 	        	statess.add(child.toString());
 	        	statesView.add(child);
-	            //Log.d("menfis", child.toString());
-	          
-	            //Log.d("menfis",String.valueOf( child.isActivated()));
-	           // child
-	            //child.has
-	        	//child.
-	        	
-	        	
-	          
 	        }                
 	    }
 	    return  list;
 	    
 	}
 	
+	public static void clearChildNodes(Node node){
+	    while(node.hasChildNodes()){
+	        NodeList nList = node.getChildNodes();
+	        int index = node.getChildNodes().getLength() - 1;
+
+	        Node n = nList.item(index);
+	        clearChildNodes(n);
+	        node.removeChild(n);
+	    }
+
+	}
 	
-	  boolean isExternalStorageWritable() {  
+	public static void fixIds(){
+		File xmlFile=new File((Environment.getExternalStorageDirectory().toString()+"/MTG/calls.xml"));
+		
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = null;
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+			Document document = null;
+			try {
+				document = dBuilder.parse(xmlFile);
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			NodeList nList=document.getElementsByTagName("Model");
+			org.w3c.dom.Node model=nList.item(0);
+			//////APPLY FIX/////
+			NodeList Edges=document.getElementsByTagName("Edge");
+			NodeList States=document.getElementsByTagName("State");
+			
+			for(int i=0;i<Edges.getLength();i++){
+				NodeList Source_State_ID=document.getElementsByTagName("Source_State_ID");
+				NodeList Target_State_ID=document.getElementsByTagName("Target_State_ID");
+				NodeList State_ID=document.getElementsByTagName("State_ID");
+				NodeList Parent_State_ID=document.getElementsByTagName("Parent_State_ID");
+				
+				
+				
+				clearChildNodes(Source_State_ID.item(i));
+				clearChildNodes(Target_State_ID.item(i));
+				clearChildNodes(State_ID.item(i));
+				clearChildNodes(Parent_State_ID.item(i));
+				
+				
+				Source_State_ID.item(i).appendChild(document.createTextNode("S"+String.valueOf(i)));
+				Target_State_ID.item(i).appendChild(document.createTextNode("S"+String.valueOf(i+1)));
+				State_ID.item(i).appendChild(document.createTextNode("S"+String.valueOf(i+1)));
+				Parent_State_ID.item(i).appendChild(document.createTextNode("S"+String.valueOf(i+1)));
+	
+			}
+			
+			for(int i=0;i<States.getLength();i++){
+
+				//NodeList Parent_State_ID=document.getElementsByTagName("Parent_State_ID");
+				
+				Element tempstate=(Element)States.item(i);
+				NodeList tempIds=tempstate.getElementsByTagName("Parent_State_ID");
+				
+				for(int j=0;j<tempIds.getLength();j++){
+					clearChildNodes(tempIds.item(j));
+					tempIds.item(j).appendChild(document.createTextNode("S"+String.valueOf(i+1)));
+				}
+	
+				
+			}
+			
+			
+			//////End of FIX
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = null;
+			
+			try {
+				transformer = transformerFactory.newTransformer();
+			} catch (TransformerConfigurationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			DOMSource source = new DOMSource(document);
+			
+			
+			
+			if(isExternalStorageWritable()){
+		        try {
+		            FileOutputStream fos = new FileOutputStream(new File(Environment.getExternalStorageDirectory().toString()+"/MTG", "calls.xml"));
+		            StreamResult result = new StreamResult(fos);
+		        	try {
+						transformer.transform(source, result);
+					} catch (TransformerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            fos.flush();
+		            fos.close();
+		        } catch (FileNotFoundException e) {
+		            e.printStackTrace();
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+
+				System.out.println("Captured");
+			}
+			
+			
+		
+	}
+	  static boolean isExternalStorageWritable() {  
 	    String state = Environment.getExternalStorageState();
 	    if (Environment.MEDIA_MOUNTED.equals(state)) {
 	        return true;
