@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 #import "XMLLoader.h"
 #import "TouchXML.h"
-#import "XMLWriter.h"
 #import "TFHpple.h"
 #import "NSString+Levenshtein.h"
 
@@ -24,6 +23,7 @@
 
 @implementation MasterViewController
 
+@synthesize iphoneXmlWriter, androidXmlWriter, edgePairs, statePairs, edgeMapId, stateMapId;
 @synthesize similarityCsv, androidXmlData, iphoneXmlData, androidStatesCsv, androidElementsCsv, androidEdgesCsv, iphoneStatesCsv, iphoneElementsCsv, iphoneEdgesCsv, responseData, statusCode, jiraUrl, androidStatesAry, androidEdgesAry, iphoneStatesAry, iphoneEdgesAry;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,6 +72,13 @@
     self.androidEdgesAry = [[NSMutableArray alloc]init];
     self.iphoneStatesAry = [[NSMutableArray alloc]init];
     self.iphoneEdgesAry = [[NSMutableArray alloc]init];
+    
+    self.iphoneXmlWriter = [[XMLWriter alloc]init];
+    self.androidXmlWriter = [[XMLWriter alloc]init];
+    self.edgePairs = [[NSMutableArray alloc]init];
+    self.statePairs = [[NSMutableArray alloc]init];
+    self.edgeMapId = 1;
+    self.stateMapId = 1;
     
     [self setupOutputFiles];
 }
@@ -137,7 +144,7 @@
                     resultNodes = [xmlParser nodesForXPath:@"//State/UIElements/UIElement" error:nil];
                     j = resultNodes.count;
                     for (CXMLElement* resultElement in resultNodes)
-                        [self parseElementsXMLFiles:resultElement appendTo:self.androidElementsCsv];
+                        [self parseElementsXMLFiles2:resultElement appendTo:self.androidElementsCsv];
                     
                     [self.androidEdgesCsv appendString:@"TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//Edge" error:nil];
@@ -274,6 +281,42 @@
     [csvString appendString:@"\n"];
 }
 
+-(void)parseElementsXMLFiles2:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
+    
+    //add state ID
+    NSArray *stateIdNodes = [resultElement elementsForName:@"Parent_State_ID"];
+    NSString *stateId = [[stateIdNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    //add element ID
+    NSArray *elementIdNodes = [resultElement elementsForName:@"UIElement_ID"];
+    NSString *elementId = [[elementIdNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", elementId?[elementId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    //add element type
+    NSArray *elementTypeNodes = [resultElement elementsForName:@"UIElement_Type"];
+    NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    //add element label
+    NSArray *elementLabelNodes = [resultElement elementsForName:@"UIElement_Label"];
+    NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
+    elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    //add element action
+    NSArray *elementActionNodes = [resultElement elementsForName:@"UIElement_Action"];
+    NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    //add element details
+    NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
+    NSString *elementDetails = [[elementDetailsNodes objectAtIndex:0] stringValue];
+    [csvString appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    
+    [csvString appendString:@"\n"];
+}
+
 -(void)parseEdgesXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
     //add TimeStamp
@@ -346,7 +389,7 @@
             for (int j=i+1;j<rows.count-1;j++){
                 NSString* row2 = [rows objectAtIndex:j];
                 NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-                if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) {  //classnames and titles
+                if ([columns1[2] isEqualToString:columns2[2]]) {  //&& [columns1[3] isEqualToString:columns2[3]  //classnames
                     if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
                         
                         //compare the elements
@@ -496,7 +539,7 @@
             for (int j=i+1;j<rows.count-1;j++){
                 NSString* row2 = [rows objectAtIndex:j];
                 NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-                if ([columns1[2] isEqualToString:columns2[2]] && [columns1[3] isEqualToString:columns2[3]]) { // classnames && titles
+                if ([columns1[2] isEqualToString:columns2[2]]) { //&& [columns1[3] isEqualToString:columns2[3] // classnames
                     
                     if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
                         //compare the elements
@@ -638,25 +681,28 @@
     
     //get the android-iphone edges arrays
     [self getEdgesArray];
-    
+    //heuristic for MoreViewsController in tab bar
+    NSMutableArray* moreStates = [self findMoreViewsControllerState];
+    for (NSMutableDictionary* moreState in moreStates){
+        [self heuristicsOnMoreStateAndEdges:moreState];
+    }
+
     //compare models
     //[self compareModels];
     
-    //get the initial states
+    //Start Mapping: get the initial states
     [self.iphoneStatesAry[0] setObject:@1 forKey:@"Mapped"];
     NSMutableDictionary* iPhoneIntialState = self.iphoneStatesAry[0];
     [self.androidStatesAry[0] setObject:@1 forKey:@"Mapped"];
     NSMutableDictionary* androidIntialState = self.androidStatesAry[0];
-    
     [self compareiPhoneState:iPhoneIntialState withAndroidState:androidIntialState];
     
     //get the initial edges
-    NSMutableArray *edgePairs = [NSMutableArray array];
-    edgePairs = [self compareEdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
+    self.edgePairs = [self compareEdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
     //loop through all states, edges
     
-    for (int i=0;i<edgePairs.count;i++){
-        NSMutableDictionary* edgePair = [edgePairs objectAtIndex:i];
+    for (int i=0;i<self.edgePairs.count;i++){
+        NSMutableDictionary* edgePair = [self.edgePairs objectAtIndex:i];
         
         if([edgePair[@"Mapped"] isEqualToNumber:@0]) {
             //Mark edge pair as mapped
@@ -664,13 +710,54 @@
             NSMutableArray* nextEdgePairs = [self compareNextStates:edgePair];
             for (int k=0;k<nextEdgePairs.count;k++){
                 NSMutableDictionary* nextEdgePair = [nextEdgePairs objectAtIndex:k];
-                [edgePairs insertObject:nextEdgePair atIndex:i+k+1];
+                [self.edgePairs insertObject:nextEdgePair atIndex:i+k+1];
             }
         }
     }
     
+    // Create paths to output xml files
+    [self logPropertiesForEdges];
+    [self logPropertiesForStates];
+    [self outputiPhoneMappedFile:[self.iphoneXmlWriter toString]];
+    [self outputAndroidMappedFile:[self.androidXmlWriter toString]];
+    
     //write similarities
+    [self outputiPhoneMappedFile:[self.iphoneXmlWriter toString]];
+    [self outputAndroidMappedFile:[self.androidXmlWriter toString]];
     [self outputSimilarityCsvFile];
+}
+
+-(NSMutableArray*)findMoreViewsControllerState
+{
+    NSMutableArray* moreStatesAry = [[NSMutableArray alloc]init];
+    for (NSMutableDictionary* s in self.iphoneStatesAry) {
+        if([s[@"State_ClassName"] isEqualToString:@"MoreViewsController"]) {
+            [moreStatesAry addObject:s];
+        }
+    }
+    return moreStatesAry;
+}
+
+-(void)heuristicsOnMoreStateAndEdges:(NSMutableDictionary*)moreState
+{
+    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+    for (NSMutableDictionary* e in self.iphoneEdgesAry) {
+        if([e[@"Target_State_ID"] isEqualToString:moreState[@"State_ID"]]) {
+            NSInteger anIndex=[self.iphoneEdgesAry indexOfObject:e];
+            NSMutableDictionary* nextEdge = (anIndex + 1 < self.iphoneEdgesAry.count) ?[self.iphoneEdgesAry objectAtIndex:anIndex+1]: nil;
+            if (nextEdge) {
+                e[@"Target_State_ID"] = nextEdge[@"Target_State_ID"];
+                e[@"TouchedElement_Label"] = nextEdge[@"TouchedElement_Label"];
+                [discardedItems addIndex:anIndex + 1];
+            }
+        }
+    }
+    
+    [self.iphoneEdgesAry removeObjectsAtIndexes:discardedItems];
+    [self.similarityCsv appendString:@"\n\n***iPhone Actions\nSource -> Target     TouchedElement(Type     Label       Action       Details)\n"];
+    for (NSMutableDictionary* e in self.iphoneEdgesAry)
+        //printout edges after checks
+        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",e[@"Source_State_ID"],e[@"Target_State_ID"],e[@"TouchedElement_Type"],e[@"TouchedElement_Label"],e[@"TouchedElement_Action"],e[@"TouchedElement_Details"]]];
 }
 
 -(NSMutableArray*)compareNextStates:(NSMutableDictionary*)edgePair {
@@ -680,8 +767,8 @@
     
     if (iPhoneState && androidState) {
         [self compareiPhoneState:iPhoneState withAndroidState:androidState];
-        NSMutableArray* edgePairs = [self compareEdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
-        return edgePairs;
+        NSMutableArray* thisEdgePairs = [self compareEdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
+        return thisEdgePairs;
     }
     else
         return nil;
@@ -696,14 +783,14 @@
             [(NSMutableArray*)statesAry replaceObjectAtIndex:anIndex withObject:s];
             return s;
         }
-        
     }
     return nil;
 }
 
 -(NSMutableArray*)compareEdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
 
-    NSMutableArray *edgePairs = [NSMutableArray array];
+    NSMutableArray *thisEdgePairs = [NSMutableArray array];
+    NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
     NSUInteger maxDif;
     NSUInteger sum;
     
@@ -713,36 +800,103 @@
     //To-Do: Sort edges array with TimeStamp
     
     //map outgoing edges
-    for (NSMutableDictionary* edge1 in iPhoneEdges) {
-        
-        NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
-        edgePair[@"iPhone"] = edge1;
-        maxDif=100;
-        for (NSMutableDictionary* edge2 in androidEdges) {
+    if (iPhoneEdges.count <= androidEdges.count) {
+        for (NSMutableDictionary* edge1 in iPhoneEdges) {
+            edgePair[@"iPhone"] = edge1;
+            maxDif=100;
+            for (NSMutableDictionary* edge2 in androidEdges) {
+                
+                NSUInteger r1;
+                //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                   ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                    r1 = 0;
+                
+                //heuristic for Action (MenuButtonClicked)
+                else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                    r1 = 100;
+                
+                else
+                    r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                
+                NSUInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2;
+                if (sum < maxDif) {
+                    edgePair[@"Android"]=edge2;
+                    edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                    edgePair[@"Mapped"]=@0;
+                    maxDif = sum;
+                }
+            }
             
-            NSUInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
-            NSUInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
-            sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2;
-            if (sum < maxDif) {
-                edgePair[@"Android"]=edge2;
-                edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
-                edgePair[@"Mapped"]=@0;
-                maxDif = sum;
+            if (edgePair) {
+                [thisEdgePairs addObject:edgePair];
+                
+                NSUInteger thisEdgeMapId = self.edgeMapId++;
+                //TO DO: set the mapping color
+                edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                edgePair[@"Android"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                edgePair[@"iPhone"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                
+                [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action)\n"];
+                [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@) \nandroidEdge: %@->%@ (%@, %@) \nDiff: %tu \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Label"],sum]];
             }
         }
-        
-        [edgePairs addObject:edgePair];
-        [self.similarityCsv appendString:@"\n***Closest Edges in Combination 1: Edge (Label, Action)\n"];
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@), androidEdge: %@->%@ (%@, %@), Diff: %tu \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Label"],sum]];
+    }
+    else {
+        for (NSMutableDictionary* edge1 in androidEdges) {
+            edgePair[@"Android"] = edge1;
+            maxDif=100;
+            for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                
+                NSUInteger r1;
+                //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                   ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                    r1 = 0;
+                
+                //heuristic for Action (MenuButtonClicked)
+                else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                    r1 = 100;
+                
+                else
+                    r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                
+                NSUInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2;
+                if (sum < maxDif) {
+                    edgePair[@"iPhone"]=edge2;
+                    edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                    edgePair[@"Mapped"]=@0;
+                    maxDif = sum;
+                }
+            }
+            
+            if (edgePair) {
+                [thisEdgePairs addObject:edgePair];
+                
+                NSUInteger thisEdgeMapId = self.edgeMapId++;
+                //TO DO: set the mapping color
+                edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                edgePair[@"Android"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                edgePair[@"iPhone"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                
+                [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action)\n"];
+                [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@) \nandroidEdge: %@->%@ (%@, %@) \nDiff: %tu \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Label"],sum]];
+            }
+        }
     }
     
-    return edgePairs;
+    return thisEdgePairs;
 }
 
 -(void)compareiPhoneState:(NSMutableDictionary*)iPhoneState withAndroidState:(NSMutableDictionary*)androidState {
     
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 1: State (ClassName, Title)\n"];
-    //heuristics on class names
+    [self.similarityCsv appendString:@"\n***Closest States (ClassName, Title)\n"];
+    
+    //heuristic for ClassName (Activity == ViewController)
     NSString* n1 = [iPhoneState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
     n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
     n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
@@ -752,8 +906,277 @@
     NSUInteger r1 = [n1 levenshteinDistanceToString:n2];
     NSUInteger r2 = [iPhoneState[@"State_Title"] levenshteinDistanceToString:androidState[@"State_Title"]];
     NSUInteger sum = WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2;
+    
+    NSUInteger thisStateMapId = self.stateMapId++;
+    //TO DO: set the mapping color
+    iPhoneState[@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"%tu",thisStateMapId];
+    androidState[@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"%tu",thisStateMapId];
+    
+//    NSMutableDictionary* statePair = [NSMutableDictionary dictionary];
+//    statePair[@"iPhone"]=iPhoneState;
+//    statePair[@"Android"]=androidState;
+//    statePair[@"MappingColour"]=[NSNumber numberWithInteger:sum];
+//    [self.statePairs addObject:statePair];
+    
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@ \nandroidState: %@ \nDiff: %tu \n",iPhoneState[@"State_ID"],androidState[@"State_ID"],sum]];
+}
+
+- (void)logPropertiesForEdges {
+    
+    for (NSMutableDictionary* edge in self.iphoneEdgesAry){
+        
+        [self.iphoneXmlWriter writeCharacters:@"\n\n"];
+        
+        [self.iphoneXmlWriter writeStartElement:@"Edge"];
+    
+        [self.iphoneXmlWriter writeStartElement:@"TimeStamp"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"TimeStamp"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"Source_State_ID"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"Source_State_ID"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"Target_State_ID"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"Target_State_ID"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Type"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Label"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Action"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Details"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"MappingColor"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"MappingLabel"];
+        [self.iphoneXmlWriter writeCharacters:edge[@"MappingLabel"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"Methods"];
+        [self.iphoneXmlWriter writeCharacters:[edge[@"Methods"] componentsJoinedByString:@"\n"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeEndElement];
+    }
+    
+    for (NSMutableDictionary* edge in self.androidEdgesAry){
+        
+        [self.androidXmlWriter writeCharacters:@"\n\n"];
+        
+        [self.androidXmlWriter writeStartElement:@"Edge"];
+        
+        [self.androidXmlWriter writeStartElement:@"TimeStamp"];
+        [self.androidXmlWriter writeCharacters:edge[@"TimeStamp"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"Source_State_ID"];
+        [self.androidXmlWriter writeCharacters:edge[@"Source_State_ID"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"Target_State_ID"];
+        [self.androidXmlWriter writeCharacters:edge[@"Target_State_ID"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"TouchedElement_Type"];
+        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"TouchedElement_Label"];
+        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"TouchedElement_Action"];
+        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"TouchedElement_Details"];
+        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"MappingColor"];
+        [self.androidXmlWriter writeCharacters:edge[@"MappingColor"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"MappingLabel"];
+        [self.androidXmlWriter writeCharacters:edge[@"MappingLabel"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"Methods"];
+        [self.androidXmlWriter writeCharacters:[edge[@"Methods"] componentsJoinedByString:@"\n"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeEndElement];
+    }
+}
+
+- (void)logPropertiesForStates {
+    
+    for (NSMutableDictionary* state in self.iphoneStatesAry){
+        
+        [self.iphoneXmlWriter writeCharacters:@"\n\n"];
+    
+        [self.iphoneXmlWriter writeStartElement:@"State"];
+    
+        [self.iphoneXmlWriter writeStartElement:@"TimeStamp"];
+        [self.iphoneXmlWriter writeCharacters:state[@"TimeStamp"]];
+        [self.iphoneXmlWriter writeEndElement];
+	
+        [self.iphoneXmlWriter writeStartElement:@"State_ID"];
+        [self.iphoneXmlWriter writeCharacters:state[@"State_ID"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"State_ClassName"];
+        [self.iphoneXmlWriter writeCharacters:state[@"State_ClassName"]];
+        [self.iphoneXmlWriter writeEndElement];
+	
+        [self.iphoneXmlWriter writeStartElement:@"State_Title"];
+        [self.iphoneXmlWriter writeCharacters:state[@"State_Title"]];
+        [self.iphoneXmlWriter writeEndElement];
+	
+        [self.iphoneXmlWriter writeStartElement:@"State_ScreenshotPath"];
+        [self.iphoneXmlWriter writeCharacters:state[@"State_ScreenshotPath"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"State_NumberOfElements"];
+        [self.iphoneXmlWriter writeCharacters:state[@"State_NumberOfElements"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"MappingLabel"];
+        [self.iphoneXmlWriter writeCharacters:state[@"MappingLabel"]];
+        [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
+        [self.iphoneXmlWriter writeCharacters:state[@"MappingColor"]];
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeStartElement:@"UIElements"];
+    
+        for(NSMutableDictionary *element in state[@"UIElements"]){
+    
+            [self.iphoneXmlWriter writeStartElement:@"UIElement"];
+        
+            [self.iphoneXmlWriter writeStartElement:@"State_ID"];
+            [self.iphoneXmlWriter writeCharacters:element[@"State_ID"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_ID"];
+            [self.iphoneXmlWriter writeCharacters:element[@"UIElement_ID"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Type"];
+            [self.iphoneXmlWriter writeCharacters:element[@"UIElement_Type"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Label"];
+            [self.iphoneXmlWriter writeCharacters:element[@"UIElement_Label"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Action"];
+            [self.iphoneXmlWriter writeCharacters:element[@"UIElement_Action"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Details"];
+            [self.iphoneXmlWriter writeCharacters:element[@"UIElement_Details"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeEndElement];
+        }
+    
+        [self.iphoneXmlWriter writeEndElement];
+    
+        [self.iphoneXmlWriter writeEndElement];
+    }
+    
+    for (NSMutableDictionary* state in self.androidStatesAry){
+        
+        [self.androidXmlWriter writeCharacters:@"\n\n"];
+        
+        [self.androidXmlWriter writeStartElement:@"State"];
+        
+        [self.androidXmlWriter writeStartElement:@"TimeStamp"];
+        [self.androidXmlWriter writeCharacters:state[@"TimeStamp"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"State_ID"];
+        [self.androidXmlWriter writeCharacters:state[@"State_ID"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"State_ClassName"];
+        [self.androidXmlWriter writeCharacters:state[@"State_ClassName"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"State_Title"];
+        [self.androidXmlWriter writeCharacters:state[@"State_Title"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"State_ScreenshotPath"];
+        [self.androidXmlWriter writeCharacters:state[@"State_ScreenshotPath"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"State_NumberOfElements"];
+        [self.androidXmlWriter writeCharacters:state[@"State_NumberOfElements"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"MappingLabel"];
+        [self.androidXmlWriter writeCharacters:state[@"MappingLabel"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"MappingColor"];
+        [self.androidXmlWriter writeCharacters:state[@"MappingColor"]];
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeStartElement:@"UIElements"];
+        
+        for(NSMutableDictionary *element in state[@"UIElements"]){
             
-    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@, androidState: %@, Diff: %tu \n",iPhoneState[@"State_ID"],androidState[@"State_ID"],sum]];
+            [self.androidXmlWriter writeStartElement:@"UIElement"];
+            
+            [self.androidXmlWriter writeStartElement:@"State_ID"];
+            [self.androidXmlWriter writeCharacters:element[@"State_ID"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeStartElement:@"UIElement_ID"];
+            [self.androidXmlWriter writeCharacters:element[@"UIElement_ID"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeStartElement:@"UIElement_Type"];
+            [self.androidXmlWriter writeCharacters:element[@"UIElement_Type"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeStartElement:@"UIElement_Label"];
+            [self.androidXmlWriter writeCharacters:element[@"UIElement_Label"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeStartElement:@"UIElement_Action"];
+            [self.androidXmlWriter writeCharacters:element[@"UIElement_Action"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeStartElement:@"UIElement_Details"];
+            [self.androidXmlWriter writeCharacters:element[@"UIElement_Details"]];
+            [self.androidXmlWriter writeEndElement];
+            
+            [self.androidXmlWriter writeEndElement];
+        }
+        
+        [self.androidXmlWriter writeEndElement];
+        
+        [self.androidXmlWriter writeEndElement];
+    }
 }
 
 - (NSMutableArray*)getOutgoingEdgesFor:(NSMutableDictionary*)state inEdges:(NSArray*)edgesAry
@@ -783,6 +1206,8 @@
             [row setObject:rows[3]?rows[3]:@"" forKey:@"State_Title"];
             [row setObject:rows[4]?rows[4]:@"" forKey:@"State_ScreenshotPath"];
             [row setObject:rows[5]?rows[5]:@"" forKey:@"State_NumberOfElements"];
+            [row setObject:@"" forKey:@"MappingColor"];
+            [row setObject:@"" forKey:@"MappingLabel"];
             
             //printout states
             [self.similarityCsv appendString:[NSString stringWithFormat:@"%@            %@      %@      %@\n",rows[1],rows[2],rows[3],rows[5]]];
@@ -826,6 +1251,8 @@
             [row setObject:rows[3]?rows[3]:@"" forKey:@"State_Title"];
             [row setObject:rows[4]?rows[4]:@"" forKey:@"State_ScreenshotPath"];
             [row setObject:rows[5]?rows[5]:@"" forKey:@"State_NumberOfElements"];
+            [row setObject:@"" forKey:@"MappingColor"];
+            [row setObject:@"" forKey:@"MappingLabel"];
             
             //printout states
             [self.similarityCsv appendString:[NSString stringWithFormat:@"%@            %@          %@      %@\n",rows[1],rows[2],rows[3],rows[5]]];
@@ -861,7 +1288,7 @@
 -(void)getEdgesArray
 {
     NSString *line;
-    [self.similarityCsv appendString:@"\n\n***iPhone Actions\nSource -> Target     TouchedElement(Type     Label       Action       Details)\n"];
+    //[self.similarityCsv appendString:@"\n\n***iPhone Actions\nSource -> Target     TouchedElement(Type     Label       Action       Details)\n"];
     for(int i=1; i< [[self.iphoneEdgesCsv componentsSeparatedByString:@"\n"] count]; i++) {
         line = [self.iphoneEdgesCsv componentsSeparatedByString:@"\n"][i];
         if ([line length]>0) {
@@ -874,9 +1301,11 @@
             [row setObject:rows[4]?rows[4]:@"" forKey:@"TouchedElement_Label"];
             [row setObject:rows[5]?rows[5]:@"" forKey:@"TouchedElement_Action"];
             [row setObject:rows[6]?rows[6]:@"" forKey:@"TouchedElement_Details"];
+            [row setObject:@"" forKey:@"MappingColor"];
+            [row setObject:@"" forKey:@"MappingLabel"];
             
             //printout edges
-            [self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",rows[1],rows[2],rows[3],rows[4],rows[5],rows[6]]];
+            //[self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",rows[1],rows[2],rows[3],rows[4],rows[5],rows[6]]];
             
             //get the methods for the iphone action
             NSMutableArray *methods = [NSMutableArray array];
@@ -902,6 +1331,8 @@
             [row setObject:rows[4]?rows[4]:@"" forKey:@"TouchedElement_Label"];
             [row setObject:rows[5]?rows[5]:@"" forKey:@"TouchedElement_Action"];
             [row setObject:rows[6]?rows[6]:@"" forKey:@"TouchedElement_Details"];
+            [row setObject:@"" forKey:@"MappingColor"];
+            [row setObject:@"" forKey:@"MappingLabel"];
             
             //printout edges
             [self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",rows[1],rows[2],rows[3],rows[4],rows[5],rows[6]]];
@@ -1240,19 +1671,7 @@
     return similarity;
 }
 
-
 #pragma mark - output methods
-
--(void)outputXMLFile:(NSMutableString *)outputString withIndex:(NSUInteger)i
-{
-    NSString *directory = [@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles" stringByAppendingPathComponent: [NSString stringWithFormat:@"/%@XMLFiles", @"Android"]];
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"xmlFile_%ld.xml", (unsigned long)i]]];
-    freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    //[fileHandler seekToEndOfFile];
-    [fileHandler writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
-}
 
 -(void)outputAndroidCsvFiles
 {
@@ -1312,6 +1731,26 @@
     [fileHandler closeFile];
 }
 
+- (void)outputiPhoneMappedFile:(NSMutableString*)outputString {
+	// Create paths to State Graph output txt file
+	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
+    freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+	NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
+	//[fileHandler1 seekToEndOfFile];
+	[fileHandler1 writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
+	[fileHandler1 closeFile];
+}
+
+- (void)outputAndroidMappedFile:(NSMutableString*)outputString {
+    // Create paths to State Graph output txt file
+	NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
+    freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+	NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
+	//[fileHandler2 seekToEndOfFile];
+	[fileHandler2 writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
+	[fileHandler2 closeFile];
+}
+
 #pragma mark - setup methods
 
 - (void)setupOutputFiles {
@@ -1336,8 +1775,22 @@
     
     NSString *path6 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
 	[@"" writeToFile:path6 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+
+    [self setupOutputStateGraphFile];
 }
 
+- (void)setupOutputStateGraphFile {
+	//Grab and empty a reference to the output txt file
+	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
+	[@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?> \n\
+     <!DOCTYPE document SYSTEM \"\" > \n \
+     <Model>" writeToFile:path1 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
+	[@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?> \n\
+     <!DOCTYPE document SYSTEM \"\" > \n \
+     <Model>" writeToFile:path2 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
 
 @end
 

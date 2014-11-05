@@ -1,0 +1,452 @@
+
+
+
+<Edge>
+	<TimeStamp>1414432337.616498</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement_Type></TouchedElement_Type>
+	<TouchedElement_Label></TouchedElement_Label>
+	<TouchedElement_Action></TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[MTGJudgeAppDelegate: applicationDidFinishLaunching:]
+[QuickReferenceController: viewDidLoad]
+[QuickReferenceController: numberOfSectionsInTableView:]
+[QuickReferenceController: numberOfSectionsInTableView:]
+[QuickReferenceController: tableView:numberOfRowsInSection:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: tableView:cellForRowAtIndexPath:]
+[QuickReferenceController: copyResourcesToDocuments]
+[QuickReferenceController: checkForNewFiles]
+[QuickReferenceController: viewDidAppear:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432354.565675</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement_Type>UITabBarButton</TouchedElement_Type>
+	<TouchedElement_Label>Comp. Rules</TouchedElement_Label>
+	<TouchedElement_Action>itemClicked</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>2</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+	<Methods>[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432371.020188</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement_Type>UITableViewCell</TouchedElement_Type>
+	<TouchedElement_Label>1. Game Concepts</TouchedElement_Label>
+	<TouchedElement_Action>tableCellClicked</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>22</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+	<Methods>[CompRulesContents: getSectionName:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+[CompRulesSubContents: getSubtext:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432377.680518</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement_Type>UITableViewCell</TouchedElement_Type>
+	<TouchedElement_Label>100. General</TouchedElement_Label>
+	<TouchedElement_Action>tableCellClicked</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[CompRulesSubContents: getSubtext:]
+[CompRulesDetails: setRoot:sub:stop:]
+[CompRulesSubContents: getSubtext:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432385.058497</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement_Type>UIWebBrowserView</TouchedElement_Type>
+	<TouchedElement_Label></TouchedElement_Label>
+	<TouchedElement_Action></TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432395.170888</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement_Type>UIWebBrowserView</TouchedElement_Type>
+	<TouchedElement_Label></TouchedElement_Label>
+	<TouchedElement_Action></TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432404.089654</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Back</TouchedElement_Label>
+	<TouchedElement_Action>goBack</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[CompRulesSubContents: getSubtext:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432414.851652</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Back</TouchedElement_Label>
+	<TouchedElement_Action>goBack</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432429.506962</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement_Type>UISearchBarTextField</TouchedElement_Type>
+	<TouchedElement_Label></TouchedElement_Label>
+	<TouchedElement_Action></TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432439.879071</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Cancel</TouchedElement_Label>
+	<TouchedElement_Action>_cancelButtonPressed</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+[CompRulesContents: getSectionName:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432450.336491</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement_Type>UITabBarButton</TouchedElement_Type>
+	<TouchedElement_Label>Decklist Counter</TouchedElement_Label>
+	<TouchedElement_Action>itemClicked</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>9</MappingColor>
+	<MappingLabel>MappedID3</MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432468.948350</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>2</TouchedElement_Label>
+	<TouchedElement_Action>button2Pressed</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>19</MappingColor>
+	<MappingLabel>MappedID4</MappingLabel>
+	<Methods>[DecklistCounterController: updateLabel]
+[DecklistCounterController: button2Pressed]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432478.711016</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Undo</TouchedElement_Label>
+	<TouchedElement_Action>undoPressed</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>23</MappingColor>
+	<MappingLabel>MappedID5</MappingLabel>
+	<Methods>[DecklistCounterController: updateLabel]
+[DecklistCounterController: undoPressed]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432488.224684</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>4</TouchedElement_Label>
+	<TouchedElement_Action>button4Pressed</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>19</MappingColor>
+	<MappingLabel>MappedID6</MappingLabel>
+	<Methods>[DecklistCounterController: updateLabel]
+[DecklistCounterController: button4Pressed]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432496.186463</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Reset</TouchedElement_Label>
+	<TouchedElement_Action>resetPressed</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>20</MappingColor>
+	<MappingLabel>MappedID7</MappingLabel>
+	<Methods>[DecklistCounterController: updateLabel]
+[DecklistCounterController: resetPressed]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432506.424196</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S18</Target_State_ID>
+	<TouchedElement_Type>UITabBarButton</TouchedElement_Type>
+	<TouchedElement_Label>Draft Timer</TouchedElement_Label>
+	<TouchedElement_Action>itemClicked</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor>11</MappingColor>
+	<MappingLabel>MappedID8</MappingLabel>
+	<Methods>[DecklistCounterController: viewDidDisappear:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432523.001917</TimeStamp>
+	<Source_State_ID>S18</Source_State_ID>
+	<Target_State_ID>S18</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Next</TouchedElement_Label>
+	<TouchedElement_Action>nextClicked:</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[DraftTimer: secondsForPick:]
+[DraftTimer: updateTime:]
+[DraftTimer: setTopLabelText:]
+[DraftTimer: updateUI]
+[DraftTimer: startPick]
+[DraftTimer: nextClicked:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432532.531941</TimeStamp>
+	<Source_State_ID>S18</Source_State_ID>
+	<Target_State_ID>S18</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Previous</TouchedElement_Label>
+	<TouchedElement_Action>previousClicked:</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods>[DraftTimer: secondsForPick:]
+[DraftTimer: updateTime:]
+[DraftTimer: setTopLabelText:]
+[DraftTimer: updateUI]
+[DraftTimer: startPick]
+[DraftTimer: previousClicked:]
+</Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432542.081255</TimeStamp>
+	<Source_State_ID>S18</Source_State_ID>
+	<Target_State_ID>S22</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Check for Updates</TouchedElement_Label>
+	<TouchedElement_Action>goBack</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1414432557.948216</TimeStamp>
+	<Source_State_ID>S22</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement_Type>UIButton</TouchedElement_Type>
+	<TouchedElement_Label>Quick Ref.</TouchedElement_Label>
+	<TouchedElement_Action>goBack</TouchedElement_Action>
+	<TouchedElement_Details></TouchedElement_Details>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+	<Methods></Methods>
+</Edge>
+
+
+<State>
+	<TimeStamp>1414432339.619124</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel>1</MappingLabel>
+	<MappingColor>11</MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432357.004507</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>CompRulesContents</State_ClassName>
+	<State_Title>Comp. Rules</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<MappingLabel>2</MappingLabel>
+	<MappingColor>19</MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432373.744442</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>CompRulesSubContents</State_ClassName>
+	<State_Title>1. Game Concepts</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432380.899147</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>CompRulesDetails</State_ClassName>
+	<State_Title>100. General</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S4.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432452.500004</TimeStamp>
+	<State_ID>S11</State_ID>
+	<State_ClassName>MoreViewsController</State_ClassName>
+	<State_Title>More Features</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S11.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432459.990668</TimeStamp>
+	<State_ID>S12</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S12.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<MappingLabel>3</MappingLabel>
+	<MappingColor>18</MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432518.306525</TimeStamp>
+	<State_ID>S18</State_ID>
+	<State_ClassName>DraftTimer</State_ClassName>
+	<State_Title>Draft Timer</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S18.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1414432553.716583</TimeStamp>
+	<State_ID>S22</State_ID>
+	<State_ClassName>CheckForUpdatesController</State_ClassName>
+	<State_Title>Update</State_Title>
+	<State_ScreenshotPath>/Users/Mona/Library/Application Support/iPhone Simulator/7.1-64/Applications/A52B0AE7-7BEB-4365-9CC1-0046895E6C1D/Library/Caches/Screenshots/S22.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<UIElements />
+</State>

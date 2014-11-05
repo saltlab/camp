@@ -8,9 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Webkit/Webkit.h>
+#import "XMLWriter.h"
 
 @interface MasterViewController : NSViewController
-    
+
+@property(nonatomic, retain) XMLWriter *iphoneXmlWriter;
+@property(nonatomic, retain) XMLWriter *androidXmlWriter;
+@property (nonatomic, strong) NSMutableArray *edgePairs;
+@property (nonatomic, strong) NSMutableArray *statePairs;
+@property(nonatomic, assign) int edgeMapId;
+@property(nonatomic, assign) int stateMapId;
+
 @property (nonatomic, strong) NSMutableData *androidXmlData;
 @property (nonatomic, strong) NSMutableData *iphoneXmlData;
 
