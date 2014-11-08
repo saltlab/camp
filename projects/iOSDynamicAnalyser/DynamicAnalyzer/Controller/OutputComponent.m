@@ -98,7 +98,7 @@ OutputComponent *sharedInstance = nil;
 			NSLog(@"Error: Create folder failed %@", directory);
 }
 
-- (void)takeScreenshotOfState {
+- (void)takeScreenshotOfState:(NSString*)pathName {
 	
 	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     CGRect rect = [keyWindow bounds];
@@ -111,7 +111,7 @@ OutputComponent *sharedInstance = nil;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *directory = [documentsDirectory stringByAppendingPathComponent: @"/Screenshots"];
-	NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"S-%f-%d.jpg", [[NSDate date] timeIntervalSince1970],(self.currentEdge.targetStateID?self.currentEdge.targetStateID:0)]]];
+	NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:pathName]];
 	[UIImageJPEGRepresentation(img, 1.0) writeToFile:path atomically:NO];
 }
 
@@ -271,12 +271,9 @@ OutputComponent *sharedInstance = nil;
 	[self.xmlWriter writeCharacters:self.currentNode.title?self.currentNode.title:@""];
 	[self.xmlWriter writeEndElement];
 	
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *directory = [documentsDirectory stringByAppendingPathComponent: @"/Screenshots"];
-	NSString *path = [[NSString alloc] initWithFormat:@"%@",[directory stringByAppendingPathComponent:[NSString stringWithFormat:@"S%d.jpg", self.currentEdge.targetStateID]]];
+    NSString *pathName = [NSString stringWithFormat:@"S-%f-%d.jpg", [[NSDate date] timeIntervalSince1970],(self.currentEdge.targetStateID?self.currentEdge.targetStateID:0)];
 	[self.xmlWriter writeStartElement:@"State_ScreenshotPath"];
-	[self.xmlWriter writeCharacters:path];
+	[self.xmlWriter writeCharacters:pathName];
 	[self.xmlWriter writeEndElement];
     
     [self.xmlWriter writeStartElement:@"State_NumberOfElements"];
@@ -289,7 +286,7 @@ OutputComponent *sharedInstance = nil;
         
         [self.xmlWriter writeStartElement:@"UIElement"];
         
-        [self.xmlWriter writeStartElement:@"State_ID"];
+        [self.xmlWriter writeStartElement:@"Parent_State_ID"];
         [self.xmlWriter writeCharacters:self.currentEdge.targetStateID?[NSString stringWithFormat:@"S%d", self.currentEdge.targetStateID]:@"S0"];
         [self.xmlWriter writeEndElement];
         
@@ -326,7 +323,7 @@ OutputComponent *sharedInstance = nil;
     //[self.xmlWriter writeCharacters:@"\n"];
     
     //take screenshot
-    [self takeScreenshotOfState];
+    [self takeScreenshotOfState:pathName];
 }
 
 - (void)createEdge:(UIEvent*)event {
@@ -340,6 +337,8 @@ OutputComponent *sharedInstance = nil;
        
         if (touch.phase == UITouchPhaseBegan) {
         
+            NSArray* r = touch.gestureRecognizers;
+            
             self.currentEdge = [[UIEdge alloc] init];
             self.currentEdge.timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
             
