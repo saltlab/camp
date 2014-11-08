@@ -144,7 +144,7 @@
                     resultNodes = [xmlParser nodesForXPath:@"//State/UIElements/UIElement" error:nil];
                     j = resultNodes.count;
                     for (CXMLElement* resultElement in resultNodes)
-                        [self parseElementsXMLFiles2:resultElement appendTo:self.androidElementsCsv];
+                        [self parseElementsXMLFiles:resultElement appendTo:self.androidElementsCsv];
                     
                     [self.androidEdgesCsv appendString:@"TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//Edge" error:nil];
@@ -246,42 +246,6 @@
 }
 
 -(void)parseElementsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
-    
-    //add state ID
-    NSArray *stateIdNodes = [resultElement elementsForName:@"State_ID"];
-    NSString *stateId = [[stateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    //add element ID
-    NSArray *elementIdNodes = [resultElement elementsForName:@"UIElement_ID"];
-    NSString *elementId = [[elementIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementId?[elementId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    //add element type
-    NSArray *elementTypeNodes = [resultElement elementsForName:@"UIElement_Type"];
-    NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    //add element label
-    NSArray *elementLabelNodes = [resultElement elementsForName:@"UIElement_Label"];
-    NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
-    elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    //add element action
-    NSArray *elementActionNodes = [resultElement elementsForName:@"UIElement_Action"];
-    NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    //add element details
-    NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
-    NSString *elementDetails = [[elementDetailsNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
-    
-    [csvString appendString:@"\n"];
-}
-
--(void)parseElementsXMLFiles2:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
     //add state ID
     NSArray *stateIdNodes = [resultElement elementsForName:@"Parent_State_ID"];
@@ -402,7 +366,7 @@
                                     NSString* elRow2 = [elRows objectAtIndex:k];
                                     NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                     if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                             // are exactly equal
                                             flag= true;
                                             break;
@@ -440,7 +404,7 @@
                                         NSString* elRow2 = [elRows objectAtIndex:k];
                                         NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                         if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                                 // are exactly equal
                                                 flag= true;
                                                 break;
@@ -476,7 +440,7 @@
                                         NSString* elRow2 = [elRows objectAtIndex:k];
                                         NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                         if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                                 // are exactly equal
                                                 flag= true;
                                                 break;
@@ -552,7 +516,7 @@
                                     NSString* elRow2 = [elRows objectAtIndex:k];
                                     NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                     if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                             // are exactly equal
                                             flag= true;
                                             break;
@@ -590,7 +554,7 @@
                                         NSString* elRow2 = [elRows objectAtIndex:k];
                                         NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                         if ([columns1[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                                 // are exactly equal
                                                 flag= true;
                                                 break;
@@ -626,7 +590,7 @@
                                         NSString* elRow2 = [elRows objectAtIndex:k];
                                         NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
                                         if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]] && [elColumns1[5] isEqualToString:elColumns2[5]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] &&
+                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
                                                 // are exactly equal
                                                 flag= true;
                                                 break;
@@ -718,10 +682,6 @@
     // Create paths to output xml files
     [self logPropertiesForEdges];
     [self logPropertiesForStates];
-    [self outputiPhoneMappedFile:[self.iphoneXmlWriter toString]];
-    [self outputAndroidMappedFile:[self.androidXmlWriter toString]];
-    
-    //write similarities
     [self outputiPhoneMappedFile:[self.iphoneXmlWriter toString]];
     [self outputAndroidMappedFile:[self.androidXmlWriter toString]];
     [self outputSimilarityCsvFile];
@@ -943,32 +903,45 @@
         [self.iphoneXmlWriter writeCharacters:edge[@"Target_State_ID"]];
         [self.iphoneXmlWriter writeEndElement];
     
-        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Type"];
-        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+        [self.iphoneXmlWriter writeStartElement:@"TouchedElement"];
+        if ([edge[@"TouchedElement_Type"] length]>0 || [edge[@"TouchedElement_Label"] length]>0||
+            [edge[@"TouchedElement_Action"] length]>0 || [edge[@"TouchedElement_Details"] length]>0)
+        {
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Type"];
+            [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Label"];
+            [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Action"];
+            [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
+            [self.iphoneXmlWriter writeEndElement];
+        
+            [self.iphoneXmlWriter writeStartElement:@"UIElement_Details"];
+            [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
+            [self.iphoneXmlWriter writeEndElement];
+        }
         [self.iphoneXmlWriter writeEndElement];
         
-        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Label"];
-        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+        [self.iphoneXmlWriter writeStartElement:@"Methods"];
+        for(NSString * method in edge[@"Methods"]){
+            if ([method length]>0) {
+                [self.iphoneXmlWriter writeStartElement:@"Method"];
+                [self.iphoneXmlWriter writeCharacters:[NSString stringWithFormat:@"%@", method]];
+                [self.iphoneXmlWriter writeEndElement];
+            }
+        }
         [self.iphoneXmlWriter writeEndElement];
         
-        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Action"];
-        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
-        [self.iphoneXmlWriter writeEndElement];
-        
-        [self.iphoneXmlWriter writeStartElement:@"TouchedElement_Details"];
-        [self.iphoneXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
-        [self.iphoneXmlWriter writeEndElement];
-        
+        //Add the mapping color and label
         [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
         [self.iphoneXmlWriter writeCharacters:edge[@"MappingColor"]];
         [self.iphoneXmlWriter writeEndElement];
         
         [self.iphoneXmlWriter writeStartElement:@"MappingLabel"];
         [self.iphoneXmlWriter writeCharacters:edge[@"MappingLabel"]];
-        [self.iphoneXmlWriter writeEndElement];
-        
-        [self.iphoneXmlWriter writeStartElement:@"Methods"];
-        [self.iphoneXmlWriter writeCharacters:[edge[@"Methods"] componentsJoinedByString:@"\n"]];
         [self.iphoneXmlWriter writeEndElement];
         
         [self.iphoneXmlWriter writeEndElement];
@@ -992,32 +965,45 @@
         [self.androidXmlWriter writeCharacters:edge[@"Target_State_ID"]];
         [self.androidXmlWriter writeEndElement];
         
-        [self.androidXmlWriter writeStartElement:@"TouchedElement_Type"];
-        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+        [self.androidXmlWriter writeStartElement:@"TouchedElement"];
+        if ([edge[@"TouchedElement_Type"] length]>0 || [edge[@"TouchedElement_Label"] length]>0||
+            [edge[@"TouchedElement_Action"] length]>0 || [edge[@"TouchedElement_Details"] length]>0)
+        {
+            [self.androidXmlWriter writeStartElement:@"UIElement_Type"];
+            [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Type"]];
+            [self.androidXmlWriter writeEndElement];
+        
+            [self.androidXmlWriter writeStartElement:@"UIElement_Label"];
+            [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+            [self.androidXmlWriter writeEndElement];
+        
+            [self.androidXmlWriter writeStartElement:@"UIElement_Action"];
+            [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
+            [self.androidXmlWriter writeEndElement];
+        
+            [self.androidXmlWriter writeStartElement:@"UIElement_Details"];
+            [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
+            [self.androidXmlWriter writeEndElement];
+        }
         [self.androidXmlWriter writeEndElement];
         
-        [self.androidXmlWriter writeStartElement:@"TouchedElement_Label"];
-        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Label"]];
+        [self.androidXmlWriter writeStartElement:@"Methods"];
+        for(NSString * method in edge[@"Methods"]){
+            if ([method length]>0) {
+                [self.androidXmlWriter writeStartElement:@"Method"];
+                [self.androidXmlWriter writeCharacters:[NSString stringWithFormat:@"%@", method]];
+                [self.androidXmlWriter writeEndElement];
+            }
+        }
         [self.androidXmlWriter writeEndElement];
         
-        [self.androidXmlWriter writeStartElement:@"TouchedElement_Action"];
-        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Action"]];
-        [self.androidXmlWriter writeEndElement];
-        
-        [self.androidXmlWriter writeStartElement:@"TouchedElement_Details"];
-        [self.androidXmlWriter writeCharacters:edge[@"TouchedElement_Details"]];
-        [self.androidXmlWriter writeEndElement];
-        
+        //Add the mapping color and label
         [self.androidXmlWriter writeStartElement:@"MappingColor"];
         [self.androidXmlWriter writeCharacters:edge[@"MappingColor"]];
         [self.androidXmlWriter writeEndElement];
         
         [self.androidXmlWriter writeStartElement:@"MappingLabel"];
         [self.androidXmlWriter writeCharacters:edge[@"MappingLabel"]];
-        [self.androidXmlWriter writeEndElement];
-        
-        [self.androidXmlWriter writeStartElement:@"Methods"];
-        [self.androidXmlWriter writeCharacters:[edge[@"Methods"] componentsJoinedByString:@"\n"]];
         [self.androidXmlWriter writeEndElement];
         
         [self.androidXmlWriter writeEndElement];
@@ -1066,11 +1052,11 @@
     
         [self.iphoneXmlWriter writeStartElement:@"UIElements"];
     
-        for(NSMutableDictionary *element in state[@"UIElements"]){
+        for(NSMutableDictionary *element in state[@"Elements"]){
     
             [self.iphoneXmlWriter writeStartElement:@"UIElement"];
         
-            [self.iphoneXmlWriter writeStartElement:@"State_ID"];
+            [self.iphoneXmlWriter writeStartElement:@"Parent_State_ID"];
             [self.iphoneXmlWriter writeCharacters:element[@"State_ID"]];
             [self.iphoneXmlWriter writeEndElement];
         
@@ -1142,11 +1128,11 @@
         
         [self.androidXmlWriter writeStartElement:@"UIElements"];
         
-        for(NSMutableDictionary *element in state[@"UIElements"]){
+        for(NSMutableDictionary *element in state[@"Elements"]){
             
             [self.androidXmlWriter writeStartElement:@"UIElement"];
             
-            [self.androidXmlWriter writeStartElement:@"State_ID"];
+            [self.androidXmlWriter writeStartElement:@"Parent_State_ID"];
             [self.androidXmlWriter writeCharacters:element[@"State_ID"]];
             [self.androidXmlWriter writeEndElement];
             
@@ -1215,8 +1201,8 @@
             //get the elements for the iphone next state
             NSMutableArray *elements = [NSMutableArray array];
             NSString *line;
-            for(int i=1; i< [[self.iphoneElementsCsv componentsSeparatedByString:@"\n"] count]; i++) {
-                line = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"][i];
+            for(int j=1; j< [[self.iphoneElementsCsv componentsSeparatedByString:@"\n"] count]; j++) {
+                line = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"][j];
                 if ([line length]>0) {
                     NSArray *rows = [line componentsSeparatedByString:@","];
                     NSMutableDictionary* element = [NSMutableDictionary dictionary];
@@ -1229,8 +1215,6 @@
                     
                     if ([row[@"State_ID"] isEqualToString:element[@"State_ID"]])
                         [elements addObject:element];
-                    else
-                        break;
                 }
             }
             
@@ -1260,8 +1244,8 @@
             //get the elements for the android next state
             NSMutableArray *elements = [NSMutableArray array];
             NSString *line;
-            for(int i=1; i< [[self.androidElementsCsv componentsSeparatedByString:@"\n"] count]; i++) {
-                line = [self.androidElementsCsv componentsSeparatedByString:@"\n"][i];
+            for(int j=1; j< [[self.androidElementsCsv componentsSeparatedByString:@"\n"] count]; j++) {
+                line = [self.androidElementsCsv componentsSeparatedByString:@"\n"][j];
                 if ([line length]>0) {
                     NSArray *rows = [line componentsSeparatedByString:@","];
                     NSMutableDictionary* element = [NSMutableDictionary dictionary];
@@ -1274,8 +1258,6 @@
                     
                     if ([row[@"State_ID"] isEqualToString:element[@"State_ID"]])
                         [elements addObject:element];
-                    else
-                        break;
                 }
             }
             
@@ -1736,7 +1718,7 @@
 	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
 	NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
-	//[fileHandler1 seekToEndOfFile];
+	[fileHandler1 seekToEndOfFile];
 	[fileHandler1 writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
 	[fileHandler1 closeFile];
 }
@@ -1746,7 +1728,7 @@
 	NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
 	NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
-	//[fileHandler2 seekToEndOfFile];
+	[fileHandler2 seekToEndOfFile];
 	[fileHandler2 writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
 	[fileHandler2 closeFile];
 }
