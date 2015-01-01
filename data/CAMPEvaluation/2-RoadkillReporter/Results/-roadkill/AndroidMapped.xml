@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>11/16/2014 9:19:38 PM</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>RoadkillTabActivity:onCreate</Method>
+		<Method>ReportActivity:onCreate</Method>
+		<Method>ReportActivity:onStart</Method>
+		<Method>ReportActivity:onResume</Method>
+		<Method>ReportActivity:isPaused</Method>
+		<Method>asyncDone(AsyncReporter:Payload)</Method>
+		<Method>ReportActivity:showDialog</Method>
+		<Method>ReportActivity:showDialog</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onStatusChanged</Method>
+		<Method>ReportActivity:onPause</Method>
+		<Method>ViewReportsActivity:onCreate</Method>
+		<Method>ViewReportsActivity:onResume</Method>
+		<Method>ViewReportsActivity:refreshReports</Method>
+		<Method>ViewReportsActivity:isPaused</Method>
+		<Method>asyncDone(AsyncReporter:Payload)</Method>
+		<Method>ViewReportsActivity:showReports</Method>
+		<Method>AboutActivity:onCreate</Method>
+		<Method>ReportActivity:onResume</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/16/2014 9:19:47 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>IamgeButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action>onClick</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>ReportActivity:onClick</Method>
+		<Method>ReportActivity:showDialog</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/16/2014 9:19:48 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>ReportActivity:reportRaccoon</Method>
+		<Method>ReportActivity:isPaused</Method>
+		<Method>asyncDone(AsyncReporter:Payload)</Method>
+		<Method>ReportActivity:showDialog</Method>
+		<Method>ReportActivity:showDialog</Method>
+		<Method>ReportActivity:onPause</Method>
+		<Method>ViewReportsActivity:onResume</Method>
+		<Method>ViewReportsActivity:refreshReports</Method>
+		<Method>ViewReportsActivity:isPaused</Method>
+		<Method>asyncDone(AsyncReporter:Payload)</Method>
+		<Method>ViewReportsActivity:showReports</Method>
+		<Method>ReportActivity:onStop</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onStatusChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onStatusChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onStatusChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+		<Method>ReportActivity:onLocationChanged</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>11/16/2014 9:19:46 PM</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>ReportActivity </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>18</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'Report' vs. Android '' 
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E10</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Report</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E12</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E13</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Past Reports</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E15</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E16</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>About</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E24</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E25</UIElement_ID>
+			<UIElement_Type>ProgressBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E26</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Roadkill Reporter</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E27</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Click Raccoon to Report</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E34</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E35</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Please refine the location of any reports with this icon</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E36</UIElement_ID>
+			<UIElement_Type>ListView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details>1</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E38</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Raccoon</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E39</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Today</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E40</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E45</UIElement_ID>
+			<UIElement_Type>ScrollView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E46</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Thank you for participating!  Roadkill Reporter is a mobile app that allows you to participate in a parasitology project exploring the genetics and distribution of the raccoon roundworm; an intestinal parasite infecting 60–80% of raccoons in the Midwest. Specimens for this project come primarily from road–killed raccoons; and this app allows you to pinpoint and report the location of a roadkill. The principal investigators of this project will see the location of your entry on a map; and be able to retrieve the specimen for analysis.  Things to consider • Please do NOT use this app while driving! Please pull over before reporting. • You will have the option later of refining the location of the roadkill you saw. • Don’t touch the roadkill! That’s our job. • Raccoons only please. • Your participation is completely anonymous • This project is based on samples obtained from West Michigan only; so reports out of that location will not be monitored.  Credits Developer: Caleb Gomer Artwork: Jen Gagne Advisors: • Doug Graham; Biomedical Sciences • Greg Wolffe; Computer Science Tab Icons: www.icons8.com</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

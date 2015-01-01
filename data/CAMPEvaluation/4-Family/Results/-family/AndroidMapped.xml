@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:25:51 PM</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>LoginActivity:onCreate</Method>
+		<Method>GuidActivity:onCreate</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:25:54 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>GuidActivity:onClickImage</Method>
+	</Methods>
+	<MappingColor>20</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:25:54 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>GuidActivity:onClickImage</Method>
+	</Methods>
+	<MappingColor>20</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:25:55 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>GuidActivity:onClickImage</Method>
+		<Method>LoginActivity:onCreate</Method>
+		<Method>SignInActivitiy:onCreate</Method>
+	</Methods>
+	<MappingColor>47</MappingColor>
+	<MappingLabel>MappedID3</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:02 PM</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S5</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>SignInActivitiy:onClickSign</Method>
+		<Method>RegisterActivity:onCreate</Method>
+	</Methods>
+	<MappingColor>49</MappingColor>
+	<MappingLabel>MappedID4</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:05 PM</TimeStamp>
+	<Source_State_ID>S5</Source_State_ID>
+	<Target_State_ID>S5</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>RegisterActivity:onClickReg</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:07 PM</TimeStamp>
+	<Source_State_ID>S5</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>RegisterActivity:onClickReg</Method>
+		<Method>SignInActivitiy:onCreate</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:10 PM</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>SignInActivitiy:onClickSign</Method>
+	</Methods>
+	<MappingColor>29</MappingColor>
+	<MappingLabel>MappedID5</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:14 PM</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>ImageButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>SignInActivitiy:onClickSign</Method>
+	</Methods>
+	<MappingColor>29</MappingColor>
+	<MappingLabel>MappedID6</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>12/01/2014 5:26:19 PM</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label>找回密码</UIElement_Label>
+		<UIElement_Action>onClickSign</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>SignInActivitiy:onClickSign</Method>
+	</Methods>
+	<MappingColor>43</MappingColor>
+	<MappingLabel>MappedID7</MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>12/01/2014 5:25:52 PM</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>GuidActivity </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>0</MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>ViewPager</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>12/01/2014 5:26:00 PM</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>SignInActivitiy </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>13</State_NumberOfElements>
+	<MappingLabel>MappedID2</MappingLabel>
+	<MappingColor>0</MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>登录</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E10</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E11</UIElement_ID>
+			<UIElement_Type>CheckBox</UIElement_Type>
+			<UIElement_Label>自动登录</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E12</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E13</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>忘记密码？</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E14</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E15</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>找回密码</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E17</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E18</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E19</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>12/01/2014 5:26:02 PM</TimeStamp>
+	<State_ID>S5</State_ID>
+	<State_ClassName>RegisterActivity </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>10</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>注册</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E10</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E11</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>点击获取验证码</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E12</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E14</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E15</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E16</UIElement_ID>
+			<UIElement_Type>ImageButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

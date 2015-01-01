@@ -1,0 +1,4 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+11/12/2014 11:15:33 PM,S0,S1,,,,,Playing:onCreate;Playing:onStart;Playing:doBindService;Playing:onResume;Playing:setupPlaybackListeners;Playing:updateCurrentlyPlaying;,
+11/12/2014 11:15:35 PM,S1,S1,Button,Stop,onClick,,Playing:onClick;Playing:onCreateDialog;Playing:onPlaybackStarted;,
+11/12/2014 11:15:44 PM,S1,S1,Button,Play,onClick,,Playing:onClick;Playing:onPlaybackStopped;Playing:onPause;Playing:onStop;,

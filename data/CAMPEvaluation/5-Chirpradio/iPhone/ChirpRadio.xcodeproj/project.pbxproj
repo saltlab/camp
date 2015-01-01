@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* ChirpRadioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* ChirpRadioAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		2899E5220DE3E06400AC0155 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* PlayerViewController.xib */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		28D7ACF80DDB3853001CB0EB /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* PlayerViewController.m */; };
+		52052F9A119DC841007B6EAC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52052F99119DC841007B6EAC /* WebViewController.m */; };
+		52052F9C119DC85E007B6EAC /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52052F9B119DC85E007B6EAC /* WebViewController.xib */; };
+		52053007119DD0F5007B6EAC /* back_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 52053005119DD0F5007B6EAC /* back_small.png */; };
+		52053008119DD0F5007B6EAC /* forward_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 52053006119DD0F5007B6EAC /* forward_small.png */; };
+		5208F52E1191EDCB00B45F78 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5208F52C1191EDCB00B45F78 /* InfoViewController.m */; };
+		5208F52F1191EDCB00B45F78 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5208F52D1191EDCB00B45F78 /* InfoViewController.xib */; };
+		5208F5861192009200B45F78 /* info_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5208F5851192009200B45F78 /* info_small.png */; };
+		52117F521614835F0015C33A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52117F511614835F0015C33A /* Default-568h@2x.png */; };
+		524DB2E3154D837900A6D237 /* chirpRadiobackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DB2E2154D837900A6D237 /* chirpRadiobackground.png */; };
+		524FBA14117026C300EE8511 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 524FBA13117026C300EE8511 /* AudioStreamer.m */; };
+		524FBA17117026DE00EE8511 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524FBA16117026DE00EE8511 /* CFNetwork.framework */; };
+		524FBA1B117026E900EE8511 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524FBA1A117026E900EE8511 /* AudioToolbox.framework */; };
+		5258D4D11191BD52009B083E /* app-bg-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 5258D4CB1191BD52009B083E /* app-bg-info.png */; };
+		5258D4D21191BD52009B083E /* app-bg-noinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5258D4CC1191BD52009B083E /* app-bg-noinfo.png */; };
+		5258D4D31191BD52009B083E /* SettingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5258D4CD1191BD52009B083E /* SettingsIcon.png */; };
+		5258D4D41191BD52009B083E /* iPhoneAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5258D4CE1191BD52009B083E /* iPhoneAppIcon.png */; };
+		5258D4D51191BD52009B083E /* iPadAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5258D4CF1191BD52009B083E /* iPadAppIcon.png */; };
+		525FAFB1118CB26C004C6C9E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 525FAFB0118CB26C004C6C9E /* Entitlements.plist */; };
+		5273876511728FDB00C194D8 /* controlsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5273876411728FDB00C194D8 /* controlsBackground.png */; };
+		527387C71172AEA800C194D8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527387C61172AEA800C194D8 /* MediaPlayer.framework */; };
+		5280CE121172D21600C03044 /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5280CE101172D21600C03044 /* playButton.png */; };
+		5280CE2A1172D38A00C03044 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5280CE291172D38A00C03044 /* pauseButton.png */; };
+		5282B8851615083400B906BC /* bg-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282B8841615083400B906BC /* bg-568@2x.png */; };
+		528D6EF811D1C971005E2860 /* app-bg-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D6EF611D1C971005E2860 /* app-bg-info@2x.png */; };
+		528D6EF911D1C971005E2860 /* app-bg-noinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D6EF711D1C971005E2860 /* app-bg-noinfo@2x.png */; };
+		528D6F0211D1D52F005E2860 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D6EFF11D1D52F005E2860 /* SettingsIcon@2x.png */; };
+		528D6F0311D1D52F005E2860 /* iPhoneAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D6F0011D1D52F005E2860 /* iPhoneAppIcon@2x.png */; };
+		52A8BA5A1183277B0028E6A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A8BA591183277B0028E6A5 /* SystemConfiguration.framework */; };
+		52A8BA5D118327D00028E6A5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A8BA5C118327D00028E6A5 /* Reachability.m */; };
+		8870334214E6E86700764FBF /* Playlist.html in Resources */ = {isa = PBXBuildFile; fileRef = 8870334114E6E86700764FBF /* Playlist.html */; };
+		F96F35E419DF5DF70039003A /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35CF19DF5DF70039003A /* Aspects.m */; };
+		F96F35E519DF5DF70039003A /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35D219DF5DF70039003A /* UIApplication+Additions.m */; };
+		F96F35E619DF5DF70039003A /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35D419DF5DF70039003A /* UIViewController+Additions.m */; };
+		F96F35E719DF5DF70039003A /* OutputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35D719DF5DF70039003A /* OutputComponent.m */; };
+		F96F35E819DF5DF70039003A /* UIEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35D919DF5DF70039003A /* UIEdge.m */; };
+		F96F35E919DF5DF70039003A /* UIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35DB19DF5DF70039003A /* UIElement.m */; };
+		F96F35EA19DF5DF70039003A /* UIState.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35DD19DF5DF70039003A /* UIState.m */; };
+		F96F35EB19DF5DF70039003A /* DCIntrospect.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35E019DF5DF70039003A /* DCIntrospect.m */; };
+		F96F35EC19DF5DF70039003A /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F96F35E319DF5DF70039003A /* XMLWriter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* ChirpRadioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChirpRadioAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* ChirpRadioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChirpRadioAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* ChirpRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChirpRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2899E5210DE3E06400AC0155 /* PlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* ChirpRadio_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChirpRadio_Prefix.pch; sourceTree = "<group>"; };
+		52052F98119DC841007B6EAC /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		52052F99119DC841007B6EAC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		52052F9B119DC85E007B6EAC /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		52053005119DD0F5007B6EAC /* back_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_small.png; sourceTree = "<group>"; };
+		52053006119DD0F5007B6EAC /* forward_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_small.png; sourceTree = "<group>"; };
+		5208F52B1191EDCB00B45F78 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		5208F52C1191EDCB00B45F78 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		5208F52D1191EDCB00B45F78 /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoViewController.xib; path = Classes/InfoViewController.xib; sourceTree = "<group>"; };
+		5208F5851192009200B45F78 /* info_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_small.png; sourceTree = "<group>"; };
+		52117F511614835F0015C33A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		524DB2E2154D837900A6D237 /* chirpRadiobackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chirpRadiobackground.png; sourceTree = "<group>"; };
+		524FBA12117026C200EE8511 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		524FBA13117026C300EE8511 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		524FBA16117026DE00EE8511 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		524FBA1A117026E900EE8511 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5258D4CB1191BD52009B083E /* app-bg-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg-info.png"; sourceTree = "<group>"; };
+		5258D4CC1191BD52009B083E /* app-bg-noinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg-noinfo.png"; sourceTree = "<group>"; };
+		5258D4CD1191BD52009B083E /* SettingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsIcon.png; sourceTree = "<group>"; };
+		5258D4CE1191BD52009B083E /* iPhoneAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneAppIcon.png; sourceTree = "<group>"; };
+		5258D4CF1191BD52009B083E /* iPadAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadAppIcon.png; sourceTree = "<group>"; };
+		525FAFB0118CB26C004C6C9E /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		5273876411728FDB00C194D8 /* controlsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controlsBackground.png; sourceTree = "<group>"; };
+		527387C61172AEA800C194D8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5280CE101172D21600C03044 /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		5280CE291172D38A00C03044 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
+		5282B8841615083400B906BC /* bg-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-568@2x.png"; sourceTree = "<group>"; };
+		528D6EF611D1C971005E2860 /* app-bg-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg-info@2x.png"; sourceTree = "<group>"; };
+		528D6EF711D1C971005E2860 /* app-bg-noinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg-noinfo@2x.png"; sourceTree = "<group>"; };
+		528D6EFF11D1D52F005E2860 /* SettingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsIcon@2x.png"; sourceTree = "<group>"; };
+		528D6F0011D1D52F005E2860 /* iPhoneAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneAppIcon@2x.png"; sourceTree = "<group>"; };
+		52A8BA591183277B0028E6A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		52A8BA5B118327D00028E6A5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		52A8BA5C118327D00028E6A5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8870334114E6E86700764FBF /* Playlist.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Playlist.html; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* ChirpRadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChirpRadio-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F96F35CE19DF5DF70039003A /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		F96F35CF19DF5DF70039003A /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		F96F35D119DF5DF70039003A /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
+		F96F35D219DF5DF70039003A /* UIApplication+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Additions.m"; sourceTree = "<group>"; };
+		F96F35D319DF5DF70039003A /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
+		F96F35D419DF5DF70039003A /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
+		F96F35D619DF5DF70039003A /* OutputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputComponent.h; sourceTree = "<group>"; };
+		F96F35D719DF5DF70039003A /* OutputComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputComponent.m; sourceTree = "<group>"; };
+		F96F35D819DF5DF70039003A /* UIEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEdge.h; sourceTree = "<group>"; };
+		F96F35D919DF5DF70039003A /* UIEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEdge.m; sourceTree = "<group>"; };
+		F96F35DA19DF5DF70039003A /* UIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIElement.h; sourceTree = "<group>"; };
+		F96F35DB19DF5DF70039003A /* UIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIElement.m; sourceTree = "<group>"; };
+		F96F35DC19DF5DF70039003A /* UIState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIState.h; sourceTree = "<group>"; };
+		F96F35DD19DF5DF70039003A /* UIState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIState.m; sourceTree = "<group>"; };
+		F96F35DF19DF5DF70039003A /* DCIntrospect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCIntrospect.h; sourceTree = "<group>"; };
+		F96F35E019DF5DF70039003A /* DCIntrospect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCIntrospect.m; sourceTree = "<group>"; };
+		F96F35E219DF5DF70039003A /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLWriter.h; sourceTree = "<group>"; };
+		F96F35E319DF5DF70039003A /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLWriter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				524FBA17117026DE00EE8511 /* CFNetwork.framework in Frameworks */,
+				524FBA1B117026E900EE8511 /* AudioToolbox.framework in Frameworks */,
+				527387C71172AEA800C194D8 /* MediaPlayer.framework in Frameworks */,
+				52A8BA5A1183277B0028E6A5 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				524FBA12117026C200EE8511 /* AudioStreamer.h */,
+				524FBA13117026C300EE8511 /* AudioStreamer.m */,
+				52A8BA5B118327D00028E6A5 /* Reachability.h */,
+				52A8BA5C118327D00028E6A5 /* Reachability.m */,
+				1D3623240D0F684500981E51 /* ChirpRadioAppDelegate.h */,
+				1D3623250D0F684500981E51 /* ChirpRadioAppDelegate.m */,
+				28D7ACF60DDB3853001CB0EB /* PlayerViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* PlayerViewController.m */,
+				5208F52B1191EDCB00B45F78 /* InfoViewController.h */,
+				5208F52C1191EDCB00B45F78 /* InfoViewController.m */,
+				52052F98119DC841007B6EAC /* WebViewController.h */,
+				52052F99119DC841007B6EAC /* WebViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* ChirpRadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35CC19DF5DF70039003A /* DynamicAnalyzer */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* ChirpRadio_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				2899E5210DE3E06400AC0155 /* PlayerViewController.xib */,
+				5208F52D1191EDCB00B45F78 /* InfoViewController.xib */,
+				52052F9B119DC85E007B6EAC /* WebViewController.xib */,
+				8D1107310486CEB800E47090 /* ChirpRadio-Info.plist */,
+				525FAFB0118CB26C004C6C9E /* Entitlements.plist */,
+				52117F511614835F0015C33A /* Default-568h@2x.png */,
+				5282B8841615083400B906BC /* bg-568@2x.png */,
+				5258D4CB1191BD52009B083E /* app-bg-info.png */,
+				528D6EF611D1C971005E2860 /* app-bg-info@2x.png */,
+				5258D4CC1191BD52009B083E /* app-bg-noinfo.png */,
+				528D6EF711D1C971005E2860 /* app-bg-noinfo@2x.png */,
+				524DB2E2154D837900A6D237 /* chirpRadiobackground.png */,
+				5258D4CE1191BD52009B083E /* iPhoneAppIcon.png */,
+				528D6F0011D1D52F005E2860 /* iPhoneAppIcon@2x.png */,
+				5258D4CD1191BD52009B083E /* SettingsIcon.png */,
+				528D6EFF11D1D52F005E2860 /* SettingsIcon@2x.png */,
+				5258D4CF1191BD52009B083E /* iPadAppIcon.png */,
+				52053005119DD0F5007B6EAC /* back_small.png */,
+				52053006119DD0F5007B6EAC /* forward_small.png */,
+				5208F5851192009200B45F78 /* info_small.png */,
+				5273876411728FDB00C194D8 /* controlsBackground.png */,
+				5280CE101172D21600C03044 /* playButton.png */,
+				5280CE291172D38A00C03044 /* pauseButton.png */,
+				8870334114E6E86700764FBF /* Playlist.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				524FBA16117026DE00EE8511 /* CFNetwork.framework */,
+				524FBA1A117026E900EE8511 /* AudioToolbox.framework */,
+				527387C61172AEA800C194D8 /* MediaPlayer.framework */,
+				52A8BA591183277B0028E6A5 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F96F35CC19DF5DF70039003A /* DynamicAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35CD19DF5DF70039003A /* Aspects */,
+				F96F35D019DF5DF70039003A /* CategoryExtension */,
+				F96F35D519DF5DF70039003A /* Controller */,
+				F96F35DE19DF5DF70039003A /* DCIntrospect-Modified */,
+				F96F35E119DF5DF70039003A /* XML */,
+			);
+			path = DynamicAnalyzer;
+			sourceTree = "<group>";
+		};
+		F96F35CD19DF5DF70039003A /* Aspects */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35CE19DF5DF70039003A /* Aspects.h */,
+				F96F35CF19DF5DF70039003A /* Aspects.m */,
+			);
+			path = Aspects;
+			sourceTree = "<group>";
+		};
+		F96F35D019DF5DF70039003A /* CategoryExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35D119DF5DF70039003A /* UIApplication+Additions.h */,
+				F96F35D219DF5DF70039003A /* UIApplication+Additions.m */,
+				F96F35D319DF5DF70039003A /* UIViewController+Additions.h */,
+				F96F35D419DF5DF70039003A /* UIViewController+Additions.m */,
+			);
+			path = CategoryExtension;
+			sourceTree = "<group>";
+		};
+		F96F35D519DF5DF70039003A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35D619DF5DF70039003A /* OutputComponent.h */,
+				F96F35D719DF5DF70039003A /* OutputComponent.m */,
+				F96F35D819DF5DF70039003A /* UIEdge.h */,
+				F96F35D919DF5DF70039003A /* UIEdge.m */,
+				F96F35DA19DF5DF70039003A /* UIElement.h */,
+				F96F35DB19DF5DF70039003A /* UIElement.m */,
+				F96F35DC19DF5DF70039003A /* UIState.h */,
+				F96F35DD19DF5DF70039003A /* UIState.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F96F35DE19DF5DF70039003A /* DCIntrospect-Modified */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35DF19DF5DF70039003A /* DCIntrospect.h */,
+				F96F35E019DF5DF70039003A /* DCIntrospect.m */,
+			);
+			path = "DCIntrospect-Modified";
+			sourceTree = "<group>";
+		};
+		F96F35E119DF5DF70039003A /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				F96F35E219DF5DF70039003A /* XMLWriter.h */,
+				F96F35E319DF5DF70039003A /* XMLWriter.m */,
+			);
+			path = XML;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* ChirpRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ChirpRadio" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChirpRadio;
+			productName = ChirpRadio;
+			productReference = 1D6058910D05DD3D006BFB54 /* ChirpRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ChirpRadio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* ChirpRadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* PlayerViewController.xib in Resources */,
+				5273876511728FDB00C194D8 /* controlsBackground.png in Resources */,
+				5280CE121172D21600C03044 /* playButton.png in Resources */,
+				5280CE2A1172D38A00C03044 /* pauseButton.png in Resources */,
+				525FAFB1118CB26C004C6C9E /* Entitlements.plist in Resources */,
+				5258D4D11191BD52009B083E /* app-bg-info.png in Resources */,
+				5258D4D21191BD52009B083E /* app-bg-noinfo.png in Resources */,
+				5258D4D31191BD52009B083E /* SettingsIcon.png in Resources */,
+				5258D4D41191BD52009B083E /* iPhoneAppIcon.png in Resources */,
+				5258D4D51191BD52009B083E /* iPadAppIcon.png in Resources */,
+				5208F52F1191EDCB00B45F78 /* InfoViewController.xib in Resources */,
+				5208F5861192009200B45F78 /* info_small.png in Resources */,
+				52052F9C119DC85E007B6EAC /* WebViewController.xib in Resources */,
+				52053007119DD0F5007B6EAC /* back_small.png in Resources */,
+				52053008119DD0F5007B6EAC /* forward_small.png in Resources */,
+				528D6EF811D1C971005E2860 /* app-bg-info@2x.png in Resources */,
+				528D6EF911D1C971005E2860 /* app-bg-noinfo@2x.png in Resources */,
+				528D6F0211D1D52F005E2860 /* SettingsIcon@2x.png in Resources */,
+				528D6F0311D1D52F005E2860 /* iPhoneAppIcon@2x.png in Resources */,
+				8870334214E6E86700764FBF /* Playlist.html in Resources */,
+				524DB2E3154D837900A6D237 /* chirpRadiobackground.png in Resources */,
+				52117F521614835F0015C33A /* Default-568h@2x.png in Resources */,
+				5282B8851615083400B906BC /* bg-568@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96F35E919DF5DF70039003A /* UIElement.m in Sources */,
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* ChirpRadioAppDelegate.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* PlayerViewController.m in Sources */,
+				F96F35EC19DF5DF70039003A /* XMLWriter.m in Sources */,
+				524FBA14117026C300EE8511 /* AudioStreamer.m in Sources */,
+				F96F35EB19DF5DF70039003A /* DCIntrospect.m in Sources */,
+				F96F35E619DF5DF70039003A /* UIViewController+Additions.m in Sources */,
+				52A8BA5D118327D00028E6A5 /* Reachability.m in Sources */,
+				F96F35E519DF5DF70039003A /* UIApplication+Additions.m in Sources */,
+				F96F35E719DF5DF70039003A /* OutputComponent.m in Sources */,
+				F96F35EA19DF5DF70039003A /* UIState.m in Sources */,
+				5208F52E1191EDCB00B45F78 /* InfoViewController.m in Sources */,
+				52052F9A119DC841007B6EAC /* WebViewController.m in Sources */,
+				F96F35E819DF5DF70039003A /* UIEdge.m in Sources */,
+				F96F35E419DF5DF70039003A /* Aspects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ChirpRadio_Prefix.pch;
+				INFOPLIST_FILE = "ChirpRadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = ChirpRadio;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ChirpRadio_Prefix.pch;
+				INFOPLIST_FILE = "ChirpRadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = ChirpRadio;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		525FAFAD118CB1FD004C6C9E /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		525FAFAE118CB1FD004C6C9E /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ChirpRadio_Prefix.pch;
+				INFOPLIST_FILE = "ChirpRadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = ChirpRadio;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ChirpRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				525FAFAE118CB1FD004C6C9E /* Ad Hoc Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ChirpRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				525FAFAD118CB1FD004C6C9E /* Ad Hoc Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

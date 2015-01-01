@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+	<Edge>
+		<TimeStamp>11/12/2014 11:15:33 PM</TimeStamp>
+		<Source_State_ID>S0</Source_State_ID>
+		<Target_State_ID>S1</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Playing:onCreate</Method>
+			<Method>Playing:onStart</Method>
+			<Method>Playing:doBindService</Method>
+			<Method>Playing:onResume</Method>
+			<Method>Playing:setupPlaybackListeners</Method>
+			<Method>Playing:updateCurrentlyPlaying</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/12/2014 11:15:33 PM</TimeStamp>
+		<State_ID>S1</State_ID>
+		<State_ClassName>Playing </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>3</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E6</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Play</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System
+
+Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>RECENTLY PLAYED
+John Coltrane - Acknowledgement from A Love Supreme (Impulse!)
+
+The Beta Band - Dry The Rain from The Three EP's (Astralwerks)
+
+DELS - Pack of Wolves from Petals Have Fallen (Big Dada)
+
+Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)
+
+Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/12/2014 11:15:35 PM</TimeStamp>
+		<Source_State_ID>S1</Source_State_ID>
+		<Target_State_ID>S2</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Stop</UIElement_Label>
+			<UIElement_Action>onClick</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Playing:onClick</Method>
+			<Method>Playing:onCreateDialog</Method>
+			<Method>Playing:onPlaybackStarted</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/12/2014 11:15:41 PM</TimeStamp>
+		<State_ID>S2</State_ID>
+		<State_ClassName>Playing </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>3</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E6</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Stop</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System
+
+Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>RECENTLY PLAYED
+John Coltrane - Acknowledgement from A Love Supreme (Impulse!)
+
+The Beta Band - Dry The Rain from The Three EP's (Astralwerks)
+
+DELS - Pack of Wolves from Petals Have Fallen (Big Dada)
+
+Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)
+
+Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/12/2014 11:15:44 PM</TimeStamp>
+		<Source_State_ID>S2</Source_State_ID>
+		<Target_State_ID>S3</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Play</UIElement_Label>
+			<UIElement_Action>onClick</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Playing:onClick</Method>
+			<Method>Playing:onPlaybackStopped</Method>
+			<Method>Playing:onPause</Method>
+			<Method>Playing:onStop</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/12/2014 11:15:48 PM</TimeStamp>
+		<State_ID>S3</State_ID>
+		<State_ClassName>Playing </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>3</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E6</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Play</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System
+
+Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>RECENTLY PLAYED
+John Coltrane - Acknowledgement from A Love Supreme (Impulse!)
+
+The Beta Band - Dry The Rain from The Three EP's (Astralwerks)
+
+DELS - Pack of Wolves from Petals Have Fallen (Big Dada)
+
+Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)
+
+Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+</Model>

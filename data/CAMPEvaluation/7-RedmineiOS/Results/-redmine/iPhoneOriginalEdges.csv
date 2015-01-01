@@ -1,0 +1,9 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+1415828879.091403,S0,S1,,,,,[AppDelegate: application:didFinishLaunchingWithOptions:];[AppDelegate: applicationDidBecomeActive:];,
+1415828933.661197,S1,S2,UIButton,Войти,perform:,,[FirstViewController: viewDidLoad];,
+1415828933.661197,S1,S2,UIButton,Войти,perform:,,,
+1415828973.375032,S2,S3,UITabBarButton,Моя страница,itemClicked,,,
+1415828985.817770,S3,S4,UITabBarButton,Проекты,itemClicked,,,
+1415829000.947410,S4,S5,UIView,,,,,
+1415829047.951088,S5,S6,UITabBarButton,Домашняя,itemClicked,,,
+1415829056.671649,S6,S7,UIView,,,,,

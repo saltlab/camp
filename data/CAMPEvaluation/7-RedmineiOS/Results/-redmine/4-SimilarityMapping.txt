@@ -1,0 +1,101 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            UIViewController            4
+S2            FirstViewController      First      4
+S3            SecondViewController      Second      4
+S4            UIViewController            1
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            enter                 4
+S2            project_main                 21
+S4            project_task                 18
+S5            projects                 5
+S6            home                 5
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (Button, Войти, onClick, )
+S2 -> S2      (Button, , onClick, )
+S2 -> S4      (Button, My Page, onClick, )
+S4 -> S5      (Button, Projects, onClick, )
+S5 -> S6      (Button, Home, onClick, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (UIButton, Войти, perform:, )
+S1 -> S2      (UIButton, Войти, perform:, )
+S2 -> S3      (UITabBarButton, Моя страница, itemClicked, )
+S3 -> S4      (UITabBarButton, Проекты, itemClicked, )
+S4 -> S4      (UIView, , , )
+S4 -> S2      (UITabBarButton, Домашняя, itemClicked, )
+S2 -> S2      (UIView, , , )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 2 
+Inconsistency in the element: iPhone (UITextField,,) vs. Android (EditText,d.salskiy,)
+Inconsistency in the element: iPhone (UITextField,,) vs. Android (EditText,salskiy,)
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S2 (Войти, perform:, UIButton) 
+androidEdge: S1->S2 (Войти, onClick, Button) 
+Mapping ID: MappedID1
+Diff: 58 
+
+***Closest States
+iPhoneState: S2 
+androidState: S2
+Mapping ID: MappedID2
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'First' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S3 (Моя страница, itemClicked, UITabBarButton) 
+androidEdge: S2->S4 (My Page, onClick, Button) 
+Mapping ID: MappedID2
+Diff: 81 
+
+***Closest States
+iPhoneState: S3 
+androidState: S4
+Mapping ID: MappedID3
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Second' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S3->S4 (Проекты, itemClicked, UITabBarButton) 
+androidEdge: S4->S5 (Projects, onClick, Button) 
+Mapping ID: MappedID4
+Diff: 66 
+
+***Closest States
+iPhoneState: S4 
+androidState: S5
+Mapping ID: MappedID4
+Number of Inconsistencies (Title, Elements): 0 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S4->S2 (Домашняя, itemClicked, UITabBarButton) 
+androidEdge: S5->S6 (Home, onClick, Button) 
+Mapping ID: MappedID5
+Diff: 91 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S2 (, , UIView) 
+androidEdge: S2->S2 (, onClick, Button) 
+Mapping ID: MappedID3
+Diff: 78 

@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:20 PM</TimeStamp>
+		<Source_State_ID>S0</Source_State_ID>
+		<Target_State_ID>S1</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:20 PM</TimeStamp>
+		<State_ID>S1</State_ID>
+		<State_ClassName>QuickReferenceActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>1</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:45 PM</TimeStamp>
+		<Source_State_ID>S1</Source_State_ID>
+		<Target_State_ID>S2</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuButton</UIElement_Type>
+			<UIElement_Label>MenuButton</UIElement_Label>
+			<UIElement_Action>MenuButtonClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onCreateOptionsMenu</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:45 PM</TimeStamp>
+		<State_ID>S2</State_ID>
+		<State_ClassName>QuickReferenceActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>7</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E6</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Penalties</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Layers / Casting Spells</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Resolving Spells / Copiable Characteristics</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Types of Information</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Head Judge Announcement</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E11</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Reviews / Feedback</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:46 PM</TimeStamp>
+		<Source_State_ID>S2</Source_State_ID>
+		<Target_State_ID>S3</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuItem</UIElement_Type>
+			<UIElement_Label>[Comp. Rules]</UIElement_Label>
+			<UIElement_Action>MenuItemClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onOptionsItemSelected</Method>
+			<Method>CompRulesActivity:onCreate</Method>
+			<Method>CompRulesActivity:lookUpModeSetup</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:46 PM</TimeStamp>
+		<State_ID>S3</State_ID>
+		<State_ClassName>CompRulesActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>6</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Cancel</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Glossary Entries</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Rules Text</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E14</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>10</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:48 PM</TimeStamp>
+		<Source_State_ID>S3</Source_State_ID>
+		<Target_State_ID>S4</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>1. Game Concepts</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:onListItemClick</Method>
+			<Method>CompRulesDetailActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:48 PM</TimeStamp>
+		<State_ID>S4</State_ID>
+		<State_ClassName>CompRulesDetailActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>22</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:52 PM</TimeStamp>
+		<Source_State_ID>S4</Source_State_ID>
+		<Target_State_ID>S5</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>100. General</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesDetailActivity:onListItemClick</Method>
+			<Method>CompRulesDisplayActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:52 PM</TimeStamp>
+		<State_ID>S5</State_ID>
+		<State_ClassName>CompRulesDisplayActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S5</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S5</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>100. General
+
+100.1. These _Magic_ rules apply to any _Magic_ game with two or more players, including two-player games and multiplayer games.
+
+100.1a A two-player game is a game that begins with only two players.
+
+100.1b A multiplayer game is a game that begins with more than two players. See section 8, &quot;Multiplayer Rules.&quot;
+
+100.2. To play, each player needs his or her own deck of traditional _Magic_ cards, small items to represent any tokens and counters, and some way to clearly track life totals.
+
+100.2a In constructed play (a way of playing in which each player creates his or her own deck ahead of time), each deck must contain at least sixty cards. A constructed deck may contain any number of basic land cards and no more than four of any card with a particular English name other than basic land cards.
+
+100.2b In limited play (a way of playing in which each player gets the same quantity of unopened _Magic_ product and creates his or her own deck using only this product), each deck must contain at least forty cards. A limited deck may contain as many duplicates of a card as are included with the product.
+
+100.3. Some casual variants require additional items, such as specially designated cards, nontraditional _Magic_ cards, and dice. See section 9, &quot;Casual Variants.&quot;
+
+100.4. Each player may also have a sideboard, which is a group of additional cards the player may use to modify his or her deck between games of a match.
+
+100.4a In constructed play, sideboards are optional, but must contain exactly fifteen cards if used. The four-card limit (see rule 100.2a) applies to the combined deck and sideboard.
+
+100.4b In limited play involving individual players, all cards a player opens but doesn't include in his or her deck are in that player's sideboard.
+
+100.4c In limited play involving the Two-Headed Giant multiplayer variant, all cards a team opens but doesn't include in either player's deck are in that team's sideboard.
+
+100.4d In limited play involving other multiplayer team variants, each card a team opens but doesn't include in any player's deck is assigned to the sideboard of one of those players. Each player has his or her own sideboard; cards may not be transferred between players.
+
+100.5. There is no maximum deck size.
+
+100.6. Most _Magic_ tournaments (organized play activities where players compete against other players to win prizes) have additional rules covered in the _Magic: The Gathering_ Tournament Rules (found at www.wizards.com/wpn/Events/Rules.aspx). These rules may limit the use of some cards, including barring all cards from some older sets.
+
+100.6a Tournaments usually consist of a series of matches. A two-player match usually involves playing until one player has won two games. A multiplayer match usually consists of only one game.
+
+100.6b Players can use the _Magic_ Store &amp; Event Locator at www.wizards.com/locator to find tournaments in their area.</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:57 PM</TimeStamp>
+		<Source_State_ID>S5</Source_State_ID>
+		<Target_State_ID>S6</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:searchModeSetup</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:57 PM</TimeStamp>
+		<State_ID>S6</State_ID>
+		<State_ClassName>CompRulesActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>15</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Cancel</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Glossary Entries</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Rules Text</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E14</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>10</UIElement_Details>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>1. Game Concepts</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>2. Parts of a Card</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E17</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>3. Card Types</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E18</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>4. Zones</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>5. Turn Structure</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>6. Spells, Abilities, and Effects</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E21</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>7. Additional Rules</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E22</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>8. Multiplayer Rules</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E23</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>9. Casual Variants</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:59 PM</TimeStamp>
+		<Source_State_ID>S6</Source_State_ID>
+		<Target_State_ID>S7</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:doSearch</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:59 PM</TimeStamp>
+		<State_ID>S7</State_ID>
+		<State_ClassName>CompRulesActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>6</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Cancel</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Glossary Entries</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Rules Text</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E14</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>10</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:27:59 PM</TimeStamp>
+		<Source_State_ID>S7</Source_State_ID>
+		<Target_State_ID>S8</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:lookUpModeSetup</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:27:59 PM</TimeStamp>
+		<State_ID>S8</State_ID>
+		<State_ClassName>CompRulesActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>6</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Cancel</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Glossary Entries</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Rules Text</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E14</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>10</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:02 PM</TimeStamp>
+		<Source_State_ID>S8</Source_State_ID>
+		<Target_State_ID>S9</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuButton</UIElement_Type>
+			<UIElement_Label>MenuButton</UIElement_Label>
+			<UIElement_Action>MenuButtonClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:onCreateOptionsMenu</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:02 PM</TimeStamp>
+		<State_ID>S9</State_ID>
+		<State_ClassName>CompRulesActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>11</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Cancel</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Glossary Entries</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Rules Text</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E14</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>10</UIElement_Details>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>1. Game Concepts</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>2. Parts of a Card</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E17</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>3. Card Types</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E18</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>4. Zones</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S9</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>5. Turn Structure</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:03 PM</TimeStamp>
+		<Source_State_ID>S9</Source_State_ID>
+		<Target_State_ID>S10</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuItem</UIElement_Type>
+			<UIElement_Label>[DL Counter]</UIElement_Label>
+			<UIElement_Action>MenuItemClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:onOptionsItemSelected</Method>
+			<Method>DeckListCounterActivity:onCreate</Method>
+			<Method>DeckListCounterActivity:updateLabel</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:03 PM</TimeStamp>
+		<State_ID>S10</State_ID>
+		<State_ClassName>DeckListCounterActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>8</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Total: 0</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>1</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>3</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>2</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>4</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Reset</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S10</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Undo</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:06 PM</TimeStamp>
+		<Source_State_ID>S10</Source_State_ID>
+		<Target_State_ID>S11</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>clicked2</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>DeckListCounterActivity:clicked2</Method>
+			<Method>DeckListCounterActivity:updateLabel</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:06 PM</TimeStamp>
+		<State_ID>S11</State_ID>
+		<State_ClassName>DeckListCounterActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>8</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Total: 2 (+2)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>1</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>3</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>2</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>4</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Reset</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S11</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Undo</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:07 PM</TimeStamp>
+		<Source_State_ID>S11</Source_State_ID>
+		<Target_State_ID>S12</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>clickedUndo</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>DeckListCounterActivity:clickedUndo</Method>
+			<Method>DeckListCounterActivity:updateLabel</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:07 PM</TimeStamp>
+		<State_ID>S12</State_ID>
+		<State_ClassName>DeckListCounterActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>8</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Total: 0</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>1</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>3</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>2</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>4</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Reset</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S12</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Undo</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:09 PM</TimeStamp>
+		<Source_State_ID>S12</Source_State_ID>
+		<Target_State_ID>S13</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>clicked4</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>DeckListCounterActivity:clicked4</Method>
+			<Method>DeckListCounterActivity:updateLabel</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:09 PM</TimeStamp>
+		<State_ID>S13</State_ID>
+		<State_ClassName>DeckListCounterActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>8</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Total: 4 (+4)</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>1</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>3</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>2</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>4</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Reset</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S13</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Undo</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:10 PM</TimeStamp>
+		<Source_State_ID>S13</Source_State_ID>
+		<Target_State_ID>S14</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>clickedReset</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>DeckListCounterActivity:clickedReset</Method>
+			<Method>DeckListCounterActivity:updateLabel</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:10 PM</TimeStamp>
+		<State_ID>S14</State_ID>
+		<State_ClassName>DeckListCounterActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>8</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>MTGJudge</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Total: 0</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E12</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>1</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E13</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>3</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E15</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>2</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E16</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>4</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E19</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Reset</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S14</Parent_State_ID>
+				<UIElement_ID>E20</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label>Undo</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/02/2014 9:28:17 PM</TimeStamp>
+		<Source_State_ID>S14</Source_State_ID>
+		<Target_State_ID>S15</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuItem</UIElement_Type>
+			<UIElement_Label>[Quick Ref.]</UIElement_Label>
+			<UIElement_Action>MenuItemClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>CompRulesActivity:onOptionsItemSelected</Method>
+			<Method>QuickReferenceActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/02/2014 9:28:18 PM</TimeStamp>
+		<State_ID>S15</State_ID>
+		<State_ClassName>QuickReferenceActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>1</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S15</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+</Model>

@@ -1,0 +1,11 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+12/01/2014 5:25:51 PM,S0,S1,,,,,LoginActivity:onCreate;GuidActivity:onCreate;,
+12/01/2014 5:25:54 PM,S1,S1,ImageView,,,,GuidActivity:onClickImage;,
+12/01/2014 5:25:54 PM,S1,S1,ImageView,,,,GuidActivity:onClickImage;,
+12/01/2014 5:25:55 PM,S1,S4,ImageView,,,,GuidActivity:onClickImage;LoginActivity:onCreate;SignInActivitiy:onCreate;,
+12/01/2014 5:26:02 PM,S4,S5,ImageButton,,,,SignInActivitiy:onClickSign;RegisterActivity:onCreate;,
+12/01/2014 5:26:05 PM,S5,S5,ImageButton,,,,RegisterActivity:onClickReg;,
+12/01/2014 5:26:07 PM,S5,S4,ImageButton,,,,RegisterActivity:onClickReg;SignInActivitiy:onCreate;,
+12/01/2014 5:26:10 PM,S4,S4,ImageButton,,,,SignInActivitiy:onClickSign;,
+12/01/2014 5:26:14 PM,S4,S4,ImageButton,,,,SignInActivitiy:onClickSign;,
+12/01/2014 5:26:19 PM,S4,S4,Button,找回密码,onClickSign,,SignInActivitiy:onClickSign;,

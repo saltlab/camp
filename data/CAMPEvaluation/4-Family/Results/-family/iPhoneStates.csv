@@ -1,0 +1,5 @@
+TimeStamp,State_ID,State_ClassName,State_Title,State_ScreenshotPath,State_NumberOfElements
+1417557875.992851,S1,GuideViewController,,S-1417557875.992987-1.jpg,6,
+1417557949.476382,S6,LoginViewController,,S-1417557949.476472-6.jpg,25,
+1417557978.742636,S8,SignInViewController,,S-1417557978.742792-8.jpg,21,
+1417558100.161162,S20,ChangePwViewController,,S-1417558100.161253-20.jpg,10,

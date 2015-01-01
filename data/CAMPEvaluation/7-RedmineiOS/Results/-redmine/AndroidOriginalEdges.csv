@@ -1,0 +1,7 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+12/08/2014 7:32:34 PM,S0,S1,,,,,enter:onCreate;,
+12/08/2014 7:35:59 PM,S1,S2,Button,Войти,onClick,,enter:onClick;home:onCreate;project_main:onCreate;,
+12/08/2014 7:36:41 PM,S2,S3,Button,,onClick,,project_main:onClick;,
+12/08/2014 7:36:47 PM,S3,S4,Button,My Page,onClick,,home:onClick;mypage:onCreate;project_task:onCreate;,
+12/08/2014 7:37:16 PM,S4,S5,Button,Projects,onClick,,mypage:onClick;projects:onCreate;,
+12/08/2014 7:37:28 PM,S5,S6,Button,Home,onClick,,mypage:onClick;home:onCreate;,

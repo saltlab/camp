@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F64CBB2F-97D8-43DB-927B-83C1BB3EAD6D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>roadkill_reporter_ios</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2C3ED0E2-834A-4208-ADBA-E5322AA2432F</key>
+		<string>https://dev.ece.ubc.ca/svn/saltlab</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/students/mona/research/mapping/AppComparision/working Proj/Roadkill_Reporter_iOS-master/roadkill_reporter_ios.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2C3ED0E2-834A-4208-ADBA-E5322AA2432F</key>
+		<string>../../../../../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>2C3ED0E2-834A-4208-ADBA-E5322AA2432F</key>
+		<string>https://dev.ece.ubc.ca/svn/saltlab</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://dev.ece.ubc.ca/svn/saltlab/trunk/students/mona/research/mapping/AppComparision/working%20Proj/Roadkill_Reporter_iOS-master/roadkill_reporter_ios.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2C3ED0E2-834A-4208-ADBA-E5322AA2432F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
+			<string>tags</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2C3ED0E2-834A-4208-ADBA-E5322AA2432F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>saltlab</string>
+		</dict>
+	</array>
+</dict>
+</plist>

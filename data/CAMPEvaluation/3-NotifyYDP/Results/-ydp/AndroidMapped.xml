@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>11/20/2014 1:56:34 PM</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>Splashscreen:onCreate</Method>
+		<Method>HOMESCREEN:onCreate</Method>
+		<Method>YDPCAREPLAN:onCreate</Method>
+		<Method>HOMESCREEN:onCreate</Method>
+		<Method>YDPCAREPLAN:onCreate</Method>
+		<Method>NOTIFYYDP:onCreate</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/20/2014 1:56:40 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label>More About YDP</UIElement_Label>
+		<UIElement_Action>clickAbout</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>NOTIFYYDP:clickAbout</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/20/2014 1:56:42 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label>Call YDP</UIElement_Label>
+		<UIElement_Action>clickCall</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>NOTIFYYDP:clickCall</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/20/2014 1:56:47 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label>Login</UIElement_Label>
+		<UIElement_Action>clickLogin</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>YDPCAREPLAN:clickLogin</Method>
+	</Methods>
+	<MappingColor>73</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/20/2014 1:56:49 PM</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label>Email YDP</UIElement_Label>
+		<UIElement_Action>clickEmail</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>NOTIFYYDP:clickEmail</Method>
+	</Methods>
+	<MappingColor>32</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>11/20/2014 1:56:39 PM</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>NOTIFYYDP </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>24</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'YDP Login' vs. Android '' 
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>ActionBarOverlayLayout</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E10</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>YDP Care Plan</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E12</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E13</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Notify YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E23</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E24</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E25</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Login</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E33</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Call YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E34</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Email YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E35</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>More About YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E36</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E38</UIElement_ID>
+			<UIElement_Type>ActionBarContainer</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E39</UIElement_ID>
+			<UIElement_Type>ActionBarView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E41</UIElement_ID>
+			<UIElement_Type>ActionBarView$HomeView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E42</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E43</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E45</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E47</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Your Doctor Program</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E48</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E49</UIElement_ID>
+			<UIElement_Type>ActionMenuView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E50</UIElement_ID>
+			<UIElement_Type>ActionBarContextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E51</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E52</UIElement_ID>
+			<UIElement_Type>ActionBarContainer</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>11/20/2014 1:56:47 PM</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>YDPCAREPLAN </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>25</State_NumberOfElements>
+	<MappingLabel>MappedID2</MappingLabel>
+	<MappingColor>2</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'Notify YDP' vs. Android '' 
+Inconsistency in the element: iPhone (UIButton,More About YDP,moreAboutYDP:) vs. Android (Button,Login,)
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>ActionBarOverlayLayout</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E10</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>YDP Care Plan</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E12</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E13</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Notify YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E23</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E24</UIElement_ID>
+			<UIElement_Type>EditText</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E25</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Login</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E27</UIElement_ID>
+			<UIElement_Type>CameraPreview</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E34</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Call YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E35</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>Email YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E36</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label>More About YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E37</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E39</UIElement_ID>
+			<UIElement_Type>ActionBarContainer</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E40</UIElement_ID>
+			<UIElement_Type>ActionBarView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E42</UIElement_ID>
+			<UIElement_Type>ActionBarView$HomeView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E43</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E44</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E46</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E48</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label>Your Doctor Program</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E49</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E50</UIElement_ID>
+			<UIElement_Type>ActionMenuView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E51</UIElement_ID>
+			<UIElement_Type>ActionBarContextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E52</UIElement_ID>
+			<UIElement_Type>ImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E53</UIElement_ID>
+			<UIElement_Type>ActionBarContainer</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

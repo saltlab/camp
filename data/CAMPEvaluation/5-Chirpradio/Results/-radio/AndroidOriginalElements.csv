@@ -1,0 +1,10 @@
+State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Details
+S1,E6,Button,Play,,,
+S1,E7,TextView,NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System  Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia),,,
+S1,E8,TextView,RECENTLY PLAYED John Coltrane - Acknowledgement from A Love Supreme (Impulse!)  The Beta Band - Dry The Rain from The Three EP's (Astralwerks)  DELS - Pack of Wolves from Petals Have Fallen (Big Dada)  Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)  Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl),,,
+S2,E6,Button,Stop,,,
+S2,E7,TextView,NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System  Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia),,,
+S2,E8,TextView,RECENTLY PLAYED John Coltrane - Acknowledgement from A Love Supreme (Impulse!)  The Beta Band - Dry The Rain from The Three EP's (Astralwerks)  DELS - Pack of Wolves from Petals Have Fallen (Big Dada)  Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)  Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl),,,
+S3,E6,Button,Play,,,
+S3,E7,TextView,NOW PLAYING · ON-AIR: Eugene Cabanban - The Ectype Sound System  Miles Davis - Dear Old Stockholm from 'Round About Midnight (Columbia),,,
+S3,E8,TextView,RECENTLY PLAYED John Coltrane - Acknowledgement from A Love Supreme (Impulse!)  The Beta Band - Dry The Rain from The Three EP's (Astralwerks)  DELS - Pack of Wolves from Petals Have Fallen (Big Dada)  Serengeti - Shidoshi from Kenny Dennis III (Joyful Noise)  Deerhoof - Black Pitch from La Isla Bonita (Polyvinyl),,,

@@ -1,0 +1,177 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceController      Quick Ref.      2
+S2            CompRulesContents      Comp. Rules      4
+S3            CompRulesSubContents      1. Game Concepts      2
+S4            CompRulesDetails      100. General      2
+S10            MoreViewsController      More Features      2
+S11            DecklistCounterController      Decklist Counter      8
+S17            DraftTimer      Draft Timer      7
+S21            CheckForUpdatesController      Update      3
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceActivity                 7
+S3            CompRulesActivity                 15
+S4            CompRulesDetailActivity                 2
+S5            CompRulesDisplayActivity                 2
+S10            DeckListCounterActivity                 8
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (MenuButton, MenuButton, MenuButtonClicked, )
+S1 -> S3      (MenuItem, [Comp. Rules], MenuItemClicked, )
+S3 -> S4      (ListViewCell, 1. Game Concepts, ListViewCellClicked, )
+S4 -> S5      (ListViewCell, 100. General, ListViewCellClicked, )
+S5 -> S3      (, , , )
+S3 -> S3      (, , , )
+S3 -> S3      (, , , )
+S3 -> S3      (MenuButton, MenuButton, MenuButtonClicked, )
+S3 -> S10      (MenuItem, [DL Counter], MenuItemClicked, )
+S10 -> S10      (Button, 2, clicked2, )
+S10 -> S10      (Button, Undo, clickedUndo, )
+S10 -> S10      (Button, 4, clicked4, )
+S10 -> S10      (Button, Reset, clickedReset, )
+S10 -> S1      (MenuItem, [Quick Ref.], MenuItemClicked, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (UITabBarButton, Comp. Rules, itemClicked, )
+S2 -> S3      (UITableViewCell, 1. Game Concepts, tableCellClicked, )
+S3 -> S4      (UITableViewCell, 100. General, tableCellClicked, )
+S4 -> S4      (UIWebBrowserView, , , )
+S4 -> S3      (UIButton, Back, goBack, )
+S3 -> S2      (UIButton, Back, goBack, )
+S2 -> S2      (UISearchBarTextField, , , )
+S2 -> S2      (UIButton, Cancel, _cancelButtonPressed, )
+S2 -> S11      (UITabBarButton, Decklist Counter, itemClicked, )
+S11 -> S11      (UIButton, 2, button2Pressed, )
+S11 -> S11      (UIButton, Undo, undoPressed, )
+S11 -> S11      (UIButton, 4, button4Pressed, )
+S11 -> S11      (UIButton, Reset, resetPressed, )
+S11 -> S17      (UITabBarButton, Draft Timer, itemClicked, )
+S17 -> S17      (UIButton, Next, nextClicked:, )
+S17 -> S17      (UIButton, Previous, previousClicked:, )
+S17 -> S21      (UIButton, Check for Updates, goBack, )
+S21 -> S1      (UIButton, Quick Ref., goBack, )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 2 
+Inconsistency in Title: iPhone 'Quick Ref.' vs. Android '' 
+Inconsistency in # tabel cells: iPhone (8) vs. Android (6)
+Inconsistency in the element: iPhone (UITableView,,tableCellClicked) vs. Android (ListView,,)
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S2 (Comp. Rules, itemClicked, UITabBarButton) 
+androidEdge: S1->S3 ([Comp. Rules], MenuItemClicked, MenuItem) 
+Mapping ID: MappedID1
+Diff: 29 
+
+***Closest States
+iPhoneState: S2 
+androidState: S3
+Mapping ID: MappedID2
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Comp. Rules' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S3 (1. Game Concepts, tableCellClicked, UITableViewCell) 
+androidEdge: S3->S4 (1. Game Concepts, ListViewCellClicked, ListViewCell) 
+Mapping ID: MappedID2
+Diff: 33 
+
+***Closest States
+iPhoneState: S3 
+androidState: S4
+Mapping ID: MappedID3
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone '1. Game Concepts' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S3->S4 (100. General, tableCellClicked, UITableViewCell) 
+androidEdge: S4->S5 (100. General, ListViewCellClicked, ListViewCell) 
+Mapping ID: MappedID6
+Diff: 23 
+
+***Closest States
+iPhoneState: S4 
+androidState: S5
+Mapping ID: MappedID4
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone '100. General' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S4->S3 (Back, goBack, UIButton) 
+androidEdge: S5->S3 (, , ) 
+Mapping ID: MappedID7
+Diff: 76 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S2 (, , UISearchBarTextField) 
+androidEdge: S3->S3 (, , ) 
+Mapping ID: MappedID3
+Diff: 41 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S2 (Cancel, _cancelButtonPressed, UIButton) 
+androidEdge: S3->S3 (, , ) 
+Mapping ID: MappedID4
+Diff: 75 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S11 (Decklist Counter, itemClicked, UITabBarButton) 
+androidEdge: S3->S10 ([DL Counter], MenuItemClicked, MenuItem) 
+Mapping ID: MappedID5
+Diff: 40 
+
+***Closest States
+iPhoneState: S11 
+androidState: S10
+Mapping ID: MappedID5
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Decklist Counter' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S11 (2, button2Pressed, UIButton) 
+androidEdge: S10->S10 (2, clicked2, Button) 
+Mapping ID: MappedID8
+Diff: 33 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S11 (Undo, undoPressed, UIButton) 
+androidEdge: S10->S10 (Undo, clickedUndo, Button) 
+Mapping ID: MappedID9
+Diff: 33 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S11 (4, button4Pressed, UIButton) 
+androidEdge: S10->S10 (4, clicked4, Button) 
+Mapping ID: MappedID10
+Diff: 33 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S11 (Reset, resetPressed, UIButton) 
+androidEdge: S10->S10 (Reset, clickedReset, Button) 
+Mapping ID: MappedID11
+Diff: 32 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S17 (Draft Timer, itemClicked, UITabBarButton) 
+androidEdge: S10->S1 ([Quick Ref.], MenuItemClicked, MenuItem) 
+Mapping ID: MappedID12
+Diff: 46 

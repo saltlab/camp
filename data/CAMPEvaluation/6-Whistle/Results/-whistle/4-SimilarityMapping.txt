@@ -1,0 +1,45 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            WhistleViewController            1
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            Whistle                 2
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (Button, , onClick, )
+S1 -> S1      (Button, , onClick, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (UIButton, , startPushed, )
+S1 -> S1      (UIButton, , stopPushed, )
+S1 -> S1      (UIView, , , )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in the element: iPhone (UIButton,,startPushed) vs. Android (Button,,)
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (, stopPushed, UIButton) 
+androidEdge: S1->S1 (, onClick, Button) 
+Mapping ID: MappedID2
+Diff: 18 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (, stopPushed, UIButton) 
+androidEdge: S1->S1 (, onClick, Button) 
+Mapping ID: MappedID2
+Diff: 18 

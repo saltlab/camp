@@ -1,0 +1,9 @@
+TimeStamp,State_ID,State_ClassName,State_Title,State_ScreenshotPath,State_NumberOfElements
+1415390933.897095,S1,QuickReferenceController,Quick Ref.,S-1415390933.897174-1.jpg,2,
+1415390944.094404,S2,CompRulesContents,Comp. Rules,S-1415390944.094489-2.jpg,4,
+1415390958.857541,S3,CompRulesSubContents,1. Game Concepts,S-1415390958.857625-3.jpg,2,
+1415390974.345016,S4,CompRulesDetails,100. General,S-1415390974.345134-4.jpg,2,
+1415391059.843988,S10,MoreViewsController,More Features,S-1415391059.844062-10.jpg,2,
+1415391067.463871,S11,DecklistCounterController,Decklist Counter,S-1415391067.463956-11.jpg,8,
+1415391132.858918,S17,DraftTimer,Draft Timer,S-1415391132.859002-17.jpg,7,
+1415391215.842836,S21,CheckForUpdatesController,Update,S-1415391215.842948-21.jpg,3,

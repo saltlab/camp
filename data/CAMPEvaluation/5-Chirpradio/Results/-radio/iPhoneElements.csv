@@ -1,0 +1,7 @@
+State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Details
+S1,E1,UIImageView,,,,
+S1,E2,UIWebView,,,,
+S1,E3,UIImageView,,,,
+S1,E4,UIButton,,,,
+S1,E5,UILabel,No Volume Available,,,
+S1,E6,UIButton,,_displayAudioRoutePicker,,

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>1415828879.091403</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>[AppDelegate: application:didFinishLaunchingWithOptions:]</Method>
+		<Method>[AppDelegate: applicationDidBecomeActive:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415828933.661197</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Войти</UIElement_Label>
+		<UIElement_Action>perform:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[FirstViewController: viewDidLoad]</Method>
+	</Methods>
+	<MappingColor>49</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415828933.661197</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Войти</UIElement_Label>
+		<UIElement_Action>perform:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415828973.375032</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Моя страница</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor>67</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415828985.817770</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Проекты</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor>55</MappingColor>
+	<MappingLabel>MappedID4</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415829000.947410</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415829047.951088</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Домашняя</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor>76</MappingColor>
+	<MappingLabel>MappedID5</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415829056.671649</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor>65</MappingColor>
+	<MappingLabel>MappedID3</MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>1415828881.094024</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>UIViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828881.094157-1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>2</MappingColor>
+	<MappingReport>Inconsistency in the element: iPhone (UITextField,,) vs. Android (EditText,d.salskiy,)
+Inconsistency in the element: iPhone (UITextField,,) vs. Android (EditText,salskiy,)
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITextField</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UITextField</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Войти</UIElement_Label>
+			<UIElement_Action>perform:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415828936.320455</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>FirstViewController</State_ClassName>
+	<State_Title>First</State_Title>
+	<State_ScreenshotPath>S-1415828936.320563-2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<MappingLabel>MappedID2</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'First' vs. Android '' 
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>First View</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UITextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>First View</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UITextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415828975.492943</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>SecondViewController</State_ClassName>
+	<State_Title>Second</State_Title>
+	<State_ScreenshotPath>S-1415828975.493041-3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<MappingLabel>MappedID3</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'Second' vs. Android '' 
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Second View</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UITextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415828987.929530</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>UIViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828987.929609-4.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<MappingLabel>MappedID4</MappingLabel>
+	<MappingColor>0</MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+ </Model>

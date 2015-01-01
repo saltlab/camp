@@ -1,0 +1,72 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            YDPLogin      YDP Login      7
+S2            YDPViewController      Notify YDP      7
+S3            YDPHelpViewController            2
+S9            _UIModalItemAppViewController            
+S12            MFMailComposeInternalViewController            9
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            NOTIFYYDP                 24
+S4            YDPCAREPLAN                 25
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (Button, More About YDP, clickAbout, )
+S1 -> S1      (Button, Call YDP, clickCall, )
+S1 -> S4      (Button, Login, clickLogin, )
+S4 -> S1      (Button, Email YDP, clickEmail, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (UITabBarButton, Notify YDP, itemClicked, )
+S2 -> S3      (UIButton, More About YDP, moreAboutYDP:, )
+S3 -> S3      (UIStatusBarForegroundView, , , )
+S3 -> S3      (UIWebBrowserView, , , )
+S3 -> S2      (UIButton, Close, Logout:, )
+S3 -> S2      (UIButton, Close, Logout:, )
+S2 -> S2      (UIButton, Call YDP, OnCallYDP:, )
+S2 -> S2      (UITabBarButton, YDP Login, itemClicked, )
+S2 -> S9      (UIButton, Login, Login, )
+S2 -> S9      (UIButton, Login, Login, )
+S9 -> S9      (UITableViewCell, Ok, tableCellClicked, )
+S9 -> S2      (UITabBarButton, Notify YDP, itemClicked, )
+S2 -> S2      (UIButton, Email YDP, showComposer:, )
+S2 -> S2      (UIButton, Email YDP, showComposer:, )
+S2 -> S2      (UIButton, Email YDP, showComposer:, )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'YDP Login' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S2 (Notify YDP, itemClicked, UITabBarButton) 
+androidEdge: S1->S4 (Login, clickLogin, Button) 
+Mapping ID: MappedID1
+Diff: 81 
+
+***Closest States
+iPhoneState: S2 
+androidState: S4
+Mapping ID: MappedID2
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Notify YDP' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S2->S9 (Login, Login, UIButton) 
+androidEdge: S4->S1 (Email YDP, clickEmail, Button) 
+Mapping ID: MappedID2
+Diff: 39 

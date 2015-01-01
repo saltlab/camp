@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>11/14/2014 3:41:24 PM</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>Whistle:onCreate</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/14/2014 3:41:32 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action>onClick</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>Whistle:onClick</Method>
+	</Methods>
+	<MappingColor>15</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>11/14/2014 3:41:35 PM</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>Button</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action>onClick</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>Whistle:onClick</Method>
+		<Method>Whistle:onStop</Method>
+	</Methods>
+	<MappingColor>15</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>11/14/2014 3:41:24 PM</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>Whistle </State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath></State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in the element: iPhone (UIButton,,startPushed) vs. Android (Button,,)
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>TextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E9</UIElement_ID>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

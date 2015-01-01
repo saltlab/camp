@@ -1,0 +1,50 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            ViewController      Report      3
+S2            DetailViewController      Past Reports      2
+S3            AboutViewController      About      15
+S5            MFMailComposeInternalViewController            9
+S11            _UIModalItemAppViewController            
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            ReportActivity                 18
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (IamgeButton, , onClick, )
+S1 -> S1      (, , , )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S0 -> S1      (, , , )
+S1 -> S2      (UITabBarButton, Past Reports, itemClicked, )
+S2 -> S3      (UITabBarButton, About, itemClicked, )
+S3 -> S3      (UITextView, , , )
+S3 -> S5      (UIButton, Help, _sendAction:withEvent:, )
+S3 -> S5      (UIButton, Help, _sendAction:withEvent:, )
+S5 -> S3      (UIButton, Delete Draft, _buttonClicked:, )
+S5 -> S3      (UIButton, Delete Draft, _buttonClicked:, )
+S3 -> S3      (UIButton, How to Use, _sendAction:withEvent:, )
+S3 -> S3      (UIButton, How to Use, _sendAction:withEvent:, )
+S3 -> S3      (UITextView, , , )
+S3 -> S1      (UITabBarButton, Report, itemClicked, )
+S1 -> S11      (UIButton, , , )
+S1 -> S11      (UIButton, , , )
+S11 -> S11      (UITableViewCell, Ok, tableCellClicked, )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Report' vs. Android '' 
+ 
+ 

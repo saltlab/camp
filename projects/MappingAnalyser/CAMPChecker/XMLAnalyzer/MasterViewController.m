@@ -16,7 +16,7 @@
 #define WEIGHT_S_CLASS 1
 #define WEIGHT_S_TITLE 1
 #define WEIGHT_S_COUNT_GUIS 1
-#define WEIGHT_E_CLASS 1
+#define WEIGHT_E_CLASS 5
 #define WEIGHT_E_TITLE 1
 #define WEIGHT_E_DETAIL 1
 #define WEIGHT_E_ACTION 1
@@ -353,29 +353,32 @@
             for (int j=i+1;j<rows.count-1;j++){
                 NSString* row2 = [rows objectAtIndex:j];
                 NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-                if ([columns1[2] isEqualToString:columns2[2]]) {  //&& [columns1[3] isEqualToString:columns2[3]  //classnames
+                if ([columns1[2] isEqualToString:columns2[2]]) {   //classnames
                     if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
                         
-                        //compare the elements
-                        for (int l=1;l<elRows.count-1;l++){
-                            NSString* elRow1 = [elRows objectAtIndex:l];
-                            NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                            
-                            if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                for (int k=l+1;k<elRows.count-1;k++){
-                                    NSString* elRow2 = [elRows objectAtIndex:k];
-                                    NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                    if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] && [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                            // are exactly equal
-                                            flag= true;
-                                            break;
+                        if ([columns1[1] isEqualToString:columns2[1]])  //remove duplicate States Ids
+                            flag= true;
+                        else
+                            //compare the elements
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] ) { //Element ID, Type and (Action && [elColumns1[4] isEqualToString:elColumns2[4]])
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
                                         }
-                                        flag= false;
                                     }
                                 }
                             }
-                        }
                         
                         if (flag) {
                             //remove identical states from the states array
@@ -395,25 +398,28 @@
                     else {  //number of UI elements are NOT equal
                         
                         if ([columns1[5] intValue] > [columns2[5] intValue]) {
-                            for (int l=1;l<elRows.count-1;l++){
-                                NSString* elRow1 = [elRows objectAtIndex:l];
-                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                                
-                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                    for (int k=l+1;k<elRows.count-1;k++){
-                                        NSString* elRow2 = [elRows objectAtIndex:k];
-                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                                // are exactly equal
-                                                flag= true;
-                                                break;
+                            if ([columns1[1] isEqualToString:columns2[1]])  //remove duplicate States Ids
+                                flag= true;
+                            else
+                                for (int l=1;l<elRows.count-1;l++){
+                                    NSString* elRow1 = [elRows objectAtIndex:l];
+                                    NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                    
+                                    if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                        for (int k=l+1;k<elRows.count-1;k++){
+                                            NSString* elRow2 = [elRows objectAtIndex:k];
+                                            NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                            if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                                if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //Element Type and Action
+                                                    // are exactly equal
+                                                    flag= true;
+                                                    break;
+                                                }
+                                                flag= false;
                                             }
-                                            flag= false;
                                         }
                                     }
                                 }
-                            }
                             
                             if (flag) {
                                 //remove identical states from the states array
@@ -431,25 +437,28 @@
                             }
                         }
                         else if ([columns1[5] intValue] < [columns2[5] intValue]){
-                            for (int l=1;l<elRows.count-1;l++){
-                                NSString* elRow1 = [elRows objectAtIndex:l];
-                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                                
-                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                    for (int k=l+1;k<elRows.count-1;k++){
-                                        NSString* elRow2 = [elRows objectAtIndex:k];
-                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                                // are exactly equal
-                                                flag= true;
-                                                break;
+                            if ([columns1[1] isEqualToString:columns2[1]])  //remove duplicate States Ids
+                                flag= true;
+                            else
+                                for (int l=1;l<elRows.count-1;l++){
+                                    NSString* elRow1 = [elRows objectAtIndex:l];
+                                    NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                    
+                                    if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                        for (int k=l+1;k<elRows.count-1;k++){
+                                            NSString* elRow2 = [elRows objectAtIndex:k];
+                                            NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                            if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                                if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //Element Type and Action
+                                                    // are exactly equal
+                                                    flag= true;
+                                                    break;
+                                                }
+                                                flag= false;
                                             }
-                                            flag= false;
                                         }
                                     }
                                 }
-                            }
                             
                             if (flag) {
                                 NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
@@ -503,29 +512,34 @@
             for (int j=i+1;j<rows.count-1;j++){
                 NSString* row2 = [rows objectAtIndex:j];
                 NSArray* columns2 = [row2 componentsSeparatedByString:@","];
-                if ([columns1[2] isEqualToString:columns2[2]]) { //&& [columns1[3] isEqualToString:columns2[3] // classnames
+                if ([columns1[2] isEqualToString:columns2[2]]) { // classnames
                     
                     if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
-                        //compare the elements
-                        for (int l=1;l<elRows.count-1;l++){
-                            NSString* elRow1 = [elRows objectAtIndex:l];
-                            NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                            
-                            if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                for (int k=l+1;k<elRows.count-1;k++){
-                                    NSString* elRow2 = [elRows objectAtIndex:k];
-                                    NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                    if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                        if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                            // are exactly equal
-                                            flag= true;
-                                            break;
+                        
+                        if ([columns1[1] isEqualToString:columns2[1]]) //remove duplicate States Ids
+                            flag= true;
+                        else
+                            //compare the elements
+                            for (int l=1;l<elRows.count-1;l++){
+                                NSString* elRow1 = [elRows objectAtIndex:l];
+                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                
+                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                    for (int k=l+1;k<elRows.count-1;k++){
+                                        NSString* elRow2 = [elRows objectAtIndex:k];
+                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                            if ([elColumns1[1] isEqualToString:elColumns2[1]] && [elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //Element ID, Type and Action
+                                                // are exactly equal
+                                                flag= true;
+                                                break;
+                                            }
+                                            flag= false;
                                         }
-                                        flag= false;
                                     }
                                 }
                             }
-                        }
+                        
                         
                         if (flag) {
                             //remove identical states from the states array
@@ -545,25 +559,28 @@
                     else {  //number of UI elements are NOT equal
                         
                         if ([columns1[5] intValue] > [columns2[5] intValue]) {
-                            for (int l=1;l<elRows.count-1;l++){
-                                NSString* elRow1 = [elRows objectAtIndex:l];
-                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                                
-                                if ([columns2[1] isEqualToString:elColumns1[0]]) {
-                                    for (int k=l+1;k<elRows.count-1;k++){
-                                        NSString* elRow2 = [elRows objectAtIndex:k];
-                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                        if ([columns1[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                                // are exactly equal
-                                                flag= true;
-                                                break;
+                            if ([columns1[1] isEqualToString:columns2[1]])  //remove duplicate States Ids
+                                flag= true;
+                            else
+                                for (int l=1;l<elRows.count-1;l++){
+                                    NSString* elRow1 = [elRows objectAtIndex:l];
+                                    NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                    
+                                    if ([columns2[1] isEqualToString:elColumns1[0]]) {
+                                        for (int k=l+1;k<elRows.count-1;k++){
+                                            NSString* elRow2 = [elRows objectAtIndex:k];
+                                            NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                            if ([columns1[1] isEqualToString:elColumns2[0]]) {
+                                                if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //Element Type and Action
+                                                    // are exactly equal
+                                                    flag= true;
+                                                    break;
+                                                }
+                                                flag= false;
                                             }
-                                            flag= false;
                                         }
                                     }
                                 }
-                            }
                             
                             if (flag) {
                                 //remove identical states from the states array
@@ -581,26 +598,29 @@
                             }
                         }
                         else if ([columns1[5] intValue] < [columns2[5] intValue]){
-                            for (int l=1;l<elRows.count-1;l++){
-                                NSString* elRow1 = [elRows objectAtIndex:l];
-                                NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
-                                
-                                if ([columns1[1] isEqualToString:elColumns1[0]]) {
-                                    for (int k=l+1;k<elRows.count-1;k++){
-                                        NSString* elRow2 = [elRows objectAtIndex:k];
-                                        NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
-                                        if ([columns2[1] isEqualToString:elColumns2[0]]) {
-                                            if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //[elColumns1[3] isEqualToString:elColumns2[3]] && [elColumns1[5] isEqualToString:elColumns2[5]]
-                                                // are exactly equal
-                                                flag= true;
-                                                break;
+                            if ([columns1[1] isEqualToString:columns2[1]])   //remove duplicate States Ids
+                                flag= true;
+                            else
+                                for (int l=1;l<elRows.count-1;l++){
+                                    NSString* elRow1 = [elRows objectAtIndex:l];
+                                    NSArray* elColumns1 = [elRow1 componentsSeparatedByString:@","];
+                                    
+                                    if ([columns1[1] isEqualToString:elColumns1[0]]) {
+                                        for (int k=l+1;k<elRows.count-1;k++){
+                                            NSString* elRow2 = [elRows objectAtIndex:k];
+                                            NSArray* elColumns2 = [elRow2 componentsSeparatedByString:@","];
+                                            if ([columns2[1] isEqualToString:elColumns2[0]]) {
+                                                if ([elColumns1[2] isEqualToString:elColumns2[2]] &&  [elColumns1[4] isEqualToString:elColumns2[4]]) { //Element Type and Action
+                                                    // are exactly equal
+                                                    flag= true;
+                                                    break;
+                                                }
+                                                flag= false;
                                             }
-                                            flag= false;
                                         }
                                     }
                                 }
-                            }
-                            
+                                
                             if (flag) {
                                 NSString *temp = [row1 stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@",%@,",columns1[5]] withString:[NSString stringWithFormat:@",%@,",columns2[5]]];
                                 
@@ -645,12 +665,18 @@
     
     //get the android-iphone edges arrays
     [self getEdgesArray];
-    //heuristic for MoreViewsController in tab bar
+    
+    //heuristic for Merging MoreViewsController in tab bar
     NSMutableArray* moreStates = [self findMoreViewsControllerState];
     for (NSMutableDictionary* moreState in moreStates){
         [self heuristicsOnMoreStateAndEdges:moreState];
     }
-
+    
+    [self.similarityCsv appendString:@"\n\n***iPhone Actions\nSrc -> Trg   TouchedElement(Type, Label, Action, Details)\n"];
+    for (NSMutableDictionary* e in self.iphoneEdgesAry)
+        //printout edges after checks
+        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@ -> %@      (%@, %@, %@, %@)\n",e[@"Source_State_ID"],e[@"Target_State_ID"],e[@"TouchedElement_Type"],e[@"TouchedElement_Label"],e[@"TouchedElement_Action"],e[@"TouchedElement_Details"]]];
+    
     //compare models
     //[self compareModels];
     
@@ -669,6 +695,10 @@
         NSMutableDictionary* edgePair = [self.edgePairs objectAtIndex:i];
         
         if([edgePair[@"Mapped"] isEqualToNumber:@0]) {
+            
+            [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action, Type)\n"];
+            [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@, %@) \nandroidEdge: %@->%@ (%@, %@, %@) \nDiff: %@ \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Type"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Label"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Type"],edgePair[@"Sum"]]];
+        
             //Mark edge pair as mapped
             edgePair[@"Mapped"]=@1;
             NSMutableArray* nextEdgePairs = [self compareNextStates:edgePair];
@@ -684,7 +714,9 @@
     [self logPropertiesForStates];
     [self outputiPhoneMappedFile:[self.iphoneXmlWriter toString]];
     [self outputAndroidMappedFile:[self.androidXmlWriter toString]];
+
     [self outputSimilarityCsvFile];
+    
 }
 
 -(NSMutableArray*)findMoreViewsControllerState
@@ -712,12 +744,7 @@
             }
         }
     }
-    
     [self.iphoneEdgesAry removeObjectsAtIndexes:discardedItems];
-    [self.similarityCsv appendString:@"\n\n***iPhone Actions\nSource -> Target     TouchedElement(Type     Label       Action       Details)\n"];
-    for (NSMutableDictionary* e in self.iphoneEdgesAry)
-        //printout edges after checks
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",e[@"Source_State_ID"],e[@"Target_State_ID"],e[@"TouchedElement_Type"],e[@"TouchedElement_Label"],e[@"TouchedElement_Action"],e[@"TouchedElement_Details"]]];
 }
 
 -(NSMutableArray*)compareNextStates:(NSMutableDictionary*)edgePair {
@@ -750,10 +777,6 @@
 -(NSMutableArray*)compareEdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
 
     NSMutableArray *thisEdgePairs = [NSMutableArray array];
-    NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
-    NSUInteger maxDif;
-    NSUInteger sum;
-    
     NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
     NSArray *androidEdges =  [self getOutgoingEdgesFor:androidState inEdges:self.androidEdgesAry];
     
@@ -762,100 +785,149 @@
     //map outgoing edges
     if (iPhoneEdges.count <= androidEdges.count) {
         for (NSMutableDictionary* edge1 in iPhoneEdges) {
-            edgePair[@"iPhone"] = edge1;
-            maxDif=100;
-            for (NSMutableDictionary* edge2 in androidEdges) {
-                
-                NSUInteger r1;
-                //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
-                if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
-                   ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
-                    r1 = 0;
-                
-                //heuristic for Action (MenuButtonClicked)
-                else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
-                    r1 = 100;
-                
-                else
-                    r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
-                
-                NSUInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
-                sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2;
-                if (sum < maxDif) {
-                    edgePair[@"Android"]=edge2;
-                    edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
-                    edgePair[@"Mapped"]=@0;
-                    maxDif = sum;
-                }
-            }
             
-            if (edgePair) {
-                [thisEdgePairs addObject:edgePair];
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""]) {
                 
-                NSUInteger thisEdgeMapId = self.edgeMapId++;
-                //TO DO: set the mapping color
-                edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
-                edgePair[@"Android"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
-                edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
-                edgePair[@"iPhone"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"iPhone"] = edge1;
+                for (NSMutableDictionary* edge2 in androidEdges) {
+                    
+                    if (![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) {
+                        
+                        NSInteger r1;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            r1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            r1 = 200;
+                        
+                        else
+                            r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                        
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        NSInteger r3 = [self mappedTypeE1:edge1[@"TouchedElement_Type"] withE2:edge2[@"TouchedElement_Type"]];
+                        NSInteger sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2+WEIGHT_E_CLASS*r3;
+                        if (sum < maxDif) {
+                            edgePair[@"Android"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
                 
-                [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action)\n"];
-                [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@) \nandroidEdge: %@->%@ (%@, %@) \nDiff: %tu \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Label"],sum]];
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            [thisEdgePairs removeObject:e];
+                        }
+                    }
+                    [thisEdgePairs addObject:edgePair];
+                }
             }
         }
     }
     else {
         for (NSMutableDictionary* edge1 in androidEdges) {
-            edgePair[@"Android"] = edge1;
-            maxDif=100;
-            for (NSMutableDictionary* edge2 in iPhoneEdges) {
-                
-                NSUInteger r1;
-                //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
-                if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
-                   ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
-                    r1 = 0;
-                
-                //heuristic for Action (MenuButtonClicked)
-                else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
-                    r1 = 100;
-                
-                else
-                    r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
-                
-                NSUInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
-                sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2;
-                if (sum < maxDif) {
-                    edgePair[@"iPhone"]=edge2;
-                    edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
-                    edgePair[@"Mapped"]=@0;
-                    maxDif = sum;
-                }
-            }
             
-            if (edgePair) {
-                [thisEdgePairs addObject:edgePair];
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""]) {
                 
-                NSUInteger thisEdgeMapId = self.edgeMapId++;
-                //TO DO: set the mapping color
-                edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
-                edgePair[@"Android"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
-                edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
-                edgePair[@"iPhone"][@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"Android"] = edge1;
                 
-                [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action)\n"];
-                [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@) \nandroidEdge: %@->%@ (%@, %@) \nDiff: %tu \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Label"],sum]];
+                for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                    
+                    if (![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) {
+                        
+                        NSUInteger r1;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            r1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            r1 = 200;
+                        
+                        else
+                            r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                        
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        NSInteger r3 = [self mappedTypeE1:edge2[@"TouchedElement_Type"] withE2:edge1[@"TouchedElement_Type"]];
+                        NSInteger sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2+WEIGHT_E_CLASS*r3;
+                        if (sum < maxDif) {
+                            edgePair[@"iPhone"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            [thisEdgePairs removeObject:e];
+                        }
+                    }
+                    [thisEdgePairs addObject:edgePair];
+                }
             }
         }
     }
-    
     return thisEdgePairs;
 }
 
 -(void)compareiPhoneState:(NSMutableDictionary*)iPhoneState withAndroidState:(NSMutableDictionary*)androidState {
     
-    [self.similarityCsv appendString:@"\n***Closest States (ClassName, Title)\n"];
+    [self.similarityCsv appendString:@"\n***Closest States\n"];
     
+    NSUInteger r1 = [iPhoneState[@"State_Title"] levenshteinDistanceToString:androidState[@"State_Title"]];
+    NSUInteger sum1 = WEIGHT_S_TITLE*r1;
+    
+    NSUInteger thisStateMapId = self.stateMapId++;
+    //TO DO: set the mapping color
+    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum1];
+    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum1];
+    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@ \nandroidState: %@ \nDiff (Title): %@ \n",iPhoneState[@"State_ID"],androidState[@"State_ID"],iPhoneState[@"MappingColor"]]];
+    
+
     //heuristic for ClassName (Activity == ViewController)
     NSString* n1 = [iPhoneState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
     n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
@@ -863,24 +935,29 @@
     n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
     NSString* n2 = [androidState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
     n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
-    NSUInteger r1 = [n1 levenshteinDistanceToString:n2];
-    NSUInteger r2 = [iPhoneState[@"State_Title"] levenshteinDistanceToString:androidState[@"State_Title"]];
-    NSUInteger sum = WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2;
+    n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSUInteger r2 = [n1 levenshteinDistanceToString:n2];
+    NSUInteger sum2 = (WEIGHT_S_TITLE*r1+WEIGHT_S_CLASS*r2)/2;
     
-    NSUInteger thisStateMapId = self.stateMapId++;
     //TO DO: set the mapping color
-    iPhoneState[@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
-    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"%tu",thisStateMapId];
-    androidState[@"MappingColor"]=[NSString stringWithFormat:@"%tu",sum];
-    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"%tu",thisStateMapId];
+    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum2];
+    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum2];
+    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
     
-//    NSMutableDictionary* statePair = [NSMutableDictionary dictionary];
-//    statePair[@"iPhone"]=iPhoneState;
-//    statePair[@"Android"]=androidState;
-//    statePair[@"MappingColour"]=[NSNumber numberWithInteger:sum];
-//    [self.statePairs addObject:statePair];
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"Diff (Title, ClassName): %@ \n",iPhoneState[@"MappingColor"]]];
+
     
-    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@ \nandroidState: %@ \nDiff: %tu \n",iPhoneState[@"State_ID"],androidState[@"State_ID"],sum]];
+    NSUInteger sum3 = (WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2-[self calculateElementsPairSimilarityE1:iPhoneState[@"Elements"] withE2:androidState[@"Elements"]])/(2);
+    
+     //TO DO: set the mapping color
+    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum3];
+    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum3];
+    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"Diff (Title, ClassName, Elements): %@ \n",iPhoneState[@"MappingColor"]]];
+    
 }
 
 - (void)logPropertiesForEdges {
@@ -937,7 +1014,7 @@
         
         //Add the mapping color and label
         [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
-        [self.iphoneXmlWriter writeCharacters:edge[@"MappingColor"]];
+        [self.iphoneXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",edge[@"MappingColor"]]];
         [self.iphoneXmlWriter writeEndElement];
         
         [self.iphoneXmlWriter writeStartElement:@"MappingLabel"];
@@ -999,7 +1076,7 @@
         
         //Add the mapping color and label
         [self.androidXmlWriter writeStartElement:@"MappingColor"];
-        [self.androidXmlWriter writeCharacters:edge[@"MappingColor"]];
+        [self.androidXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",edge[@"MappingColor"]]];
         [self.androidXmlWriter writeEndElement];
         
         [self.androidXmlWriter writeStartElement:@"MappingLabel"];
@@ -1047,7 +1124,7 @@
         [self.iphoneXmlWriter writeEndElement];
         
         [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
-        [self.iphoneXmlWriter writeCharacters:state[@"MappingColor"]];
+        [self.iphoneXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",state[@"MappingColor"]]];
         [self.iphoneXmlWriter writeEndElement];
     
         [self.iphoneXmlWriter writeStartElement:@"UIElements"];
@@ -1123,7 +1200,7 @@
         [self.androidXmlWriter writeEndElement];
         
         [self.androidXmlWriter writeStartElement:@"MappingColor"];
-        [self.androidXmlWriter writeCharacters:state[@"MappingColor"]];
+        [self.androidXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",state[@"MappingColor"]]];
         [self.androidXmlWriter writeEndElement];
         
         [self.androidXmlWriter writeStartElement:@"UIElements"];
@@ -1170,7 +1247,7 @@
     NSMutableArray *outgoingEdges = [NSMutableArray array];
     
     for (NSMutableDictionary* edge in edgesAry) {
-        if([state[@"State_ID"] isEqualToString:edge[@"Source_State_ID"]])
+        if([state[@"State_ID"] isEqualToString:edge[@"Source_State_ID"]]) //||            ([edge[@"Source_State_ID"] isEqualToString:edge[@"Target_State_ID"] && )
             [outgoingEdges addObject:edge];
     }
     
@@ -1300,7 +1377,7 @@
         }
     }
     
-    [self.similarityCsv appendString:@"\n\n***Android Actions\nSource_ID -> Target_ID     TouchedElement(Type     Label       Action       Details)\n"];
+    [self.similarityCsv appendString:@"\n\n***Android Actions\nSrc -> Trg     TouchedElement(Type, Label, Action, Details)\n"];
     for(int i=1; i< [[self.androidEdgesCsv componentsSeparatedByString:@"\n"] count]; i++) {
         line = [self.androidEdgesCsv componentsSeparatedByString:@"\n"][i];
         if ([line length]>0) {
@@ -1317,7 +1394,7 @@
             [row setObject:@"" forKey:@"MappingLabel"];
             
             //printout edges
-            [self.similarityCsv appendString:[NSString stringWithFormat:@"%@    ->  %@      %@      %@      %@      %@\n",rows[1],rows[2],rows[3],rows[4],rows[5],rows[6]]];
+            [self.similarityCsv appendString:[NSString stringWithFormat:@"%@ -> %@      (%@, %@, %@, %@)\n",rows[1],rows[2],rows[3],rows[4],rows[5],rows[6]]];
             
             //get the methods for the android action
             NSMutableArray *methods = [NSMutableArray array];
@@ -1366,7 +1443,7 @@
         [self.similarityCsv appendString:[NSString stringWithFormat:@"%@        %@          %tu \n",row[@"State_ID"],closestRow[@"State_ID"],maxDif]];
     }
     
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 2: State (ClassName, Title, Elements) \n\niPhone    Android     Diff \n"];
+    [self.similarityCsv appendString:@"\n***Closest States in Combination 2: State (Title, ClassName, Elements) \n\niPhone    Android     Diff \n"];
     for (NSMutableDictionary* row in self.iphoneStatesAry){
         
         maxDif=100;
@@ -1422,7 +1499,7 @@
     }
 
     
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 4: State (ClassName, Title, Elements), Action (Methods, Touched Element) \n\niPhone    Android     Diff \n"];
+    [self.similarityCsv appendString:@"\n***Closest States in Combination 4: State (Title, ClassName, Elements), Action (Methods, Touched Element) \n\niPhone    Android     Diff \n"];
     for (NSMutableDictionary* row in self.iphoneStatesAry){
         
         maxDif=100;
@@ -1645,6 +1722,119 @@
     return similarity;
 }
 
+-(NSInteger)mappedTypeE1:(NSString*)iphoneElement withE2:(NSString*)androidElement
+{
+    NSInteger similarity = 1;
+    
+    //string contains sub-string
+    if ([iphoneElement isEqualToString:@"UIImageView"] && [androidElement isEqualToString:@"ImageView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIButton"] && [androidElement isEqualToString:@"Button"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIButton"] && [androidElement isEqualToString:@"CheckBox"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIButton"] && [androidElement isEqualToString:@"CheckBox"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UISwitch"] && [androidElement isEqualToString:@"Switch"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UILable"] && [androidElement isEqualToString:@"TextView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITextView"] && [androidElement isEqualToString:@"EditText"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITextField"] && [androidElement isEqualToString:@"EditText"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITableView"] && [androidElement isEqualToString:@"ListView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIPickerView"] && [androidElement isEqualToString:@"Spinner"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIPickerView"] && [androidElement isEqualToString:@"Picker"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIDatePicker"] && [androidElement isEqualToString:@"Picker"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIProgressView"] && [androidElement isEqualToString:@"ProgressBar"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UISlider"] && [androidElement isEqualToString:@"SeekBar"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UISlider"] && [androidElement isEqualToString:@"RatingBar"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UICollectionView"] && [androidElement isEqualToString:@"GridView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIScrollView"] && [androidElement isEqualToString:@"ScrollView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UICollectionView"] && [androidElement isEqualToString:@"GridView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UISearchBar"] && [androidElement isEqualToString:@"SearchView"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIWebView"] && [androidElement isEqualToString:@"Webview"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIAlertView"] && [androidElement isEqualToString:@"AlertDialog"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIAlertView"] && [androidElement isEqualToString:@"Toast"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIPageControl"] && [androidElement isEqualToString:@"ViewPager"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIPageControl"] && [androidElement isEqualToString:@"tab"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITabBar"] && [androidElement isEqualToString:@"Tab"])
+        similarity = 0;
+    //Customized
+    else if ([iphoneElement isEqualToString:@"UITabBar"] && [androidElement isEqualToString:@"Button"])
+        similarity = 0;
+    //Customized
+    else if ([iphoneElement isEqualToString:@"UISegmentedControl"] && [androidElement isEqualToString:@"Button"])
+        similarity = 0;
+    //Customized
+    else if ([iphoneElement isEqualToString:@"UIToolBar"] && [androidElement isEqualToString:@"Button"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIToolBar"] && [androidElement isEqualToString:@"Tab"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIActionSheet"] && [androidElement isEqualToString:@"ActionBar"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIActionSheet"] && [androidElement isEqualToString:@"Spinner"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIStepper"] && [androidElement isEqualToString:@"Button"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UIMenuController"] && [androidElement isEqualToString:@"PopupMenu"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITabBarButton"] && [androidElement isEqualToString:@"MenuItem"])
+        similarity = 0;
+    
+    else if ([iphoneElement isEqualToString:@"UITableViewCell"] && [androidElement isEqualToString:@"ListViewCell"])
+        similarity = 0;
+    
+    return similarity;
+}
+
 
 -(NSUInteger)calculateActionsPairSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements
 {
@@ -1708,7 +1898,7 @@
     NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"SimilarityMapping.txt"]];
     freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
-    [fileHandler seekToEndOfFile];
+    //[fileHandler seekToEndOfFile];
     [fileHandler writeData:[self.similarityCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler closeFile];
 }

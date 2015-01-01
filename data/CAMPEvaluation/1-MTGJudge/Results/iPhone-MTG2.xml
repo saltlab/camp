@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+
+<Edge>
+	<TimeStamp>1415828548.668523</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>[MTGJudgeAppDelegate: applicationDidFinishLaunching:]</Method>
+		<Method>[QuickReferenceController: viewDidLoad]</Method>
+		<Method>[QuickReferenceController: numberOfSectionsInTableView:]</Method>
+		<Method>[QuickReferenceController: numberOfSectionsInTableView:]</Method>
+		<Method>[QuickReferenceController: tableView:numberOfRowsInSection:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[CheckForUpdatesController: checkForUpdatesAsync]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+		<Method>[CheckForUpdatesController: checkForUpdates]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828550.670720</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415828550.670791-1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828613.668984</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Penalties</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceDetailController: hidesBottomBarWhenPushed]</Method>
+		<Method>[QuickReferenceController: tableView:didSelectRowAtIndexPath:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828616.314271</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>QuickReferenceDetailController</State_ClassName>
+	<State_Title>Quick Reference</State_Title>
+	<State_ScreenshotPath>S-1415828616.314347-2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828624.328251</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828626.919305</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415828626.919377-3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828631.515567</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Lapsing Triggers</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceDetailController: hidesBottomBarWhenPushed]</Method>
+		<Method>[QuickReferenceController: tableView:didSelectRowAtIndexPath:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828634.187227</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>QuickReferenceDetailController</State_ClassName>
+	<State_Title>Quick Reference</State_Title>
+	<State_ScreenshotPath>S-1415828634.187311-4.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828639.707119</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S5</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828642.325329</TimeStamp>
+	<State_ID>S5</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415828642.325400-5.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828650.554898</TimeStamp>
+	<Source_State_ID>S5</Source_State_ID>
+	<Target_State_ID>S6</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Layers / Casting Spells</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceDetailController: hidesBottomBarWhenPushed]</Method>
+		<Method>[QuickReferenceController: tableView:didSelectRowAtIndexPath:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828653.219671</TimeStamp>
+	<State_ID>S6</State_ID>
+	<State_ClassName>QuickReferenceDetailController</State_ClassName>
+	<State_Title>Quick Reference</State_Title>
+	<State_ScreenshotPath>S-1415828653.219742-6.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S6</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828658.386627</TimeStamp>
+	<Source_State_ID>S6</Source_State_ID>
+	<Target_State_ID>S7</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828661.028920</TimeStamp>
+	<State_ID>S7</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415828661.028992-7.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S7</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828671.417516</TimeStamp>
+	<Source_State_ID>S7</Source_State_ID>
+	<Target_State_ID>S8</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Oracle</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[OracleLookupController: viewWillAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828674.052580</TimeStamp>
+	<State_ID>S8</State_ID>
+	<State_ClassName>OracleLookupController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828674.052651-8.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>12628</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828683.810133</TimeStamp>
+	<Source_State_ID>S8</Source_State_ID>
+	<Target_State_ID>S9</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Abeyance</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+		<Method>[OracleLookupController: scrollViewDidScroll:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828688.763981</TimeStamp>
+	<State_ID>S9</State_ID>
+	<State_ClassName>OracleLookupController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828688.764034-9.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>12628</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828696.745032</TimeStamp>
+	<Source_State_ID>S9</Source_State_ID>
+	<Target_State_ID>S10</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>IPG</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[OracleLookupController: viewWillDisappear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828698.948575</TimeStamp>
+	<State_ID>S10</State_ID>
+	<State_ClassName>IPGContents</State_ClassName>
+	<State_Title>IPG</State_Title>
+	<State_ScreenshotPath>S-1415828698.948647-10.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S10</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S10</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>6</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828707.985458</TimeStamp>
+	<Source_State_ID>S10</Source_State_ID>
+	<Target_State_ID>S11</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Judging at Regular REL</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[IPGSubContents: setIndex:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828710.711670</TimeStamp>
+	<State_ID>S11</State_ID>
+	<State_ClassName>IPGSubContents</State_ClassName>
+	<State_Title>Judging at Regular REL</State_Title>
+	<State_ScreenshotPath>S-1415828710.711743-11.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828719.049068</TimeStamp>
+	<Source_State_ID>S11</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Resources</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[IPGDetail: setRoot:sub:opt:stop:]</Method>
+		<Method>[IPGSubContents: getText:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828721.777918</TimeStamp>
+	<State_ID>S12</State_ID>
+	<State_ClassName>IPGDetail</State_ClassName>
+	<State_Title>Resources</State_Title>
+	<State_ScreenshotPath>S-1415828721.777990-12.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828730.432936</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S13</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITextView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828734.436400</TimeStamp>
+	<State_ID>S13</State_ID>
+	<State_ClassName>IPGDetail</State_ClassName>
+	<State_Title>Resources</State_Title>
+	<State_ScreenshotPath>S-1415828734.436472-13.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITextView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828740.440502</TimeStamp>
+	<Source_State_ID>S13</Source_State_ID>
+	<Target_State_ID>S14</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828743.067733</TimeStamp>
+	<State_ID>S14</State_ID>
+	<State_ClassName>IPGSubContents</State_ClassName>
+	<State_Title>Judging at Regular REL</State_Title>
+	<State_ScreenshotPath>S-1415828743.067806-14.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828747.968298</TimeStamp>
+	<Source_State_ID>S14</Source_State_ID>
+	<Target_State_ID>S15</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828750.594511</TimeStamp>
+	<State_ID>S15</State_ID>
+	<State_ClassName>IPGContents</State_ClassName>
+	<State_Title>IPG</State_Title>
+	<State_ScreenshotPath>S-1415828750.594585-15.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>6</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

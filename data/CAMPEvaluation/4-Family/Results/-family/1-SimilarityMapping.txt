@@ -1,0 +1,112 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            GuideViewController            6
+S6            LoginViewController            25
+S8            SignInViewController            21
+S20            ChangePwViewController            10
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            GuidActivity                 4
+S4            SignInActivitiy                 13
+S5            RegisterActivity                 10
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (ImageView, , , )
+S1 -> S1      (ImageView, , , )
+S1 -> S4      (ImageView, , , )
+S4 -> S5      (ImageButton, , , )
+S5 -> S5      (ImageButton, , , )
+S5 -> S4      (ImageButton, , , )
+S4 -> S4      (ImageButton, , , )
+S4 -> S4      (ImageButton, , , )
+S4 -> S4      (Button, 找回密码, onClickSign, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (UIButton, 跳过, _buttonClicked:, )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S6      (UIButton, , removeTips, )
+S6 -> S6      (UIButton, , joinBtnPressed:, )
+S6 -> S8      (UIButton, , buttonPressed:, )
+S8 -> S8      (UIButton, , buttonPressed:, )
+S8 -> S6      (UIButton, , buttonPressed:, )
+S6 -> S1      (UIButton, , buttonPressed:, )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S1      (UIScrollView, , , )
+S1 -> S6      (UIButton, , removeTips, )
+S6 -> S6      (UIButton, Button, loginBtnPressed:, )
+S6 -> S6      (UIButton,      自动登录, cookieBtnPressed:, )
+S6 -> S6      (UIButton, , sinaBtnPressed:, )
+S6 -> S6      (UIButton, , cancel, )
+S6 -> S20      (UIButton, , findMyPwBtnPressed:, )
+S20 -> S20      (UIButton, , buttonPressed:, )
+S20 -> S6      (UIButton, , buttonPressed:, )
+S6 -> S6      (TopView, , , )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 0 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (跳过, _buttonClicked:, UIButton) 
+androidEdge: S1->S1 (, , ImageView) 
+Mapping ID: MappedID2
+Diff: 20 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (跳过, _buttonClicked:, UIButton) 
+androidEdge: S1->S1 (, , ImageView) 
+Mapping ID: MappedID2
+Diff: 20 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S6 (, removeTips, UIButton) 
+androidEdge: S1->S4 (, , ImageView) 
+Mapping ID: MappedID3
+Diff: 73 
+
+***Closest States
+iPhoneState: S6 
+androidState: S4
+Mapping ID: MappedID2
+Number of Inconsistencies (Title, Elements): 5 
+Inconsistency in the element: iPhone (UIButton,     自动登录,cookieBtnPressed:) vs. Android (Button,登录,)Inconsistency in the element: iPhone (UIButton,,bgBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,sinaBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,findMyPwBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,buttonPressed:) vs. Android (Button,,) 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S6->S1 (, buttonPressed:, UIButton) 
+androidEdge: S4->S5 (, , ImageButton) 
+Mapping ID: MappedID4
+Diff: 75 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S6->S6 (, joinBtnPressed:, UIButton) 
+androidEdge: S4->S4 (, , ImageButton) 
+Mapping ID: MappedID7
+Diff: 73 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S6->S6 (, joinBtnPressed:, UIButton) 
+androidEdge: S4->S4 (, , ImageButton) 
+Mapping ID: MappedID7
+Diff: 73 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S6->S6 (, joinBtnPressed:, UIButton) 
+androidEdge: S4->S4 (找回密码, onClickSign, Button) 
+Mapping ID: MappedID7
+Diff: 73 

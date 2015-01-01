@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+
+<Edge>
+	<TimeStamp>1415390931.877758</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>[MTGJudgeAppDelegate: applicationDidFinishLaunching:]</Method>
+		<Method>[QuickReferenceController: viewDidLoad]</Method>
+		<Method>[QuickReferenceController: numberOfSectionsInTableView:]</Method>
+		<Method>[QuickReferenceController: numberOfSectionsInTableView:]</Method>
+		<Method>[QuickReferenceController: tableView:numberOfRowsInSection:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: tableView:cellForRowAtIndexPath:]</Method>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415390933.897095</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415390933.897174-1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415390941.808845</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Comp. Rules</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415390944.094404</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>CompRulesContents</State_ClassName>
+	<State_Title>Comp. Rules</State_Title>
+	<State_ScreenshotPath>S-1415390944.094489-2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>10</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415390955.905220</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>1. Game Concepts</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415390958.857541</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>CompRulesSubContents</State_ClassName>
+	<State_Title>1. Game Concepts</State_Title>
+	<State_ScreenshotPath>S-1415390958.857625-3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>22</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415390971.591849</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>100. General</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+		<Method>[CompRulesDetails: setRoot:sub:stop:]</Method>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415390974.345016</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>CompRulesDetails</State_ClassName>
+	<State_Title>100. General</State_Title>
+	<State_ScreenshotPath>S-1415390974.345134-4.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIWebView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415390984.760299</TimeStamp>
+	<Source_State_ID>S4</Source_State_ID>
+	<Target_State_ID>S5</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIWebBrowserView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415390988.763877</TimeStamp>
+	<State_ID>S5</State_ID>
+	<State_ClassName>CompRulesDetails</State_ClassName>
+	<State_Title>100. General</State_Title>
+	<State_ScreenshotPath>S-1415390988.763997-5.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S5</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIWebView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415390998.953909</TimeStamp>
+	<Source_State_ID>S5</Source_State_ID>
+	<Target_State_ID>S6</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CompRulesSubContents: getSubtext:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391001.648921</TimeStamp>
+	<State_ID>S6</State_ID>
+	<State_ClassName>CompRulesSubContents</State_ClassName>
+	<State_Title>1. Game Concepts</State_Title>
+	<State_ScreenshotPath>S-1415391001.648984-6.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S6</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S6</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>22</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391009.788432</TimeStamp>
+	<Source_State_ID>S6</Source_State_ID>
+	<Target_State_ID>S7</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391012.407865</TimeStamp>
+	<State_ID>S7</State_ID>
+	<State_ClassName>CompRulesContents</State_ClassName>
+	<State_Title>Comp. Rules</State_Title>
+	<State_ScreenshotPath>S-1415391012.407951-7.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S7</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S7</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>10</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S7</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391024.348182</TimeStamp>
+	<Source_State_ID>S7</Source_State_ID>
+	<Target_State_ID>S8</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UISearchBarTextField</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391032.718799</TimeStamp>
+	<State_ID>S8</State_ID>
+	<State_ClassName>CompRulesContents</State_ClassName>
+	<State_Title>Comp. Rules</State_Title>
+	<State_ScreenshotPath>S-1415391032.718873-8.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>4</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>10</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIToolbar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S8</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391044.524937</TimeStamp>
+	<Source_State_ID>S8</Source_State_ID>
+	<Target_State_ID>S9</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Cancel</UIElement_Label>
+		<UIElement_Action>_cancelButtonPressed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+		<Method>[CompRulesContents: getSectionName:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391048.529229</TimeStamp>
+	<State_ID>S9</State_ID>
+	<State_ClassName>CompRulesContents</State_ClassName>
+	<State_Title>Comp. Rules</State_Title>
+	<State_ScreenshotPath>S-1415391048.529316-9.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>10</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S9</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UISearchBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391057.670084</TimeStamp>
+	<Source_State_ID>S9</Source_State_ID>
+	<Target_State_ID>S10</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>More</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391059.843988</TimeStamp>
+	<State_ID>S10</State_ID>
+	<State_ClassName>MoreViewsController</State_ClassName>
+	<State_Title>More Features</State_Title>
+	<State_ScreenshotPath>S-1415391059.844062-10.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S10</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S10</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391064.208910</TimeStamp>
+	<Source_State_ID>S10</Source_State_ID>
+	<Target_State_ID>S11</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Decklist Counter</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391067.463871</TimeStamp>
+	<State_ID>S11</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>S-1415391067.463956-11.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>1</UIElement_Label>
+			<UIElement_Action>button1Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>button2Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>3</UIElement_Label>
+			<UIElement_Action>button3Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>button4Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Total: 0 (+0)</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>resetPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S11</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>undoPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391073.399879</TimeStamp>
+	<Source_State_ID>S11</Source_State_ID>
+	<Target_State_ID>S12</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>2</UIElement_Label>
+		<UIElement_Action>button2Pressed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DecklistCounterController: updateLabel]</Method>
+		<Method>[DecklistCounterController: button2Pressed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391077.403603</TimeStamp>
+	<State_ID>S12</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>S-1415391077.403667-12.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>1</UIElement_Label>
+			<UIElement_Action>button1Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>button2Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>3</UIElement_Label>
+			<UIElement_Action>button3Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>button4Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Total: 2 (+2)</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>resetPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S12</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>undoPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391082.009574</TimeStamp>
+	<Source_State_ID>S12</Source_State_ID>
+	<Target_State_ID>S13</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Undo</UIElement_Label>
+		<UIElement_Action>undoPressed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DecklistCounterController: updateLabel]</Method>
+		<Method>[DecklistCounterController: undoPressed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391086.012799</TimeStamp>
+	<State_ID>S13</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>S-1415391086.012897-13.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>1</UIElement_Label>
+			<UIElement_Action>button1Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>button2Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>3</UIElement_Label>
+			<UIElement_Action>button3Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>button4Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Total: 0 </UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>resetPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S13</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>undoPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391092.928736</TimeStamp>
+	<Source_State_ID>S13</Source_State_ID>
+	<Target_State_ID>S14</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>4</UIElement_Label>
+		<UIElement_Action>button4Pressed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DecklistCounterController: updateLabel]</Method>
+		<Method>[DecklistCounterController: button4Pressed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391096.931293</TimeStamp>
+	<State_ID>S14</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>S-1415391096.931399-14.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>1</UIElement_Label>
+			<UIElement_Action>button1Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>button2Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>3</UIElement_Label>
+			<UIElement_Action>button3Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>button4Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Total: 4 (+4)</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>resetPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S14</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>undoPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391102.114514</TimeStamp>
+	<Source_State_ID>S14</Source_State_ID>
+	<Target_State_ID>S15</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Reset</UIElement_Label>
+		<UIElement_Action>resetPressed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DecklistCounterController: updateLabel]</Method>
+		<Method>[DecklistCounterController: resetPressed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391106.119765</TimeStamp>
+	<State_ID>S15</State_ID>
+	<State_ClassName>DecklistCounterController</State_ClassName>
+	<State_Title>Decklist Counter</State_Title>
+	<State_ScreenshotPath>S-1415391106.119831-15.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>8</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>1</UIElement_Label>
+			<UIElement_Action>button1Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>2</UIElement_Label>
+			<UIElement_Action>button2Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>3</UIElement_Label>
+			<UIElement_Action>button3Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>4</UIElement_Label>
+			<UIElement_Action>button4Pressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Total: 0 </UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Reset</UIElement_Label>
+			<UIElement_Action>resetPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S15</Parent_State_ID>
+			<UIElement_ID>E8</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Undo</UIElement_Label>
+			<UIElement_Action>undoPressed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391115.992690</TimeStamp>
+	<Source_State_ID>S15</Source_State_ID>
+	<Target_State_ID>S16</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>More</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DecklistCounterController: viewDidDisappear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391118.622789</TimeStamp>
+	<State_ID>S16</State_ID>
+	<State_ClassName>MoreViewsController</State_ClassName>
+	<State_Title>More Features</State_Title>
+	<State_ScreenshotPath>S-1415391118.622881-16.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S16</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S16</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391130.136599</TimeStamp>
+	<Source_State_ID>S16</Source_State_ID>
+	<Target_State_ID>S17</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Draft Timer</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DraftTimer: updateUI]</Method>
+		<Method>[DraftTimer: secondsForPick:]</Method>
+		<Method>[DraftTimer: updateTime:]</Method>
+		<Method>[DraftTimer: setTopLabelText:]</Method>
+		<Method>[DraftTimer: updateUI]</Method>
+		<Method>[DraftTimer: startPick]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391132.858918</TimeStamp>
+	<State_ID>S17</State_ID>
+	<State_ClassName>DraftTimer</State_ClassName>
+	<State_Title>Draft Timer</State_Title>
+	<State_ScreenshotPath>S-1415391132.859002-17.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>40.00</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Start</UIElement_Label>
+			<UIElement_Action>startClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Next</UIElement_Label>
+			<UIElement_Action>nextClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Previous</UIElement_Label>
+			<UIElement_Action>previousClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Pack 1, Pick 1</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S17</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Open your first pack and count out the cards face down in front of you. You should have 14 cards.</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391163.614882</TimeStamp>
+	<Source_State_ID>S17</Source_State_ID>
+	<Target_State_ID>S18</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Next</UIElement_Label>
+		<UIElement_Action>nextClicked:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DraftTimer: secondsForPick:]</Method>
+		<Method>[DraftTimer: updateTime:]</Method>
+		<Method>[DraftTimer: setTopLabelText:]</Method>
+		<Method>[DraftTimer: updateUI]</Method>
+		<Method>[DraftTimer: startPick]</Method>
+		<Method>[DraftTimer: nextClicked:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391167.618773</TimeStamp>
+	<State_ID>S18</State_ID>
+	<State_ClassName>DraftTimer</State_ClassName>
+	<State_Title>Draft Timer</State_Title>
+	<State_ScreenshotPath>S-1415391167.618838-18.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>35.00</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Start</UIElement_Label>
+			<UIElement_Action>startClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Next</UIElement_Label>
+			<UIElement_Action>nextClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Previous</UIElement_Label>
+			<UIElement_Action>previousClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Pack 1, Pick 2</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S18</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Lay out your pack to your left.
+You should have 13 cards.</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391175.429488</TimeStamp>
+	<Source_State_ID>S18</Source_State_ID>
+	<Target_State_ID>S19</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Previous</UIElement_Label>
+		<UIElement_Action>previousClicked:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[DraftTimer: secondsForPick:]</Method>
+		<Method>[DraftTimer: updateTime:]</Method>
+		<Method>[DraftTimer: setTopLabelText:]</Method>
+		<Method>[DraftTimer: updateUI]</Method>
+		<Method>[DraftTimer: startPick]</Method>
+		<Method>[DraftTimer: previousClicked:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391179.433059</TimeStamp>
+	<State_ID>S19</State_ID>
+	<State_ClassName>DraftTimer</State_ClassName>
+	<State_Title>Draft Timer</State_Title>
+	<State_ScreenshotPath>S-1415391179.433131-19.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>40.00</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Start</UIElement_Label>
+			<UIElement_Action>startClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Next</UIElement_Label>
+			<UIElement_Action>nextClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Previous</UIElement_Label>
+			<UIElement_Action>previousClicked:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Pack 1, Pick 1</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S19</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Open your first pack and count out the cards face down in front of you. You should have 14 cards.</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391190.374885</TimeStamp>
+	<Source_State_ID>S19</Source_State_ID>
+	<Target_State_ID>S20</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391193.017539</TimeStamp>
+	<State_ID>S20</State_ID>
+	<State_ClassName>MoreViewsController</State_ClassName>
+	<State_Title>More Features</State_Title>
+	<State_ScreenshotPath>S-1415391193.017615-20.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S20</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S20</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391213.137769</TimeStamp>
+	<Source_State_ID>S20</Source_State_ID>
+	<Target_State_ID>S21</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Check for Updates</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[CheckForUpdatesController: checkForUpdatesAsync]</Method>
+		<Method>[CheckForUpdatesController: checkForUpdates]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391215.842836</TimeStamp>
+	<State_ID>S21</State_ID>
+	<State_ClassName>CheckForUpdatesController</State_ClassName>
+	<State_Title>Update</State_Title>
+	<State_ScreenshotPath>S-1415391215.842948-21.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>3</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S21</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S21</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Note:  The app automatically checks for updates approximately every 2 hours.</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S21</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Updates available!</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391226.017402</TimeStamp>
+	<Source_State_ID>S21</Source_State_ID>
+	<Target_State_ID>S22</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Back</UIElement_Label>
+		<UIElement_Action>goBack</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391228.643190</TimeStamp>
+	<State_ID>S22</State_ID>
+	<State_ClassName>MoreViewsController</State_ClassName>
+	<State_Title>More Features</State_Title>
+	<State_ScreenshotPath>S-1415391228.643246-22.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S22</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S22</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>3</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415391237.353114</TimeStamp>
+	<Source_State_ID>S22</Source_State_ID>
+	<Target_State_ID>S23</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Quick Ref.</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[QuickReferenceController: copyResourcesToDocuments]</Method>
+		<Method>[QuickReferenceController: checkForNewFiles]</Method>
+		<Method>[QuickReferenceController: viewDidAppear:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415391239.494429</TimeStamp>
+	<State_ID>S23</State_ID>
+	<State_ClassName>QuickReferenceController</State_ClassName>
+	<State_Title>Quick Ref.</State_Title>
+	<State_ScreenshotPath>S-1415391239.494483-23.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S23</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>5</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S23</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UITableView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>tableCellClicked</UIElement_Action>
+			<UIElement_Details>8</UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

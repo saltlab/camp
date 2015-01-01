@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:11 PM</TimeStamp>
+		<Source_State_ID>S0</Source_State_ID>
+		<Target_State_ID>S1</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:11 PM</TimeStamp>
+		<State_ID>S1</State_ID>
+		<State_ClassName>QuickReferenceActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>1</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:19 PM</TimeStamp>
+		<Source_State_ID>S1</Source_State_ID>
+		<Target_State_ID>S2</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>Penalties</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onListItemClick</Method>
+			<Method>QuickReferenceDetailActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:19 PM</TimeStamp>
+		<State_ID>S2</State_ID>
+		<State_ClassName>QuickReferenceDetailActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>ImageView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:22 PM</TimeStamp>
+		<Source_State_ID>S2</Source_State_ID>
+		<Target_State_ID>S3</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>Layers / Casting Spells</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onListItemClick</Method>
+			<Method>QuickReferenceDetailActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:22 PM</TimeStamp>
+		<State_ID>S3</State_ID>
+		<State_ClassName>QuickReferenceDetailActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>ImageView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:24 PM</TimeStamp>
+		<Source_State_ID>S3</Source_State_ID>
+		<Target_State_ID>S4</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuButton</UIElement_Type>
+			<UIElement_Label>MenuButton</UIElement_Label>
+			<UIElement_Action>MenuButtonClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onCreateOptionsMenu</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:24 PM</TimeStamp>
+		<State_ID>S4</State_ID>
+		<State_ClassName>QuickReferenceActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>7</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E6</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Penalties</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Layers / Casting Spells</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Resolving Spells / Copiable Characteristics</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Types of Information</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E10</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Head Judge Announcement</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S4</Parent_State_ID>
+				<UIElement_ID>E11</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Reviews / Feedback</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:25 PM</TimeStamp>
+		<Source_State_ID>S4</Source_State_ID>
+		<Target_State_ID>S5</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuItem</UIElement_Type>
+			<UIElement_Label>[Oracle]</UIElement_Label>
+			<UIElement_Action>MenuItemClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onOptionsItemSelected</Method>
+			<Method>OracleActivity:onCreate</Method>
+			<Method>OracleActivity:getCardNamesFromXml</Method>
+			<Method>OracleActivity:getCardNamesFromXml</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:25 PM</TimeStamp>
+		<State_ID>S5</State_ID>
+		<State_ClassName>OracleActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>3</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S5</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S5</Parent_State_ID>
+				<UIElement_ID>E8</UIElement_ID>
+				<UIElement_Type>EditText</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S5</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6336</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:36 PM</TimeStamp>
+		<Source_State_ID>S5</Source_State_ID>
+		<Target_State_ID>S6</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>MenuItem</UIElement_Type>
+			<UIElement_Label>[IPG]</UIElement_Label>
+			<UIElement_Action>MenuItemClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>QuickReferenceActivity:onOptionsItemSelected</Method>
+			<Method>IPGActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:36 PM</TimeStamp>
+		<State_ID>S6</State_ID>
+		<State_ClassName>IPGActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S6</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>6</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:40 PM</TimeStamp>
+		<Source_State_ID>S6</Source_State_ID>
+		<Target_State_ID>S7</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>Judging at Regular REL</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>IPGActivity:onListItemClick</Method>
+			<Method>IPGDetailActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:40 PM</TimeStamp>
+		<State_ID>S7</State_ID>
+		<State_ClassName>IPGDetailActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S7</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>ListView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details>5</UIElement_Details>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/08/2014 6:21:47 PM</TimeStamp>
+		<Source_State_ID>S7</Source_State_ID>
+		<Target_State_ID>S8</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>ListViewCell</UIElement_Type>
+			<UIElement_Label>Resources</UIElement_Label>
+			<UIElement_Action>ListViewCellClicked</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>IPGDetailActivity:onListItemClick</Method>
+			<Method>IPGDisplayActivity:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/08/2014 6:21:47 PM</TimeStamp>
+		<State_ID>S8</State_ID>
+		<State_ClassName>IPGDisplayActivity </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S8</Parent_State_ID>
+				<UIElement_ID>E7</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Need an answer now? Try logging in to http://dcifamily.org/askthejudge/ - and ask!
+
+Want to find a local judge? Use the Judge Center at https://membership.wizards.com/login.aspx and click on the People tab - use the filters at the bottom to narrow your search, then send them a message!
+
+Event Sanctioning How-To- http://tinyurl.com/TO-Sanction
+
+Wizards Play Network FAQ - go to the http://wizards.custhelp.com/ site and search for WPN FAQ
+
+TO Community Forums - http://tinyurl.com/TO-HQ
+
+Magic Document Center - Home of the Tournament Rules and the Infraction Procedure Guide http://tinyurl.com/DCI-Docs
+
+Magic Rules-also links to Gatherer and Set FAQ's (in various languages) http://tinyurl.com/DCI-Rules
+
+Magic Community Rules Page - lots of the above, translated for your enjoyment - http://www.dcirules.org/</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+</Model>

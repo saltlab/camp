@@ -1,0 +1,9 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+11/08/2014 6:21:11 PM,S0,S1,,,,,QuickReferenceActivity:onCreate;,
+11/08/2014 6:21:19 PM,S1,S2,ListViewCell,Penalties,ListViewCellClicked,,QuickReferenceActivity:onListItemClick;QuickReferenceDetailActivity:onCreate;,
+11/08/2014 6:21:22 PM,S2,S3,ListViewCell,Layers / Casting Spells,ListViewCellClicked,,QuickReferenceActivity:onListItemClick;QuickReferenceDetailActivity:onCreate;,
+11/08/2014 6:21:24 PM,S3,S4,MenuButton,MenuButton,MenuButtonClicked,,QuickReferenceActivity:onCreateOptionsMenu;,
+11/08/2014 6:21:25 PM,S4,S5,MenuItem,[Oracle],MenuItemClicked,,QuickReferenceActivity:onOptionsItemSelected;OracleActivity:onCreate;OracleActivity:getCardNamesFromXml;OracleActivity:getCardNamesFromXml;,
+11/08/2014 6:21:36 PM,S5,S6,MenuItem,[IPG],MenuItemClicked,,QuickReferenceActivity:onOptionsItemSelected;IPGActivity:onCreate;,
+11/08/2014 6:21:40 PM,S6,S7,ListViewCell,Judging at Regular REL,ListViewCellClicked,,IPGActivity:onListItemClick;IPGDetailActivity:onCreate;,
+11/08/2014 6:21:47 PM,S7,S8,ListViewCell,Resources,ListViewCellClicked,,IPGDetailActivity:onListItemClick;IPGDisplayActivity:onCreate;,

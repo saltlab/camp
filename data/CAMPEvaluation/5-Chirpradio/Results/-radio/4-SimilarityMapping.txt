@@ -1,0 +1,44 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            PlayerViewController            6
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            Playing                 3
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (Button, Stop, onClick, )
+S1 -> S1      (Button, Play, onClick, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S1      (UIButton, , , )
+S1 -> S1      (UIWebBrowserView, , , )
+S1 -> S1      (UIButton, , , )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in the element: iPhone (UIButton,,) vs. Android (Button,Play,) 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (, , UIButton) 
+androidEdge: S1->S1 (Stop, onClick, Button) 
+Mapping ID: MappedID2
+Diff: 49 
+
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S1 (, , UIButton) 
+androidEdge: S1->S1 (Play, onClick, Button) 
+Mapping ID: MappedID2
+Diff: 49 

@@ -1,0 +1,9 @@
+TimeStamp,State_ID,State_ClassName,State_Title,State_ScreenshotPath,State_NumberOfElements
+1415828881.094024,S1,UIViewController,,S-1415828881.094157-1.jpg,4,
+1415828936.320455,S2,FirstViewController,First,S-1415828936.320563-2.jpg,4,
+1415828936.331969,S2,FirstViewController,First,S-1415828936.332036-2.jpg,4,
+1415828975.492943,S3,SecondViewController,Second,S-1415828975.493041-3.jpg,4,
+1415828987.929530,S4,UIViewController,,S-1415828987.929609-4.jpg,1,
+1415829004.951213,S5,UIViewController,,S-1415829004.951292-5.jpg,1,
+1415829050.039047,S6,FirstViewController,First,S-1415829050.039125-6.jpg,4,
+1415829060.675495,S7,FirstViewController,First,S-1415829060.675571-7.jpg,4,

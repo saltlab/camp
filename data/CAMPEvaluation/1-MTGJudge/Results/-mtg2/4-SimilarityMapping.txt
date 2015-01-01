@@ -1,0 +1,133 @@
+
+
+***iPhone States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceController      Quick Ref.      2
+S2            QuickReferenceDetailController      Quick Reference      1
+S8            OracleLookupController            3
+S10            IPGContents      IPG      2
+S11            IPGSubContents      Judging at Regular REL      2
+S12            IPGDetail      Resources      3
+
+
+***Android States
+State_ID      State_ClassName     State_Title     State_NumberOfElements
+S1            QuickReferenceActivity                 7
+S2            QuickReferenceDetailActivity                 2
+S5            OracleActivity                 3
+S6            IPGActivity                 2
+S7            IPGDetailActivity                 2
+S8            IPGDisplayActivity                 2
+
+
+***Android Actions
+Src -> Trg     TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (ListViewCell, Penalties, ListViewCellClicked, )
+S2 -> S2      (ListViewCell, Layers / Casting Spells, ListViewCellClicked, )
+S2 -> S1      (MenuButton, MenuButton, MenuButtonClicked, )
+S1 -> S5      (MenuItem, [Oracle], MenuItemClicked, )
+S5 -> S6      (MenuItem, [IPG], MenuItemClicked, )
+S6 -> S7      (ListViewCell, Judging at Regular REL, ListViewCellClicked, )
+S7 -> S8      (ListViewCell, Resources, ListViewCellClicked, )
+
+
+***iPhone Actions
+Src -> Trg   TouchedElement(Type, Label, Action, Details)
+S0 -> S1      (, , , )
+S1 -> S2      (UITableViewCell, Penalties, tableCellClicked, )
+S2 -> S1      (UIButton, Back, goBack, )
+S1 -> S2      (UITableViewCell, Lapsing Triggers, tableCellClicked, )
+S2 -> S1      (UIButton, Back, goBack, )
+S1 -> S2      (UITableViewCell, Layers / Casting Spells, tableCellClicked, )
+S2 -> S1      (UIButton, Back, goBack, )
+S1 -> S8      (UITabBarButton, Oracle, itemClicked, )
+S8 -> S8      (UITableViewCell, Abeyance, tableCellClicked, )
+S8 -> S10      (UITabBarButton, IPG, itemClicked, )
+S10 -> S11      (UITableViewCell, Judging at Regular REL, tableCellClicked, )
+S11 -> S12      (UITableViewCell, Resources, tableCellClicked, )
+S12 -> S12      (UITextView, , , )
+S12 -> S11      (UIButton, Back, goBack, )
+S11 -> S10      (UIButton, Back, goBack, )
+
+***Closest States
+iPhoneState: S1 
+androidState: S1
+Mapping ID: MappedID1
+Number of Inconsistencies (Title, Elements): 2 
+Inconsistency in Title: iPhone 'Quick Ref.' vs. Android '' 
+Inconsistency in # tabel cells: iPhone (8) vs. Android (6)
+Inconsistency in the element: iPhone (UITableView,,tableCellClicked) vs. Android (ListView,,)
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S2 (Penalties, tableCellClicked, UITableViewCell) 
+androidEdge: S1->S2 (Penalties, ListViewCellClicked, ListViewCell) 
+Mapping ID: MappedID1
+Diff: 20 
+
+***Closest States
+iPhoneState: S2 
+androidState: S2
+Mapping ID: MappedID2
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Quick Reference' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S1->S8 (Oracle, itemClicked, UITabBarButton) 
+androidEdge: S1->S5 ([Oracle], MenuItemClicked, MenuItem) 
+Mapping ID: MappedID2
+Diff: 15 
+
+***Closest States
+iPhoneState: S8 
+androidState: S5
+Mapping ID: MappedID3
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in # tabel cells: iPhone (12628) vs. Android (6336)
+Inconsistency in the element: iPhone (UITableView,,tableCellClicked) vs. Android (ListView,,)
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S8->S10 (IPG, itemClicked, UITabBarButton) 
+androidEdge: S5->S6 ([IPG], MenuItemClicked, MenuItem) 
+Mapping ID: MappedID3
+Diff: 35 
+
+***Closest States
+iPhoneState: S10 
+androidState: S6
+Mapping ID: MappedID4
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'IPG' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S10->S11 (Judging at Regular REL, tableCellClicked, UITableViewCell) 
+androidEdge: S6->S7 (Judging at Regular REL, ListViewCellClicked, ListViewCell) 
+Mapping ID: MappedID4
+Diff: 34 
+
+***Closest States
+iPhoneState: S11 
+androidState: S7
+Mapping ID: MappedID5
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Judging at Regular REL' vs. Android '' 
+ 
+ 
+***Closest Edges (Label, Action, Type)
+iPhoneEdge: S11->S12 (Resources, tableCellClicked, UITableViewCell) 
+androidEdge: S7->S8 (Resources, ListViewCellClicked, ListViewCell) 
+Mapping ID: MappedID5
+Diff: 32 
+
+***Closest States
+iPhoneState: S12 
+androidState: S8
+Mapping ID: MappedID6
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in Title: iPhone 'Resources' vs. Android '' 
+ 
+ 

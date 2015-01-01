@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+
+<Edge>
+	<TimeStamp>1415828392.956709</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>[WhistleViewController: viewDidLoad]</Method>
+		<Method>[WhistleAppDelegate: application:didFinishLaunchingWithOptions:]</Method>
+		<Method>[WhistleAppDelegate: applicationDidBecomeActive:]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828394.973008</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>WhistleViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828394.973103-1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>startPushed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828427.293409</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action>startPushed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[WhistleViewController: startPushed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828431.295180</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>WhistleViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828431.295209-2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>stopPushed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828434.503088</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action>stopPushed</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[WhistleViewController: stopPushed]</Method>
+	</Methods>
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828438.505545</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>WhistleViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828438.505572-3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>startPushed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+
+<Edge>
+	<TimeStamp>1415828444.997494</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S4</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+</Edge>
+
+
+
+<State>
+	<TimeStamp>1415828448.999278</TimeStamp>
+	<State_ID>S4</State_ID>
+	<State_ClassName>WhistleViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415828448.999340-4.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>1</State_NumberOfElements>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S4</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>startPushed</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+</Model>

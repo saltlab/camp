@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+     <!DOCTYPE document SYSTEM "" > 
+      <Model>
+
+
+<Edge>
+	<TimeStamp>1415827393.857387</TimeStamp>
+	<Source_State_ID>S0</Source_State_ID>
+	<Target_State_ID>S1</Target_State_ID>
+	<TouchedElement />
+	<Methods>
+		<Method>[YDPLogin: initWithNibName:bundle:]</Method>
+		<Method>[ZBarReaderViewImpl: _initWithImageScanner:]</Method>
+		<Method>[ZBarReaderViewImpl: initSubviews]</Method>
+		<Method>[ZBarImageScanner: setSymbology:config:to:]</Method>
+		<Method>[ZBarImageScanner: setSymbology:config:to:]</Method>
+		<Method>[Cipher: initWithKey:]</Method>
+		<Method>[ZBarCameraSimulator: initWithViewController:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[ZBarReaderViewImpl: resetTracking]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:didFinishLaunchingWithOptions:]</Method>
+		<Method>[YDPAppDelegate: applicationDidBecomeActive:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[ZBarReaderViewImpl: resetTracking]</Method>
+		<Method>[ZBarReaderViewImpl: start]</Method>
+		<Method>[ZBarReaderViewImpl: onVideoStart]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827510.101523</TimeStamp>
+	<Source_State_ID>S1</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Notify YDP</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[ZBarReaderViewImpl: stop]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[ZBarReaderViewImpl: onVideoStop]</Method>
+	</Methods>
+	<MappingColor>73</MappingColor>
+	<MappingLabel>MappedID1</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827556.231833</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>More About YDP</UIElement_Label>
+		<UIElement_Action>moreAboutYDP:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPViewController: moreAboutYDP:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[MBProgressHUD: updateIndicators]</Method>
+		<Method>[MBProgressHUD: updateLabelText:]</Method>
+		<Method>[MBProgressHUD: updateDetailsLabelText:]</Method>
+		<Method>[MBProgressHUD: initWithFrame:]</Method>
+		<Method>[MBProgressHUD: setTransformForCurrentOrientation:]</Method>
+		<Method>[MBProgressHUD: initWithView:]</Method>
+		<Method>[MBProgressHUD: showUsingAnimation:]</Method>
+		<Method>[MBProgressHUD: show:]</Method>
+		<Method>[MBProgressHUD: updateLabelText:]</Method>
+		<Method>[YDPAppDelegate: startSpinningLoaderWithMessage:]</Method>
+		<Method>[MBProgressHUD: layoutSubviews]</Method>
+		<Method>[MBProgressHUD: drawRect:]</Method>
+		<Method>[MBProgressHUD: updateLabelText:]</Method>
+		<Method>[YDPAppDelegate: startSpinningLoaderWithMessage:]</Method>
+		<Method>[MBProgressHUD: layoutSubviews]</Method>
+		<Method>[MBProgressHUD: drawRect:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827572.383565</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIStatusBarForegroundView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[MBProgressHUD: updateLabelText:]</Method>
+		<Method>[YDPAppDelegate: startSpinningLoaderWithMessage:]</Method>
+		<Method>[YDPAppDelegate: stopSpinningLoader]</Method>
+		<Method>[MBProgressHUD: layoutSubviews]</Method>
+		<Method>[MBProgressHUD: drawRect:]</Method>
+		<Method>[YDPAppDelegate: stopSpinningLoader]</Method>
+		<Method>[MBProgressHUD: hideUsingAnimation:]</Method>
+		<Method>[MBProgressHUD: hide:]</Method>
+		<Method>[YDPAppDelegate: stopSpinningLoader]</Method>
+		<Method>[MBProgressHUD: done]</Method>
+		<Method>[MBProgressHUD: animationFinished:finished:context:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827585.024527</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S3</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIWebBrowserView</UIElement_Type>
+		<UIElement_Label></UIElement_Label>
+		<UIElement_Action></UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827610.574146</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Close</UIElement_Label>
+		<UIElement_Action>Logout:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827610.574146</TimeStamp>
+	<Source_State_ID>S3</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Close</UIElement_Label>
+		<UIElement_Action>Logout:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827637.066298</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Call YDP</UIElement_Label>
+		<UIElement_Action>OnCallYDP:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPViewController: OnCallYDP:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827672.748625</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>YDP Login</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[ZBarReaderViewImpl: resetTracking]</Method>
+		<Method>[ZBarReaderViewImpl: start]</Method>
+		<Method>[ZBarReaderViewImpl: onVideoStart]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827690.777422</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S9</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Login</UIElement_Label>
+		<UIElement_Action>Login</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPLogin: Login]</Method>
+	</Methods>
+	<MappingColor>32</MappingColor>
+	<MappingLabel>MappedID2</MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827690.777422</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S9</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Login</UIElement_Label>
+		<UIElement_Action>Login</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827700.963873</TimeStamp>
+	<Source_State_ID>S9</Source_State_ID>
+	<Target_State_ID>S9</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITableViewCell</UIElement_Type>
+		<UIElement_Label>Ok</UIElement_Label>
+		<UIElement_Action>tableCellClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827737.338944</TimeStamp>
+	<Source_State_ID>S9</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UITabBarButton</UIElement_Type>
+		<UIElement_Label>Notify YDP</UIElement_Label>
+		<UIElement_Action>itemClicked</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[ZBarReaderViewImpl: stop]</Method>
+		<Method>[ZBarReaderViewImpl: onVideoStop]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827751.541427</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Email YDP</UIElement_Label>
+		<UIElement_Action>showComposer:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPViewController: displayComposerSheet:]</Method>
+		<Method>[YDPViewController: showComposer:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827751.541427</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Email YDP</UIElement_Label>
+		<UIElement_Action>showComposer:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods />
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<Edge>
+	<TimeStamp>1415827751.541427</TimeStamp>
+	<Source_State_ID>S2</Source_State_ID>
+	<Target_State_ID>S2</Target_State_ID>
+	<TouchedElement>
+		<UIElement_Type>UIButton</UIElement_Type>
+		<UIElement_Label>Email YDP</UIElement_Label>
+		<UIElement_Action>showComposer:</UIElement_Action>
+		<UIElement_Details></UIElement_Details>
+	</TouchedElement>
+	<Methods>
+		<Method>[YDPAppDelegate: application:supportedInterfaceOrientationsForWindow:]</Method>
+		<Method>[YDPViewController: mailComposeController:didFinishWithResult:error:]</Method>
+	</Methods>
+	<MappingColor></MappingColor>
+	<MappingLabel></MappingLabel>
+</Edge>
+
+
+<State>
+	<TimeStamp>1415827395.868715</TimeStamp>
+	<State_ID>S1</State_ID>
+	<State_ClassName>YDPLogin</State_ClassName>
+	<State_Title>YDP Login</State_Title>
+	<State_ScreenshotPath>S-1415827395.868793-1.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<MappingLabel>MappedID1</MappingLabel>
+	<MappingColor>1</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'YDP Login' vs. Android '' 
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>2</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>YDP Login</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UITextField</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UITextField</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Login</UIElement_Label>
+			<UIElement_Action>Login</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S1</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Camera Simulation  Tap and hold with two &quot;fingers&quot; to select image</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415827512.250641</TimeStamp>
+	<State_ID>S2</State_ID>
+	<State_ClassName>YDPViewController</State_ClassName>
+	<State_Title>Notify YDP</State_Title>
+	<State_ScreenshotPath>S-1415827512.250786-2.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>7</State_NumberOfElements>
+	<MappingLabel>MappedID2</MappingLabel>
+	<MappingColor>2</MappingColor>
+	<MappingReport>Inconsistency in Title: iPhone 'Notify YDP' vs. Android '' 
+Inconsistency in the element: iPhone (UIButton,More About YDP,moreAboutYDP:) vs. Android (Button,Login,)
+</MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UITabBar</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action>itemClicked</UIElement_Action>
+			<UIElement_Details>2</UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E3</UIElement_ID>
+			<UIElement_Type>UILabel</UIElement_Type>
+			<UIElement_Label>Notify YDP</UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E4</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>More About YDP</UIElement_Label>
+			<UIElement_Action>moreAboutYDP:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E5</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Email YDP</UIElement_Label>
+			<UIElement_Action>showComposer:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E6</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Call YDP</UIElement_Label>
+			<UIElement_Action>OnCallYDP:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S2</Parent_State_ID>
+			<UIElement_ID>E7</UIElement_ID>
+			<UIElement_Type>UIImageView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415827560.068091</TimeStamp>
+	<State_ID>S3</State_ID>
+	<State_ClassName>YDPHelpViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415827560.068218-3.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>2</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E1</UIElement_ID>
+			<UIElement_Type>UIWebView</UIElement_Type>
+			<UIElement_Label></UIElement_Label>
+			<UIElement_Action></UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+		<UIElement>
+			<Parent_State_ID>S3</Parent_State_ID>
+			<UIElement_ID>E2</UIElement_ID>
+			<UIElement_Type>UIButton</UIElement_Type>
+			<UIElement_Label>Close</UIElement_Label>
+			<UIElement_Action>Logout:</UIElement_Action>
+			<UIElement_Details></UIElement_Details>
+		</UIElement>
+	</UIElements>
+</State>
+
+
+<State>
+	<TimeStamp>1415827692.895033</TimeStamp>
+	<State_ID>S9</State_ID>
+	<State_ClassName>_UIModalItemAppViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415827692.895121-9.jpg</State_ScreenshotPath>
+	<State_NumberOfElements></State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements />
+</State>
+
+
+<State>
+	<TimeStamp>1415827755.544470</TimeStamp>
+	<State_ID>S12</State_ID>
+	<State_ClassName>MFMailComposeInternalViewController</State_ClassName>
+	<State_Title></State_Title>
+	<State_ScreenshotPath>S-1415827755.544561-12.jpg</State_ScreenshotPath>
+	<State_NumberOfElements>9</State_NumberOfElements>
+	<MappingLabel></MappingLabel>
+	<MappingColor></MappingColor>
+	<MappingReport></MappingReport>
+	<UIElements />
+</State>
+
+</Model>

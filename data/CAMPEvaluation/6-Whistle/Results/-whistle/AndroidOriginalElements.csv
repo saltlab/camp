@@ -1,0 +1,7 @@
+State_ID,UIElement_ID,UIElement_Type,UIElement_Label,UIElement_Action,UIElement_Details
+S1,E5,TextView,,,,
+S1,E9,Button,,,,
+S2,E5,TextView,Whistle on Android,,,
+S2,E9,Button,,,,
+S3,E5,TextView,Whistle on Android,,,
+S3,E9,Button,,,,

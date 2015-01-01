@@ -1,0 +1,5 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+1415828392.956709,S0,S1,,,,,[WhistleViewController: viewDidLoad];[WhistleAppDelegate: application:didFinishLaunchingWithOptions:];[WhistleAppDelegate: applicationDidBecomeActive:];,
+1415828427.293409,S1,S1,UIButton,,startPushed,,[WhistleViewController: startPushed];,
+1415828434.503088,S1,S1,UIButton,,stopPushed,,[WhistleViewController: stopPushed];,
+1415828444.997494,S1,S1,UIView,,,,,

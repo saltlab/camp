@@ -1,0 +1,6 @@
+TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods
+11/20/2014 1:56:34 PM,S0,S1,,,,,Splashscreen:onCreate;HOMESCREEN:onCreate;YDPCAREPLAN:onCreate;HOMESCREEN:onCreate;YDPCAREPLAN:onCreate;NOTIFYYDP:onCreate;,
+11/20/2014 1:56:40 PM,S1,S2,Button,More About YDP,clickAbout,,NOTIFYYDP:clickAbout;,
+11/20/2014 1:56:42 PM,S2,S3,Button,Call YDP,clickCall,,NOTIFYYDP:clickCall;,
+11/20/2014 1:56:47 PM,S3,S4,Button,Login,clickLogin,,YDPCAREPLAN:clickLogin;,
+11/20/2014 1:56:49 PM,S4,S5,Button,Email YDP,clickEmail,,NOTIFYYDP:clickEmail;,

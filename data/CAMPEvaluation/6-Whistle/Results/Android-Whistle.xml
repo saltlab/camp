@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+	<Edge>
+		<TimeStamp>11/14/2014 3:41:24 PM</TimeStamp>
+		<Source_State_ID>S0</Source_State_ID>
+		<Target_State_ID>S1</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type/>
+			<UIElement_Label/>
+			<UIElement_Action/>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Whistle:onCreate</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/14/2014 3:41:24 PM</TimeStamp>
+		<State_ID>S1</State_ID>
+		<State_ClassName>Whistle </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S1</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/14/2014 3:41:32 PM</TimeStamp>
+		<Source_State_ID>S1</Source_State_ID>
+		<Target_State_ID>S2</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label/>
+			<UIElement_Action>onClick</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Whistle:onClick</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/14/2014 3:41:32 PM</TimeStamp>
+		<State_ID>S2</State_ID>
+		<State_ClassName>Whistle </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Whistle on Android</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S2</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+	<Edge>
+		<TimeStamp>11/14/2014 3:41:35 PM</TimeStamp>
+		<Source_State_ID>S2</Source_State_ID>
+		<Target_State_ID>S3</Target_State_ID>
+		<TouchedElement>
+			<UIElement_Type>Button</UIElement_Type>
+			<UIElement_Label/>
+			<UIElement_Action>onClick</UIElement_Action>
+			<UIElement_Details/>
+		</TouchedElement>
+		<Methods>
+			<Method>Whistle:onClick</Method>
+			<Method>Whistle:onStop</Method>
+		</Methods>
+	</Edge>
+	<State>
+		<TimeStamp>11/14/2014 3:41:39 PM</TimeStamp>
+		<State_ID>S3</State_ID>
+		<State_ClassName>Whistle </State_ClassName>
+		<State_Title/>
+		<State_ScreenshotPath/>
+		<State_NumberOfElements>2</State_NumberOfElements>
+		<UIElements>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E5</UIElement_ID>
+				<UIElement_Type>TextView</UIElement_Type>
+				<UIElement_Label>Whistle on Android</UIElement_Label>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+			<UIElement>
+				<Parent_State_ID>S3</Parent_State_ID>
+				<UIElement_ID>E9</UIElement_ID>
+				<UIElement_Type>Button</UIElement_Type>
+				<UIElement_Label/>
+				<UIElement_Action/>
+				<UIElement_Details/>
+			</UIElement>
+		</UIElements>
+	</State>
+</Model>
