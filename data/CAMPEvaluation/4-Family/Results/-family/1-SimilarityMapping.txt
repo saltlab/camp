@@ -84,8 +84,8 @@ Diff: 73
 iPhoneState: S6 
 androidState: S4
 Mapping ID: MappedID2
-Number of Inconsistencies (Title, Elements): 5 
-Inconsistency in the element: iPhone (UIButton,     自动登录,cookieBtnPressed:) vs. Android (Button,登录,)Inconsistency in the element: iPhone (UIButton,,bgBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,sinaBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,findMyPwBtnPressed:) vs. Android (Button,,)Inconsistency in the element: iPhone (UIButton,,buttonPressed:) vs. Android (Button,,) 
+Number of Inconsistencies (Title, Elements): 1 
+Inconsistency in the element: iPhone (UIButton,     自动登录,cookieBtnPressed:) vs. Android (Button,登录,) 
  
 ***Closest Edges (Label, Action, Type)
 iPhoneEdge: S6->S1 (, buttonPressed:, UIButton) 

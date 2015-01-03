@@ -28,8 +28,7 @@ S1 -> S1      (UIView, , , )
 iPhoneState: S1 
 androidState: S1
 Mapping ID: MappedID1
-Number of Inconsistencies (Title, Elements): 1 
-Inconsistency in the element: iPhone (UIButton,,startPushed) vs. Android (Button,,)
+Number of Inconsistencies (Title, Elements): 0 
  
  
 ***Closest Edges (Label, Action, Type)

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *statePairs;
 @property(nonatomic, assign) int edgeMapId;
 @property(nonatomic, assign) int stateMapId;
+@property(nonatomic, assign) int elemMapId;
 
 @property (nonatomic, strong) NSMutableData *androidXmlData;
 @property (nonatomic, strong) NSMutableData *iphoneXmlData;

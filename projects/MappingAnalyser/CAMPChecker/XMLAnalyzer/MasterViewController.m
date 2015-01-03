@@ -15,15 +15,15 @@
 //Heuristical Weights and Threshold
 #define WEIGHT_S_CLASS 1
 #define WEIGHT_S_TITLE 1
-#define WEIGHT_S_COUNT_GUIS 1
-#define WEIGHT_E_CLASS 5
+#define WEIGHT_S_ELEMENTS 1
+#define WEIGHT_E_CLASS 1
 #define WEIGHT_E_TITLE 1
 #define WEIGHT_E_DETAIL 1
 #define WEIGHT_E_ACTION 1
 
 @implementation MasterViewController
 
-@synthesize iphoneXmlWriter, androidXmlWriter, edgePairs, statePairs, edgeMapId, stateMapId;
+@synthesize iphoneXmlWriter, androidXmlWriter, edgePairs, statePairs, edgeMapId, stateMapId, elemMapId;
 @synthesize similarityCsv, androidXmlData, iphoneXmlData, androidStatesCsv, androidElementsCsv, androidEdgesCsv, iphoneStatesCsv, iphoneElementsCsv, iphoneEdgesCsv, responseData, statusCode, jiraUrl, androidStatesAry, androidEdgesAry, iphoneStatesAry, iphoneEdgesAry;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -79,6 +79,7 @@
     self.statePairs = [[NSMutableArray alloc]init];
     self.edgeMapId = 1;
     self.stateMapId = 1;
+    self.elemMapId = 1;
     
     [self setupOutputFiles];
 }
@@ -152,7 +153,8 @@
                     for (CXMLElement* resultElement in resultNodes)
                         [self parseEdgesXMLFiles:resultElement appendTo:self.androidEdgesCsv];
                     
-                    //[self outputAndroidCsvFiles];
+                    [self outputAndroidOriginalCsvFiles];
+                    [self clusterAndroidStatesEdges];
                     [self clusterAndroidStatesEdges];
                     [self outputAndroidCsvFiles];
                 }
@@ -176,14 +178,15 @@
                     m = resultNodes.count;
                     for (CXMLElement* resultElement in resultNodes)
                         [self parseElementsXMLFiles:resultElement appendTo:self.iphoneElementsCsv];
-                    
+                
                     [self.iphoneEdgesCsv appendString:@"TimeStamp,Source_State_ID,Target_State_ID,TouchedElement_Type,TouchedElement_Label,TouchedElement_Action,TouchedElement_Details,Methods\n"];
                     resultNodes = [xmlParser nodesForXPath:@"//Edge" error:nil];
                     n = resultNodes.count;
                     for (CXMLElement* resultElement in resultNodes)
                         [self parseEdgesXMLFiles:resultElement appendTo:self.iphoneEdgesCsv];
                     
-                    //[self outputiPhoneCsvFile];
+                    [self outputiPhoneOriginalCsvFile];
+                    [self clusteriPhoneStatesEdges];
                     [self clusteriPhoneStatesEdges];
                     [self outputiPhoneCsvFile];
                 }
@@ -202,101 +205,130 @@
             [alert runModal];
         }
     }
+
+    [self.summaryLabel setStringValue:[NSString stringWithFormat:@"Android (%tu States, %tu Elements, %tu Edges) and iPhone(%tu States, %tu Elements, %tu Edges) are saved in ../Desktop/mapping-projects/CAMPChecker/outputFiles/", i,(unsigned long)j,(unsigned long)k,(unsigned long)l,(unsigned long)m,(unsigned long)n]];
+    [self.view addSubview:self.summaryLabel];
     
     //calculate different combinations of properties and similarities
     [self outputInconsistencies];
     
-    [self.summaryLabel setStringValue:[NSString stringWithFormat:@"Android (%tu States, %tu Elements, %tu Edges) and iPhone(%tu States, %tu Elements, %tu Edges) are saved in ../Desktop/mapping-projects/CAMPChecker/outputFiles/", i,(unsigned long)j,(unsigned long)k,(unsigned long)l,(unsigned long)m,(unsigned long)n]];
-    [self.view addSubview:self.summaryLabel];
 }
 
 -(void)parseStatesXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString
 {
+    NSMutableString* line = [[NSMutableString alloc] init];
+    
     //add TimeStamp
     NSArray *timeStampNodes = [resultElement elementsForName:@"TimeStamp"];
     NSString *timeStamp = [[timeStampNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", timeStamp?[timeStamp stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", timeStamp?[timeStamp stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add state ID
     NSArray *stateIdNodes = [resultElement elementsForName:@"State_ID"];
     NSString *stateId = [[stateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add class name
     NSArray *classNameNodes = [resultElement elementsForName:@"State_ClassName"];
     NSString *className = [[classNameNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", className?[className stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", className?[className stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add title 
     NSArray *statusNodes = [resultElement elementsForName:@"State_Title"];
     NSString *bugStatus = [[statusNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", bugStatus?[bugStatus stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", bugStatus?[bugStatus stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add screen shot path
     NSArray *screenshotNodes = [resultElement elementsForName:@"State_ScreenshotPath"];
     NSString *screenShot = [[screenshotNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,",screenShot?[screenShot stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,",screenShot?[screenShot stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
 
     //add number of elements
     NSArray *elementsNumberNodes = [resultElement elementsForName:@"State_NumberOfElements"];
     NSString *elementsNumber = [[elementsNumberNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementsNumber?[elementsNumber stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementsNumber?[elementsNumber stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
-    [csvString appendString:@"\n"];
+    
+    BOOL Flag = TRUE;
+    for(int i=0; i< [[csvString componentsSeparatedByString:@"\n"] count]; i++) {
+        NSString* line1 = [csvString componentsSeparatedByString:@"\n"][i];
+        if ([line isEqualToString:line1]) {
+            Flag = FALSE;
+            break;
+        }
+    }
+    if (Flag)
+        [csvString appendString:[NSString stringWithFormat:@"%@\n",line]];
+
 }
 
 -(void)parseElementsXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
+    NSMutableString* line = [[NSMutableString alloc] init];
+    
     //add state ID
     NSArray *stateIdNodes = [resultElement elementsForName:@"Parent_State_ID"];
     NSString *stateId = [[stateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", stateId?[stateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add element ID
     NSArray *elementIdNodes = [resultElement elementsForName:@"UIElement_ID"];
     NSString *elementId = [[elementIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementId?[elementId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementId?[elementId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add element type
     NSArray *elementTypeNodes = [resultElement elementsForName:@"UIElement_Type"];
     NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add element label
     NSArray *elementLabelNodes = [resultElement elementsForName:@"UIElement_Label"];
     NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
     elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add element action
     NSArray *elementActionNodes = [resultElement elementsForName:@"UIElement_Action"];
     NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add element details
     NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
     NSString *elementDetails = [[elementDetailsNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
-    [csvString appendString:@"\n"];
+    
+//    BOOL Flag = TRUE;
+//    for(int i=0; i< [[csvString componentsSeparatedByString:@"\n"] count]; i++) {
+//        NSString* line1 = [csvString componentsSeparatedByString:@"\n"][i];
+//        if ([line isEqualToString:line1]) {
+//            Flag = FALSE;
+//            break;
+//        }
+//    }
+//    if (Flag)
+        [csvString appendString:[NSString stringWithFormat:@"%@\n",line]];
+    
 }
 
 -(void)parseEdgesXMLFiles:(CXMLElement*)resultElement appendTo:(NSMutableString*)csvString{
     
+    NSMutableString* line = [[NSMutableString alloc] init];
+    
     //add TimeStamp
     NSArray *timeStampNodes = [resultElement elementsForName:@"TimeStamp"];
     NSString *timeStamp = [[timeStampNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", timeStamp?[timeStamp stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", timeStamp?[timeStamp stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add Source State ID
     NSArray *srcStateIdNodes = [resultElement elementsForName:@"Source_State_ID"];
     NSString *srcStateId = [[srcStateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", srcStateId?[srcStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", srcStateId?[srcStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     //add Target State ID
     NSArray *trgStateIdNodes = [resultElement elementsForName:@"Target_State_ID"];
     NSString *trgStateId = [[trgStateIdNodes objectAtIndex:0] stringValue];
-    [csvString appendString:[NSString stringWithFormat:@"%@,", trgStateId?[trgStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+    [line appendString:[NSString stringWithFormat:@"%@,", trgStateId?[trgStateId stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     
     NSArray* resultNodes = [resultElement elementsForName:@"TouchedElement"];
     CXMLElement* resultUIElement = resultNodes[0];
@@ -305,36 +337,47 @@
         //add element type
         NSArray *elementTypeNodes = [resultUIElement elementsForName:@"UIElement_Type"];
         NSString *elementType = [[elementTypeNodes objectAtIndex:0] stringValue];
-        [csvString appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+        [line appendString:[NSString stringWithFormat:@"%@,", elementType?[elementType stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
         
         //add element label
         NSArray *elementLabelNodes = [resultUIElement elementsForName:@"UIElement_Label"];
         NSString *elementLabel = [[elementLabelNodes objectAtIndex:0] stringValue];
         elementLabel = [elementLabel stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-        [csvString appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+        [line appendString:[NSString stringWithFormat:@"%@,", elementLabel?[elementLabel stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
         
         //add element action
         NSArray *elementActionNodes = [resultUIElement elementsForName:@"UIElement_Action"];
         NSString *elementAction = [[elementActionNodes objectAtIndex:0] stringValue];
-        [csvString appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+        [line appendString:[NSString stringWithFormat:@"%@,", elementAction?[elementAction stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
         
         //add element details
         NSArray *elementDetailsNodes = [resultElement elementsForName:@"UIElement_Details"];
         NSString *elementDetails = [elementDetailsNodes count]?[[elementDetailsNodes objectAtIndex:0] stringValue]:@"";
-        [csvString appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
+        [line appendString:[NSString stringWithFormat:@"%@,", elementDetails?[elementDetails stringByReplacingOccurrencesOfString:@"," withString:@";"]:@""]];
     }
     else
-        [csvString appendString:@",,,,"];
+        [line appendString:@",,,,"];
     
     //add methods
     resultNodes = [resultElement elementsForName:@"Methods"];
     NSArray *methodNodes = [resultNodes[0] elementsForName:@"Method"];
     for (CXMLElement* resultElement in methodNodes){
         NSString *methodDetails = [resultElement stringValue];
-        [csvString appendString:[NSString stringWithFormat:@"%@;", methodDetails]];
+        [line appendString:[NSString stringWithFormat:@"%@;", [methodDetails stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
     }
-    [csvString appendString:@","];
-    [csvString appendString:@"\n"];
+    [line appendString:@","];
+    
+    BOOL Flag = TRUE;
+    for(int i=0; i< [[csvString componentsSeparatedByString:@"\n"] count]; i++) {
+        NSString* line1 = [csvString componentsSeparatedByString:@"\n"][i];
+        if ([line isEqualToString:line1]) {
+            Flag = FALSE;
+            break;
+        }
+    }
+    if (Flag)
+        [csvString appendString:[NSString stringWithFormat:@"%@\n",line]];
+    
 }
 
 -(void)clusteriPhoneStatesEdges
@@ -357,6 +400,8 @@
                     if ([columns1[5] isEqualToString:columns2[5]]) {  //number of UI elements are equal
                         
                         if ([columns1[1] isEqualToString:columns2[1]])  //remove duplicate States Ids
+                            flag= true;
+                        else if ([columns1[3] isEqualToString:columns2[3]]) //have same title
                             flag= true;
                         else
                             //compare the elements
@@ -388,10 +433,12 @@
                             self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
                             
                             //remove identical states in the elements array
-                            NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                    self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                            if(![columns2[1] isEqualToString:columns1[1]]) {
+                                NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                }
                             }
                         }
                     }
@@ -429,10 +476,12 @@
                                 self.iphoneEdgesCsv = [[self.iphoneEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
                                 
                                 //remove identical states in the elements array
-                                NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
-                                for (NSString* otherRow1 in otherRows){
-                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                        self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                if(![columns2[1] isEqualToString:columns1[1]]) {
+                                    NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                    for (NSString* otherRow1 in otherRows){
+                                        if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                            self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                    }
                                 }
                             }
                         }
@@ -475,6 +524,7 @@
                                 
                                 //remove identical states in the elements array
                                 NSArray* otherRows = [self.iphoneElementsCsv componentsSeparatedByString:@"\n"];
+                                
                                 for (NSString* otherRow1 in otherRows){
                                     if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns1[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
                                         self.iphoneElementsCsv = [[self.iphoneElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
@@ -549,10 +599,12 @@
                             self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
                             
                             //remove identical states in the elements array
-                            NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
-                            for (NSString* otherRow1 in otherRows){
-                                if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                    self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                            if(![columns2[1] isEqualToString:columns1[1]]) {
+                                NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                                for (NSString* otherRow1 in otherRows){
+                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                }
                             }
                         }
                     }
@@ -590,10 +642,12 @@
                                 self.androidEdgesCsv = [[self.androidEdgesCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@,",columns2[1]] withString:[NSString stringWithFormat:@"%@,",columns1[1]]] mutableCopy];
                                 
                                 //remove identical states in the elements array
-                                NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
-                                for (NSString* otherRow1 in otherRows){
-                                    if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
-                                        self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                if(![columns2[1] isEqualToString:columns1[1]]) {
+                                    NSArray* otherRows = [self.androidElementsCsv componentsSeparatedByString:@"\n"];
+                                    for (NSString* otherRow1 in otherRows){
+                                        if([otherRow1 rangeOfString:[NSString stringWithFormat:@"%@,",columns2[1]] options:NSCaseInsensitiveSearch].location != NSNotFound)
+                                            self.androidElementsCsv = [[self.androidElementsCsv stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@\n",otherRow1] withString:@""] mutableCopy];
+                                    }
                                 }
                             }
                         }
@@ -677,9 +731,6 @@
         //printout edges after checks
         [self.similarityCsv appendString:[NSString stringWithFormat:@"%@ -> %@      (%@, %@, %@, %@)\n",e[@"Source_State_ID"],e[@"Target_State_ID"],e[@"TouchedElement_Type"],e[@"TouchedElement_Label"],e[@"TouchedElement_Action"],e[@"TouchedElement_Details"]]];
     
-    //compare models
-    //[self compareModels];
-    
     //Start Mapping: get the initial states
     [self.iphoneStatesAry[0] setObject:@1 forKey:@"Mapped"];
     NSMutableDictionary* iPhoneIntialState = self.iphoneStatesAry[0];
@@ -688,16 +739,16 @@
     [self compareiPhoneState:iPhoneIntialState withAndroidState:androidIntialState];
     
     //get the initial edges
-    self.edgePairs = [self compareEdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
-    //loop through all states, edges
+    self.edgePairs = [self compare5EdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
     
+    //loop through all states, edges
     for (int i=0;i<self.edgePairs.count;i++){
         NSMutableDictionary* edgePair = [self.edgePairs objectAtIndex:i];
         
         if([edgePair[@"Mapped"] isEqualToNumber:@0]) {
             
             [self.similarityCsv appendString:@"\n***Closest Edges (Label, Action, Type)\n"];
-            [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@, %@) \nandroidEdge: %@->%@ (%@, %@, %@) \nDiff: %@ \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Type"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Label"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Type"],edgePair[@"Sum"]]];
+            [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneEdge: %@->%@ (%@, %@, %@) \nandroidEdge: %@->%@ (%@, %@, %@) \nMapping ID: %@\nDiff: %@ \n",edgePair[@"iPhone"][@"Source_State_ID"], edgePair[@"iPhone"][@"Target_State_ID"],edgePair[@"iPhone"][@"TouchedElement_Label"],edgePair[@"iPhone"][@"TouchedElement_Action"],edgePair[@"iPhone"][@"TouchedElement_Type"],edgePair[@"Android"][@"Source_State_ID"],edgePair[@"Android"][@"Target_State_ID"],edgePair[@"Android"][@"TouchedElement_Label"],edgePair[@"Android"][@"TouchedElement_Action"],edgePair[@"Android"][@"TouchedElement_Type"],edgePair[@"iPhone"][@"MappingLabel"], edgePair[@"Sum"]]];
         
             //Mark edge pair as mapped
             edgePair[@"Mapped"]=@1;
@@ -754,7 +805,7 @@
     
     if (iPhoneState && androidState) {
         [self compareiPhoneState:iPhoneState withAndroidState:androidState];
-        NSMutableArray* thisEdgePairs = [self compareEdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
+        NSMutableArray* thisEdgePairs = [self compare5EdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
         return thisEdgePairs;
     }
     else
@@ -774,7 +825,166 @@
     return nil;
 }
 
--(NSMutableArray*)compareEdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
+-(NSMutableDictionary*)findState2:(NSString*)stateId inStates:(NSArray*)statesAry
+{
+    for (NSMutableDictionary* s in statesAry) {
+        if([s[@"State_ID"] isEqualToString:stateId]) {
+            return s;
+        }
+    }
+    return nil;
+}
+
+
+// combination 1 : ClassName
+-(NSMutableArray*)compare1EdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
+    
+    NSMutableArray *thisEdgePairs = [NSMutableArray array];
+    NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
+    NSArray *androidEdges =  [self getOutgoingEdgesFor:androidState inEdges:self.androidEdgesAry];
+    
+    //To-Do: Sort edges array with TimeStamp
+    
+    //map outgoing edges
+    if (iPhoneEdges.count <= androidEdges.count) {
+        for (NSMutableDictionary* edge1 in iPhoneEdges) {
+            
+            NSMutableDictionary* iphoneTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+            
+            if (![iphoneTrgState[@"State_ClassName"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"iPhone"] = edge1;
+                for (NSMutableDictionary* edge2 in androidEdges) {
+                    
+                    NSMutableDictionary* androidTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.androidStatesAry];
+                    
+                    if ((![androidTrgState[@"State_ClassName"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        
+                        NSInteger max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float sum = lroundf((WEIGHT_S_CLASS*((float)r4/(float)max))*100);
+                        if (sum < maxDif) {
+                            edgePair[@"Android"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    else {
+        for (NSMutableDictionary* edge1 in androidEdges) {
+            
+            NSMutableDictionary* androidTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.androidStatesAry];
+            
+            if (![androidTrgState[@"State_ClassName"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"Android"] = edge1;
+                
+                for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                    
+                    NSMutableDictionary* iphoneTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+                    
+                    if ((![iphoneTrgState[@"State_ClassName"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                            
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        
+                        NSInteger max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float sum = lroundf((WEIGHT_S_CLASS*((float)r4/(float)max))*100);
+                        if (sum < maxDif) {
+                            edgePair[@"iPhone"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    return thisEdgePairs;
+}
+
+
+// combination 2 : Touched Element
+-(NSMutableArray*)compare2EdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
 
     NSMutableArray *thisEdgePairs = [NSMutableArray array];
     NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
@@ -795,26 +1005,45 @@
                 edgePair[@"iPhone"] = edge1;
                 for (NSMutableDictionary* edge2 in androidEdges) {
                     
-                    if (![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
                         ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
-                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) {
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
                         
-                        NSInteger r1;
+                        float rr1;
                         //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
                         if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
                            ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
-                            r1 = 0;
+                            rr1 = 0;
                         
                         //heuristic for Action (MenuButtonClicked)
                         else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
-                            r1 = 200;
+                            rr1 = 400;
                         
-                        else
-                            r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
-                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            NSInteger max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                            
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
                         NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        NSInteger max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                        
                         NSInteger r3 = [self mappedTypeE1:edge1[@"TouchedElement_Type"] withE2:edge2[@"TouchedElement_Type"]];
-                        NSInteger sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2+WEIGHT_E_CLASS*r3;
+                        
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3)/3)*100);
                         if (sum < maxDif) {
                             edgePair[@"Android"]=edge2;
                             edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
@@ -833,13 +1062,17 @@
                     edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
                     edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
                     
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
                     for (NSMutableDictionary* e in thisEdgePairs) {
                         
                         if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
                             ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
-                            [thisEdgePairs removeObject:e];
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
                         }
                     }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
                     [thisEdgePairs addObject:edgePair];
                 }
             }
@@ -858,26 +1091,45 @@
                 
                 for (NSMutableDictionary* edge2 in iPhoneEdges) {
                     
-                    if (![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
                         ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
-                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) {
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
                         
-                        NSUInteger r1;
+                        float rr1;
                         //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
                         if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
                            ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
-                            r1 = 0;
+                            rr1 = 0;
                         
                         //heuristic for Action (MenuButtonClicked)
                         else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
-                            r1 = 200;
+                            rr1 = 400;
                         
-                        else
-                            r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
-                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            NSInteger max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                         
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
                         NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        NSInteger max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
                         NSInteger r3 = [self mappedTypeE1:edge2[@"TouchedElement_Type"] withE2:edge1[@"TouchedElement_Type"]];
-                        NSInteger sum = WEIGHT_E_ACTION*r1+WEIGHT_E_TITLE*r2+WEIGHT_E_CLASS*r3;
+                        
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3)/3)*100);
                         if (sum < maxDif) {
                             edgePair[@"iPhone"]=edge2;
                             edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
@@ -896,13 +1148,18 @@
                     edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
                     edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
                     
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
                     for (NSMutableDictionary* e in thisEdgePairs) {
                         
                         if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
                             ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
-                            [thisEdgePairs removeObject:e];
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
                         }
                     }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
                     [thisEdgePairs addObject:edgePair];
                 }
             }
@@ -911,53 +1168,992 @@
     return thisEdgePairs;
 }
 
+
+// combination 3 : Touched Element + Classname
+-(NSMutableArray*)compare3EdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
+    
+    NSMutableArray *thisEdgePairs = [NSMutableArray array];
+    NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
+    NSArray *androidEdges =  [self getOutgoingEdgesFor:androidState inEdges:self.androidEdgesAry];
+    
+    //To-Do: Sort edges array with TimeStamp
+    
+    //map outgoing edges
+    if (iPhoneEdges.count <= androidEdges.count) {
+        for (NSMutableDictionary* edge1 in iPhoneEdges) {
+            
+            NSMutableDictionary* iphoneTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"iPhone"] = edge1;
+                for (NSMutableDictionary* edge2 in androidEdges) {
+                    
+                    NSMutableDictionary* androidTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.androidStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                        ![androidTrgState[@"State_ClassName"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                        
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
+                        NSInteger r3 = [self mappedTypeE1:edge1[@"TouchedElement_Type"] withE2:edge2[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                            
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4)/4)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"Android"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    else {
+        for (NSMutableDictionary* edge1 in androidEdges) {
+            
+            NSMutableDictionary* androidTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.androidStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![androidTrgState[@"State_ClassName"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"Android"] = edge1;
+                
+                for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                    
+                    NSMutableDictionary* iphoneTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                        ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else{
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                            
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                        
+                        NSInteger r3 = [self mappedTypeE1:edge2[@"TouchedElement_Type"] withE2:edge1[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                        
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4)/4)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"iPhone"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    return thisEdgePairs;
+}
+
+
+// combination 4 : Touched Element + Classname + Title
+-(NSMutableArray*)compare4EdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
+    
+    NSMutableArray *thisEdgePairs = [NSMutableArray array];
+    NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
+    NSArray *androidEdges =  [self getOutgoingEdgesFor:androidState inEdges:self.androidEdgesAry];
+    
+    //To-Do: Sort edges array with TimeStamp
+    
+    //map outgoing edges
+    if (iPhoneEdges.count <= androidEdges.count) {
+        for (NSMutableDictionary* edge1 in iPhoneEdges) {
+            
+            NSMutableDictionary* iphoneTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                ![iphoneTrgState[@"State_Title"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"iPhone"] = edge1;
+                for (NSMutableDictionary* edge2 in androidEdges) {
+                    
+                    NSMutableDictionary* androidTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.androidStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                         ![androidTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                         ![androidTrgState[@"State_Title"] isEqualToString:@""] ||
+                        ![androidTrgState[@"State_Title"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                            
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
+                        NSInteger r3 = [self mappedTypeE1:edge1[@"TouchedElement_Type"] withE2:edge2[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                          
+                        float rr5 = 0;
+                        if ([iphoneTrgState[@"State_Title"] length]>0 || [androidTrgState[@"State_Title"] length]>0) {
+                        NSUInteger r5 = [iphoneTrgState[@"State_Title"] levenshteinDistanceToString:androidTrgState[@"State_Title"]];
+                        max=[iphoneTrgState[@"State_Title"] length];
+                        if([androidTrgState[@"State_Title"] length]>[iphoneTrgState[@"State_Title"] length])
+                            max=[androidTrgState[@"State_Title"] length];
+                        rr5 = (WEIGHT_S_CLASS*((float)r5/(float)max));
+                        }
+                            
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4+WEIGHT_S_TITLE*rr5)/5)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"Android"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    else {
+        for (NSMutableDictionary* edge1 in androidEdges) {
+            
+            NSMutableDictionary* androidTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.androidStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![androidTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                ![androidTrgState[@"State_Title"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"Android"] = edge1;
+                
+                for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                    
+                    NSMutableDictionary* iphoneTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                        ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                        ![iphoneTrgState[@"State_Title"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                            
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
+                        NSInteger r3 = [self mappedTypeE1:edge2[@"TouchedElement_Type"] withE2:edge1[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                            
+                        float rr5 = 0;
+                        if ([iphoneTrgState[@"State_Title"] length]>0 || [androidTrgState[@"State_Title"] length]>0) {
+                        NSUInteger r5 = [iphoneTrgState[@"State_Title"] levenshteinDistanceToString:androidTrgState[@"State_Title"]];
+                        max=[iphoneTrgState[@"State_Title"] length];
+                        if([androidTrgState[@"State_Title"] length]>[iphoneTrgState[@"State_Title"] length])
+                            max=[androidTrgState[@"State_Title"] length];
+                        rr5 = (WEIGHT_S_CLASS*((float)r5/(float)max));
+                        }
+                            
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4+WEIGHT_S_TITLE*rr5)/5)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"iPhone"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    return thisEdgePairs;
+}
+
+
+// combination 5 : Touched Element + Classname + Title + UIElements
+-(NSMutableArray*)compare5EdgePairsForiPhoneState:(NSMutableDictionary*)iPhoneState andAndroidState:(NSMutableDictionary*)androidState{
+    
+    NSMutableArray *thisEdgePairs = [NSMutableArray array];
+    NSArray *iPhoneEdges =  [self getOutgoingEdgesFor:iPhoneState inEdges:self.iphoneEdgesAry];
+    NSArray *androidEdges =  [self getOutgoingEdgesFor:androidState inEdges:self.androidEdgesAry];
+    
+    //To-Do: Sort edges array with TimeStamp
+    
+    //map outgoing edges
+    if (iPhoneEdges.count <= androidEdges.count) {
+        for (NSMutableDictionary* edge1 in iPhoneEdges) {
+            
+            NSMutableDictionary* iphoneTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                ![iphoneTrgState[@"State_Title"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"iPhone"] = edge1;
+                for (NSMutableDictionary* edge2 in androidEdges) {
+                    
+                    NSMutableDictionary* androidTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.androidStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                        ![androidTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                        ![androidTrgState[@"State_Title"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge1[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge1[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge2[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge2[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                        
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
+                        NSInteger r3 = [self mappedTypeE1:edge1[@"TouchedElement_Type"] withE2:edge2[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                            
+                        float rr5 = 0;
+                        if ([iphoneTrgState[@"State_Title"] length]>0 || [androidTrgState[@"State_Title"] length]>0) {
+                        NSUInteger r5 = [iphoneTrgState[@"State_Title"] levenshteinDistanceToString:androidTrgState[@"State_Title"]];
+                        max=[iphoneTrgState[@"State_Title"] length];
+                        if([androidTrgState[@"State_Title"] length]>[iphoneTrgState[@"State_Title"] length])
+                            max=[androidTrgState[@"State_Title"] length];
+                        rr5 = (WEIGHT_S_CLASS*((float)r5/(float)max));
+                        }
+                            
+                        NSMutableArray *thisElPairs = [self calculateElementsPairSimilarityE1:iphoneTrgState[@"Elements"] withE2:androidTrgState[@"Elements"]];
+                        float r6 = (float)(thisElPairs.count*2)/(float)([iphoneTrgState[@"Elements"] count]+[androidTrgState[@"Elements"] count]);
+                            
+//                        int totalPairSim = 0;
+//                        NSUInteger sum4 = 0;
+//                        if (thisElPairs.count>0) {
+//                            for (NSMutableDictionary* elPair in thisElPairs)
+//                                totalPairSim = totalPairSim+[elPair[@"Sum"] intValue];
+//                            sum4 = (totalPairSim/thisElPairs.count);
+//                        }
+                        
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4+WEIGHT_S_TITLE*rr5+WEIGHT_S_ELEMENTS*r6)/6)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"Android"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    else {
+        for (NSMutableDictionary* edge1 in androidEdges) {
+            
+            NSMutableDictionary* androidTrgState = [self findState2:edge1[@"Target_State_ID"] inStates:self.androidStatesAry];
+            
+            if (![edge1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![edge1[@"TouchedElement_Type"]isEqualToString:@""] ||
+                ![androidTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                ![androidTrgState[@"State_Title"] isEqualToString:@""]) {
+                
+                NSMutableDictionary* edgePair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                edgePair[@"Android"] = edge1;
+                
+                for (NSMutableDictionary* edge2 in iPhoneEdges) {
+                    
+                    NSMutableDictionary* iphoneTrgState = [self findState2:edge2[@"Target_State_ID"] inStates:self.iphoneStatesAry];
+                    
+                    if ((![edge2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                        ![edge2[@"TouchedElement_Type"]isEqualToString:@""] ||
+                        ![iphoneTrgState[@"State_ClassName"] isEqualToString:@""] ||
+                        ![iphoneTrgState[@"State_Title"] isEqualToString:@""]) &&
+                        (([edge2[@"Target_State_ID"] isEqualToString:edge2[@"Source_State_ID"]] && [edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]) ||
+                         (![edge2[@"Target_State_ID"] isEqualToString: edge2[@"Source_State_ID"]] && ![edge1[@"Target_State_ID"] isEqualToString:edge1[@"Source_State_ID"]]))) {
+                        
+                        float rr1;
+                        NSInteger max;
+                        //heuristic for Actions (MenuItemClicked, ListViewCellClicked)
+                        if(([edge2[@"TouchedElement_Action"] isEqualToString:@"tableCellClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"ListViewCellClicked"]) ||
+                           ([edge2[@"TouchedElement_Action"] isEqualToString:@"itemClicked"] && [edge1[@"TouchedElement_Action"] isEqualToString:@"MenuItemClicked"]))
+                            rr1 = 0;
+                        
+                        //heuristic for Action (MenuButtonClicked)
+                        else if ([edge1[@"TouchedElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                            rr1 = 400;
+                        
+                        else {
+                            rr1 = 0;
+                            if ([edge1[@"TouchedElement_Action"] length]>0 || [edge2[@"TouchedElement_Action"] length]>0) {
+                            NSInteger r1 = [edge1[@"TouchedElement_Action"] levenshteinDistanceToString:edge2[@"TouchedElement_Action"]];
+                            max=[edge1[@"TouchedElement_Action"] length];
+                            if([edge2[@"TouchedElement_Action"] length]>[edge1[@"TouchedElement_Action"] length])
+                                max=[edge2[@"TouchedElement_Action"] length];
+                            rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                            }
+                        }
+                        
+                        float rr2 = 0;
+                        if ([edge1[@"TouchedElement_Label"] length]>0 || [edge2[@"TouchedElement_Label"] length]>0) {
+                        NSInteger r2 = [edge1[@"TouchedElement_Label"] levenshteinDistanceToString:edge2[@"TouchedElement_Label"]];
+                        max=[edge1[@"TouchedElement_Label"] length];
+                        if([edge2[@"TouchedElement_Label"] length]>[edge1[@"TouchedElement_Label"] length])
+                            max=[edge2[@"TouchedElement_Label"] length];
+                        rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                        }
+                            
+                        NSInteger r3 = [self mappedTypeE1:edge2[@"TouchedElement_Type"] withE2:edge1[@"TouchedElement_Type"]];
+                        
+                        //heuristic for ClassName (Activity == ViewController)
+                        NSString* n1 = [iphoneTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
+                        n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
+                        NSString* n2 = [androidTrgState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
+                        n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        NSUInteger r4 = [n1 levenshteinDistanceToString:n2];
+                        max=n1.length;
+                        if(n2.length>n1.length)
+                            max=n2.length;
+                        float rr4 = (WEIGHT_S_CLASS*((float)r4/(float)max));
+                          
+                        float rr5 = 0;
+                        if ([iphoneTrgState[@"State_Title"] length]>0 || [androidTrgState[@"State_Title"] length]>0) {
+                        NSUInteger r5 = [iphoneTrgState[@"State_Title"] levenshteinDistanceToString:androidTrgState[@"State_Title"]];
+                        max=[iphoneTrgState[@"State_Title"] length];
+                        if([androidTrgState[@"State_Title"] length]>[iphoneTrgState[@"State_Title"] length])
+                            max=[androidTrgState[@"State_Title"] length];
+                        rr5 = (WEIGHT_S_CLASS*((float)r5/(float)max));
+                        }
+                            
+                        NSMutableArray *thisElPairs = [self calculateElementsPairSimilarityE1:iphoneTrgState[@"Elements"] withE2:androidTrgState[@"Elements"]];
+                        float r6 = (float)(thisElPairs.count*2)/(float)([iphoneTrgState[@"Elements"] count]+[androidTrgState[@"Elements"] count]);
+                            
+                        NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2+WEIGHT_E_CLASS*r3+WEIGHT_S_CLASS*rr4+WEIGHT_S_TITLE*rr5+WEIGHT_S_ELEMENTS*r6)/6)*100);
+                        if (sum < maxDif) {
+                            edgePair[@"iPhone"]=edge2;
+                            edgePair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                            edgePair[@"Mapped"]=@0;
+                            maxDif = sum;
+                        }
+                    }
+                }
+                
+                if (edgePair[@"Sum"]) {
+                    
+                    NSInteger thisEdgeMapId = self.edgeMapId++;
+                    //TO DO: set the mapping color
+                    edgePair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"Android"][@"MappingColor"]=edgePair[@"Sum"];
+                    edgePair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisEdgeMapId];
+                    edgePair[@"iPhone"][@"MappingColor"]=edgePair[@"Sum"];
+                    
+                    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+                    for (NSMutableDictionary* e in thisEdgePairs) {
+                        
+                        if (([e[@"Android"][@"TimeStamp"] isEqualToString:edgePair[@"Android"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"]) ||
+                            ([e[@"iPhone"][@"TimeStamp"] isEqualToString:edgePair[@"iPhone"][@"TimeStamp"]] && e[@"Sum"] > edgePair[@"Sum"])){
+                            NSInteger anIndex=[thisEdgePairs indexOfObject:e];
+                            [discardedItems addIndex:anIndex];
+                        }
+                    }
+                    if (discardedItems.count>0)
+                        [thisEdgePairs removeObjectsAtIndexes:discardedItems];
+                    [thisEdgePairs addObject:edgePair];
+                }
+            }
+        }
+    }
+    return thisEdgePairs;
+}
+
+-(NSMutableArray*)calculateElementsPairSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements
+{
+    NSMutableArray *thisElPairs = [NSMutableArray array];
+    NSMutableString *report = [[NSMutableString alloc] init];
+    
+    //map elements
+    if (iphoneElements.count <= androidElements.count) {
+        for (NSMutableDictionary* element1 in iphoneElements) {
+            
+            if (![element1[@"UIElement_Action"] isEqualToString:@""] ||
+                ![element1[@"UIElement_Label"]isEqualToString:@""] ||
+                ![element1[@"UIElement_Type"]isEqualToString:@""]) {
+                
+                NSMutableDictionary* elPair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                elPair[@"iPhone"] = element1;
+                for (NSMutableDictionary* element2 in androidElements) {
+                    
+                    if (!element2[@"MappingLabel"] &&
+                        (![element2[@"UIElement_Action"] isEqualToString:@""] ||
+                         ![element2[@"UIElement_Label"]isEqualToString:@""] ||
+                         ![element2[@"UIElement_Type"]isEqualToString:@""])) {
+                            
+                            if(![self mappedTypeE1:element1[@"UIElement_Type"] withE2:element2[@"UIElement_Type"]]){
+                            
+                                [report setString:@""];
+                                float rr1;
+                                NSInteger max;
+                                //heuristic for number of cells in tabels
+                                if([element1[@"UIElement_Type"] isEqualToString:@"UITableView"] &&
+                                   [element2[@"UIElement_Type"] isEqualToString:@"ListView"] &&
+                                   ([element1[@"UIElement_Details"] intValue] !=0 ||
+                                    [element2[@"UIElement_Details"] intValue] !=0)) {
+                                    rr1 = (float)(abs([element1[@"UIElement_Details"] intValue] - [element2[@"UIElement_Details"] intValue]))/(float)([element1[@"UIElement_Details"] intValue] + [element2[@"UIElement_Details"] intValue]);
+                                    
+                                    if (rr1>0)
+                                        [report appendString:[NSString stringWithFormat:@"Inconsistency in # tabel cells: iPhone (%@) vs. Android (%@)\n", element1[@"UIElement_Details"], element2[@"UIElement_Details"]]];
+                                   }
+                                
+                                //heuristic for Action (MenuButtonClicked)
+                                else if ([element2[@"UIElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                                    rr1 = 400;
+                                
+                                else {
+                                    rr1 = 0;
+                                    if ([element1[@"UIElement_Action"] length]>0 || [element2[@"UIElement_Action"] length]>0) {
+                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
+                                    max=[element1[@"UIElement_Action"] length];
+                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
+                                        max=[element2[@"UIElement_Action"] length];
+                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                                    }
+                                }
+
+                                float rr2 = 0;
+                                if ([element1[@"UIElement_Label"] length]>0 || [element2[@"UIElement_Label"] length]>0) {
+                                NSInteger r2 = [element1[@"UIElement_Label"] levenshteinDistanceToString:element2[@"UIElement_Label"]];
+                                max=[element1[@"UIElement_Label"] length];
+                                if([element2[@"UIElement_Label"] length]>[element1[@"UIElement_Label"] length])
+                                    max=[element2[@"UIElement_Label"] length];
+                                    rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                                }
+                                
+                                NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2)/2)*100);
+                                if (sum < maxDif) {
+                                    elPair[@"Android"]=element2;
+                                    elPair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                                    elPair[@"Mapped"]=@0;
+                                    maxDif = sum;
+                                }
+                        }
+                    }
+                }
+                
+                if (elPair[@"Sum"]) {
+                    
+                    if ([elPair[@"Android"][@"UIElement_Label"] length]>0 || [elPair[@"iPhone"][@"UIElement_Label"] length]>0) {
+                       
+                        elPair[@"Sum"] = [NSNumber numberWithInteger:[elPair[@"Android"][@"UIElement_Label"] levenshteinDistanceToString:elPair[@"iPhone"][@"UIElement_Label"]]];
+                        
+                        if ([elPair[@"Sum"] intValue]>0) {
+                            [report appendString:[NSString stringWithFormat:@"Inconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)\n", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
+                        }
+                    }
+                    
+                    if ([report length]==0)
+                        elPair[@"Sum"] = [NSNumber numberWithInteger:0];
+                    
+                    NSInteger thisElemMapId = self.elemMapId++;
+                    elPair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisElemMapId];
+                    elPair[@"Android"][@"MappingColor"]=elPair[@"Sum"];
+                    elPair[@"Android"][@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
+                    
+                    elPair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisElemMapId];
+                    elPair[@"iPhone"][@"MappingColor"]=elPair[@"Sum"];
+                    elPair[@"iPhone"][@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
+                    
+                    [thisElPairs addObject:elPair];
+                }
+            }
+        }
+    }
+    else {
+        for (NSMutableDictionary* element1 in androidElements) {
+            
+            if (![element1[@"TouchedElement_Action"] isEqualToString:@""] ||
+                ![element1[@"TouchedElement_Label"]isEqualToString:@""] ||
+                ![element1[@"TouchedElement_Type"]isEqualToString:@""]) {
+                
+                NSMutableDictionary* elPair = [NSMutableDictionary dictionary];
+                NSInteger maxDif=100;
+                elPair[@"Android"] = element1;
+                
+                for (NSMutableDictionary* element2 in iphoneElements) {
+                    
+                    if (!element2[@"MappingLabel"] &&
+                        (![element2[@"TouchedElement_Action"] isEqualToString:@""] ||
+                         ![element2[@"TouchedElement_Label"]isEqualToString:@""] ||
+                         ![element2[@"TouchedElement_Type"]isEqualToString:@""])) {
+                            
+                            if(![self mappedTypeE1:element2[@"UIElement_Type"] withE2:element1[@"UIElement_Type"]]){
+                                
+                                [report setString:@""];
+                                float rr1;
+                                NSInteger max;
+                                //heuristic for number of cells in tabels
+                                if([element2[@"UIElement_Type"] isEqualToString:@"UITableView"] &&
+                                   [element1[@"UIElement_Type"] isEqualToString:@"ListView"] &&
+                                   ([element1[@"UIElement_Details"] intValue] !=0 ||
+                                    [element2[@"UIElement_Details"] intValue] !=0)) {
+                                    rr1 = (float)(abs([element1[@"UIElement_Details"] intValue] - [element2[@"UIElement_Details"] intValue]))/(float)([element1[@"UIElement_Details"] intValue] + [element2[@"UIElement_Details"] intValue]);
+                                
+                                    if (rr1>0)
+                                        [report appendString:[NSString stringWithFormat:@"Inconsistency in # tabel cells: iPhone (%@) vs. Android (%@)\n", element2[@"UIElement_Details"], element1[@"UIElement_Details"]]];
+                                }
+                                
+                                //heuristic for Action (MenuButtonClicked)
+                                else if ([element1[@"UIElement_Action"] isEqualToString:@"MenuButtonClicked"])
+                                    rr1 = 400;
+                                
+                                else {
+                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
+                                    max=[element1[@"UIElement_Action"] length];
+                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
+                                        max=[element2[@"UIElement_Action"] length];
+                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+                                }
+
+                                float rr2 = 0;
+                                if ([element1[@"UIElement_Label"] length]>0 || [element2[@"UIElement_Label"] length]>0) {
+                                    NSInteger r2 = [element1[@"UIElement_Label"] levenshteinDistanceToString:element2[@"UIElement_Label"]];
+                                    max=[element1[@"UIElement_Label"] length];
+                                    if([element2[@"UIElement_Label"] length]>[element1[@"UIElement_Label"] length])
+                                        max=[element2[@"UIElement_Label"] length];
+                                    rr2 = (WEIGHT_E_CLASS*((float)r2/(float)max));
+                                }
+                                
+                                NSInteger sum = lroundf(((WEIGHT_E_ACTION*rr1+WEIGHT_E_TITLE*rr2)/2)*100);
+                                if (sum < maxDif) {
+                                    elPair[@"iPhone"]=element2;
+                                    elPair[@"Sum"]=[NSNumber numberWithInteger:sum];
+                                    elPair[@"Mapped"]=@0;
+                                    maxDif = sum;
+                                }
+                            }
+                        }
+                }
+                
+                if (elPair[@"Sum"]) {
+                    
+                    if ([elPair[@"Android"][@"UIElement_Label"] length]>0 || [elPair[@"iPhone"][@"UIElement_Label"] length]>0) {
+                        
+                        elPair[@"Sum"] = [NSNumber numberWithInteger:[elPair[@"Android"][@"UIElement_Label"] levenshteinDistanceToString:elPair[@"iPhone"][@"UIElement_Label"]]];
+                        
+                        if ([elPair[@"Sum"] intValue]>0) {
+                            [report appendString:[NSString stringWithFormat:@"Inconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
+                        }
+                    }
+                    
+                    if ([report length]==0)
+                        elPair[@"Sum"] = [NSNumber numberWithInteger:0];
+                    
+                    NSInteger thisElemMapId = self.elemMapId++;
+                    //TO DO: set the mapping color
+                    elPair[@"Android"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisElemMapId];
+                    elPair[@"Android"][@"MappingColor"]=elPair[@"Sum"];
+                    elPair[@"Android"][@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
+                    
+                    elPair[@"iPhone"][@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisElemMapId];
+                    elPair[@"iPhone"][@"MappingColor"]=elPair[@"Sum"];
+                    elPair[@"iPhone"][@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
+                    
+                    [thisElPairs addObject:elPair];
+                }
+            }
+        }
+    }
+    return thisElPairs;
+}
+
 -(void)compareiPhoneState:(NSMutableDictionary*)iPhoneState withAndroidState:(NSMutableDictionary*)androidState {
     
-    [self.similarityCsv appendString:@"\n***Closest States\n"];
-    
-    NSUInteger r1 = [iPhoneState[@"State_Title"] levenshteinDistanceToString:androidState[@"State_Title"]];
-    NSUInteger sum1 = WEIGHT_S_TITLE*r1;
-    
     NSUInteger thisStateMapId = self.stateMapId++;
-    //TO DO: set the mapping color
-    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum1];
+    NSMutableString *report = [[NSMutableString alloc] init];
+    NSUInteger inconsCount =0;
+    
+    [report appendString:@""];
+    float rr1 = 0;
+    if ([iPhoneState[@"State_Title"] length]>0 || [androidState[@"State_Title"] length]>0) {
+    NSUInteger r1 = [iPhoneState[@"State_Title"] levenshteinDistanceToString:androidState[@"State_Title"]];
+    NSInteger max=[iPhoneState[@"State_Title"] length];
+    if([androidState[@"State_Title"] length]>[iPhoneState[@"State_Title"] length])
+        max=[androidState[@"State_Title"] length];
+    rr1 = (WEIGHT_S_TITLE*((float)r1/(float)max));
+    }
+    
+    if (rr1>0) {
+        inconsCount++;
+        [report appendString:[NSString stringWithFormat:@"Inconsistency in Title: iPhone '%@' vs. Android '%@' \n", iPhoneState[@"State_Title"], androidState[@"State_Title"]]];
+    }
+    
+    NSMutableArray *thisElPairs = [self calculateElementsPairSimilarityE1:iPhoneState[@"Elements"] withE2:androidState[@"Elements"]];
+    //float r2 = (float)(thisElPairs.count*2)/(float)([iPhoneState[@"Elements"] count]+[androidState[@"Elements"] count]);
+    //NSUInteger sum5 = lroundf(((WEIGHT_S_TITLE*rr1 + WEIGHT_S_ELEMENTS*r2)/2)*100);
+    
+    if (thisElPairs.count>0) {
+        for (NSMutableDictionary* elPair in thisElPairs) {
+            if ([elPair[@"Sum"] intValue]>0) {
+                 inconsCount++;
+                [report appendString:elPair[@"iPhone"][@"MappingReport"]];
+            }
+        }
+    }
+    
+    //iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum5];
+    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:inconsCount];
     iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
-    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum1];
+    iPhoneState[@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
+    
+    androidState[@"MappingColor"]=[NSNumber numberWithInteger:inconsCount];
     androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
+    androidState[@"MappingReport"]=[NSString stringWithFormat:@"%@",report];
     
-    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@ \nandroidState: %@ \nDiff (Title): %@ \n",iPhoneState[@"State_ID"],androidState[@"State_ID"],iPhoneState[@"MappingColor"]]];
-    
-
-    //heuristic for ClassName (Activity == ViewController)
-    NSString* n1 = [iPhoneState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-    n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
-    n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
-    n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
-    NSString* n2 = [androidState[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
-    n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
-    n2 = [n2 stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSUInteger r2 = [n1 levenshteinDistanceToString:n2];
-    NSUInteger sum2 = (WEIGHT_S_TITLE*r1+WEIGHT_S_CLASS*r2)/2;
-    
-    //TO DO: set the mapping color
-    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum2];
-    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
-    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum2];
-    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
-    
-    [self.similarityCsv appendString:[NSString stringWithFormat:@"Diff (Title, ClassName): %@ \n",iPhoneState[@"MappingColor"]]];
-
-    
-    NSUInteger sum3 = (WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2-[self calculateElementsPairSimilarityE1:iPhoneState[@"Elements"] withE2:androidState[@"Elements"]])/(2);
-    
-     //TO DO: set the mapping color
-    iPhoneState[@"MappingColor"]=[NSNumber numberWithInteger:sum3];
-    iPhoneState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
-    androidState[@"MappingColor"]=[NSNumber numberWithInteger:sum3];
-    androidState[@"MappingLabel"]=[NSString stringWithFormat:@"MappedID%tu",thisStateMapId];
-    
-    [self.similarityCsv appendString:[NSString stringWithFormat:@"Diff (Title, ClassName, Elements): %@ \n",iPhoneState[@"MappingColor"]]];
-    
+    [self.similarityCsv appendString:@"\n***Closest States\n"];
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"iPhoneState: %@ \nandroidState: %@\nMapping ID: %@\n",iPhoneState[@"State_ID"],androidState[@"State_ID"],iPhoneState[@"MappingLabel"]]];
+    [self.similarityCsv appendString:[NSString stringWithFormat:@"Number of Inconsistencies (Title, Elements): %@ \n%@ \n ",iPhoneState[@"MappingColor"],iPhoneState[@"MappingReport"]]];
 }
 
 - (void)logPropertiesForEdges {
@@ -1126,6 +2322,10 @@
         [self.iphoneXmlWriter writeStartElement:@"MappingColor"];
         [self.iphoneXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",state[@"MappingColor"]]];
         [self.iphoneXmlWriter writeEndElement];
+        
+        [self.iphoneXmlWriter writeStartElement:@"MappingReport"];
+        [self.iphoneXmlWriter writeCharacters:state[@"MappingReport"]];
+        [self.iphoneXmlWriter writeEndElement];
     
         [self.iphoneXmlWriter writeStartElement:@"UIElements"];
     
@@ -1203,6 +2403,10 @@
         [self.androidXmlWriter writeCharacters:[NSString stringWithFormat:@"%@",state[@"MappingColor"]]];
         [self.androidXmlWriter writeEndElement];
         
+        [self.androidXmlWriter writeStartElement:@"MappingReport"];
+        [self.androidXmlWriter writeCharacters:state[@"MappingReport"]];
+        [self.androidXmlWriter writeEndElement];
+        
         [self.androidXmlWriter writeStartElement:@"UIElements"];
         
         for(NSMutableDictionary *element in state[@"Elements"]){
@@ -1271,6 +2475,7 @@
             [row setObject:rows[5]?rows[5]:@"" forKey:@"State_NumberOfElements"];
             [row setObject:@"" forKey:@"MappingColor"];
             [row setObject:@"" forKey:@"MappingLabel"];
+            [row setObject:@"" forKey:@"MappingReport"];
             
             //printout states
             [self.similarityCsv appendString:[NSString stringWithFormat:@"%@            %@      %@      %@\n",rows[1],rows[2],rows[3],rows[5]]];
@@ -1314,6 +2519,7 @@
             [row setObject:rows[5]?rows[5]:@"" forKey:@"State_NumberOfElements"];
             [row setObject:@"" forKey:@"MappingColor"];
             [row setObject:@"" forKey:@"MappingLabel"];
+            [row setObject:@"" forKey:@"MappingReport"];
             
             //printout states
             [self.similarityCsv appendString:[NSString stringWithFormat:@"%@            %@          %@      %@\n",rows[1],rows[2],rows[3],rows[5]]];
@@ -1408,144 +2614,6 @@
     }
 }
 
--(void)compareModels{
-    
-    NSUInteger maxDif;
-    NSMutableDictionary* closestRow;
-    
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 1: State (ClassName, Title) \n\niPhone    Android     Diff \n"];
-    for (NSMutableDictionary* row in self.iphoneStatesAry){
-        
-        maxDif=100;
-        for (NSMutableDictionary* row2 in self.androidStatesAry){
-        
-            //heuristics on class names
-            NSString* n1 = [row[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
-            NSString* n2 = [row2[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
-            n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
-            NSUInteger r1 = [n1 levenshteinDistanceToString:n2];
-            
-            NSUInteger r2 = 0;
-            if (!([row[@"State_Title"] isEqualToString:@""] || [row2[@"State_Title"] isEqualToString:@""]))
-                r2 = [row[@"State_Title"] levenshteinDistanceToString:row2[@"State_Title"]];
-            NSUInteger sum = WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2;
-            
-            //[self.similarityCsv appendString:[NSString stringWithFormat:@"%@ , %@, Dif: %tu \n",row[@"State_ID"],row2[@"State_ID"],sum]];
-            
-            if (sum < maxDif) {
-                maxDif=sum;
-                closestRow = row2;
-            }
-        }
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@        %@          %tu \n",row[@"State_ID"],closestRow[@"State_ID"],maxDif]];
-    }
-    
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 2: State (Title, ClassName, Elements) \n\niPhone    Android     Diff \n"];
-    for (NSMutableDictionary* row in self.iphoneStatesAry){
-        
-        maxDif=100;
-        for (NSMutableDictionary* row2 in self.androidStatesAry){
-            
-            //heuristics on class names
-            NSString* n1 = [row[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
-            NSString* n2 = [row2[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
-            n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
-            NSUInteger r1 = [n1 levenshteinDistanceToString:n2];
-            
-            NSUInteger r2 = 0;
-            if (!([row[@"State_Title"] isEqualToString:@""] || [row2[@"State_Title"] isEqualToString:@""]))
-                r2 = [row[@"State_Title"] levenshteinDistanceToString:row2[@"State_Title"]];
-            
-            NSUInteger sum = WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2+[self calculateElementsPairSimilarityE1:row[@"Elements"] withE2:row2[@"Elements"]];;
-            
-            //[self.similarityCsv appendString:[NSString stringWithFormat:@"%@ , %@, Dif: %tu \n",row[@"State_ID"],row2[@"State_ID"],sum]];
-            
-            if (sum < maxDif) {
-                maxDif=sum;
-                closestRow = row2;
-            }
-        }
-        
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@        %@          %tu \n",row[@"State_ID"],closestRow[@"State_ID"],maxDif]];
-    }
-
-    
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 3: State(Title, Elements) \n\niPhone    Android     Diff \n"];
-    for (NSMutableDictionary* row in self.iphoneStatesAry){
-        
-        maxDif=100;
-        for (NSMutableDictionary* row2 in self.androidStatesAry){
-            
-            NSUInteger r2 = 0;
-            if (!([row[@"State_Title"] isEqualToString:@""] || [row2[@"State_Title"] isEqualToString:@""]))
-                r2 = [row[@"State_Title"] levenshteinDistanceToString:row2[@"State_Title"]];
-            
-            NSUInteger sum = WEIGHT_S_TITLE*r2-[self calculateElementsPairSimilarityE1:row[@"Elements"] withE2:row2[@"Elements"]];
-            
-            //[self.similarityCsv appendString:[NSString stringWithFormat:@"%@ , %@, Dif: %tu \n",row[@"State_ID"],row2[@"State_ID"],sum]];
-            
-            if (sum < maxDif) {
-                maxDif=sum;
-                closestRow = row2;
-            }
-        }
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@        %@          %tu \n",row[@"State_ID"],closestRow[@"State_ID"],maxDif]];
-    }
-
-    
-    [self.similarityCsv appendString:@"\n***Closest States in Combination 4: State (Title, ClassName, Elements), Action (Methods, Touched Element) \n\niPhone    Android     Diff \n"];
-    for (NSMutableDictionary* row in self.iphoneStatesAry){
-        
-        maxDif=100;
-        for (NSMutableDictionary* row2 in self.androidStatesAry){
-            
-            //heuristics on class names
-            NSString* n1 = [row[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"viewcontroller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"Controller" withString:@""];
-            n1 = [n1 stringByReplacingOccurrencesOfString:@"controller" withString:@""];
-            NSString* n2 = [row2[@"State_ClassName"] stringByReplacingOccurrencesOfString:@"Activity" withString:@""];
-            n2 = [n2 stringByReplacingOccurrencesOfString:@"activity" withString:@""];
-            NSUInteger r1 = [n1 levenshteinDistanceToString:n2];
-            //NSUInteger rr1 = [row[@"State_ClassName"] compareWithWord:row2[@"State_ClassName"]];
-            
-            NSUInteger r2 = 0;
-            if (!([row[@"State_Title"] isEqualToString:@""] || [row2[@"State_Title"] isEqualToString:@""]))
-                r2 = [row[@"State_Title"] levenshteinDistanceToString:row2[@"State_Title"]];
-            
-            NSUInteger sum = WEIGHT_S_CLASS*r1+WEIGHT_S_TITLE*r2+[self calculateElementsPairSimilarityE1:row[@"Elements"] withE2:row2[@"Elements"]]+[self calculateActionsPairSimilarityE1:row[@"Elements"] withE2:row2[@"Elements"]];
-            
-            //[self.similarityCsv appendString:[NSString stringWithFormat:@"%@ , %@, Dif: %tu \n",row[@"State_ID"],row2[@"State_ID"],sum]];
-            
-            if (sum < maxDif) {
-                maxDif=sum;
-                closestRow = row2;
-            }
-        }
-        [self.similarityCsv appendString:[NSString stringWithFormat:@"%@        %@          %tu \n",row[@"State_ID"],closestRow[@"State_ID"],maxDif]];
-    }
-}
-
--(NSUInteger)calculateElementsPairSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements
-{
-    NSUInteger totalSimilarity = 0;
-    
-    for (NSMutableDictionary* element1 in iphoneElements) {
-    
-        NSMutableDictionary * element2 = [self findCorrespondentAndroidElementTo:element1 inElements:androidElements];
-        
-        if (element2)
-          totalSimilarity++;
-    }
-    return totalSimilarity;
-}
-    
 - (NSMutableDictionary*) findCorrespondentAndroidElementTo:(NSMutableDictionary*)iphoneElement inElements:(NSMutableArray*)androidElements{
     
     NSMutableDictionary* correspondentElement=nil;
@@ -1566,7 +2634,7 @@
 
 -(float)mappedE1:(NSMutableDictionary*)iphoneE withE2:(NSMutableDictionary*)androidE
 {
-    float similarity = 0;
+    float similarity = 1;
     
     NSString* iphoneElement = iphoneE[@"UIElement_Type"];
     NSString* androidElement = androidE[@"UIElement_Type"];
@@ -1576,11 +2644,11 @@
     //string contains sub-string
     if (([iphoneElement rangeOfString:@"UIImageView"].location != NSNotFound) &&
         ([androidElement rangeOfString:@"ImageView"].location != NSNotFound))
-        similarity = 1;
+        similarity = 0;
     
     else if (([iphoneElement rangeOfString:@"UIButton"].location != NSNotFound) &&
              ([androidElement rangeOfString:@"Button"].location != NSNotFound)) {
-        similarity = 1;
+        similarity = 0;
         if ([iphoneE[@"UIElement_Label"] levenshteinDistanceToString:androidE[@"UIElement_Label"]]<5)
             similarity++;
     }
@@ -1802,8 +2870,8 @@
     else if ([iphoneElement isEqualToString:@"UITabBar"] && [androidElement isEqualToString:@"Tab"])
         similarity = 0;
     //Customized
-    else if ([iphoneElement isEqualToString:@"UITabBar"] && [androidElement isEqualToString:@"Button"])
-        similarity = 0;
+//    else if ([iphoneElement isEqualToString:@"UITabBar"] && [androidElement isEqualToString:@"Button"])
+//        similarity = 0;
     //Customized
     else if ([iphoneElement isEqualToString:@"UISegmentedControl"] && [androidElement isEqualToString:@"Button"])
         similarity = 0;
@@ -1869,6 +2937,30 @@
     [fileHandler3 closeFile];
 }
 
+-(void)outputAndroidOriginalCsvFiles
+{
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
+    freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
+    //[fileHandler1 seekToEndOfFile];
+    [fileHandler1 writeData:[self.androidStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler1 closeFile];
+    
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
+    freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
+    //[fileHandler2 seekToEndOfFile];
+    [fileHandler2 writeData:[self.androidElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler2 closeFile];
+    
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
+    freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
+    //[fileHandler3 seekToEndOfFile];
+    [fileHandler3 writeData:[self.androidEdgesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler3 closeFile];
+}
+
 -(void)outputiPhoneCsvFile
 {
     NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
@@ -1892,6 +2984,31 @@
     [fileHandler3 writeData:[self.iphoneEdgesCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler3 closeFile];
 }
+
+-(void)outputiPhoneOriginalCsvFile
+{
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
+    freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
+    //[fileHandler1 seekToEndOfFile];
+    [fileHandler1 writeData:[self.iphoneStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler1 closeFile];
+    
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
+    freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
+    //[fileHandler2 seekToEndOfFile];
+    [fileHandler2 writeData:[self.iphoneElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler2 closeFile];
+    
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
+    freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
+    NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
+    //[fileHandler3 seekToEndOfFile];
+    [fileHandler3 writeData:[self.iphoneEdgesCsv dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler3 closeFile];
+}
+
 
 -(void)outputSimilarityCsvFile
 {
@@ -1947,6 +3064,24 @@
     
     NSString *path6 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
 	[@"" writeToFile:path6 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+
+    NSString *path7 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
+	[@"" writeToFile:path7 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path8 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
+	[@"" writeToFile:path8 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path9 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
+	[@"" writeToFile:path9 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path10 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
+	[@"" writeToFile:path10 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path11 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
+	[@"" writeToFile:path11 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    NSString *path12 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
+	[@"" writeToFile:path12 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 
     [self setupOutputStateGraphFile];
 }

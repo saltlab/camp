@@ -57,7 +57,6 @@ Mapping ID: MappedID1
 Number of Inconsistencies (Title, Elements): 2 
 Inconsistency in Title: iPhone 'Quick Ref.' vs. Android '' 
 Inconsistency in # tabel cells: iPhone (8) vs. Android (6)
-Inconsistency in the element: iPhone (UITableView,,tableCellClicked) vs. Android (ListView,,)
  
  
 ***Closest Edges (Label, Action, Type)
@@ -86,7 +85,6 @@ androidState: S5
 Mapping ID: MappedID3
 Number of Inconsistencies (Title, Elements): 1 
 Inconsistency in # tabel cells: iPhone (12628) vs. Android (6336)
-Inconsistency in the element: iPhone (UITableView,,tableCellClicked) vs. Android (ListView,,)
  
  
 ***Closest Edges (Label, Action, Type)
