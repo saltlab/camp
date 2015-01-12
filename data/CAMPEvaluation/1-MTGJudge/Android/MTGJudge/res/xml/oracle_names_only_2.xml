@@ -1,0 +1,6306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<s>Ma Chao, Western Warrior</s>
+	<s>Maalfeld Twins</s>
+	<s>Macabre Waltz</s>
+	<s>Macetail Hystrodon</s>
+	<s>Machinate</s>
+	<s>Mad Auntie</s>
+	<s>Mad Dog</s>
+	<s>Mad Prophet</s>
+	<s>Madblind Mountain</s>
+	<s>Maddening Imp</s>
+	<s>Maddening Wind</s>
+	<s>Madrush Cyclops</s>
+	<s>Maelstrom Archangel</s>
+	<s>Maelstrom Djinn</s>
+	<s>Maelstrom Nexus</s>
+	<s>Maelstrom Pulse</s>
+	<s>Maga, Traitor to Mortals</s>
+	<s>Mage il-Vec</s>
+	<s>Mage Slayer</s>
+	<s>Magebane Armor</s>
+	<s>Magefire Wings</s>
+	<s>Mages' Contest</s>
+	<s>Mage's Guile</s>
+	<s>Mageta the Lion</s>
+	<s>Mageta's Boon</s>
+	<s>Magewright's Stone</s>
+	<s>Maggot Carrier</s>
+	<s>Maggot Therapy</s>
+	<s>Magical Hack</s>
+	<s>Magical Hacker</s>
+	<s>Magister Sphinx</s>
+	<s>Magistrate's Scepter</s>
+	<s>Magistrate's Veto</s>
+	<s>Magma Burst</s>
+	<s>Magma Giant</s>
+	<s>Magma Jet</s>
+	<s>Magma Mine</s>
+	<s>Magma Phoenix</s>
+	<s>Magma Rift</s>
+	<s>Magma Sliver</s>
+	<s>Magma Spray</s>
+	<s>Magma Vein</s>
+	<s>Magmasaur</s>
+	<s>Magmatic Core</s>
+	<s>Magmatic Force</s>
+	<s>Magmaw</s>
+	<s>Magnetic Flux</s>
+	<s>Magnetic Mine</s>
+	<s>Magnetic Mountain</s>
+	<s>Magnetic Theft</s>
+	<s>Magnetic Web</s>
+	<s>Magnify</s>
+	<s>Magnigoth Treefolk</s>
+	<s>Magnivore</s>
+	<s>Magosi, the Waterveil</s>
+	<s>Magus of the Abyss</s>
+	<s>Magus of the Arena</s>
+	<s>Magus of the Bazaar</s>
+	<s>Magus of the Candelabra</s>
+	<s>Magus of the Coffers</s>
+	<s>Magus of the Disk</s>
+	<s>Magus of the Future</s>
+	<s>Magus of the Jar</s>
+	<s>Magus of the Library</s>
+	<s>Magus of the Mirror</s>
+	<s>Magus of the Moat</s>
+	<s>Magus of the Moon</s>
+	<s>Magus of the Scroll</s>
+	<s>Magus of the Tabernacle</s>
+	<s>Magus of the Unseen</s>
+	<s>Magus of the Vineyard</s>
+	<s>Mahamoti Djinn</s>
+	<s>Major Teroh</s>
+	<s>Make a Wish</s>
+	<s>Makeshift Mannequin</s>
+	<s>Makeshift Mauler</s>
+	<s>Makindi Griffin</s>
+	<s>Makindi Shieldmate</s>
+	<s>Malach of the Dawn</s>
+	<s>Malachite Golem</s>
+	<s>Malachite Talisman</s>
+	<s>Malakir Bloodwitch</s>
+	<s>Malevolent Awakening</s>
+	<s>Malfegor</s>
+	<s>Spite // Malice (Malice)</s>
+	<s>Malicious Advice</s>
+	<s>Malicious Intent</s>
+	<s>Malignant Growth</s>
+	<s>Malignus</s>
+	<s>Mammoth Harness</s>
+	<s>Mammoth Umbra</s>
+	<s>Man of Measure</s>
+	<s>Mana Breach</s>
+	<s>Mana Cache</s>
+	<s>Mana Chains</s>
+	<s>Mana Clash</s>
+	<s>Mana Crypt</s>
+	<s>Mana Cylix</s>
+	<s>Mana Drain</s>
+	<s>Mana Echoes</s>
+	<s>Mana Flair</s>
+	<s>Mana Flare</s>
+	<s>Mana Geyser</s>
+	<s>Mana Leak</s>
+	<s>Mana Leech</s>
+	<s>Mana Matrix</s>
+	<s>Mana Maze</s>
+	<s>Mana Prism</s>
+	<s>Mana Reflection</s>
+	<s>Mana Screw</s>
+	<s>Mana Seism</s>
+	<s>Mana Severance</s>
+	<s>Mana Short</s>
+	<s>Mana Skimmer</s>
+	<s>Mana Tithe</s>
+	<s>Mana Vapors</s>
+	<s>Mana Vault</s>
+	<s>Mana Vortex</s>
+	<s>Mana Web</s>
+	<s>Manabarbs</s>
+	<s>Manabond</s>
+	<s>Mana-Charged Dragon</s>
+	<s>Manacles of Decay</s>
+	<s>Manaforce Mace</s>
+	<s>Manaforge Cinder</s>
+	<s>Manakin</s>
+	<s>Manalith</s>
+	<s>Manamorphose</s>
+	<s>Manaplasm</s>
+	<s>Mangara of Corondor</s>
+	<s>Mangara's Blessing</s>
+	<s>Mangara's Equity</s>
+	<s>Mangara's Tome</s>
+	<s>Maniacal Rage</s>
+	<s>Manic Vandal</s>
+	<s>Manipulate Fate</s>
+	<s>Mannichi, the Fevered Dream</s>
+	<s>Manor Gargoyle</s>
+	<s>Manor Skeleton</s>
+	<s>Man-o'-War</s>
+	<s>Manriki-Gusari</s>
+	<s>Manta Ray</s>
+	<s>Manta Riders</s>
+	<s>Mantis Engine</s>
+	<s>Mantle of Leadership</s>
+	<s>Maralen of the Mornsong</s>
+	<s>Marauding Knight</s>
+	<s>Maraxus of Keld</s>
+	<s>Marble Chalice</s>
+	<s>Marble Diamond</s>
+	<s>Marble Priest</s>
+	<s>Marble Titan</s>
+	<s>March of Souls</s>
+	<s>March of the Machines</s>
+	<s>Marhault Elsdragon</s>
+	<s>Marisi's Twinclaws</s>
+	<s>Maritime Guard</s>
+	<s>Marjhan</s>
+	<s>Mark of Asylum</s>
+	<s>Mark of Eviction</s>
+	<s>Mark of Fury</s>
+	<s>Mark of Mutiny</s>
+	<s>Mark of Sakiko</s>
+	<s>Mark of the Oni</s>
+	<s>Marker Beetles</s>
+	<s>Markov Blademaster</s>
+	<s>Markov Patrician</s>
+	<s>Markov Warlord</s>
+	<s>Markov's Servant</s>
+	<s>Maro</s>
+	<s>Marrow Bats</s>
+	<s>Marrow Chomper</s>
+	<s>Marrow Shards</s>
+	<s>Marrow-Gnawer</s>
+	<s>Marsh Boa</s>
+	<s>Marsh Casualties</s>
+	<s>Marsh Crocodile</s>
+	<s>Marsh Flats</s>
+	<s>Marsh Flitter</s>
+	<s>Marsh Gas</s>
+	<s>Marsh Goblins</s>
+	<s>Marsh Lurker</s>
+	<s>Marsh Threader</s>
+	<s>Marsh Viper</s>
+	<s>Marshaling Cry</s>
+	<s>Marshaling the Troops</s>
+	<s>Marshal's Anthem</s>
+	<s>Marshdrinker Giant</s>
+	<s>Martial Coup</s>
+	<s>Marton Stromgald</s>
+	<s>Martyr of Ashes</s>
+	<s>Martyr of Bones</s>
+	<s>Martyr of Frost</s>
+	<s>Martyr of Sands</s>
+	<s>Martyr of Spores</s>
+	<s>Martyrdom</s>
+	<s>Martyred Rusalka</s>
+	<s>Martyr's Bond</s>
+	<s>Martyr's Cause</s>
+	<s>Martyr's Cry</s>
+	<s>Martyrs of Korlis</s>
+	<s>Martyrs' Tomb</s>
+	<s>Masako the Humorless</s>
+	<s>Mask of Avacyn</s>
+	<s>Mask of Intolerance</s>
+	<s>Mask of Law and Grace</s>
+	<s>Mask of Memory</s>
+	<s>Mask of Riddles</s>
+	<s>Mask of the Mimic</s>
+	<s>Masked Admirers</s>
+	<s>Masked Gorgon</s>
+	<s>Mass Appeal</s>
+	<s>Mass Calcify</s>
+	<s>Mass Hysteria</s>
+	<s>Mass of Ghouls</s>
+	<s>Mass Polymorph</s>
+	<s>Massacre</s>
+	<s>Massacre Wurm</s>
+	<s>Master Apothecary</s>
+	<s>Master Decoy</s>
+	<s>Master Healer</s>
+	<s>Master of Arms</s>
+	<s>Master of Etherium</s>
+	<s>Master of the Hunt</s>
+	<s>Master of the Veil</s>
+	<s>Master of the Wild Hunt</s>
+	<s>Master Splicer</s>
+	<s>Master Thief</s>
+	<s>Master Transmuter</s>
+	<s>Master Warcraft</s>
+	<s>Master's Call</s>
+	<s>Masticore</s>
+	<s>Masumaro, First to Live</s>
+	<s>Matca Rioters</s>
+	<s>Matopi Golem</s>
+	<s>Matsu-Tribe Birdstalker</s>
+	<s>Matsu-Tribe Decoy</s>
+	<s>Matsu-Tribe Sniper</s>
+	<s>Maul Splicer</s>
+	<s>Mausoleum Guard</s>
+	<s>Mausoleum Turnkey</s>
+	<s>Maw of the Mire</s>
+	<s>Mawcor</s>
+	<s>Mayael the Anima</s>
+	<s>Mayael's Aria</s>
+	<s>Mayor of Avabruck</s>
+	<s>Maze of Ith</s>
+	<s>Maze of Shadows</s>
+	<s>Meadowboon</s>
+	<s>Measure of Wickedness</s>
+	<s>Meddle</s>
+	<s>Meddling Kids</s>
+	<s>Meddling Mage</s>
+	<s>Medicine Bag</s>
+	<s>Medicine Runner</s>
+	<s>Meditate</s>
+	<s>Meekstone</s>
+	<s>Megatherium</s>
+	<s>Megatog</s>
+	<s>Meglonoth</s>
+	<s>Megrim</s>
+	<s>Meishin, the Mind Cage</s>
+	<s>Melancholy</s>
+	<s>Melee</s>
+	<s>Melesse Spirit</s>
+	<s>Melira, Sylvok Outcast</s>
+	<s>Melira's Keepers</s>
+	<s>Meloku the Clouded Mirror</s>
+	<s>Melt Terrain</s>
+	<s>Meltdown</s>
+	<s>Melting</s>
+	<s>Memnarch</s>
+	<s>Memnite</s>
+	<s>Memoricide</s>
+	<s>Memory Crystal</s>
+	<s>Memory Erosion</s>
+	<s>Memory Jar</s>
+	<s>Memory Lapse</s>
+	<s>Memory Plunder</s>
+	<s>Memory Sluice</s>
+	<s>Memory's Journey</s>
+	<s>Menacing Ogre</s>
+	<s>Mending Hands</s>
+	<s>Meng Huo, Barbarian King</s>
+	<s>Meng Huo's Horde</s>
+	<s>Mental Agony</s>
+	<s>Mental Discipline</s>
+	<s>Mental Misstep</s>
+	<s>Mental Note</s>
+	<s>Mentor of the Meek</s>
+	<s>Mephidross Vampire</s>
+	<s>Mephitic Ooze</s>
+	<s>Mercadian Atlas</s>
+	<s>Mercadian Bazaar</s>
+	<s>Mercadian Lift</s>
+	<s>Mercadia's Downfall</s>
+	<s>Mercenaries</s>
+	<s>Mercenary Informer</s>
+	<s>Mercenary Knight</s>
+	<s>Merchant of Secrets</s>
+	<s>Merchant Scroll</s>
+	<s>Merchant Ship</s>
+	<s>Merciless Predator</s>
+	<s>Mercurial Kite</s>
+	<s>Mercy Killing</s>
+	<s>Merfolk Assassin</s>
+	<s>Merfolk Looter</s>
+	<s>Merfolk Mesmerist</s>
+	<s>Merfolk Observer</s>
+	<s>Merfolk of the Pearl Trident</s>
+	<s>Merfolk Raiders</s>
+	<s>Merfolk Seastalkers</s>
+	<s>Merfolk Seer</s>
+	<s>Merfolk Skyscout</s>
+	<s>Merfolk Sovereign</s>
+	<s>Merfolk Spy</s>
+	<s>Merfolk Thaumaturgist</s>
+	<s>Merfolk Traders</s>
+	<s>Merfolk Wayfinder</s>
+	<s>Merieke Ri Berit</s>
+	<s>Merrow Bonegnawer</s>
+	<s>Merrow Commerce</s>
+	<s>Merrow Grimeblotter</s>
+	<s>Merrow Harbinger</s>
+	<s>Merrow Levitator</s>
+	<s>Merrow Reejerey</s>
+	<s>Merrow Wavebreakers</s>
+	<s>Merrow Witsniper</s>
+	<s>Merseine</s>
+	<s>Mesa Chicken</s>
+	<s>Mesa Enchantress</s>
+	<s>Mesa Falcon</s>
+	<s>Mesa Pegasus</s>
+	<s>Mesmeric Fiend</s>
+	<s>Mesmeric Orb</s>
+	<s>Mesmeric Sliver</s>
+	<s>Mesmeric Trance</s>
+	<s>Messenger Falcons</s>
+	<s>Metal Fatigue</s>
+	<s>Metallic Mastery</s>
+	<s>Metallic Sliver</s>
+	<s>Metallurgeon</s>
+	<s>Metalworker</s>
+	<s>Metamorphic Wurm</s>
+	<s>Metamorphose</s>
+	<s>Metamorphosis</s>
+	<s>Metathran Aerostat</s>
+	<s>Metathran Elite</s>
+	<s>Metathran Soldier</s>
+	<s>Metathran Transport</s>
+	<s>Metathran Zombie</s>
+	<s>Meteor Crater</s>
+	<s>Meteor Shower</s>
+	<s>Meteor Storm</s>
+	<s>Metrognome</s>
+	<s>Michiko Konda, Truth Seeker</s>
+	<s>Midnight Banshee</s>
+	<s>Midnight Charm</s>
+	<s>Midnight Covenant</s>
+	<s>Midnight Duelist</s>
+	<s>Midnight Guard</s>
+	<s>Midnight Haunting</s>
+	<s>Midnight Ritual</s>
+	<s>Midsummer Revel</s>
+	<s>Midvast Protector</s>
+	<s>Might of Alara</s>
+	<s>Might of Oaks</s>
+	<s>Might of Old Krosa</s>
+	<s>Might of the Masses</s>
+	<s>Might of the Nephilim</s>
+	<s>Might Sliver</s>
+	<s>Might Weaver</s>
+	<s>Mightstone</s>
+	<s>Mighty Emergence</s>
+	<s>Mighty Leap</s>
+	<s>Mijae Djinn</s>
+	<s>Mikaeus, the Lunarch</s>
+	<s>Mikaeus, the Unhallowed</s>
+	<s>Mikokoro, Center of the Sea</s>
+	<s>Militant Monk</s>
+	<s>Militia's Pride</s>
+	<s>Millikin</s>
+	<s>Millstone</s>
+	<s>Mimeofacture</s>
+	<s>Mimic Vat</s>
+	<s>Minamo Scrollkeeper</s>
+	<s>Minamo Sightbender</s>
+	<s>Minamo, School at Water's Edge</s>
+	<s>Minamo's Meddling</s>
+	<s>Mind Bend</s>
+	<s>Mind Bomb</s>
+	<s>Mind Burst</s>
+	<s>Mind Control</s>
+	<s>Mind Extraction</s>
+	<s>Mind Funeral</s>
+	<s>Mind Games</s>
+	<s>Mind Harness</s>
+	<s>Mind Knives</s>
+	<s>Mind Maggots</s>
+	<s>Mind Over Matter</s>
+	<s>Mind Peel</s>
+	<s>Mind Ravel</s>
+	<s>Mind Rot</s>
+	<s>Mind Shatter</s>
+	<s>Mind Slash</s>
+	<s>Mind Sludge</s>
+	<s>Mind Spring</s>
+	<s>Mind Stone</s>
+	<s>Mind Swords</s>
+	<s>Mind Twist</s>
+	<s>Mind Unbound</s>
+	<s>Mind Warp</s>
+	<s>Mind Whip</s>
+	<s>Mindbender Spores</s>
+	<s>Mindblaze</s>
+	<s>Mindbreak Trap</s>
+	<s>Mindcrank</s>
+	<s>Mindculling</s>
+	<s>Mindlash Sliver</s>
+	<s>Mindleech Mass</s>
+	<s>Mindless Automaton</s>
+	<s>Mindless Null</s>
+	<s>Mindlock Orb</s>
+	<s>Mindmoil</s>
+	<s>Minds Aglow</s>
+	<s>Mind's Desire</s>
+	<s>Mind's Eye</s>
+	<s>Mindshrieker</s>
+	<s>Mindslaver</s>
+	<s>Mindslicer</s>
+	<s>Mindstab</s>
+	<s>Mindstab Thrull</s>
+	<s>Mindstorm Crown</s>
+	<s>Mindwarper</s>
+	<s>Mindwhip Sliver</s>
+	<s>Mindwrack Liege</s>
+	<s>Mine Bearer</s>
+	<s>Mine Excavation</s>
+	<s>Mine Layer</s>
+	<s>Mine, Mine, Mine!</s>
+	<s>Minion</s>
+	<s>Minion of Leshrac</s>
+	<s>Minion of Tevesh Szat</s>
+	<s>Minion of the Wastes</s>
+	<s>Minion Reflector</s>
+	<s>Minions' Murmurs</s>
+	<s>Minister of Impediments</s>
+	<s>Minotaur Explorer</s>
+	<s>Minotaur Illusionist</s>
+	<s>Minotaur Tactician</s>
+	<s>Minotaur Warrior</s>
+	<s>Miracle Worker</s>
+	<s>Miraculous Recovery</s>
+	<s>Mirari</s>
+	<s>Mirari's Wake</s>
+	<s>Mire Blight</s>
+	<s>Mire Boa</s>
+	<s>Mire Kavu</s>
+	<s>Mire Shade</s>
+	<s>Miren, the Moaning Well</s>
+	<s>Mire's Toll</s>
+	<s>Mirozel</s>
+	<s>Mirran Crusader</s>
+	<s>Mirran Mettle</s>
+	<s>Mirran Spy</s>
+	<s>Mirri the Cursed</s>
+	<s>Mirri, Cat Warrior</s>
+	<s>Mirri's Guile</s>
+	<s>Mirrodin's Core</s>
+	<s>Mirror Entity</s>
+	<s>Mirror Gallery</s>
+	<s>Mirror Golem</s>
+	<s>Mirror Mirror</s>
+	<s>Mirror of Fate</s>
+	<s>Mirror Sheen</s>
+	<s>Mirror Strike</s>
+	<s>Mirror Universe</s>
+	<s>Mirror Wall</s>
+	<s>Mirror-Mad Phantasm</s>
+	<s>Mirror-Sigil Sergeant</s>
+	<s>Mirrorweave</s>
+	<s>Mirrorwood Treefolk</s>
+	<s>Mirrorworks</s>
+	<s>Miscalculation</s>
+	<s>Mischievous Poltergeist</s>
+	<s>Mischievous Quanar</s>
+	<s>Misdirection</s>
+	<s>Mise</s>
+	<s>Misers' Cage</s>
+	<s>Misery Charm</s>
+	<s>Misfortune</s>
+	<s>Misfortune's Gain</s>
+	<s>Misguided Rage</s>
+	<s>Mishra, Artificer Prodigy</s>
+	<s>Mishra's Bauble</s>
+	<s>Mishra's Factory</s>
+	<s>Mishra's Groundbreaker</s>
+	<s>Mishra's Helix</s>
+	<s>Mishra's War Machine</s>
+	<s>Mishra's Workshop</s>
+	<s>Misinformation</s>
+	<s>Miss Demeanor</s>
+	<s>Misshapen Fiend</s>
+	<s>Misstep</s>
+	<s>Mist Dragon</s>
+	<s>Mist Leopard</s>
+	<s>Mist of Stagnation</s>
+	<s>Mist Raven</s>
+	<s>Mistbind Clique</s>
+	<s>Mistblade Shinobi</s>
+	<s>Mistfolk</s>
+	<s>Mistform Dreamer</s>
+	<s>Mistform Mask</s>
+	<s>Mistform Mutant</s>
+	<s>Mistform Seaswift</s>
+	<s>Mistform Shrieker</s>
+	<s>Mistform Skyreaver</s>
+	<s>Mistform Sliver</s>
+	<s>Mistform Stalker</s>
+	<s>Mistform Ultimus</s>
+	<s>Mistform Wakecaster</s>
+	<s>Mistform Wall</s>
+	<s>Mistform Warchief</s>
+	<s>Misthollow Griffin</s>
+	<s>Mistmeadow Skulk</s>
+	<s>Mistmeadow Witch</s>
+	<s>Mistmoon Griffin</s>
+	<s>Mistral Charger</s>
+	<s>Mistveil Plains</s>
+	<s>Mistvein Borderpost</s>
+	<s>Misty Rainforest</s>
+	<s>Mitotic Manipulation</s>
+	<s>Mitotic Slime</s>
+	<s>Mizzium Transreliquat</s>
+	<s>Mnemonic Nexus</s>
+	<s>Mnemonic Sliver</s>
+	<s>Mnemonic Wall</s>
+	<s>Moan of the Unhallowed</s>
+	<s>Moaning Spirit</s>
+	<s>Moat</s>
+	<s>Mob Justice</s>
+	<s>Mob Mentality</s>
+	<s>Mobile Fort</s>
+	<s>Mobilization</s>
+	<s>Mobilize</s>
+	<s>Mogg Alarm</s>
+	<s>Mogg Assassin</s>
+	<s>Mogg Bombers</s>
+	<s>Mogg Cannon</s>
+	<s>Mogg Conscripts</s>
+	<s>Mogg Fanatic</s>
+	<s>Mogg Flunkies</s>
+	<s>Mogg Hollows</s>
+	<s>Mogg Infestation</s>
+	<s>Mogg Jailer</s>
+	<s>Mogg Maniac</s>
+	<s>Mogg Raider</s>
+	<s>Mogg Salvage</s>
+	<s>Mogg Sentry</s>
+	<s>Mogg Squad</s>
+	<s>Mogg Toady</s>
+	<s>Mogg War Marshal</s>
+	<s>Moggcatcher</s>
+	<s>Mold Adder</s>
+	<s>Mold Demon</s>
+	<s>Mold Shambler</s>
+	<s>Molder</s>
+	<s>Molder Beast</s>
+	<s>Molder Slug</s>
+	<s>Moldervine Cloak</s>
+	<s>Moldgraf Monstrosity</s>
+	<s>Mole Worms</s>
+	<s>Molimo, Maro-Sorcerer</s>
+	<s>Molten Disaster</s>
+	<s>Molten Firebird</s>
+	<s>Molten Frame</s>
+	<s>Molten Hydra</s>
+	<s>Molten Influence</s>
+	<s>Molten Psyche</s>
+	<s>Molten Rain</s>
+	<s>Molten Ravager</s>
+	<s>Molten Sentry</s>
+	<s>Molten Slagheap</s>
+	<s>Moltensteel Dragon</s>
+	<s>Molten-Tail Masticore</s>
+	<s>Molting Harpy</s>
+	<s>Molting Skin</s>
+	<s>Moment of Heroism</s>
+	<s>Moment of Silence</s>
+	<s>Momentary Blink</s>
+	<s>Momentous Fall</s>
+	<s>Moment's Peace</s>
+	<s>Momentum</s>
+	<s>Momir Vig, Simic Visionary</s>
+	<s>Mondronen Shaman</s>
+	<s>Mongrel Pack</s>
+	<s>Moniker Mage</s>
+	<s>Monk Idealist</s>
+	<s>Monk Realist</s>
+	<s>Monkey Cage</s>
+	<s>Monkey Monkey Monkey</s>
+	<s>Monomania</s>
+	<s>Monsoon</s>
+	<s>Mons's Goblin Raiders</s>
+	<s>Mons's Goblin Waiters</s>
+	<s>Monstrify</s>
+	<s>Monstrous Carabid</s>
+	<s>Monstrous Growth</s>
+	<s>Monstrous Hound</s>
+	<s>Moon Heron</s>
+	<s>Moon Sprite</s>
+	<s>Moonbow Illusionist</s>
+	<s>Moonglove Changeling</s>
+	<s>Moonglove Extract</s>
+	<s>Moonglove Winnower</s>
+	<s>Moonhold</s>
+	<s>Moonlace</s>
+	<s>Moonlight Bargain</s>
+	<s>Moonlight Geist</s>
+	<s>Moonlit Strider</s>
+	<s>Moonlit Wake</s>
+	<s>Moonmist</s>
+	<s>Moonring Island</s>
+	<s>Moonring Mirror</s>
+	<s>Moonscarred Werewolf</s>
+	<s>Moonsilver Spear</s>
+	<s>Moonveil Dragon</s>
+	<s>Moonwing Moth</s>
+	<s>Moor Fiend</s>
+	<s>Moorish Cavalry</s>
+	<s>Moorland Haunt</s>
+	<s>Moorland Inquisitor</s>
+	<s>Morale</s>
+	<s>Morality Shift</s>
+	<s>Moratorium Stone</s>
+	<s>Morbid Bloom</s>
+	<s>Morbid Hunger</s>
+	<s>Morbid Plunder</s>
+	<s>Mordant Dragon</s>
+	<s>Morgue Theft</s>
+	<s>Morgue Thrull</s>
+	<s>Morgue Toad</s>
+	<s>Morinfen</s>
+	<s>Moriok Reaver</s>
+	<s>Moriok Replica</s>
+	<s>Moriok Rigger</s>
+	<s>Moriok Scavenger</s>
+	<s>Morkrut Banshee</s>
+	<s>Morningtide</s>
+	<s>Moroii</s>
+	<s>Morphling</s>
+	<s>Morsel Theft</s>
+	<s>Morselhoarder</s>
+	<s>Mortal Combat</s>
+	<s>Mortal Wound</s>
+	<s>Mortarpod</s>
+	<s>Mortician Beetle</s>
+	<s>Mortify</s>
+	<s>Mortipede</s>
+	<s>Mortiphobia</s>
+	<s>Mortis Dogs</s>
+	<s>Mortivore</s>
+	<s>Mortuary</s>
+	<s>Mosquito Guard</s>
+	<s>Moss Diamond</s>
+	<s>Moss Kami</s>
+	<s>Moss Monster</s>
+	<s>Mossbridge Troll</s>
+	<s>Mossdog</s>
+	<s>Mossfire Egg</s>
+	<s>Mossfire Valley</s>
+	<s>Mosstodon</s>
+	<s>Mosswort Bridge</s>
+	<s>Mothdust Changeling</s>
+	<s>Mother of Goons</s>
+	<s>Mother of Runes</s>
+	<s>Mothrider Samurai</s>
+	<s>Mountain</s>
+	<s>Mountain Bandit</s>
+	<s>Mountain Goat</s>
+	<s>Mountain Stronghold</s>
+	<s>Mountain Titan</s>
+	<s>Mountain Valley</s>
+	<s>Mountain Yeti</s>
+	<s>Mounted Archers</s>
+	<s>Mourner's Shield</s>
+	<s>Mournful Zombie</s>
+	<s>Mourning</s>
+	<s>Mourning Thrull</s>
+	<s>Mournwhelk</s>
+	<s>Mouth of Ronom</s>
+	<s>Mouth to Mouth</s>
+	<s>Mox Diamond</s>
+	<s>Mox Emerald</s>
+	<s>Mox Jet</s>
+	<s>Mox Lotus</s>
+	<s>Mox Opal</s>
+	<s>Mox Pearl</s>
+	<s>Mox Ruby</s>
+	<s>Mox Sapphire</s>
+	<s>Mtenda Griffin</s>
+	<s>Mtenda Herder</s>
+	<s>Mtenda Lion</s>
+	<s>Muck Drubb</s>
+	<s>Muck Rats</s>
+	<s>Mudbrawler Cohort</s>
+	<s>Mudbrawler Raiders</s>
+	<s>Mudbutton Clanger</s>
+	<s>Mudbutton Torchrunner</s>
+	<s>Muddle the Mixture</s>
+	<s>Mudhole</s>
+	<s>Mudslide</s>
+	<s>Mul Daya Channelers</s>
+	<s>Mulch</s>
+	<s>Mulldrifter</s>
+	<s>Multani, Maro-Sorcerer</s>
+	<s>Multani's Acolyte</s>
+	<s>Multani's Decree</s>
+	<s>Multani's Harmony</s>
+	<s>Multani's Presence</s>
+	<s>Mundungu</s>
+	<s>Mungha Wurm</s>
+	<s>Muraganda Petroglyphs</s>
+	<s>Murasa Pyromancer</s>
+	<s>Murder of Crows</s>
+	<s>Murderous Betrayal</s>
+	<s>Murderous Redcap</s>
+	<s>Murderous Spoils</s>
+	<s>Murk Dwellers</s>
+	<s>Murkfiend Liege</s>
+	<s>Murmuring Bosk</s>
+	<s>Murmurs from Beyond</s>
+	<s>Muscle Burst</s>
+	<s>Muscle Sliver</s>
+	<s>Muse Vessel</s>
+	<s>Musician</s>
+	<s>Mutagenic Growth</s>
+	<s>Mutavault</s>
+	<s>Mutilate</s>
+	<s>Muzzle</s>
+	<s>Mwonvuli Acid-Moss</s>
+	<s>Mwonvuli Ooze</s>
+	<s>My First Tome</s>
+	<s>Mycoid Shepherd</s>
+	<s>Mycologist</s>
+	<s>Mycoloth</s>
+	<s>Mycosynth Fiend</s>
+	<s>Mycosynth Golem</s>
+	<s>Mycosynth Lattice</s>
+	<s>Mycosynth Wellspring</s>
+	<s>Myojin of Cleansing Fire</s>
+	<s>Myojin of Infinite Rage</s>
+	<s>Myojin of Life's Web</s>
+	<s>Myojin of Night's Reach</s>
+	<s>Myojin of Seeing Winds</s>
+	<s>Myr Adapter</s>
+	<s>Myr Battlesphere</s>
+	<s>Myr Enforcer</s>
+	<s>Myr Galvanizer</s>
+	<s>Myr Incubator</s>
+	<s>Myr Landshaper</s>
+	<s>Myr Matrix</s>
+	<s>Myr Mindservant</s>
+	<s>Myr Moonvessel</s>
+	<s>Myr Propagator</s>
+	<s>Myr Prototype</s>
+	<s>Myr Quadropod</s>
+	<s>Myr Reservoir</s>
+	<s>Myr Retriever</s>
+	<s>Myr Servitor</s>
+	<s>Myr Sire</s>
+	<s>Myr Superion</s>
+	<s>Myr Turbine</s>
+	<s>Myr Welder</s>
+	<s>Myrsmith</s>
+	<s>Mysteries of the Deep</s>
+	<s>Mystic Compass</s>
+	<s>Mystic Crusader</s>
+	<s>Mystic Decree</s>
+	<s>Mystic Denial</s>
+	<s>Mystic Enforcer</s>
+	<s>Mystic Familiar</s>
+	<s>Mystic Gate</s>
+	<s>Mystic Melting</s>
+	<s>Mystic Might</s>
+	<s>Mystic Penitent</s>
+	<s>Mystic Remora</s>
+	<s>Mystic Restraints</s>
+	<s>Mystic Retrieval</s>
+	<s>Mystic Snake</s>
+	<s>Mystic Speculation</s>
+	<s>Mystic Veil</s>
+	<s>Mystic Visionary</s>
+	<s>Mystic Zealot</s>
+	<s>Mystical Teachings</s>
+	<s>Mystical Tutor</s>
+	<s>Mystifying Maze</s>
+	<s>Mythic Proportions</s>
+	<s>Nacatl Hunt-Pride</s>
+	<s>Nacatl Outlander</s>
+	<s>Nacatl Savage</s>
+	<s>Nacatl War-Pride</s>
+	<s>Nacre Talisman</s>
+	<s>Nafs Asp</s>
+	<s>Nagao, Bound by Honor</s>
+	<s>Nakaya Shade</s>
+	<s>Naked Singularity</s>
+	<s>Nalathni Dragon</s>
+	<s>Name Dropping</s>
+	<s>Nameless Inversion</s>
+	<s>Nameless One</s>
+	<s>Nameless Race</s>
+	<s>Nantuko Blightcutter</s>
+	<s>Nantuko Calmer</s>
+	<s>Nantuko Cultivator</s>
+	<s>Nantuko Disciple</s>
+	<s>Nantuko Elder</s>
+	<s>Nantuko Husk</s>
+	<s>Nantuko Mentor</s>
+	<s>Nantuko Monastery</s>
+	<s>Nantuko Shade</s>
+	<s>Nantuko Shaman</s>
+	<s>Nantuko Shrine</s>
+	<s>Nantuko Tracer</s>
+	<s>Nantuko Vigilante</s>
+	<s>Narcissism</s>
+	<s>Narcolepsy</s>
+	<s>Narcomoeba</s>
+	<s>Narrow Escape</s>
+	<s>Narstad Scrapper</s>
+	<s>Narwhal</s>
+	<s>Nath of the Gilt-Leaf</s>
+	<s>Nath's Buffoon</s>
+	<s>Nath's Elite</s>
+	<s>Natural Affinity</s>
+	<s>Natural Balance</s>
+	<s>Natural Emergence</s>
+	<s>Natural End</s>
+	<s>Natural Order</s>
+	<s>Natural Selection</s>
+	<s>Natural Spring</s>
+	<s>Naturalize</s>
+	<s>Nature's Blessing</s>
+	<s>Nature's Chosen</s>
+	<s>Nature's Claim</s>
+	<s>Nature's Cloak</s>
+	<s>Nature's Kiss</s>
+	<s>Nature's Lore</s>
+	<s>Nature's Resurgence</s>
+	<s>Nature's Revolt</s>
+	<s>Nature's Ruin</s>
+	<s>Nature's Spiral</s>
+	<s>Nature's Will</s>
+	<s>Nature's Wrath</s>
+	<s>Nausea</s>
+	<s>Naya Battlemage</s>
+	<s>Naya Charm</s>
+	<s>Naya Hushblade</s>
+	<s>Naya Panorama</s>
+	<s>Naya Sojourners</s>
+	<s>Near-Death Experience</s>
+	<s>Nearheath Pilgrim</s>
+	<s>Nearheath Stalker</s>
+	<s>Nebuchadnezzar</s>
+	<s>Neck Snap</s>
+	<s>Necra Disciple</s>
+	<s>Necra Sanctuary</s>
+	<s>Necratog</s>
+	<s>Necravolver</s>
+	<s>Necrite</s>
+	<s>Necrobite</s>
+	<s>Necrogen Censer</s>
+	<s>Necrogen Mists</s>
+	<s>Necrogen Scudder</s>
+	<s>Necrogen Spellbomb</s>
+	<s>Necrogenesis</s>
+	<s>Necro-Impotence</s>
+	<s>Necrologia</s>
+	<s>Necromancer's Covenant</s>
+	<s>Necromancer's Magemark</s>
+	<s>Necromancy</s>
+	<s>Necromantic Thirst</s>
+	<s>Necropede</s>
+	<s>Necroplasm</s>
+	<s>Necropolis</s>
+	<s>Necropotence</s>
+	<s>Necropouncer</s>
+	<s>Necrosavant</s>
+	<s>Necroskitter</s>
+	<s>Necrotic Ooze</s>
+	<s>Necrotic Plague</s>
+	<s>Necrotic Sliver</s>
+	<s>Nectar Faerie</s>
+	<s>Need for Speed</s>
+	<s>Needle Drop</s>
+	<s>Needle Specter</s>
+	<s>Needle Storm</s>
+	<s>Needlebite Trap</s>
+	<s>Needlebug</s>
+	<s>Needlepeak Spider</s>
+	<s>Needleshot Gourna</s>
+	<s>Nefarious Lich</s>
+	<s>Nefashu</s>
+	<s>Negate</s>
+	<s>Neko-Te</s>
+	<s>Nekrataal</s>
+	<s>Nema Siltlurker</s>
+	<s>Nemata, Grove Guardian</s>
+	<s>Nemesis Mask</s>
+	<s>Nemesis of Reason</s>
+	<s>Nemesis Trap</s>
+	<s>Nephalia Drownyard</s>
+	<s>Nephalia Seakite</s>
+	<s>Nephalia Smuggler</s>
+	<s>Nessian Courser</s>
+	<s>Nest Invader</s>
+	<s>Nested Ghoul</s>
+	<s>Nesting Wurm</s>
+	<s>Nether Horror</s>
+	<s>Nether Shadow</s>
+	<s>Nether Spirit</s>
+	<s>Nether Traitor</s>
+	<s>Nether Void</s>
+	<s>Netherborn Phalanx</s>
+	<s>Netter en-Dal</s>
+	<s>Nettle Sentinel</s>
+	<s>Nettle Swine</s>
+	<s>Nettletooth Djinn</s>
+	<s>Nettlevine Blight</s>
+	<s>Nettling Curse</s>
+	<s>Nettling Imp</s>
+	<s>Neurok Commando</s>
+	<s>Neurok Familiar</s>
+	<s>Neurok Hoversail</s>
+	<s>Neurok Invisimancer</s>
+	<s>Neurok Prodigy</s>
+	<s>Neurok Replica</s>
+	<s>Neurok Spy</s>
+	<s>Neurok Stealthsuit</s>
+	<s>Neurok Transmuter</s>
+	<s>Neverending Torment</s>
+	<s>Nevermaker</s>
+	<s>Nevermore</s>
+	<s>Nevinyrral's Disk</s>
+	<s>New Benalia</s>
+	<s>New Frontiers</s>
+	<s>Nezumi Bone-Reader</s>
+	<s>Nezumi Cutthroat</s>
+	<s>Nezumi Graverobber</s>
+	<s>Nezumi Ronin</s>
+	<s>Nezumi Shadow-Watcher</s>
+	<s>Nezumi Shortfang</s>
+	<s>Niall Silvain</s>
+	<s>Niblis of the Breath</s>
+	<s>Niblis of the Mist</s>
+	<s>Niblis of the Urn</s>
+	<s>Nicol Bolas</s>
+	<s>Nicol Bolas, Planeswalker</s>
+	<s>Night // Day (Night)</s>
+	<s>Night Dealings</s>
+	<s>Night of Souls' Betrayal</s>
+	<s>Night Revelers</s>
+	<s>Night Soil</s>
+	<s>Night Terrors</s>
+	<s>Nightbird's Clutches</s>
+	<s>Nightcreep</s>
+	<s>Nezumi Graverobber (Nighteyes the Desecrator)</s>
+	<s>Nightfall Predator</s>
+	<s>Nightguard Patrol</s>
+	<s>Nighthaze</s>
+	<s>Nightmare</s>
+	<s>Nightmare Incursion</s>
+	<s>Nightmare Lash</s>
+	<s>Nightmare Void</s>
+	<s>Night's Whisper</s>
+	<s>Nightscape Apprentice</s>
+	<s>Nightscape Battlemage</s>
+	<s>Nightscape Familiar</s>
+	<s>Nightscape Master</s>
+	<s>Nightshade Assassin</s>
+	<s>Nightshade Peddler</s>
+	<s>Nightshade Schemers</s>
+	<s>Nightshade Seer</s>
+	<s>Nightshade Stinger</s>
+	<s>Nightsky Mimic</s>
+	<s>Nightsoil Kami</s>
+	<s>Nightstalker Engine</s>
+	<s>Nightwind Glider</s>
+	<s>Nightwing Shade</s>
+	<s>Nihil Spellbomb</s>
+	<s>Nihilistic Glee</s>
+	<s>Nihilith</s>
+	<s>Nikko-Onna</s>
+	<s>Nim Abomination</s>
+	<s>Nim Deathmantle</s>
+	<s>Nim Devourer</s>
+	<s>Nim Grotesque</s>
+	<s>Nim Lasher</s>
+	<s>Nim Replica</s>
+	<s>Nim Shambler</s>
+	<s>Nim Shrieker</s>
+	<s>Nimana Sell-Sword</s>
+	<s>Nimble Mongoose</s>
+	<s>Nimbus Maze</s>
+	<s>Nimbus Wings</s>
+	<s>Nin, the Pain Artist</s>
+	<s>Nine-Ringed Bo</s>
+	<s>Ninja of the Deep Hours</s>
+	<s>Nip Gwyllion</s>
+	<s>Nirkana Cutthroat</s>
+	<s>Nirkana Revenant</s>
+	<s>Nissa Revane</s>
+	<s>Nissa's Chosen</s>
+	<s>Niveous Wisps</s>
+	<s>Nivix, Aerie of the Firemind</s>
+	<s>Niv-Mizzet, the Firemind</s>
+	<s>Nix</s>
+	<s>No Mercy</s>
+	<s>No Quarter</s>
+	<s>No Rest for the Wicked</s>
+	<s>Nobilis of War</s>
+	<s>Noble Benefactor</s>
+	<s>Noble Elephant</s>
+	<s>Noble Hierarch</s>
+	<s>Noble Panther</s>
+	<s>Noble Purpose</s>
+	<s>Noble Stand</s>
+	<s>Noble Steeds</s>
+	<s>Noble Templar</s>
+	<s>Noble Vestige</s>
+	<s>Nocturnal Raid</s>
+	<s>No-Dachi</s>
+	<s>Noetic Scales</s>
+	<s>Noggin Whack</s>
+	<s>Noggle Bandit</s>
+	<s>Noggle Bridgebreaker</s>
+	<s>Noggle Hedge-Mage</s>
+	<s>Noggle Ransacker</s>
+	<s>Nomad Decoy</s>
+	<s>Nomad Mythmaker</s>
+	<s>Nomad Stadium</s>
+	<s>Nomadic Elf</s>
+	<s>Nomads' Assembly</s>
+	<s>Nomads en-Kor</s>
+	<s>Norin the Wary</s>
+	<s>Norn's Annex</s>
+	<s>Norritt</s>
+	<s>North Star</s>
+	<s>Northern Paladin</s>
+	<s>Norwood Archers</s>
+	<s>Norwood Priestess</s>
+	<s>Norwood Ranger</s>
+	<s>Norwood Riders</s>
+	<s>Norwood Warrior</s>
+	<s>Nostalgic Dreams</s>
+	<s>Nosy Goblin</s>
+	<s>Not of This World</s>
+	<s>Notorious Assassin</s>
+	<s>Notorious Throng</s>
+	<s>Nourish</s>
+	<s>Nourishing Shoal</s>
+	<s>Nova Chaser</s>
+	<s>Nova Cleric</s>
+	<s>Nova Pentacle</s>
+	<s>Novablast Wurm</s>
+	<s>Novijen Sages</s>
+	<s>Novijen, Heart of Progress</s>
+	<s>Now I Know My ABC's</s>
+	<s>Noxious Field</s>
+	<s>Noxious Ghoul</s>
+	<s>Noxious Hatchling</s>
+	<s>Noxious Revival</s>
+	<s>Noxious Toad</s>
+	<s>Noxious Vapors</s>
+	<s>Nucklavee</s>
+	<s>Nuisance Engine</s>
+	<s>Null Brooch</s>
+	<s>Null Chamber</s>
+	<s>Null Champion</s>
+	<s>Null Profusion</s>
+	<s>Null Rod</s>
+	<s>Nullmage Advocate</s>
+	<s>Nullmage Shepherd</s>
+	<s>Nullstone Gargoyle</s>
+	<s>Nulltread Gargantuan</s>
+	<s>Numai Outcast</s>
+	<s>Number Crunch</s>
+	<s>Numbing Dose</s>
+	<s>Numot, the Devastator</s>
+	<s>Nurturer Initiate</s>
+	<s>Nurturing Licid</s>
+	<s>Nut Collector</s>
+	<s>Nyxathid</s>
+	<s>Oaken Brawler</s>
+	<s>Oakenform</s>
+	<s>Oakgnarl Warrior</s>
+	<s>Oasis</s>
+	<s>Oath of Druids</s>
+	<s>Oath of Ghouls</s>
+	<s>Oath of Lieges</s>
+	<s>Oath of Lim-Dul</s>
+	<s>Oath of Mages</s>
+	<s>Oath of Scholars</s>
+	<s>Oathkeeper, Takeno's Daisho</s>
+	<s>Oathsworn Giant</s>
+	<s>Ob Nixilis, the Fallen</s>
+	<s>Obelisk of Alara</s>
+	<s>Obelisk of Bant</s>
+	<s>Obelisk of Esper</s>
+	<s>Obelisk of Grixis</s>
+	<s>Obelisk of Jund</s>
+	<s>Obelisk of Naya</s>
+	<s>Obelisk of Undoing</s>
+	<s>Oblation</s>
+	<s>Obliterate</s>
+	<s>Oblivion Crown</s>
+	<s>Oblivion Ring</s>
+	<s>Oblivion Stone</s>
+	<s>Oboro Breezecaller</s>
+	<s>Oboro Envoy</s>
+	<s>Oboro, Palace in the Clouds</s>
+	<s>Obsessive Search</s>
+	<s>Obsianus Golem</s>
+	<s>Obsidian Acolyte</s>
+	<s>Obsidian Battle-Axe</s>
+	<s>Obsidian Fireheart</s>
+	<s>Obsidian Giant</s>
+	<s>Obstinate Baloth</s>
+	<s>Obstinate Familiar</s>
+	<s>Ocular Halo</s>
+	<s>Oculus</s>
+	<s>Odds // Ends (Odds)</s>
+	<s>Odious Trow</s>
+	<s>Odylic Wraith</s>
+	<s>Off Balance</s>
+	<s>Offalsnout</s>
+	<s>Offering to Asha</s>
+	<s>Ogre Arsonist</s>
+	<s>Ogre Berserker</s>
+	<s>Ogre Enforcer</s>
+	<s>Ogre Gatecrasher</s>
+	<s>Ogre Geargrabber</s>
+	<s>Ogre Leadfoot</s>
+	<s>Ogre Marauder</s>
+	<s>Ogre Menial</s>
+	<s>Ogre Recluse</s>
+	<s>Ogre Resister</s>
+	<s>Ogre Savant</s>
+	<s>Ogre Sentry</s>
+	<s>Ogre Shaman</s>
+	<s>Ogre Taskmaster</s>
+	<s>Ogre Warrior</s>
+	<s>Ogre's Cleaver</s>
+	<s>Ohran Viper</s>
+	<s>Ohran Yeti</s>
+	<s>Okiba-Gang Shinobi</s>
+	<s>Okina Nightwatch</s>
+	<s>Okina, Temple to the Grandfathers</s>
+	<s>Okk</s>
+	<s>Old Fogey</s>
+	<s>Old Ghastbark</s>
+	<s>Old Man of the Sea</s>
+	<s>Olivia Voldaren</s>
+	<s>Omega Myr</s>
+	<s>Omen</s>
+	<s>Omen Machine</s>
+	<s>Omen of Fire</s>
+	<s>Omnath, Locus of Mana</s>
+	<s>Omnibian</s>
+	<s>O-Naginata</s>
+	<s>Once More with Feeling</s>
+	<s>Ondu Cleric</s>
+	<s>Ondu Giant</s>
+	<s>One Dozen Eyes</s>
+	<s>One with Nature</s>
+	<s>One with Nothing</s>
+	<s>One-Eyed Scarecrow</s>
+	<s>Oni of Wild Places</s>
+	<s>Oni Possession</s>
+	<s>Onslaught</s>
+	<s>Onulet</s>
+	<s>Onyx Goblet</s>
+	<s>Onyx Mage</s>
+	<s>Onyx Talisman</s>
+	<s>Oona, Queen of the Fae</s>
+	<s>Oona's Blackguard</s>
+	<s>Oona's Gatewarden</s>
+	<s>Oona's Grace</s>
+	<s>Oona's Prowler</s>
+	<s>Ooze Garden</s>
+	<s>Opal Acrolith</s>
+	<s>Opal Archangel</s>
+	<s>Opal Avenger</s>
+	<s>Opal Caryatid</s>
+	<s>Opal Champion</s>
+	<s>Opal Gargoyle</s>
+	<s>Opal Guardian</s>
+	<s>Opal Titan</s>
+	<s>Opalescence</s>
+	<s>Opal-Eye, Konda's Yojimbo</s>
+	<s>Opaline Bracers</s>
+	<s>Opaline Sliver</s>
+	<s>Open the Vaults</s>
+	<s>Ophidian</s>
+	<s>Ophidian Eye</s>
+	<s>Opportunist</s>
+	<s>Opportunity</s>
+	<s>Opposition</s>
+	<s>Oppression</s>
+	<s>Oppressive Will</s>
+	<s>Opt</s>
+	<s>Oracle en-Vec</s>
+	<s>Oracle of Mul Daya</s>
+	<s>Oracle of Nectars</s>
+	<s>Oracle's Attendants</s>
+	<s>Oran-Rief Recluse</s>
+	<s>Oran-Rief Survivalist</s>
+	<s>Oran-Rief, the Vastwood</s>
+	<s>Oraxid</s>
+	<s>Orb of Dreams</s>
+	<s>Orbweaver Kumo</s>
+	<s>Orc General</s>
+	<s>Orchard Spirit</s>
+	<s>Orchard Warden</s>
+	<s>Orcish Artillery</s>
+	<s>Orcish Bloodpainter</s>
+	<s>Orcish Cannonade</s>
+	<s>Orcish Cannoneers</s>
+	<s>Orcish Captain</s>
+	<s>Orcish Conscripts</s>
+	<s>Orcish Farmer</s>
+	<s>Orcish Healer</s>
+	<s>Orcish Librarian</s>
+	<s>Orcish Lumberjack</s>
+	<s>Orcish Mechanics</s>
+	<s>Orcish Mine</s>
+	<s>Orcish Oriflamme</s>
+	<s>Orcish Paratroopers</s>
+	<s>Orcish Settlers</s>
+	<s>Orcish Spy</s>
+	<s>Orcish Squatters</s>
+	<s>Orcish Veteran</s>
+	<s>Order // Chaos (Order)</s>
+	<s>Order of Leitbur</s>
+	<s>Order of the Ebon Hand</s>
+	<s>Order of the Golden Cricket</s>
+	<s>Order of the Sacred Bell</s>
+	<s>Order of the Sacred Torch</s>
+	<s>Order of the Stars</s>
+	<s>Order of the White Shield</s>
+	<s>Order of Whiteclay</s>
+	<s>Order of Yawgmoth</s>
+	<s>Ordered Migration</s>
+	<s>Ordruun Commando</s>
+	<s>Ore Gorger</s>
+	<s>Organ Grinder</s>
+	<s>Organ Harvest</s>
+	<s>Orgg</s>
+	<s>Origin Spellbomb</s>
+	<s>Orim, Samite Healer</s>
+	<s>Orim's Chant</s>
+	<s>Orim's Cure</s>
+	<s>Orim's Prayer</s>
+	<s>Orim's Thunder</s>
+	<s>Orim's Touch</s>
+	<s>Oriss, Samite Guardian</s>
+	<s>Ornate Kanzashi</s>
+	<s>Ornithopter</s>
+	<s>Orochi Eggwatcher</s>
+	<s>Orochi Hatchery</s>
+	<s>Orochi Leafcaller</s>
+	<s>Orochi Ranger</s>
+	<s>Orochi Sustainer</s>
+	<s>Oros, the Avenger</s>
+	<s>Orzhov Basilica</s>
+	<s>Orzhov Euthanist</s>
+	<s>Orzhov Guildmage</s>
+	<s>Orzhov Pontiff</s>
+	<s>Orzhov Signet</s>
+	<s>Orzhova, the Church of Deals</s>
+	<s>Osai Vultures</s>
+	<s>Ostiary Thrull</s>
+	<s>Ostracize</s>
+	<s>Otarian Juggernaut</s>
+	<s>Otherworld Atlas</s>
+	<s>Otherworldly Journey</s>
+	<s>Oubliette</s>
+	<s>Ouphe Vandals</s>
+	<s>Our Market Research Shows That Players Like Really Long Card Names So We Made this Card to Have the Absolute Longest Card Name Ever Elemental</s>
+	<s>Oust</s>
+	<s>Outbreak</s>
+	<s>Outmaneuver</s>
+	<s>Outrage Shaman</s>
+	<s>Outrider en-Kor</s>
+	<s>Outrider of Jhess</s>
+	<s>Outwit</s>
+	<s>Overabundance</s>
+	<s>Overbeing of Myth</s>
+	<s>Overblaze</s>
+	<s>Overburden</s>
+	<s>Overeager Apprentice</s>
+	<s>Overgrown Battlement</s>
+	<s>Overgrown Estate</s>
+	<s>Overgrown Tomb</s>
+	<s>Overgrowth</s>
+	<s>Overlaid Terrain</s>
+	<s>Overload</s>
+	<s>Overmaster</s>
+	<s>Override</s>
+	<s>Overrule</s>
+	<s>Overrun</s>
+	<s>Oversold Cemetery</s>
+	<s>Oversoul of Dusk</s>
+	<s>Overtaker</s>
+	<s>Overwhelm</s>
+	<s>Overwhelming Forces</s>
+	<s>Overwhelming Instinct</s>
+	<s>Overwhelming Intellect</s>
+	<s>Overwhelming Stampede</s>
+	<s>Ovinize</s>
+	<s>Ovinomancer</s>
+	<s>Ow</s>
+	<s>Owl Familiar</s>
+	<s>Oxidda Daredevil</s>
+	<s>Oxidda Golem</s>
+	<s>Oxidda Scrapmelter</s>
+	<s>Oxidize</s>
+	<s>Oyobi, Who Split the Heavens</s>
+	<s>Pacifism</s>
+	<s>Pack Hunt</s>
+	<s>Pack's Disdain</s>
+	<s>Pact of Negation</s>
+	<s>Pact of the Titan</s>
+	<s>Pain // Suffering (Pain)</s>
+	<s>Pain Kami</s>
+	<s>Pain Magnification</s>
+	<s>Painbringer</s>
+	<s>Painful Memories</s>
+	<s>Painful Quandary</s>
+	<s>Pain's Reward</s>
+	<s>Painsmith</s>
+	<s>Painter's Servant</s>
+	<s>Painwracker Oni</s>
+	<s>Palace Guard</s>
+	<s>Paladin en-Vec</s>
+	<s>Paladin of Prahv</s>
+	<s>Pale Bears</s>
+	<s>Pale Moon</s>
+	<s>Pale Recluse</s>
+	<s>Pale Wayfarer</s>
+	<s>Paleoloth</s>
+	<s>Palinchron</s>
+	<s>Palladia-Mors</s>
+	<s>Palladium Myr</s>
+	<s>Palliation Accord</s>
+	<s>Pallid Mycoderm</s>
+	<s>Pallimud</s>
+	<s>Panacea</s>
+	<s>Pandemonium</s>
+	<s>Pang Tong, "Young Phoenix"</s>
+	<s>Panglacial Wurm</s>
+	<s>Pangosaur</s>
+	<s>Panic</s>
+	<s>Panic Attack</s>
+	<s>Panic Spellbomb</s>
+	<s>Panoptic Mirror</s>
+	<s>Panther Warriors</s>
+	<s>Paper Tiger</s>
+	<s>Paperfin Rascal</s>
+	<s>Paradigm Shift</s>
+	<s>Paradise Mantle</s>
+	<s>Paradise Plume</s>
+	<s>Paradox Haze</s>
+	<s>Paragon of the Amesha</s>
+	<s>Parallax Dementia</s>
+	<s>Parallax Inhibitor</s>
+	<s>Parallax Nexus</s>
+	<s>Parallax Tide</s>
+	<s>Parallax Wave</s>
+	<s>Parallectric Feedback</s>
+	<s>Parallel Evolution</s>
+	<s>Parallel Lives</s>
+	<s>Parallel Thoughts</s>
+	<s>Paralyze</s>
+	<s>Paralyzing Grasp</s>
+	<s>Parapet</s>
+	<s>Parapet Watchers</s>
+	<s>Paraselene</s>
+	<s>Parasitic Bond</s>
+	<s>Parasitic Implant</s>
+	<s>Parasitic Strix</s>
+	<s>Parch</s>
+	<s>Pardic Arsonist</s>
+	<s>Pardic Collaborator</s>
+	<s>Pardic Dragon</s>
+	<s>Pardic Firecat</s>
+	<s>Pardic Lancer</s>
+	<s>Pardic Miner</s>
+	<s>Pardic Swordsmith</s>
+	<s>Pariah</s>
+	<s>Pariah's Shield</s>
+	<s>Paroxysm</s>
+	<s>Part the Veil</s>
+	<s>Part Water</s>
+	<s>Past in Flames</s>
+	<s>Patagia Golem</s>
+	<s>Patagia Viper</s>
+	<s>Patchwork Gnomes</s>
+	<s>Path of Anger's Flame</s>
+	<s>Path of Peace</s>
+	<s>Path to Exile</s>
+	<s>Pathbreaker Wurm</s>
+	<s>Pathrazer of Ulamog</s>
+	<s>Patriarch's Bidding</s>
+	<s>Patriarch's Desire</s>
+	<s>Patrician's Scorn</s>
+	<s>Patrol Hound</s>
+	<s>Patrol Signaler</s>
+	<s>Patron of the Akki</s>
+	<s>Patron of the Kitsune</s>
+	<s>Patron of the Moon</s>
+	<s>Patron of the Nezumi</s>
+	<s>Patron of the Orochi</s>
+	<s>Patron of the Wild</s>
+	<s>Patron Wizard</s>
+	<s>Pattern of Rebirth</s>
+	<s>Paupers' Cage</s>
+	<s>Pavel Maliki</s>
+	<s>Pawn of Ulamog</s>
+	<s>Pay No Heed</s>
+	<s>Peace and Quiet</s>
+	<s>Peace of Mind</s>
+	<s>Peace Strider</s>
+	<s>Peace Talks</s>
+	<s>Peacekeeper</s>
+	<s>Peach Garden Oath</s>
+	<s>Pearl Dragon</s>
+	<s>Pearl Medallion</s>
+	<s>Pearl Shard</s>
+	<s>Pearled Unicorn</s>
+	<s>Pearlspear Courier</s>
+	<s>Peat Bog</s>
+	<s>Pedantic Learning</s>
+	<s>Peek</s>
+	<s>Peel from Reality</s>
+	<s>Peer Pressure</s>
+	<s>Peer Through Depths</s>
+	<s>Pegasus Charger</s>
+	<s>Pegasus Refuge</s>
+	<s>Pegasus Stampede</s>
+	<s>Pegasus token card</s>
+	<s>Pelakka Wurm</s>
+	<s>Pemmin's Aura</s>
+	<s>Penance</s>
+	<s>Pendelhaven</s>
+	<s>Pendelhaven Elder</s>
+	<s>Pendrell Drake</s>
+	<s>Pendrell Flux</s>
+	<s>Pendrell Mists</s>
+	<s>Pennon Blade</s>
+	<s>Pentad Prism</s>
+	<s>Pentagram of the Ages</s>
+	<s>Pentarch Paladin</s>
+	<s>Pentarch Ward</s>
+	<s>Pentavus</s>
+	<s>Penumbra Bobcat</s>
+	<s>Penumbra Kavu</s>
+	<s>Penumbra Spider</s>
+	<s>Penumbra Wurm</s>
+	<s>People of the Woods</s>
+	<s>Peppersmoke</s>
+	<s>Peregrine Drake</s>
+	<s>Peregrine Griffin</s>
+	<s>Peregrine Mask</s>
+	<s>Perilous Forays</s>
+	<s>Perilous Myr</s>
+	<s>Perilous Research</s>
+	<s>Perimeter Captain</s>
+	<s>Perish</s>
+	<s>Perish the Thought</s>
+	<s>Permafrost Trap</s>
+	<s>Pernicious Deed</s>
+	<s>Perplex</s>
+	<s>Persecute</s>
+	<s>Persecute Artist</s>
+	<s>Personal Incarnation</s>
+	<s>Personal Sanctuary</s>
+	<s>Personal Tutor</s>
+	<s>Persuasion</s>
+	<s>Pestermite</s>
+	<s>Pestilence</s>
+	<s>Pestilence Demon</s>
+	<s>Pestilence Rats</s>
+	<s>Pestilent Kathari</s>
+	<s>Pestilent Souleater</s>
+	<s>Petalmane Baku</s>
+	<s>Petals of Insight</s>
+	<s>Petra Sphinx</s>
+	<s>Petradon</s>
+	<s>Petrahydrox</s>
+	<s>Petravark</s>
+	<s>Petrified Field</s>
+	<s>Petrified Plating</s>
+	<s>Petrified Wood-Kin</s>
+	<s>Pewter Golem</s>
+	<s>Phage the Untouchable</s>
+	<s>Phantasmagorian</s>
+	<s>Phantasmal Abomination</s>
+	<s>Phantasmal Bear</s>
+	<s>Phantasmal Dragon</s>
+	<s>Phantasmal Fiend</s>
+	<s>Phantasmal Forces</s>
+	<s>Phantasmal Image</s>
+	<s>Phantasmal Mount</s>
+	<s>Phantasmal Sphere</s>
+	<s>Phantasmal Terrain</s>
+	<s>Phantatog</s>
+	<s>Phantom Beast</s>
+	<s>Phantom Centaur</s>
+	<s>Phantom Flock</s>
+	<s>Phantom Monster</s>
+	<s>Phantom Nantuko</s>
+	<s>Phantom Nishoba</s>
+	<s>Phantom Nomad</s>
+	<s>Phantom Tiger</s>
+	<s>Phantom Warrior</s>
+	<s>Phantom Whelp</s>
+	<s>Phantom Wings</s>
+	<s>Phantom Wurm</s>
+	<s>Phelddagrif</s>
+	<s>Phobian Phantasm</s>
+	<s>Phosphorescent Feast</s>
+	<s>Phthisis</s>
+	<s>Phylactery Lich</s>
+	<s>Phyresis</s>
+	<s>Phyrexian Altar</s>
+	<s>Phyrexian Arena</s>
+	<s>Phyrexian Battleflies</s>
+	<s>Phyrexian Bloodstock</s>
+	<s>Phyrexian Boon</s>
+	<s>Phyrexian Broodlings</s>
+	<s>Phyrexian Colossus</s>
+	<s>Phyrexian Crusader</s>
+	<s>Phyrexian Debaser</s>
+	<s>Phyrexian Defiler</s>
+	<s>Phyrexian Delver</s>
+	<s>Phyrexian Denouncer</s>
+	<s>Phyrexian Devourer</s>
+	<s>Phyrexian Digester</s>
+	<s>Phyrexian Dreadnought</s>
+	<s>Phyrexian Driver</s>
+	<s>Phyrexian Etchings</s>
+	<s>Phyrexian Furnace</s>
+	<s>Phyrexian Gargantua</s>
+	<s>Phyrexian Ghoul</s>
+	<s>Phyrexian Gremlins</s>
+	<s>Phyrexian Grimoire</s>
+	<s>Phyrexian Hulk</s>
+	<s>Phyrexian Hydra</s>
+	<s>Phyrexian Infiltrator</s>
+	<s>Phyrexian Ingester</s>
+	<s>Phyrexian Ironfoot</s>
+	<s>Phyrexian Juggernaut</s>
+	<s>Phyrexian Lens</s>
+	<s>Phyrexian Librarian</s>
+	<s>Phyrexian Marauder</s>
+	<s>Phyrexian Metamorph</s>
+	<s>Phyrexian Monitor</s>
+	<s>Phyrexian Negator</s>
+	<s>Phyrexian Obliterator</s>
+	<s>Phyrexian Plaguelord</s>
+	<s>Phyrexian Portal</s>
+	<s>Phyrexian Processor</s>
+	<s>Phyrexian Prowler</s>
+	<s>Phyrexian Purge</s>
+	<s>Phyrexian Rager</s>
+	<s>Phyrexian Reaper</s>
+	<s>Phyrexian Rebirth</s>
+	<s>Phyrexian Reclamation</s>
+	<s>Phyrexian Revoker</s>
+	<s>Phyrexian Scuta</s>
+	<s>Phyrexian Slayer</s>
+	<s>Phyrexian Snowcrusher</s>
+	<s>Phyrexian Soulgorger</s>
+	<s>Phyrexian Splicer</s>
+	<s>Phyrexian Swarmlord</s>
+	<s>Phyrexian Totem</s>
+	<s>Phyrexian Tower</s>
+	<s>Phyrexian Tribute</s>
+	<s>Phyrexian Tyranny</s>
+	<s>Phyrexian Unlife</s>
+	<s>Phyrexian Vatmother</s>
+	<s>Phyrexian Vault</s>
+	<s>Phyrexian Walker</s>
+	<s>Phyrexian War Beast</s>
+	<s>Phyrexia's Core</s>
+	<s>Phytohydra</s>
+	<s>Pianna, Nomad Captain</s>
+	<s>Pierce Strider</s>
+	<s>Piety</s>
+	<s>Piety Charm</s>
+	<s>Pikemen</s>
+	<s>Pilgrim of Justice</s>
+	<s>Pilgrim of Virtue</s>
+	<s>Pilgrim's Eye</s>
+	<s>Pili-Pala</s>
+	<s>Pillage</s>
+	<s>Pillaging Horde</s>
+	<s>Pillar of Flame</s>
+	<s>Pillar of the Paruns</s>
+	<s>Pillar Tombs of Aku</s>
+	<s>Pillarfield Ox</s>
+	<s>Pillory of the Sleepless</s>
+	<s>Pincer Spider</s>
+	<s>Pincher Beetles</s>
+	<s>Pine Barrens</s>
+	<s>Pinecrest Ridge</s>
+	<s>Pinpoint Avalanche</s>
+	<s>Pious Kitsune</s>
+	<s>Pious Warrior</s>
+	<s>Piper's Melody</s>
+	<s>Piracy</s>
+	<s>Piracy Charm</s>
+	<s>Piranha Marsh</s>
+	<s>Pirate Ship</s>
+	<s>Piston Sledge</s>
+	<s>Pistus Strike</s>
+	<s>Pit Imp</s>
+	<s>Pit Keeper</s>
+	<s>Pit Raptor</s>
+	<s>Pit Scorpion</s>
+	<s>Pit Spawn</s>
+	<s>Pit Trap</s>
+	<s>Pitchburn Devils</s>
+	<s>Pitchstone Wall</s>
+	<s>Pitfall Trap</s>
+	<s>Pith Driller</s>
+	<s>Pithing Needle</s>
+	<s>Pixie Queen</s>
+	<s>Plagiarize</s>
+	<s>Plague Beetle</s>
+	<s>Plague Boiler</s>
+	<s>Plague Dogs</s>
+	<s>Plague Fiend</s>
+	<s>Plague Myr</s>
+	<s>Plague of Vermin</s>
+	<s>Plague Rats</s>
+	<s>Plague Sliver</s>
+	<s>Plague Spitter</s>
+	<s>Plague Spores</s>
+	<s>Plague Stinger</s>
+	<s>Plague Wind</s>
+	<s>Plague Witch</s>
+	<s>Plaguebearer</s>
+	<s>Plagued Rusalka</s>
+	<s>Plaguemaw Beast</s>
+	<s>Plains</s>
+	<s>Planar Birth</s>
+	<s>Planar Chaos</s>
+	<s>Planar Cleansing</s>
+	<s>Planar Collapse</s>
+	<s>Planar Despair</s>
+	<s>Planar Gate</s>
+	<s>Planar Guide</s>
+	<s>Planar Overlay</s>
+	<s>Planar Portal</s>
+	<s>Planar Void</s>
+	<s>Planeswalker's Favor</s>
+	<s>Planeswalker's Fury</s>
+	<s>Planeswalker's Mirth</s>
+	<s>Planeswalker's Mischief</s>
+	<s>Planeswalker's Scorn</s>
+	<s>Plant Elemental</s>
+	<s>Plasma Elemental</s>
+	<s>Plateau</s>
+	<s>Plated Geopede</s>
+	<s>Plated Pegasus</s>
+	<s>Plated Rootwalla</s>
+	<s>Plated Seastrider</s>
+	<s>Plated Slagwurm</s>
+	<s>Plated Sliver</s>
+	<s>Plated Spider</s>
+	<s>Plated Wurm</s>
+	<s>Platinum Angel</s>
+	<s>Platinum Emperion</s>
+	<s>Plaxcaster Frogling</s>
+	<s>Plaxmanta</s>
+	<s>Pledge of Loyalty</s>
+	<s>Plover Knights</s>
+	<s>Plow Through Reito</s>
+	<s>Plow Under</s>
+	<s>Plumes of Peace</s>
+	<s>Plumeveil</s>
+	<s>Plummet</s>
+	<s>Plunder</s>
+	<s>Plunge into Darkness</s>
+	<s>Pointy Finger of Doom</s>
+	<s>Poison Arrow</s>
+	<s>Poison the Well</s>
+	<s>Poisonbelly Ogre</s>
+	<s>Polar Kraken</s>
+	<s>Political Trickery</s>
+	<s>Pollen Lullaby</s>
+	<s>Pollen Remedy</s>
+	<s>Pollenbright Wings</s>
+	<s>Polluted Bonds</s>
+	<s>Polluted Dead</s>
+	<s>Polluted Delta</s>
+	<s>Polluted Mire</s>
+	<s>Polymorph</s>
+	<s>Ponder</s>
+	<s>Pongify</s>
+	<s>Pooling Venom</s>
+	<s>Porcelain Legionnaire</s>
+	<s>Porphyry Nodes</s>
+	<s>Port Inspector</s>
+	<s>Portcullis</s>
+	<s>Portent</s>
+	<s>Possessed Aven</s>
+	<s>Possessed Barbarian</s>
+	<s>Possessed Centaur</s>
+	<s>Possessed Nomad</s>
+	<s>Possessed Portal</s>
+	<s>Postmortem Lunge</s>
+	<s>Poultice Sliver</s>
+	<s>Poultrygeist</s>
+	<s>Pouncing Jaguar</s>
+	<s>Pouncing Kavu</s>
+	<s>Pouncing Wurm</s>
+	<s>Powder Keg</s>
+	<s>Power Armor</s>
+	<s>Power Artifact</s>
+	<s>Power Conduit</s>
+	<s>Power Leak</s>
+	<s>Power Matrix</s>
+	<s>Power of Fire</s>
+	<s>Power Sink</s>
+	<s>Power Surge</s>
+	<s>Power Taint</s>
+	<s>Powerleech</s>
+	<s>Powerstone Minefield</s>
+	<s>Pox</s>
+	<s>Pradesh Gypsies</s>
+	<s>Praetor's Counsel</s>
+	<s>Praetor's Grasp</s>
+	<s>Prahv, Spires of Order</s>
+	<s>Preacher</s>
+	<s>Precognition</s>
+	<s>Precursor Golem</s>
+	<s>Predator Dragon</s>
+	<s>Predator Ooze</s>
+	<s>Predator, Flagship</s>
+	<s>Predator's Gambit</s>
+	<s>Predator's Strike</s>
+	<s>Predatory Advantage</s>
+	<s>Predatory Focus</s>
+	<s>Predatory Hunger</s>
+	<s>Predatory Nightstalker</s>
+	<s>Predatory Urge</s>
+	<s>Predict</s>
+	<s>Preeminent Captain</s>
+	<s>Preemptive Strike</s>
+	<s>Preferred Selection</s>
+	<s>Premature Burial</s>
+	<s>Preordain</s>
+	<s>Presence of Gond</s>
+	<s>Presence of the Master</s>
+	<s>Presence of the Wise</s>
+	<s>Pretender's Claim</s>
+	<s>Prey Upon</s>
+	<s>Prey's Vengeance</s>
+	<s>Price of Glory</s>
+	<s>Price of Progress</s>
+	<s>Prickly Boggart</s>
+	<s>Pride Guardian</s>
+	<s>Pride of Lions</s>
+	<s>Pride of the Clouds</s>
+	<s>Priest of Gix</s>
+	<s>Priest of Titania</s>
+	<s>Priest of Urabrask</s>
+	<s>Priest of Yawgmoth</s>
+	<s>Priests of Norn</s>
+	<s>Primal Bellow</s>
+	<s>Primal Beyond</s>
+	<s>Primal Boost</s>
+	<s>Primal Clay</s>
+	<s>Primal Cocoon</s>
+	<s>Primal Command</s>
+	<s>Primal Forcemage</s>
+	<s>Primal Frenzy</s>
+	<s>Primal Growth</s>
+	<s>Primal Order</s>
+	<s>Primal Plasma</s>
+	<s>Primal Rage</s>
+	<s>Primal Surge</s>
+	<s>Primal Whisperer</s>
+	<s>Primalcrux</s>
+	<s>Primeval Force</s>
+	<s>Primeval Light</s>
+	<s>Primeval Shambler</s>
+	<s>Primeval Titan</s>
+	<s>Primitive Etchings</s>
+	<s>Primitive Justice</s>
+	<s>Primoc Escapee</s>
+	<s>Primordial Hydra</s>
+	<s>Primordial Ooze</s>
+	<s>Primordial Sage</s>
+	<s>Prince of Thralls</s>
+	<s>Princess Lucrezia</s>
+	<s>Prismatic Boon</s>
+	<s>Prismatic Circle</s>
+	<s>Prismatic Lace</s>
+	<s>Prismatic Lens</s>
+	<s>Prismatic Omen</s>
+	<s>Prismatic Strands</s>
+	<s>Prismatic Ward</s>
+	<s>Prismatic Wardrobe</s>
+	<s>Prismwake Merrow</s>
+	<s>Prison Barricade</s>
+	<s>Prison Term</s>
+	<s>Pristine Angel</s>
+	<s>Pristine Talisman</s>
+	<s>Private Research</s>
+	<s>Privileged Position</s>
+	<s>Prized Unicorn</s>
+	<s>Probe</s>
+	<s>Proclamation of Rebirth</s>
+	<s>Prodigal Pyromancer</s>
+	<s>Prodigal Sorcerer</s>
+	<s>Profane Command</s>
+	<s>Profane Prayers</s>
+	<s>Progenitus</s>
+	<s>Prohibit</s>
+	<s>Promise of Bunrei</s>
+	<s>Promise of Power</s>
+	<s>Promised Kannushi</s>
+	<s>Propaganda</s>
+	<s>Proper Burial</s>
+	<s>Prophecy</s>
+	<s>Prophetic Bolt</s>
+	<s>Prophetic Prism</s>
+	<s>Prosperity</s>
+	<s>Protean Hulk</s>
+	<s>Protean Hydra</s>
+	<s>Protective Bubble</s>
+	<s>Protective Sphere</s>
+	<s>Proteus Machine</s>
+	<s>Proteus Staff</s>
+	<s>Protomatter Powder</s>
+	<s>Prototype Portal</s>
+	<s>Provoke</s>
+	<s>Prowess of the Fair</s>
+	<s>Prowling Nightstalker</s>
+	<s>Prowling Pangolin</s>
+	<s>Psionic Blast</s>
+	<s>Psionic Entity</s>
+	<s>Psionic Gift</s>
+	<s>Psionic Sliver</s>
+	<s>Psychatog</s>
+	<s>Psychic Allergy</s>
+	<s>Psychic Barrier</s>
+	<s>Psychic Battle</s>
+	<s>Psychic Drain</s>
+	<s>Psychic Membrane</s>
+	<s>Psychic Miasma</s>
+	<s>Psychic Network</s>
+	<s>Psychic Overload</s>
+	<s>Psychic Possession</s>
+	<s>Psychic Puppetry</s>
+	<s>Psychic Purge</s>
+	<s>Psychic Spear</s>
+	<s>Psychic Surgery</s>
+	<s>Psychic Theft</s>
+	<s>Psychic Trance</s>
+	<s>Psychic Transfer</s>
+	<s>Psychic Venom</s>
+	<s>Psychic Vortex</s>
+	<s>Psychogenic Probe</s>
+	<s>Psychosis Crawler</s>
+	<s>Psychotic Episode</s>
+	<s>Psychotic Fury</s>
+	<s>Psychotic Haze</s>
+	<s>Psychotrope Thallid</s>
+	<s>Pteron Ghost</s>
+	<s>Puca's Mischief</s>
+	<s>Puffer Extract</s>
+	<s>Pull from Eternity</s>
+	<s>Pull Under</s>
+	<s>Pulling Teeth</s>
+	<s>Pulmonic Sliver</s>
+	<s>Pulsating Illusion</s>
+	<s>Pulse of Llanowar</s>
+	<s>Pulse of the Dross</s>
+	<s>Pulse of the Fields</s>
+	<s>Pulse of the Forge</s>
+	<s>Pulse of the Grid</s>
+	<s>Pulse of the Tangle</s>
+	<s>Pulse Tracker</s>
+	<s>Pulsemage Advocate</s>
+	<s>Pulverize</s>
+	<s>Punctuate</s>
+	<s>Puncture Blast</s>
+	<s>Puncture Bolt</s>
+	<s>Puncturing Light</s>
+	<s>Punish Ignorance</s>
+	<s>Punishing Fire</s>
+	<s>Crime // Punishment (Punishment)</s>
+	<s>Puppet Conjurer</s>
+	<s>Puppet Master</s>
+	<s>Puppet Strings</s>
+	<s>Puppeteer</s>
+	<s>Puppeteer Clique</s>
+	<s>Puppet's Verdict</s>
+	<s>Pure // Simple (Pure)</s>
+	<s>Pure Intentions</s>
+	<s>Pure Reflection</s>
+	<s>Purelace</s>
+	<s>Puresight Merrow</s>
+	<s>Puresteel Paladin</s>
+	<s>Purgatory</s>
+	<s>Purge</s>
+	<s>Purging Scythe</s>
+	<s>Purify</s>
+	<s>Purify the Grave</s>
+	<s>Purity</s>
+	<s>Purraj of Urborg</s>
+	<s>Pursuit of Knowledge</s>
+	<s>Pus Kami</s>
+	<s>Put Away</s>
+	<s>Putrefaction</s>
+	<s>Putrefax</s>
+	<s>Putrefy</s>
+	<s>Putrid Cyclops</s>
+	<s>Putrid Imp</s>
+	<s>Putrid Leech</s>
+	<s>Putrid Raptor</s>
+	<s>Putrid Warrior</s>
+	<s>Pygmy Allosaurus</s>
+	<s>Pygmy Giant</s>
+	<s>Pygmy Hippo</s>
+	<s>Pygmy Kavu</s>
+	<s>Pygmy Pyrosaur</s>
+	<s>Pygmy Razorback</s>
+	<s>Pygmy Troll</s>
+	<s>Pyknite</s>
+	<s>Pyramids</s>
+	<s>Pyre Charger</s>
+	<s>Pyre Zombie</s>
+	<s>Pyreheart Wolf</s>
+	<s>Pyretic Ritual</s>
+	<s>Pyric Salamander</s>
+	<s>Pyrite Spellbomb</s>
+	<s>Pyroblast</s>
+	<s>Pyroclasm</s>
+	<s>Pyroclast Consul</s>
+	<s>Pyrohemia</s>
+	<s>Pyrokinesis</s>
+	<s>Pyromancer Ascension</s>
+	<s>Pyromancer's Swath</s>
+	<s>Pyromancy</s>
+	<s>Pyromania</s>
+	<s>Pyromatics</s>
+	<s>Pyrostatic Pillar</s>
+	<s>Pyrotechnics</s>
+	<s>Pyrrhic Revival</s>
+	<s>Python</s>
+	<s>Qasali Ambusher</s>
+	<s>Qasali Pridemage</s>
+	<s>Quag Sickness</s>
+	<s>Quag Vampires</s>
+	<s>Quagmire</s>
+	<s>Quagmire Druid</s>
+	<s>Quagmire Lamprey</s>
+	<s>Quagnoth</s>
+	<s>Quarum Trench Gnomes</s>
+	<s>Quash</s>
+	<s>Quenchable Fire</s>
+	<s>Quest for Ancient Secrets</s>
+	<s>Quest for Pure Flame</s>
+	<s>Quest for Renewal</s>
+	<s>Quest for the Gemblades</s>
+	<s>Quest for the Goblin Lord</s>
+	<s>Quest for the Gravelord</s>
+	<s>Quest for the Holy Relic</s>
+	<s>Quest for the Nihil Stone</s>
+	<s>Quest for Ula's Temple</s>
+	<s>Questing Phelddagrif</s>
+	<s>Question Elemental?</s>
+	<s>Quick Sliver</s>
+	<s>Quickchange</s>
+	<s>Quicken</s>
+	<s>Quickening Licid</s>
+	<s>Quicksand</s>
+	<s>Quicksilver Amulet</s>
+	<s>Quicksilver Behemoth</s>
+	<s>Quicksilver Dagger</s>
+	<s>Quicksilver Dragon</s>
+	<s>Quicksilver Elemental</s>
+	<s>Quicksilver Fountain</s>
+	<s>Quicksilver Gargantuan</s>
+	<s>Quicksilver Geyser</s>
+	<s>Quicksilver Wall</s>
+	<s>Quiet Disrepair</s>
+	<s>Quiet Purity</s>
+	<s>Quiet Speculation</s>
+	<s>Quietus Spike</s>
+	<s>Quilled Slagwurm</s>
+	<s>Quilled Sliver</s>
+	<s>Quillmane Baku</s>
+	<s>Quill-Slinger Boggart</s>
+	<s>Quillspike</s>
+	<s>Quirion Druid</s>
+	<s>Quirion Dryad</s>
+	<s>Quirion Elves</s>
+	<s>Quirion Explorer</s>
+	<s>Quirion Ranger</s>
+	<s>Quirion Sentinel</s>
+	<s>Quirion Trailblazer</s>
+	<s>Qumulox</s>
+	<s>R+D's Secret Lair</s>
+	<s>Rabble-Rouser</s>
+	<s>Rabid Elephant</s>
+	<s>Rabid Rats</s>
+	<s>Rabid Wolverines</s>
+	<s>Rabid Wombat</s>
+	<s>Rack and Ruin</s>
+	<s>Rackling</s>
+	<s>Radha, Heir to Keld</s>
+	<s>Radiant Essence</s>
+	<s>Radiant Kavu</s>
+	<s>Radiant, Archangel</s>
+	<s>Radiant's Dragoons</s>
+	<s>Radiant's Judgment</s>
+	<s>Radiate</s>
+	<s>Radjan Spirit</s>
+	<s>Rafiq of the Many</s>
+	<s>Rag Dealer</s>
+	<s>Rag Man</s>
+	<s>Ragamuffyn</s>
+	<s>Rage Extractor</s>
+	<s>Rage Forger</s>
+	<s>Rage Nimbus</s>
+	<s>Rage Reflection</s>
+	<s>Rage Thrower</s>
+	<s>Rage Weaver</s>
+	<s>Ragged Veins</s>
+	<s>Raging Bull</s>
+	<s>Raging Cougar</s>
+	<s>Raging Goblin</s>
+	<s>Raging Gorilla</s>
+	<s>Raging Kavu</s>
+	<s>Raging Minotaur</s>
+	<s>Raging Poltergeist</s>
+	<s>Raging Ravine</s>
+	<s>Raging River</s>
+	<s>Raging Spirit</s>
+	<s>Ragnar</s>
+	<s>Raid Bombardment</s>
+	<s>Raiding Nightstalker</s>
+	<s>Raiding Party</s>
+	<s>Rain of Blades</s>
+	<s>Rain of Daggers</s>
+	<s>Rain of Embers</s>
+	<s>Rain of Filth</s>
+	<s>Rain of Gore</s>
+	<s>Rain of Rust</s>
+	<s>Rain of Salt</s>
+	<s>Rain of Tears</s>
+	<s>Rain of Thorns</s>
+	<s>Rainbow Crow</s>
+	<s>Rainbow Efreet</s>
+	<s>Rainbow Vale</s>
+	<s>Raise Dead</s>
+	<s>Raise the Alarm</s>
+	<s>Raka Disciple</s>
+	<s>Raka Sanctuary</s>
+	<s>Rakalite</s>
+	<s>Rakavolver</s>
+	<s>Rakdos Augermage</s>
+	<s>Rakdos Carnarium</s>
+	<s>Rakdos Guildmage</s>
+	<s>Rakdos Ickspitter</s>
+	<s>Rakdos Pit Dragon</s>
+	<s>Rakdos Riteknife</s>
+	<s>Rakdos Signet</s>
+	<s>Rakdos the Defiler</s>
+	<s>Rakeclaw Gargantuan</s>
+	<s>Raking Canopy</s>
+	<s>Rakish Heir</s>
+	<s>Rakka Mar</s>
+	<s>Raksha Golden Cub</s>
+	<s>Rally</s>
+	<s>Rally the Forces</s>
+	<s>Rally the Horde</s>
+	<s>Rally the Peasants</s>
+	<s>Rally the Righteous</s>
+	<s>Rally the Troops</s>
+	<s>Ramirez DePietro</s>
+	<s>Ramosian Captain</s>
+	<s>Ramosian Commander</s>
+	<s>Ramosian Lieutenant</s>
+	<s>Ramosian Rally</s>
+	<s>Ramosian Revivalist</s>
+	<s>Ramosian Sergeant</s>
+	<s>Ramosian Sky Marshal</s>
+	<s>Rampaging Baloths</s>
+	<s>Rampaging Werewolf</s>
+	<s>Rampant Elephant</s>
+	<s>Rampant Growth</s>
+	<s>Rampart Crawler</s>
+	<s>Ramses Overdark</s>
+	<s>Rancid Earth</s>
+	<s>Rancor</s>
+	<s>Ranger en-Vec</s>
+	<s>Ranger of Eos</s>
+	<s>Ranger's Guile</s>
+	<s>Rank and File</s>
+	<s>Ransack</s>
+	<s>Rapacious One</s>
+	<s>Rapid Decay</s>
+	<s>Rapid Fire</s>
+	<s>Rappelling Scouts</s>
+	<s>Rare-B-Gone</s>
+	<s>Rashida Scalebane</s>
+	<s>Rashka the Slayer</s>
+	<s>Rasputin Dreamweaver</s>
+	<s>Ratcatcher</s>
+	<s>Ratchet Bomb</s>
+	<s>Rathi Assassin</s>
+	<s>Rathi Dragon</s>
+	<s>Rathi Fiend</s>
+	<s>Rathi Intimidator</s>
+	<s>Rathi Trapper</s>
+	<s>Rath's Edge</s>
+	<s>Rats' Feast</s>
+	<s>Rats of Rath</s>
+	<s>Rattleblaze Scarecrow</s>
+	<s>Ravaged Highlands</s>
+	<s>Ravager of the Fells</s>
+	<s>Ravages of War</s>
+	<s>Ravaging Horde</s>
+	<s>Ravaging Riftwurm</s>
+	<s>Raven Familiar</s>
+	<s>Raven Guild Initiate</s>
+	<s>Raven Guild Master</s>
+	<s>Ravenous Baboons</s>
+	<s>Ravenous Baloth</s>
+	<s>Ravenous Demon</s>
+	<s>Ravenous Rats</s>
+	<s>Ravenous Skirge</s>
+	<s>Ravenous Trap</s>
+	<s>Ravenous Vampire</s>
+	<s>Raven's Crime</s>
+	<s>Raven's Run Dragoon</s>
+	<s>Raving Oni-Slave</s>
+	<s>Ray of Command</s>
+	<s>Ray of Distortion</s>
+	<s>Ray of Erasure</s>
+	<s>Ray of Revelation</s>
+	<s>Rayne, Academy Chancellor</s>
+	<s>Raze</s>
+	<s>Razia, Boros Archangel</s>
+	<s>Razia's Purification</s>
+	<s>Razing Snidd</s>
+	<s>Razor Barrier</s>
+	<s>Razor Boomerang</s>
+	<s>Razor Golem</s>
+	<s>Razor Hippogriff</s>
+	<s>Razor Pendulum</s>
+	<s>Razor Swine</s>
+	<s>Razorclaw Bear</s>
+	<s>Razorfield Rhino</s>
+	<s>Razorfield Thresher</s>
+	<s>Razorfin Abolisher</s>
+	<s>Razorfin Hunter</s>
+	<s>Razorfoot Griffin</s>
+	<s>Razorgrass Screen</s>
+	<s>Razorjaw Oni</s>
+	<s>Razormane Masticore</s>
+	<s>Razortooth Rats</s>
+	<s>Razorverge Thicket</s>
+	<s>Reach of Branches</s>
+	<s>Reach Through Mists</s>
+	<s>Read the Runes</s>
+	<s>Illusion // Reality (Reality)</s>
+	<s>Reality Acid</s>
+	<s>Reality Anchor</s>
+	<s>Reality Ripple</s>
+	<s>Reality Spasm</s>
+	<s>Reality Strobe</s>
+	<s>Reality Twist</s>
+	<s>Realm Razer</s>
+	<s>Realms Uncharted</s>
+	<s>Reanimate</s>
+	<s>Reap</s>
+	<s>Reap and Sow</s>
+	<s>Reap the Seagraf</s>
+	<s>Reaper from the Abyss</s>
+	<s>Reaper King</s>
+	<s>Reaper of Sheoldred</s>
+	<s>Reaping the Graves</s>
+	<s>Reaping the Rewards</s>
+	<s>Reassembling Skeleton</s>
+	<s>Rebel Informer</s>
+	<s>Rebellion of the Flamekin</s>
+	<s>Rebirth</s>
+	<s>Reborn Hero</s>
+	<s>Reborn Hope</s>
+	<s>Rebound</s>
+	<s>Rebuff the Wicked</s>
+	<s>Rebuild</s>
+	<s>Rebuke</s>
+	<s>Rebuking Ceremony</s>
+	<s>Recall</s>
+	<s>Recantation</s>
+	<s>Reciprocate</s>
+	<s>Reckless Abandon</s>
+	<s>Reckless Assault</s>
+	<s>Reckless Charge</s>
+	<s>Reckless Embermage</s>
+	<s>Reckless Ogre</s>
+	<s>Reckless One</s>
+	<s>Reckless Scholar</s>
+	<s>Reckless Spite</s>
+	<s>Reckless Waif</s>
+	<s>Reckless Wurm</s>
+	<s>Reclaim</s>
+	<s>Reclamation</s>
+	<s>Reclusive Wight</s>
+	<s>Recoil</s>
+	<s>Recollect</s>
+	<s>Reconnaissance</s>
+	<s>Reconstruction</s>
+	<s>Recoup</s>
+	<s>Recover</s>
+	<s>Recross the Paths</s>
+	<s>Recumbent Bliss</s>
+	<s>Recuperate</s>
+	<s>Recurring Insight</s>
+	<s>Recurring Nightmare</s>
+	<s>Recycle</s>
+	<s>Red Cliffs Armada</s>
+	<s>Red Elemental Blast</s>
+	<s>Red Mana Battery</s>
+	<s>Red Scarab</s>
+	<s>Red Sun's Zenith</s>
+	<s>Red Ward</s>
+	<s>Redeem</s>
+	<s>Redeem the Lost</s>
+	<s>Red-Hot Hottie</s>
+	<s>Redirect</s>
+	<s>Reduce to Dreams</s>
+	<s>Redwood Treefolk</s>
+	<s>Reef Pirates</s>
+	<s>Reef Shaman</s>
+	<s>Reflect Damage</s>
+	<s>Reflecting Mirror</s>
+	<s>Reflecting Pool</s>
+	<s>Reflex Sliver</s>
+	<s>Reflexes</s>
+	<s>Reforge the Soul</s>
+	<s>Refraction Trap</s>
+	<s>Refresh</s>
+	<s>Refreshing Rain</s>
+	<s>Regal Force</s>
+	<s>Regal Unicorn</s>
+	<s>Regenerate</s>
+	<s>Regeneration</s>
+	<s>Regress</s>
+	<s>Regrowth</s>
+	<s>Reign of Chaos</s>
+	<s>Reign of Terror</s>
+	<s>Reincarnation</s>
+	<s>Reinforced Bulwark</s>
+	<s>Reinforcements</s>
+	<s>Reins of Power</s>
+	<s>Reins of the Vinesteed</s>
+	<s>Reiterate</s>
+	<s>Reito Lantern</s>
+	<s>Reiver Demon</s>
+	<s>Rejuvenate</s>
+	<s>Rejuvenation Chamber</s>
+	<s>Reki, the History of Kamigawa</s>
+	<s>Rekindled Flame</s>
+	<s>Reknit</s>
+	<s>Relearn</s>
+	<s>Release the Ants</s>
+	<s>Relentless Assault</s>
+	<s>Relentless Rats</s>
+	<s>Relentless Skaabs</s>
+	<s>Relic Bane</s>
+	<s>Relic Barrier</s>
+	<s>Relic Bind</s>
+	<s>Relic Crush</s>
+	<s>Relic of Progenitus</s>
+	<s>Relic Putrescence</s>
+	<s>Relic Ward</s>
+	<s>Reliquary Monk</s>
+	<s>Reliquary Tower</s>
+	<s>Remand</s>
+	<s>Remedy</s>
+	<s>Remember the Fallen</s>
+	<s>Remembrance</s>
+	<s>Reminisce</s>
+	<s>Remodel</s>
+	<s>Remote Farm</s>
+	<s>Remote Isle</s>
+	<s>Remove</s>
+	<s>Remove Enchantments</s>
+	<s>Remove Soul</s>
+	<s>Rend Flesh</s>
+	<s>Rend Spirit</s>
+	<s>Rendclaw Trow</s>
+	<s>Rending Vines</s>
+	<s>Renegade Demon</s>
+	<s>Renegade Doppelganger</s>
+	<s>Renegade Troops</s>
+	<s>Renegade Warlord</s>
+	<s>Renewal</s>
+	<s>Renewed Faith</s>
+	<s>Renewing Dawn</s>
+	<s>Renewing Touch</s>
+	<s>Renounce</s>
+	<s>Reparations</s>
+	<s>Repay in Kind</s>
+	<s>Repeal</s>
+	<s>Repel</s>
+	<s>Repel Intruders</s>
+	<s>Repel the Darkness</s>
+	<s>Repentance</s>
+	<s>Repentant Blacksmith</s>
+	<s>Repentant Vampire</s>
+	<s>Repercussion</s>
+	<s>Replenish</s>
+	<s>Repopulate</s>
+	<s>Reprisal</s>
+	<s>Reprocess</s>
+	<s>Repulse</s>
+	<s>Requiem Angel</s>
+	<s>Reroute</s>
+	<s>Rescind</s>
+	<s>Rescue</s>
+	<s>Research // Development (Research)</s>
+	<s>Research the Deep</s>
+	<s>Reset</s>
+	<s>Reshape</s>
+	<s>Resilient Wanderer</s>
+	<s>Resistance Fighter</s>
+	<s>Resize</s>
+	<s>Resounding Roar</s>
+	<s>Resounding Scream</s>
+	<s>Resounding Silence</s>
+	<s>Resounding Thunder</s>
+	<s>Resounding Wave</s>
+	<s>Respite</s>
+	<s>Resplendent Mentor</s>
+	<s>Rest for the Weary</s>
+	<s>Restless Apparition</s>
+	<s>Restless Bones</s>
+	<s>Restless Dead</s>
+	<s>Restless Dreams</s>
+	<s>Restock</s>
+	<s>Restoration Angel</s>
+	<s>Restore Balance</s>
+	<s>Restrain</s>
+	<s>Resurrection</s>
+	<s>Resuscitate</s>
+	<s>Retaliate</s>
+	<s>Retaliation</s>
+	<s>Retaliator Griffin</s>
+	<s>Retether</s>
+	<s>Rethink</s>
+	<s>Retraced Image</s>
+	<s>Retract</s>
+	<s>Retribution</s>
+	<s>Retribution of the Meek</s>
+	<s>Retromancer</s>
+	<s>Return of the Nightstalkers</s>
+	<s>Return to Battle</s>
+	<s>Return to Dust</s>
+	<s>Reveillark</s>
+	<s>Reveille Squad</s>
+	<s>Reveka, Wizard Savant</s>
+	<s>Revelation</s>
+	<s>Revelsong Horn</s>
+	<s>Revenant</s>
+	<s>Revenant Patriarch</s>
+	<s>Revenge of the Hunted</s>
+	<s>Reverberate</s>
+	<s>Reverberation</s>
+	<s>Revered Dead</s>
+	<s>Revered Elder</s>
+	<s>Revered Unicorn</s>
+	<s>Reverence</s>
+	<s>Reverent Mantra</s>
+	<s>Reverent Silence</s>
+	<s>Reversal of Fortune</s>
+	<s>Reverse Damage</s>
+	<s>Reverse Polarity</s>
+	<s>Reverse the Sands</s>
+	<s>Revive</s>
+	<s>Revive the Fallen</s>
+	<s>Reviving Dose</s>
+	<s>Reviving Vapors</s>
+	<s>Revoke Existence</s>
+	<s>Reward the Faithful</s>
+	<s>Rewards of Diversity</s>
+	<s>Reweave</s>
+	<s>Rewind</s>
+	<s>Reya Dawnbringer</s>
+	<s>Rhox</s>
+	<s>Rhox Bodyguard</s>
+	<s>Rhox Brute</s>
+	<s>Rhox Charger</s>
+	<s>Rhox Meditant</s>
+	<s>Rhox Pikemaster</s>
+	<s>Rhox War Monk</s>
+	<s>Rhys the Exiled</s>
+	<s>Rhys the Redeemed</s>
+	<s>Rhystic Cave</s>
+	<s>Rhystic Circle</s>
+	<s>Rhystic Deluge</s>
+	<s>Rhystic Lightning</s>
+	<s>Rhystic Scrying</s>
+	<s>Rhystic Shield</s>
+	<s>Rhystic Study</s>
+	<s>Rhystic Syphon</s>
+	<s>Rhystic Tutor</s>
+	<s>Rib Cage Spider</s>
+	<s>Ribbon Snake</s>
+	<s>Ribbons of Night</s>
+	<s>Ribbons of the Reikai</s>
+	<s>Richard Garfield, Ph.D.</s>
+	<s>Ricochet</s>
+	<s>Ricochet Trap</s>
+	<s>Riddle of Lightning</s>
+	<s>Riddlekeeper</s>
+	<s>Riddlesmith</s>
+	<s>Riders of Gavony</s>
+	<s>Ridge Rannet</s>
+	<s>Ridged Kusite</s>
+	<s>Ridgeline Rager</s>
+	<s>Ridgetop Raptor</s>
+	<s>Riding Red Hare</s>
+	<s>Riding the Dilu Horse</s>
+	<s>Rift Bolt</s>
+	<s>Rift Elemental</s>
+	<s>Riftmarked Knight</s>
+	<s>Riftstone Portal</s>
+	<s>Riftsweeper</s>
+	<s>Riftwing Cloudskate</s>
+	<s>Righteous Aura</s>
+	<s>Righteous Avengers</s>
+	<s>Righteous Blow</s>
+	<s>Righteous Cause</s>
+	<s>Righteous Charge</s>
+	<s>Righteous Fury</s>
+	<s>Righteous Indignation</s>
+	<s>Righteous War</s>
+	<s>Righteousness</s>
+	<s>Riku of Two Reflections</s>
+	<s>Rime Dryad</s>
+	<s>Rime Transfusion</s>
+	<s>Rimebound Dead</s>
+	<s>Rimefeather Owl</s>
+	<s>Rimehorn Aurochs</s>
+	<s>Rimescale Dragon</s>
+	<s>Rimewind Cryomancer</s>
+	<s>Rimewind Taskmage</s>
+	<s>Ring of Gix</s>
+	<s>Ring of Immortals</s>
+	<s>Ring of Ma'ruf</s>
+	<s>Ring of Renewal</s>
+	<s>Rings of Brighthearth</s>
+	<s>Ringskipper</s>
+	<s>Riot Devils</s>
+	<s>Riot Ringleader</s>
+	<s>Riot Spikes</s>
+	<s>Rip-Clan Crasher</s>
+	<s>Riptide</s>
+	<s>Riptide Biologist</s>
+	<s>Riptide Chronologist</s>
+	<s>Riptide Crab</s>
+	<s>Riptide Director</s>
+	<s>Riptide Entrancer</s>
+	<s>Riptide Laboratory</s>
+	<s>Riptide Mangler</s>
+	<s>Riptide Pilferer</s>
+	<s>Riptide Replicator</s>
+	<s>Riptide Shapeshifter</s>
+	<s>Riptide Survivor</s>
+	<s>Rise // Fall (Rise)</s>
+	<s>Rise from the Grave</s>
+	<s>Rise of the Hobgoblins</s>
+	<s>Rishadan Airship</s>
+	<s>Rishadan Brigand</s>
+	<s>Rishadan Cutpurse</s>
+	<s>Rishadan Footpad</s>
+	<s>Rishadan Pawnshop</s>
+	<s>Rishadan Port</s>
+	<s>Rising Waters</s>
+	<s>Risky Move</s>
+	<s>Rite of Consumption</s>
+	<s>Rite of Flame</s>
+	<s>Rite of Passage</s>
+	<s>Rite of Replication</s>
+	<s>Rite of Ruin</s>
+	<s>Rites of Flourishing</s>
+	<s>Rites of Initiation</s>
+	<s>Rites of Refusal</s>
+	<s>Rites of Spring</s>
+	<s>Rith, the Awakener</s>
+	<s>Rith's Attendant</s>
+	<s>Rith's Charm</s>
+	<s>Rith's Grove</s>
+	<s>Ritual of Restoration</s>
+	<s>Ritual of Steel</s>
+	<s>Ritual of Subdual</s>
+	<s>Ritual of the Machine</s>
+	<s>Rivalry</s>
+	<s>Rivals' Duel</s>
+	<s>Riven Turnbull</s>
+	<s>River Bear</s>
+	<s>River Boa</s>
+	<s>River Delta</s>
+	<s>River Kaijin</s>
+	<s>River Kelpie</s>
+	<s>River Merfolk</s>
+	<s>River of Tears</s>
+	<s>Riverfall Mimic</s>
+	<s>River's Grasp</s>
+	<s>Rix Maadi, Dungeon Palace</s>
+	<s>Roar of Jukai</s>
+	<s>Roar of Reclamation</s>
+	<s>Roar of the Crowd</s>
+	<s>Roar of the Kha</s>
+	<s>Roar of the Wurm</s>
+	<s>Roaring Slagwurm</s>
+	<s>Robber Fly</s>
+	<s>Robe of Mirrors</s>
+	<s>Roc Egg</s>
+	<s>Roc Hatchling</s>
+	<s>Roc of Kher Ridges</s>
+	<s>Rock Badger</s>
+	<s>Rock Basilisk</s>
+	<s>Rock Hydra</s>
+	<s>Rock Jockey</s>
+	<s>Rock Lobster</s>
+	<s>Rock Slide</s>
+	<s>Rockcaster Platoon</s>
+	<s>Rocket Launcher</s>
+	<s>Rocket-Powered Turbo Slug</s>
+	<s>Rockshard Elemental</s>
+	<s>Rockslide Ambush</s>
+	<s>Rockslide Elemental</s>
+	<s>Rocky Tar Pit</s>
+	<s>Rod of Ruin</s>
+	<s>Rod of Spanking</s>
+	<s>Rofellos, Llanowar Emissary</s>
+	<s>Rofellos's Gift</s>
+	<s>Rogue Elephant</s>
+	<s>Rogue Kavu</s>
+	<s>Rogue Skycaptain</s>
+	<s>Rohgahh of Kher Keep</s>
+	<s>Roil Elemental</s>
+	<s>Roiling Horror</s>
+	<s>Roiling Terrain</s>
+	<s>Rolling Earthquake</s>
+	<s>Rolling Spoil</s>
+	<s>Rolling Stones</s>
+	<s>Rolling Temblor</s>
+	<s>Rolling Thunder</s>
+	<s>Ronin Cavekeeper</s>
+	<s>Ronin Cliffrider</s>
+	<s>Ronin Houndmaster</s>
+	<s>Ronin Warclub</s>
+	<s>Ronom Hulk</s>
+	<s>Ronom Serpent</s>
+	<s>Ronom Unicorn</s>
+	<s>Roofstalker Wight</s>
+	<s>Rooftop Storm</s>
+	<s>Root Cage</s>
+	<s>Root Elemental</s>
+	<s>Root Greevil</s>
+	<s>Root Maze</s>
+	<s>Root Sliver</s>
+	<s>Root Spider</s>
+	<s>Rootbound Crag</s>
+	<s>Rootbreaker Wurm</s>
+	<s>Rootgrapple</s>
+	<s>Rooting Kavu</s>
+	<s>Root-Kin Ally</s>
+	<s>Rootrunner</s>
+	<s>Roots</s>
+	<s>Roots of Life</s>
+	<s>Rootwalla</s>
+	<s>Rootwater Alligator</s>
+	<s>Rootwater Commando</s>
+	<s>Rootwater Depths</s>
+	<s>Rootwater Diver</s>
+	<s>Rootwater Hunter</s>
+	<s>Rootwater Matriarch</s>
+	<s>Rootwater Mystic</s>
+	<s>Rootwater Shaman</s>
+	<s>Rootwater Thief</s>
+	<s>Rorix Bladewing</s>
+	<s>Rosheen Meanderer</s>
+	<s>Rot Wolf</s>
+	<s>Rotcrown Ghoul</s>
+	<s>Roterothopter</s>
+	<s>Rotlung Reanimator</s>
+	<s>Rotted Hystrix</s>
+	<s>Rotting Fensnake</s>
+	<s>Rotting Giant</s>
+	<s>Rotting Legion</s>
+	<s>Rotting Rats</s>
+	<s>Rough // Tumble (Rough)</s>
+	<s>Roughshod Mentor</s>
+	<s>Rouse</s>
+	<s>Rout</s>
+	<s>Rowan Treefolk</s>
+	<s>Rowen</s>
+	<s>Royal Assassin</s>
+	<s>Royal Decree</s>
+	<s>Royal Falcon</s>
+	<s>Royal Herbalist</s>
+	<s>Royal Trooper</s>
+	<s>Rubinia Soulsinger</s>
+	<s>Ruby Leech</s>
+	<s>Ruby Medallion</s>
+	<s>Rude Awakening</s>
+	<s>Rugged Prairie</s>
+	<s>Ruham Djinn</s>
+	<s>Ruhan of the Fomori</s>
+	<s>Ruin Ghost</s>
+	<s>Ruination</s>
+	<s>Ruinous Minotaur</s>
+	<s>Ruins of Trokair</s>
+	<s>Rukh Egg</s>
+	<s>Rule of Law</s>
+	<s>Rumbling Aftershocks</s>
+	<s>Rumbling Crescendo</s>
+	<s>Rumbling Slum</s>
+	<s>Rummaging Wizard</s>
+	<s>Hit // Run (Run)</s>
+	<s>Run Wild</s>
+	<s>Rune of Protection: Artifacts</s>
+	<s>Rune of Protection: Black</s>
+	<s>Rune of Protection: Blue</s>
+	<s>Rune of Protection: Green</s>
+	<s>Rune of Protection: Lands</s>
+	<s>Rune of Protection: Red</s>
+	<s>Rune of Protection: White</s>
+	<s>Rune Snag</s>
+	<s>Runeboggle</s>
+	<s>Rune-Cervin Rider</s>
+	<s>Runechanter's Pike</s>
+	<s>Runeclaw Bear</s>
+	<s>Runed Arch</s>
+	<s>Runed Halo</s>
+	<s>Runed Servitor</s>
+	<s>Runed Stalactite</s>
+	<s>Runeflare Trap</s>
+	<s>Runes of the Deus</s>
+	<s>Rune-Scarred Demon</s>
+	<s>Runesword</s>
+	<s>Rune-Tail, Kitsune Ascendant</s>
+	<s>Rune-Tail, Kitsune Ascendant (Rune-Tail's Essence)</s>
+	<s>Runic Repetition</s>
+	<s>Rupture</s>
+	<s>Rupture Spire</s>
+	<s>Rush of Blood</s>
+	<s>Rush of Knowledge</s>
+	<s>Rushing River</s>
+	<s>Rushing-Tide Zubera</s>
+	<s>Rushwood Dryad</s>
+	<s>Rushwood Elemental</s>
+	<s>Rushwood Grove</s>
+	<s>Rushwood Herbalist</s>
+	<s>Rushwood Legate</s>
+	<s>Russet Wolves</s>
+	<s>Rust</s>
+	<s>Rust Elemental</s>
+	<s>Rust Tick</s>
+	<s>Rusted Relic</s>
+	<s>Rusted Sentinel</s>
+	<s>Rusted Slasher</s>
+	<s>Rustic Clachan</s>
+	<s>Rusting Golem</s>
+	<s>Rustmouth Ogre</s>
+	<s>Rustrazor Butcher</s>
+	<s>Rustspore Ram</s>
+	<s>Ruthless Cullblade</s>
+	<s>Ruthless Invasion</s>
+	<s>Rysorian Badger</s>
+	<s>Ryusei, the Falling Star</s>
+	<s>S.N.O.T.</s>
+	<s>Saber Ants</s>
+	<s>Saberclaw Golem</s>
+	<s>Sabertooth Alley Cat</s>
+	<s>Sabertooth Cobra</s>
+	<s>Sabertooth Nishoba</s>
+	<s>Sabertooth Wyvern</s>
+	<s>Sabretooth Tiger</s>
+	<s>Sacellum Archers</s>
+	<s>Sacellum Godspeaker</s>
+	<s>Sachi, Daughter of Seshiro</s>
+	<s>Sacred Boon</s>
+	<s>Sacred Foundry</s>
+	<s>Sacred Ground</s>
+	<s>Sacred Guide</s>
+	<s>Sacred Knight</s>
+	<s>Sacred Mesa</s>
+	<s>Sacred Nectar</s>
+	<s>Sacred Prey</s>
+	<s>Sacred Rites</s>
+	<s>Sacred Wolf</s>
+	<s>Sacrifice</s>
+	<s>Sadistic Augermage</s>
+	<s>Sadistic Glee</s>
+	<s>Sadistic Hypnotist</s>
+	<s>Sadistic Sacrament</s>
+	<s>Safe Haven</s>
+	<s>Safe Passage</s>
+	<s>Safeguard</s>
+	<s>Safehold Duo</s>
+	<s>Safehold Elite</s>
+	<s>Safehold Sentry</s>
+	<s>Safewright Quest</s>
+	<s>Saffi Eriksdotter</s>
+	<s>Sage Aven</s>
+	<s>Sage of Epityr</s>
+	<s>Sage of Fables</s>
+	<s>Sage of Lat-Nam</s>
+	<s>Sage Owl</s>
+	<s>Sage's Dousing</s>
+	<s>Sage's Knowledge</s>
+	<s>Sages of the Anima</s>
+	<s>Sailmonger</s>
+	<s>Sakashima the Impostor</s>
+	<s>Sakiko, Mother of Summer</s>
+	<s>Sakura-Tribe Elder</s>
+	<s>Sakura-Tribe Scout</s>
+	<s>Sakura-Tribe Springcaller</s>
+	<s>Salt Flats</s>
+	<s>Salt Marsh</s>
+	<s>Saltblast</s>
+	<s>Saltcrusted Steppe</s>
+	<s>Saltfield Recluse</s>
+	<s>Saltskitter</s>
+	<s>Salvage</s>
+	<s>Salvage Scout</s>
+	<s>Salvage Slasher</s>
+	<s>Salvage Titan</s>
+	<s>Salvaging Station</s>
+	<s>Samite Alchemist</s>
+	<s>Samite Archer</s>
+	<s>Samite Blessing</s>
+	<s>Samite Censer-Bearer</s>
+	<s>Samite Elder</s>
+	<s>Samite Healer</s>
+	<s>Samite Ministration</s>
+	<s>Samite Pilgrim</s>
+	<s>Samite Sanctuary</s>
+	<s>Samurai Enforcers</s>
+	<s>Samurai of the Pale Curtain</s>
+	<s>Sanctimony</s>
+	<s>Sanctuary Cat</s>
+	<s>Sanctum Custodian</s>
+	<s>Sanctum Gargoyle</s>
+	<s>Sanctum Guardian</s>
+	<s>Sanctum Plowbeast</s>
+	<s>Sand Golem</s>
+	<s>Sand Silos</s>
+	<s>Sand Squid</s>
+	<s>Sandals of Abdallah</s>
+	<s>Sandbar Crocodile</s>
+	<s>Sandbar Merfolk</s>
+	<s>Sandbar Serpent</s>
+	<s>Sands of Time</s>
+	<s>Sandskin</s>
+	<s>Sandsower</s>
+	<s>Sandstone Deadfall</s>
+	<s>Sandstone Needle</s>
+	<s>Sandstone Warrior</s>
+	<s>Sandstorm</s>
+	<s>Sandstorm Eidolon</s>
+	<s>Sangrite Backlash</s>
+	<s>Sangrite Surge</s>
+	<s>Sangromancer</s>
+	<s>Sangrophage</s>
+	<s>Sanguine Bond</s>
+	<s>Sanguine Guard</s>
+	<s>Sanguine Praetor</s>
+	<s>Sanity Gnawers</s>
+	<s>Sanity Grinding</s>
+	<s>Sapling of Colfenor</s>
+	<s>Sapphire Charm</s>
+	<s>Sapphire Leech</s>
+	<s>Sapphire Medallion</s>
+	<s>Saprazzan Bailiff</s>
+	<s>Saprazzan Breaker</s>
+	<s>Saprazzan Cove</s>
+	<s>Saprazzan Heir</s>
+	<s>Saprazzan Legate</s>
+	<s>Saprazzan Outrigger</s>
+	<s>Saprazzan Raider</s>
+	<s>Saprazzan Skerry</s>
+	<s>Saproling</s>
+	<s>Saproling Burst</s>
+	<s>Saproling Cluster</s>
+	<s>Saproling Infestation</s>
+	<s>Saproling Symbiosis</s>
+	<s>Sapseep Forest</s>
+	<s>Sarcatog</s>
+	<s>Sarcomancy</s>
+	<s>Sarcomite Myr</s>
+	<s>Sarkhan the Mad</s>
+	<s>Sarkhan Vol</s>
+	<s>Sarpadian Empires, Vol. VII</s>
+	<s>Sasaya, Orochi Ascendant</s>
+	<s>Sasaya, Orochi Ascendant (Sasaya's Essence)</s>
+	<s>Saute</s>
+	<s>Savaen Elves</s>
+	<s>Savage Beating</s>
+	<s>Savage Conception</s>
+	<s>Savage Firecat</s>
+	<s>Savage Gorilla</s>
+	<s>Savage Hunger</s>
+	<s>Savage Lands</s>
+	<s>Savage Offensive</s>
+	<s>Savage Silhouette</s>
+	<s>Savage Thallid</s>
+	<s>Savage Twister</s>
+	<s>Savannah</s>
+	<s>Savannah Lions</s>
+	<s>Save Life</s>
+	<s>Saving Grasp</s>
+	<s>Savor the Moment</s>
+	<s>Savra, Queen of the Golgari</s>
+	<s>Sawback Manticore</s>
+	<s>Sawtooth Loon</s>
+	<s>Sawtooth Ogre</s>
+	<s>Sawtooth Thresher</s>
+	<s>Scab-Clan Mauler</s>
+	<s>Scabland</s>
+	<s>Scald</s>
+	<s>Scalding Devil</s>
+	<s>Scalding Salamander</s>
+	<s>Scalding Tarn</s>
+	<s>Scalding Tongs</s>
+	<s>Scale of Chiss-Goria</s>
+	<s>Scalebane's Elite</s>
+	<s>Scaled Hulk</s>
+	<s>Scaled Wurm</s>
+	<s>Scalpelexis</s>
+	<s>Scandalmonger</s>
+	<s>Scapegoat</s>
+	<s>Scapeshift</s>
+	<s>Scar</s>
+	<s>Scarab of the Unseen</s>
+	<s>Scarblade Elite</s>
+	<s>Scare Tactics</s>
+	<s>Scarecrone</s>
+	<s>Scarecrow</s>
+	<s>Scarland Thrinax</s>
+	<s>Scarred Puma</s>
+	<s>Scarred Vinebreeder</s>
+	<s>Scars of the Veteran</s>
+	<s>Scarscale Ritual</s>
+	<s>Scarwood Bandits</s>
+	<s>Scarwood Goblins</s>
+	<s>Scarwood Hag</s>
+	<s>Scarwood Treefolk</s>
+	<s>Scathe Zombies</s>
+	<s>Scatter the Seeds</s>
+	<s>Scattering Stroke</s>
+	<s>Scattershot</s>
+	<s>Scattershot Archer</s>
+	<s>Scavenged Weaponry</s>
+	<s>Scavenger Drake</s>
+	<s>Scavenger Folk</s>
+	<s>Scavenging Ghoul</s>
+	<s>Scavenging Ooze</s>
+	<s>Scavenging Scarab</s>
+	<s>Scent of Brine</s>
+	<s>Scent of Cinder</s>
+	<s>Scent of Ivy</s>
+	<s>Scent of Jasmine</s>
+	<s>Scent of Nightshade</s>
+	<s>Scepter of Dominance</s>
+	<s>Scepter of Empires</s>
+	<s>Scepter of Fugue</s>
+	<s>Scepter of Insight</s>
+	<s>Schismotivate</s>
+	<s>School of Piranha</s>
+	<s>School of the Unseen</s>
+	<s>Scion of Darkness</s>
+	<s>Scion of Oona</s>
+	<s>Scion of the Ur-Dragon</s>
+	<s>Scion of the Wild</s>
+	<s>Scissors Lizard</s>
+	<s>Scorch the Fields</s>
+	<s>Scorched Earth</s>
+	<s>Scorched Ruins</s>
+	<s>Scorched Rusalka</s>
+	<s>Scorching Lava</s>
+	<s>Scorching Missile</s>
+	<s>Scorching Spear</s>
+	<s>Scorching Winds</s>
+	<s>Scoria Cat</s>
+	<s>Scoria Elemental</s>
+	<s>Scoria Wurm</s>
+	<s>Scorned Villager</s>
+	<s>Scornful Aether-Lich</s>
+	<s>Scornful Egotist</s>
+	<s>Scour</s>
+	<s>Scourge Devil</s>
+	<s>Scourge of Geier Reach</s>
+	<s>Scourge of Kher Ridges</s>
+	<s>Scourge of Numai</s>
+	<s>Scourge of the Nobilis</s>
+	<s>Scourge Servant</s>
+	<s>Scourglass</s>
+	<s>Scouting Trek</s>
+	<s>Scout's Warning</s>
+	<s>Scrabbling Claws</s>
+	<s>Scragnoth</s>
+	<s>Scrambleverse</s>
+	<s>Scrap</s>
+	<s>Scrapbasket</s>
+	<s>Scrapdiver Serpent</s>
+	<s>Scrapheap</s>
+	<s>Scrapskin Drake</s>
+	<s>Scrapyard Salvo</s>
+	<s>Screaming Fury</s>
+	<s>Screaming Seahawk</s>
+	<s>Screams from Within</s>
+	<s>Screams of the Damned</s>
+	<s>Screeching Bat</s>
+	<s>Screeching Buzzard</s>
+	<s>Screeching Drake</s>
+	<s>Screeching Griffin</s>
+	<s>Screeching Harpy</s>
+	<s>Screeching Silcaw</s>
+	<s>Screeching Skaab</s>
+	<s>Screeching Sliver</s>
+	<s>Scrib Nibblers</s>
+	<s>Scrivener</s>
+	<s>Scroll of Avacyn</s>
+	<s>Scroll of Griselbrand</s>
+	<s>Scroll of Origins</s>
+	<s>Scroll Rack</s>
+	<s>Scroll Thief</s>
+	<s>Scrounge</s>
+	<s>Scrubland</s>
+	<s>Scryb Ranger</s>
+	<s>Scryb Sprites</s>
+	<s>Scrying Glass</s>
+	<s>Scrying Sheets</s>
+	<s>Sculpting Steel</s>
+	<s>Scute Mob</s>
+	<s>Scuttlemutt</s>
+	<s>Scuttling Death</s>
+	<s>Scuzzback Marauders</s>
+	<s>Scuzzback Scrapper</s>
+	<s>Scythe of the Wretched</s>
+	<s>Scythe Specter</s>
+	<s>Scythe Tiger</s>
+	<s>Sea Drake</s>
+	<s>Sea Eagle</s>
+	<s>Sea Gate Loremaster</s>
+	<s>Sea Gate Oracle</s>
+	<s>Sea Kings' Blessing</s>
+	<s>Sea Monster</s>
+	<s>Sea Scryer</s>
+	<s>Sea Serpent</s>
+	<s>Sea Snidd</s>
+	<s>Sea Spirit</s>
+	<s>Sea Sprite</s>
+	<s>Sea Troll</s>
+	<s>Seachrome Coast</s>
+	<s>Seafarer's Quay</s>
+	<s>Seafloor Debris</s>
+	<s>Seahunter</s>
+	<s>Seal of Cleansing</s>
+	<s>Seal of Doom</s>
+	<s>Seal of Fire</s>
+	<s>Seal of Primordium</s>
+	<s>Seal of Removal</s>
+	<s>Seal of Strength</s>
+	<s>Sealed Fate</s>
+	<s>Seance</s>
+	<s>Search for Survivors</s>
+	<s>Search for Tomorrow</s>
+	<s>Searchlight Geist</s>
+	<s>Searing Blaze</s>
+	<s>Searing Flesh</s>
+	<s>Searing Meditation</s>
+	<s>Searing Rays</s>
+	<s>Searing Spear Askari</s>
+	<s>Searing Touch</s>
+	<s>Searing Wind</s>
+	<s>Sea's Claim</s>
+	<s>Seascape Aerialist</s>
+	<s>Seashell Cameo</s>
+	<s>Seaside Citadel</s>
+	<s>Seaside Haven</s>
+	<s>Seasinger</s>
+	<s>Season of the Witch</s>
+	<s>Seasoned Marshal</s>
+	<s>Seasoned Tactician</s>
+	<s>Seat of the Synod</s>
+	<s>Secluded Glen</s>
+	<s>Secluded Steppe</s>
+	<s>Second Chance</s>
+	<s>Second Guess</s>
+	<s>Second Sight</s>
+	<s>Second Sunrise</s>
+	<s>Second Thoughts</s>
+	<s>Second Wind</s>
+	<s>Secretkeeper</s>
+	<s>Secrets of the Dead</s>
+	<s>Security Detail</s>
+	<s>Sedge Sliver</s>
+	<s>Sedge Troll</s>
+	<s>Sedraxis Alchemist</s>
+	<s>Sedraxis Specter</s>
+	<s>Sedris, the Traitor King</s>
+	<s>See Beyond</s>
+	<s>Seed Spark</s>
+	<s>Seed the Land</s>
+	<s>Seedborn Muse</s>
+	<s>Seedcradle Witch</s>
+	<s>Seedguide Ash</s>
+	<s>Seedling Charm</s>
+	<s>Seeds of Innocence</s>
+	<s>Seeds of Strength</s>
+	<s>Seedtime</s>
+	<s>Hide // Seek (Seek)</s>
+	<s>Seek the Horizon</s>
+	<s>Seeker</s>
+	<s>Seeker of Skybreak</s>
+	<s>Seer's Sundial</s>
+	<s>Seer's Vision</s>
+	<s>Seething Anger</s>
+	<s>Seething Pathblazer</s>
+	<s>Seething Song</s>
+	<s>Segmented Wurm</s>
+	<s>Segovian Leviathan</s>
+	<s>Seht's Tiger</s>
+	<s>Seismic Assault</s>
+	<s>Seismic Mage</s>
+	<s>Seismic Shudder</s>
+	<s>Seismic Spike</s>
+	<s>Seismic Strike</s>
+	<s>Seizan, Perverter of Truth</s>
+	<s>Seize the Day</s>
+	<s>Seize the Initiative</s>
+	<s>Seize the Soul</s>
+	<s>Seizures</s>
+	<s>Sejiri Merfolk</s>
+	<s>Sejiri Refuge</s>
+	<s>Sejiri Steppe</s>
+	<s>Sekki, Seasons' Guide</s>
+	<s>Sek'Kuar, Deathkeeper</s>
+	<s>Selective Memory</s>
+	<s>Selenia, Dark Angel</s>
+	<s>Selesnya Evangel</s>
+	<s>Selesnya Guildmage</s>
+	<s>Selesnya Sagittars</s>
+	<s>Selesnya Sanctuary</s>
+	<s>Selesnya Signet</s>
+	<s>Selfless Cathar</s>
+	<s>Selfless Exorcist</s>
+	<s>Selhoff Occultist</s>
+	<s>Selkie Hedge-Mage</s>
+	<s>Sell-Sword Brute</s>
+	<s>Semblance Anvil</s>
+	<s>Sen Triplets</s>
+	<s>Sengir Autocrat</s>
+	<s>Sengir Bats</s>
+	<s>Sengir Nosferatu</s>
+	<s>Sengir Vampire</s>
+	<s>Sensation Gorger</s>
+	<s>Sensei Golden-Tail</s>
+	<s>Sensei's Divining Top</s>
+	<s>Sensor Splicer</s>
+	<s>Sensory Deprivation</s>
+	<s>Sentinel</s>
+	<s>Sentinels of Glen Elendra</s>
+	<s>Sentry Oak</s>
+	<s>Septic Rats</s>
+	<s>Seraph</s>
+	<s>Seraph of Dawn</s>
+	<s>Seraph Sanctuary</s>
+	<s>Serendib Djinn</s>
+	<s>Serendib Efreet</s>
+	<s>Serendib Sorcerer</s>
+	<s>Serene Heart</s>
+	<s>Serene Offering</s>
+	<s>Serene Sunset</s>
+	<s>Serenity</s>
+	<s>Serpent Assassin</s>
+	<s>Serpent Generator</s>
+	<s>Serpent of the Endless Sea</s>
+	<s>Serpent Skin</s>
+	<s>Serpent Warrior</s>
+	<s>Serpentine Basilisk</s>
+	<s>Serpentine Kavu</s>
+	<s>Serra Advocate</s>
+	<s>Serra Angel</s>
+	<s>Serra Ascendant</s>
+	<s>Serra Avatar</s>
+	<s>Serra Avenger</s>
+	<s>Serra Aviary</s>
+	<s>Serra Bestiary</s>
+	<s>Serra Inquisitors</s>
+	<s>Serra Paladin</s>
+	<s>Serra Sphinx</s>
+	<s>Serra Zealot</s>
+	<s>Serra's Blessing</s>
+	<s>Serra's Boon</s>
+	<s>Serra's Embrace</s>
+	<s>Serra's Hymn</s>
+	<s>Serra's Liturgy</s>
+	<s>Serra's Sanctum</s>
+	<s>Serrated Arrows</s>
+	<s>Serrated Biskelion</s>
+	<s>Serum Powder</s>
+	<s>Serum Raker</s>
+	<s>Serum Tank</s>
+	<s>Serum Visions</s>
+	<s>Servant of Volrath</s>
+	<s>Seshiro the Anointed</s>
+	<s>Seton, Krosan Protector</s>
+	<s>Seton's Desire</s>
+	<s>Seton's Scout</s>
+	<s>Sever Soul</s>
+	<s>Sever the Bloodline</s>
+	<s>Severed Legion</s>
+	<s>Sewer Nemesis</s>
+	<s>Sewer Rats</s>
+	<s>Sewerdreg</s>
+	<s>Sewers of Estark</s>
+	<s>Sewn-Eye Drake</s>
+	<s>Sex Appeal</s>
+	<s>Shackles</s>
+	<s>Shade of Trokair</s>
+	<s>Shade's Breath</s>
+	<s>Shade's Form</s>
+	<s>Shadow Guildmage</s>
+	<s>Shadow Lance</s>
+	<s>Shadow of Doubt</s>
+	<s>Shadow Rider</s>
+	<s>Shadow Rift</s>
+	<s>Shadow Sliver</s>
+	<s>Shadowbane</s>
+	<s>Shadowblood Egg</s>
+	<s>Shadowblood Ridge</s>
+	<s>Shadowfeed</s>
+	<s>Shadowmage Infiltrator</s>
+	<s>Shadowstorm</s>
+	<s>Shah of Naar Isle</s>
+	<s>Shahrazad</s>
+	<s>Shaleskin Bruiser</s>
+	<s>Shaleskin Plower</s>
+	<s>Shallow Grave</s>
+	<s>Shaman en-Kor</s>
+	<s>Shaman's Trance</s>
+	<s>Shambling Remains</s>
+	<s>Shambling Shell</s>
+	<s>Shambling Strider</s>
+	<s>Shambling Swarm</s>
+	<s>Shanodin Dryads</s>
+	<s>Shape Anew</s>
+	<s>Shape of the Wiitigo</s>
+	<s>Shape Stealer</s>
+	<s>Shaper Guildmage</s>
+	<s>Shaper Parasite</s>
+	<s>Shapesharer</s>
+	<s>Shapeshifter</s>
+	<s>Shapeshifter's Marrow</s>
+	<s>Shard Convergence</s>
+	<s>Shard Phoenix</s>
+	<s>Shard Volley</s>
+	<s>Sharding Sphinx</s>
+	<s>Shared Animosity</s>
+	<s>Shared Discovery</s>
+	<s>Shared Fate</s>
+	<s>Shared Trauma</s>
+	<s>Shared Triumph</s>
+	<s>Sharpened Pitchfork</s>
+	<s>Sharuum the Hegemon</s>
+	<s>Shatter</s>
+	<s>Shattered Angel</s>
+	<s>Shattered Crypt</s>
+	<s>Shattered Dreams</s>
+	<s>Shattered Perception</s>
+	<s>Shattering Pulse</s>
+	<s>Shattering Spree</s>
+	<s>Shatterskull Giant</s>
+	<s>Shatterstorm</s>
+	<s>Shauku, Endbringer</s>
+	<s>Shauku's Minion</s>
+	<s>Sheep token card</s>
+	<s>Shelkin Brownie</s>
+	<s>Shell of the Last Kappa</s>
+	<s>Shell Skulkin</s>
+	<s>Shelldock Isle</s>
+	<s>Shelter</s>
+	<s>Sheltered Valley</s>
+	<s>Sheltering Ancient</s>
+	<s>Sheltering Prayers</s>
+	<s>Sheltering Word</s>
+	<s>Sheoldred, Whispering One</s>
+	<s>Shepherd of Rot</s>
+	<s>Shepherd of the Lost</s>
+	<s>Orochi Eggwatcher (Shidako, Broodmistress)</s>
+	<s>Shield Bearer</s>
+	<s>Shield Dancer</s>
+	<s>Shield Mate</s>
+	<s>Shield of Duty and Reason</s>
+	<s>Shield of Kaldra</s>
+	<s>Shield of the Ages</s>
+	<s>Shield of the Oversoul</s>
+	<s>Shield of the Righteous</s>
+	<s>Shield Sphere</s>
+	<s>Shield Wall</s>
+	<s>Shielding Plax</s>
+	<s>Shieldmage Advocate</s>
+	<s>Shieldmage Elder</s>
+	<s>Shieldmate's Blessing</s>
+	<s>Shields of Velis Vel</s>
+	<s>Shifting Borders</s>
+	<s>Shifting Sky</s>
+	<s>Shifting Sliver</s>
+	<s>Shifting Wall</s>
+	<s>Shifty Doppelganger</s>
+	<s>Shimatsu the Bloodcloaked</s>
+	<s>Shimian Night Stalker</s>
+	<s>Shimian Specter</s>
+	<s>Shimmer</s>
+	<s>Shimmer Myr</s>
+	<s>Shimmering Barrier</s>
+	<s>Shimmering Efreet</s>
+	<s>Shimmering Glasskite</s>
+	<s>Shimmering Grotto</s>
+	<s>Shimmering Mirage</s>
+	<s>Shimmering Wings</s>
+	<s>Shinen of Fear's Chill</s>
+	<s>Shinen of Flight's Wings</s>
+	<s>Shinen of Fury's Fire</s>
+	<s>Shinen of Life's Roar</s>
+	<s>Shinen of Stars' Light</s>
+	<s>Shinewend</s>
+	<s>Shining Shoal</s>
+	<s>Shinka Gatekeeper</s>
+	<s>Shinka, the Bloodsoaked Keep</s>
+	<s>Shirei, Shizo's Caretaker</s>
+	<s>Shisato, Whispering Hunter</s>
+	<s>Shivan Dragon</s>
+	<s>Shivan Emissary</s>
+	<s>Shivan Gorge</s>
+	<s>Shivan Harvest</s>
+	<s>Shivan Hellkite</s>
+	<s>Shivan Meteor</s>
+	<s>Shivan Oasis</s>
+	<s>Shivan Phoenix</s>
+	<s>Shivan Raptor</s>
+	<s>Shivan Reef</s>
+	<s>Shivan Sand-Mage</s>
+	<s>Shivan Wumpus</s>
+	<s>Shivan Wurm</s>
+	<s>Shivan Zombie</s>
+	<s>Shiv's Embrace</s>
+	<s>Shizo, Death's Storehouse</s>
+	<s>Shizuko, Caller of Autumn</s>
+	<s>Shoal Serpent</s>
+	<s>Shock</s>
+	<s>Shock Troops</s>
+	<s>Shocker</s>
+	<s>Shoe Tree</s>
+	<s>Shore Snapper</s>
+	<s>Shorecrasher Mimic</s>
+	<s>Shoreline Raider</s>
+	<s>Shoreline Ranger</s>
+	<s>Shoreline Salvager</s>
+	<s>Shoving Match</s>
+	<s>Show and Tell</s>
+	<s>Shower of Coals</s>
+	<s>Shower of Sparks</s>
+	<s>Shrapnel Blast</s>
+	<s>Shred Memory</s>
+	<s>Shrewd Hatchling</s>
+	<s>Shriek of Dread</s>
+	<s>Shriek Raptor</s>
+	<s>Shriekgeist</s>
+	<s>Shriekhorn</s>
+	<s>Shrieking Drake</s>
+	<s>Shrieking Grotesque</s>
+	<s>Shrieking Mogg</s>
+	<s>Shrieking Specter</s>
+	<s>Shriekmaw</s>
+	<s>Shrine of Boundless Growth</s>
+	<s>Shrine of Burning Rage</s>
+	<s>Shrine of Limitless Power</s>
+	<s>Shrine of Loyal Legions</s>
+	<s>Shrine of Piercing Vision</s>
+	<s>Shrink</s>
+	<s>Shrivel</s>
+	<s>Shriveling Rot</s>
+	<s>Shrouded Lore</s>
+	<s>Shrouded Serpent</s>
+	<s>Shu Cavalry</s>
+	<s>Shu Defender</s>
+	<s>Shu Elite Companions</s>
+	<s>Shu Elite Infantry</s>
+	<s>Shu Farmer</s>
+	<s>Shu Foot Soldiers</s>
+	<s>Shu General</s>
+	<s>Shu Grain Caravan</s>
+	<s>Shu Soldier-Farmers</s>
+	<s>Shuko</s>
+	<s>Shunt</s>
+	<s>Shuriken</s>
+	<s>Shyft</s>
+	<s>Sibilant Spirit</s>
+	<s>Sick and Tired</s>
+	<s>Sicken</s>
+	<s>Sickening Dreams</s>
+	<s>Sickening Shoal</s>
+	<s>Sickle Ripper</s>
+	<s>Sickleslicer</s>
+	<s>Sidar Jabari</s>
+	<s>Side to Side</s>
+	<s>Sideswipe</s>
+	<s>Sidewinder Sliver</s>
+	<s>Siege Mastodon</s>
+	<s>Siege of Towers</s>
+	<s>Siege Wurm</s>
+	<s>Siege-Gang Commander</s>
+	<s>Sift</s>
+	<s>Sift Through Sands</s>
+	<s>Sigarda, Host of Herons</s>
+	<s>Sighted-Caste Sorcerer</s>
+	<s>Sightless Ghoul</s>
+	<s>Sigil Blessing</s>
+	<s>Sigil Captain</s>
+	<s>Sigil of Distinction</s>
+	<s>Sigil of Sleep</s>
+	<s>Sigil of the Empty Throne</s>
+	<s>Sigil of the Nayan Gods</s>
+	<s>Sigil of the New Dawn</s>
+	<s>Sigil Tracer</s>
+	<s>Sigiled Behemoth</s>
+	<s>Sigiled Paladin</s>
+	<s>Sign in Blood</s>
+	<s>Signal Pest</s>
+	<s>Silence</s>
+	<s>Silent Arbiter</s>
+	<s>Silent Assassin</s>
+	<s>Silent Attendant</s>
+	<s>Silent Departure</s>
+	<s>Silent Specter</s>
+	<s>Silent-Chant Zubera</s>
+	<s>Silhana Ledgewalker</s>
+	<s>Silhana Starfletcher</s>
+	<s>Silhouette</s>
+	<s>Silk Net</s>
+	<s>Silkbind Faerie</s>
+	<s>Silkenfist Fighter</s>
+	<s>Silkenfist Order</s>
+	<s>Silklash Spider</s>
+	<s>Silkwing Scout</s>
+	<s>Silt Crawler</s>
+	<s>Silver Drake</s>
+	<s>Silver Erne</s>
+	<s>Silver Knight</s>
+	<s>Silver Myr</s>
+	<s>Silver Seraph</s>
+	<s>Silver Wyvern</s>
+	<s>Silverback Ape</s>
+	<s>Silverblade Paladin</s>
+	<s>Silverchase Fox</s>
+	<s>Silverclaw Griffin</s>
+	<s>Silvercoat Lion</s>
+	<s>Silvergill Adept</s>
+	<s>Silvergill Douser</s>
+	<s>Silverglade Elemental</s>
+	<s>Silverglade Pathfinder</s>
+	<s>Silver-Inlaid Dagger</s>
+	<s>Silverpelt Werewolf</s>
+	<s>Silverskin Armor</s>
+	<s>Silverstorm Samurai</s>
+	<s>Silvos, Rogue Elemental</s>
+	<s>Sima Yi, Wei Field Marshal</s>
+	<s>Simian Brawler</s>
+	<s>Simian Grunts</s>
+	<s>Simian Spirit Guide</s>
+	<s>Simic Basilisk</s>
+	<s>Simic Growth Chamber</s>
+	<s>Simic Guildmage</s>
+	<s>Simic Initiate</s>
+	<s>Simic Ragworm</s>
+	<s>Simic Signet</s>
+	<s>Simic Sky Swallower</s>
+	<s>Simoon</s>
+	<s>Pure // Simple (Simple)</s>
+	<s>Simplify</s>
+	<s>Simulacrum</s>
+	<s>Sindbad</s>
+	<s>Sinew Sliver</s>
+	<s>Singe</s>
+	<s>Singe-Mind Ogre</s>
+	<s>Singing Tree</s>
+	<s>Sinister Strength</s>
+	<s>Sink into Takenuma</s>
+	<s>Sinkhole</s>
+	<s>Sinking Feeling</s>
+	<s>Sins of the Past</s>
+	<s>Sinstriker's Will</s>
+	<s>Sir Shandlar of Eberyn</s>
+	<s>Sire of the Storm</s>
+	<s>Siren's Call</s>
+	<s>Sirocco</s>
+	<s>Sisay's Ingenuity</s>
+	<s>Sisay's Ring</s>
+	<s>Sisters of Stone Death</s>
+	<s>Sisters of the Flame</s>
+	<s>Sivitri Scarzam</s>
+	<s>Sivvi's Ruse</s>
+	<s>Sivvi's Valor</s>
+	<s>Six-y Beast</s>
+	<s>Sizzle</s>
+	<s>Skaab Goliath</s>
+	<s>Skaab Ruinator</s>
+	<s>Skarrg, the Rage Pits</s>
+	<s>Skarrgan Firebird</s>
+	<s>Skarrgan Pit-Skulk</s>
+	<s>Skarrgan Skybreaker</s>
+	<s>Skeletal Changeling</s>
+	<s>Skeletal Crocodile</s>
+	<s>Skeletal Grimace</s>
+	<s>Skeletal Kathari</s>
+	<s>Skeletal Scrying</s>
+	<s>Skeletal Snake</s>
+	<s>Skeletal Vampire</s>
+	<s>Skeletal Wurm</s>
+	<s>Skeleton Scavengers</s>
+	<s>Skeleton Shard</s>
+	<s>Skeleton Ship</s>
+	<s>Skeletonize</s>
+	<s>Skill Borrower</s>
+	<s>Skillful Lunge</s>
+	<s>Skinrender</s>
+	<s>Skinshifter</s>
+	<s>Skinthinner</s>
+	<s>Skinwing</s>
+	<s>Skirge Familiar</s>
+	<s>Skirk Alarmist</s>
+	<s>Skirk Commando</s>
+	<s>Skirk Drill Sergeant</s>
+	<s>Skirk Fire Marshal</s>
+	<s>Skirk Marauder</s>
+	<s>Skirk Outrider</s>
+	<s>Skirk Prospector</s>
+	<s>Skirk Ridge Exhumer</s>
+	<s>Skirk Shaman</s>
+	<s>Skirk Volcanist</s>
+	<s>Skirsdag Cultist</s>
+	<s>Skirsdag Flayer</s>
+	<s>Skirsdag High Priest</s>
+	<s>Skithiryx, the Blight Dragon</s>
+	<s>Skitter of Lizards</s>
+	<s>Skittering Horror</s>
+	<s>Skittering Invasion</s>
+	<s>Skittering Monstrosity</s>
+	<s>Skittering Skirge</s>
+	<s>Skittish Kavu</s>
+	<s>Skittish Valesk</s>
+	<s>Skizzik</s>
+	<s>Skizzik Surger</s>
+	<s>Skred</s>
+	<s>Skulking Fugitive</s>
+	<s>Skulking Ghost</s>
+	<s>Skulking Knight</s>
+	<s>Skull Catapult</s>
+	<s>Skull Collector</s>
+	<s>Skull Fracture</s>
+	<s>Skull of Orm</s>
+	<s>Skull of Ramos</s>
+	<s>Skullbriar, the Walking Grave</s>
+	<s>Skullcage</s>
+	<s>Skullclamp</s>
+	<s>Skullmane Baku</s>
+	<s>Skullmead Cauldron</s>
+	<s>Skullmulcher</s>
+	<s>Skullscorch</s>
+	<s>Skullsnatcher</s>
+	<s>Skulltap</s>
+	<s>Sky Diamond</s>
+	<s>Sky Hussar</s>
+	<s>Sky Ruin Drake</s>
+	<s>Sky Spirit</s>
+	<s>Sky Swallower</s>
+	<s>Sky Weaver</s>
+	<s>Skyclaw Thrash</s>
+	<s>Skycloud Egg</s>
+	<s>Skycloud Expanse</s>
+	<s>Sky-Eel School</s>
+	<s>Skyfire Kirin</s>
+	<s>Skyhunter Cub</s>
+	<s>Skyhunter Patrol</s>
+	<s>Skyhunter Prowler</s>
+	<s>Skyhunter Skirmisher</s>
+	<s>Skyknight Legionnaire</s>
+	<s>Skyreach Manta</s>
+	<s>Skyrider Trainee</s>
+	<s>Skyscribing</s>
+	<s>Skyshaper</s>
+	<s>Skyship Weatherlight</s>
+	<s>Skyshooter</s>
+	<s>Skyshroud Archer</s>
+	<s>Skyshroud Behemoth</s>
+	<s>Skyshroud Blessing</s>
+	<s>Skyshroud Claim</s>
+	<s>Skyshroud Condor</s>
+	<s>Skyshroud Cutter</s>
+	<s>Skyshroud Elf</s>
+	<s>Skyshroud Elite</s>
+	<s>Skyshroud Falcon</s>
+	<s>Skyshroud Forest</s>
+	<s>Skyshroud Poacher</s>
+	<s>Skyshroud Ranger</s>
+	<s>Skyshroud Ridgeback</s>
+	<s>Skyshroud Sentinel</s>
+	<s>Skyshroud Troll</s>
+	<s>Skyshroud Troopers</s>
+	<s>Skyshroud Vampire</s>
+	<s>Skyshroud War Beast</s>
+	<s>Skyward Eye Prophets</s>
+	<s>Skywatcher Adept</s>
+	<s>Skywinder Drake</s>
+	<s>Skywing Aven</s>
+	<s>Slag Fiend</s>
+	<s>Slagstorm</s>
+	<s>Slagwurm Armor</s>
+	<s>Slash Panther</s>
+	<s>Slashing Tiger</s>
+	<s>Slate of Ancestry</s>
+	<s>Slaughter</s>
+	<s>Slaughter Cry</s>
+	<s>Slaughter Pact</s>
+	<s>Slaughterhouse Bouncer</s>
+	<s>Slave of Bolas</s>
+	<s>Slavering Nulls</s>
+	<s>Slay</s>
+	<s>Slayer of the Wicked</s>
+	<s>Slayers' Stronghold</s>
+	<s>Sleep</s>
+	<s>Sleeper Agent</s>
+	<s>Sleeper's Guile</s>
+	<s>Sleeper's Robe</s>
+	<s>Sleeping Potion</s>
+	<s>Sleight of Hand</s>
+	<s>Sleight of Mind</s>
+	<s>Slice and Dice</s>
+	<s>Slice in Twain</s>
+	<s>Slimy Kavu</s>
+	<s>Slingbow Trap</s>
+	<s>Slingshot Goblin</s>
+	<s>Slinking Giant</s>
+	<s>Slinking Serpent</s>
+	<s>Slinking Skirge</s>
+	<s>Slippery Bogle</s>
+	<s>Slippery Karst</s>
+	<s>Slipstream Eel</s>
+	<s>Slipstream Serpent</s>
+	<s>Sliptide Serpent</s>
+	<s>Slith Ascendant</s>
+	<s>Slith Bloodletter</s>
+	<s>Slith Firewalker</s>
+	<s>Slith Predator</s>
+	<s>Slith Strider</s>
+	<s>Slithering Shade</s>
+	<s>Slithermuse</s>
+	<s>Slithery Stalker</s>
+	<s>Sliver Legion</s>
+	<s>Sliver Overlord</s>
+	<s>Sliver Queen</s>
+	<s>Sliversmith</s>
+	<s>Slobad, Goblin Tinkerer</s>
+	<s>Slow Motion</s>
+	<s>Sludge Strider</s>
+	<s>Sluggishness</s>
+	<s>Slumbering Tora</s>
+	<s>Smallpox</s>
+	<s>Smart Ass</s>
+	<s>Smash</s>
+	<s>Smash to Smithereens</s>
+	<s>Smite</s>
+	<s>Smite the Monstrous</s>
+	<s>Smogsteed Rider</s>
+	<s>Smoke</s>
+	<s>Smokebraider</s>
+	<s>Smokespew Invoker</s>
+	<s>Smokestack</s>
+	<s>Smolder Initiate</s>
+	<s>Smoldering Butcher</s>
+	<s>Smoldering Crater</s>
+	<s>Smoldering Spires</s>
+	<s>Smoldering Tar</s>
+	<s>Smother</s>
+	<s>Snag</s>
+	<s>Snake Basket</s>
+	<s>Snake Cult Initiation</s>
+	<s>Snake Pit</s>
+	<s>Snake Umbra</s>
+	<s>Snakeform</s>
+	<s>Snap</s>
+	<s>Snapback</s>
+	<s>Snapcaster Mage</s>
+	<s>Snapping Creeper</s>
+	<s>Snapping Drake</s>
+	<s>Snapping Thragg</s>
+	<s>Snapsail Glider</s>
+	<s>Snare the Skies</s>
+	<s>Snarling Undorak</s>
+	<s>Sneak Attack</s>
+	<s>Sneaky Homunculus</s>
+	<s>Snorting Gahr</s>
+	<s>Snow Devil</s>
+	<s>Snow Fortress</s>
+	<s>Snow Hound</s>
+	<s>Snowblind</s>
+	<s>Snow-Covered Forest</s>
+	<s>Snow-Covered Island</s>
+	<s>Snow-Covered Mountain</s>
+	<s>Snow-Covered Plains</s>
+	<s>Snow-Covered Swamp</s>
+	<s>Snowfall</s>
+	<s>Snuff Out</s>
+	<s>Soar</s>
+	<s>Soaring Hope</s>
+	<s>Soaring Seacliff</s>
+	<s>Soilshaper</s>
+	<s>Sokenzan Bruiser</s>
+	<s>Sokenzan Renegade</s>
+	<s>Sokenzan Spellblade</s>
+	<s>Sol Grail</s>
+	<s>Sol Ring</s>
+	<s>Solar Blast</s>
+	<s>Solar Tide</s>
+	<s>Solarion</s>
+	<s>Soldevi Adnate</s>
+	<s>Soldevi Digger</s>
+	<s>Soldevi Excavations</s>
+	<s>Soldevi Golem</s>
+	<s>Soldevi Heretic</s>
+	<s>Soldevi Machinist</s>
+	<s>Soldevi Sage</s>
+	<s>Soldevi Sentry</s>
+	<s>Soldevi Simulacrum</s>
+	<s>Soldevi Steam Beast</s>
+	<s>Soldier of Fortune</s>
+	<s>Soldier Replica</s>
+	<s>Soldier token card</s>
+	<s>Solemn Offering</s>
+	<s>Solemn Simulacrum</s>
+	<s>Solfatara</s>
+	<s>Solidarity</s>
+	<s>Solitary Confinement</s>
+	<s>Soliton</s>
+	<s>Sol'kanar the Swamp King</s>
+	<s>Soltari Champion</s>
+	<s>Soltari Crusader</s>
+	<s>Soltari Emissary</s>
+	<s>Soltari Foot Soldier</s>
+	<s>Soltari Guerrillas</s>
+	<s>Soltari Lancer</s>
+	<s>Soltari Monk</s>
+	<s>Soltari Priest</s>
+	<s>Soltari Trooper</s>
+	<s>Soltari Visionary</s>
+	<s>Somber Hoverguard</s>
+	<s>Somberwald Dryad</s>
+	<s>Somberwald Sage</s>
+	<s>Somberwald Spider</s>
+	<s>Somberwald Vigilante</s>
+	<s>Somnomancer</s>
+	<s>Somnophore</s>
+	<s>Song of Blood</s>
+	<s>Song of Serenity</s>
+	<s>Songs of the Damned</s>
+	<s>Songstitcher</s>
+	<s>Sonic Burst</s>
+	<s>Sonic Seizure</s>
+	<s>Soot Imp</s>
+	<s>Sootfeather Flock</s>
+	<s>Soothing Balm</s>
+	<s>Soothsaying</s>
+	<s>Sootstoke Kindler</s>
+	<s>Sootwalkers</s>
+	<s>Sophic Centaur</s>
+	<s>Soramaro, First to Dream</s>
+	<s>Soratami Cloud Chariot</s>
+	<s>Soratami Cloudskater</s>
+	<s>Soratami Mindsweeper</s>
+	<s>Soratami Mirror-Guard</s>
+	<s>Soratami Mirror-Mage</s>
+	<s>Soratami Rainshaper</s>
+	<s>Soratami Savant</s>
+	<s>Soratami Seer</s>
+	<s>Soraya the Falconer</s>
+	<s>Sorcerer's Strongbox</s>
+	<s>Sorceress Queen</s>
+	<s>Sorcerous Sight</s>
+	<s>Sorin Markov</s>
+	<s>Sorin, Lord of Innistrad</s>
+	<s>Sorin's Thirst</s>
+	<s>Sorin's Vengeance</s>
+	<s>Sorrow's Path</s>
+	<s>Sorry</s>
+	<s>Sosuke, Son of Seshiro</s>
+	<s>Sosuke's Summons</s>
+	<s>Soul Barrier</s>
+	<s>Soul Bleed</s>
+	<s>Soul Burn</s>
+	<s>Soul Channeling</s>
+	<s>Soul Charmer</s>
+	<s>Soul Collector</s>
+	<s>Soul Conduit</s>
+	<s>Soul Echo</s>
+	<s>Soul Exchange</s>
+	<s>Soul Feast</s>
+	<s>Soul Foundry</s>
+	<s>Soul Kiss</s>
+	<s>Soul Link</s>
+	<s>Soul Manipulation</s>
+	<s>Soul Net</s>
+	<s>Soul Nova</s>
+	<s>Soul of Magma</s>
+	<s>Soul of the Harvest</s>
+	<s>Soul Parry</s>
+	<s>Soul Reap</s>
+	<s>Soul Rend</s>
+	<s>Soul Scourge</s>
+	<s>Soul Sculptor</s>
+	<s>Soul Seizer</s>
+	<s>Soul Shepherd</s>
+	<s>Soul Shred</s>
+	<s>Soul Snare</s>
+	<s>Soul Snuffers</s>
+	<s>Soul Spike</s>
+	<s>Soul Stair Expedition</s>
+	<s>Soul Strings</s>
+	<s>Soul Warden</s>
+	<s>Soulblast</s>
+	<s>Soulbound Guardians</s>
+	<s>Soulbright Flamekin</s>
+	<s>Soulcage Fiend</s>
+	<s>Soulcatcher</s>
+	<s>Soulcatchers' Aerie</s>
+	<s>Souldrinker</s>
+	<s>Soulgorger Orgg</s>
+	<s>Soulless One</s>
+	<s>Soulless Revival</s>
+	<s>Soulquake</s>
+	<s>Soul's Attendant</s>
+	<s>Soul's Fire</s>
+	<s>Soul's Grace</s>
+	<s>Soul's Majesty</s>
+	<s>Soul's Might</s>
+	<s>Souls of the Faultless</s>
+	<s>Soulscour</s>
+	<s>Soulshriek</s>
+	<s>Soulsurge Elemental</s>
+	<s>Soulsworn Jury</s>
+	<s>Soultether Golem</s>
+	<s>Sound the Call</s>
+	<s>Southern Elephant</s>
+	<s>Southern Paladin</s>
+	<s>Sovereigns of Lost Alara</s>
+	<s>Sower of Temptation</s>
+	<s>Sowing Salt</s>
+	<s>Spare from Evil</s>
+	<s>Spark Elemental</s>
+	<s>Spark Fiend</s>
+	<s>Spark Mage</s>
+	<s>Spark Spray</s>
+	<s>Sparkcaster</s>
+	<s>Sparkmage Apprentice</s>
+	<s>Sparksmith</s>
+	<s>Sparkspitter</s>
+	<s>Sparring Collar</s>
+	<s>Sparring Golem</s>
+	<s>Spatial Binding</s>
+	<s>Spatula of the Ages</s>
+	<s>Spawnbroker</s>
+	<s>Spawning Breath</s>
+	<s>Spawning Pit</s>
+	<s>Spawning Pool</s>
+	<s>Spawnsire of Ulamog</s>
+	<s>Spawnwrithe</s>
+	<s>Spearbreaker Behemoth</s>
+	<s>Specter's Shroud</s>
+	<s>Specter's Wail</s>
+	<s>Spectral Bears</s>
+	<s>Spectral Cloak</s>
+	<s>Spectral Flight</s>
+	<s>Spectral Force</s>
+	<s>Spectral Gateguards</s>
+	<s>Spectral Guardian</s>
+	<s>Spectral Lynx</s>
+	<s>Spectral Prison</s>
+	<s>Spectral Procession</s>
+	<s>Spectral Rider</s>
+	<s>Spectral Searchlight</s>
+	<s>Spectral Shield</s>
+	<s>Spectral Shift</s>
+	<s>Spectral Sliver</s>
+	<s>Spell Blast</s>
+	<s>Spell Burst</s>
+	<s>Spell Contortion</s>
+	<s>Spell Counter</s>
+	<s>Spell Crumple</s>
+	<s>Spell Pierce</s>
+	<s>Spell Snare</s>
+	<s>Spell Snip</s>
+	<s>Spell Syphon</s>
+	<s>Spellbane Centaur</s>
+	<s>Spellbinder</s>
+	<s>Spellbook</s>
+	<s>Spellbound Dragon</s>
+	<s>Spellbreaker Behemoth</s>
+	<s>Spellgorger Barbarian</s>
+	<s>Spelljack</s>
+	<s>Spellshift</s>
+	<s>Spellshock</s>
+	<s>Spellskite</s>
+	<s>Spellstutter Sprite</s>
+	<s>Spelltithe Enforcer</s>
+	<s>Spellweaver Helix</s>
+	<s>Spellweaver Volute</s>
+	<s>Spellwild Ouphe</s>
+	<s>Sphere of Duty</s>
+	<s>Sphere of Grace</s>
+	<s>Sphere of Law</s>
+	<s>Sphere of Purity</s>
+	<s>Sphere of Reason</s>
+	<s>Sphere of Resistance</s>
+	<s>Sphere of the Suns</s>
+	<s>Sphere of Truth</s>
+	<s>Sphinx Ambassador</s>
+	<s>Sphinx of Jwar Isle</s>
+	<s>Sphinx of Lost Truths</s>
+	<s>Sphinx of Magosi</s>
+	<s>Sphinx of the Steel Wind</s>
+	<s>Sphinx of Uthuun</s>
+	<s>Sphinx Sovereign</s>
+	<s>Sphinx Summoner</s>
+	<s>Sphinx-Bone Wand</s>
+	<s>Sphinx's Herald</s>
+	<s>Spider Climb</s>
+	<s>Spider Spawning</s>
+	<s>Spider Umbra</s>
+	<s>Spidersilk Armor</s>
+	<s>Spidersilk Net</s>
+	<s>Spiderwig Boggart</s>
+	<s>Spidery Grasp</s>
+	<s>Spike Breeder</s>
+	<s>Spike Cannibal</s>
+	<s>Spike Colony</s>
+	<s>Spike Drone</s>
+	<s>Spike Feeder</s>
+	<s>Spike Hatcher</s>
+	<s>Spike Rogue</s>
+	<s>Spike Soldier</s>
+	<s>Spike Tiller</s>
+	<s>Spike Weaver</s>
+	<s>Spike Worker</s>
+	<s>Spikeshot Elder</s>
+	<s>Spikeshot Goblin</s>
+	<s>Spiketail Drake</s>
+	<s>Spiketail Drakeling</s>
+	<s>Spiketail Hatchling</s>
+	<s>Spin Engine</s>
+	<s>Spin into Myth</s>
+	<s>Spinal Embrace</s>
+	<s>Spinal Graft</s>
+	<s>Spinal Parasite</s>
+	<s>Spinal Villain</s>
+	<s>Spincrusher</s>
+	<s>Spindrift Drake</s>
+	<s>Spine of Ish Sah</s>
+	<s>Spinebiter</s>
+	<s>Spined Basher</s>
+	<s>Spined Fluke</s>
+	<s>Spined Sliver</s>
+	<s>Spined Thopter</s>
+	<s>Spined Wurm</s>
+	<s>Spineless Thug</s>
+	<s>Spinerock Knoll</s>
+	<s>Spinneret Sliver</s>
+	<s>Spinning Darkness</s>
+	<s>Spiny Starfish</s>
+	<s>Spiraling Duelist</s>
+	<s>Spiraling Embers</s>
+	<s>Spire Barrage</s>
+	<s>Spire Golem</s>
+	<s>Spire Monitor</s>
+	<s>Spire Owl</s>
+	<s>Spire Serpent</s>
+	<s>Spirit</s>
+	<s>Spirit Away</s>
+	<s>Spirit Cairn</s>
+	<s>Spirit en-Dal</s>
+	<s>Spirit en-Kor</s>
+	<s>Spirit Flare</s>
+	<s>Spirit Link</s>
+	<s>Spirit Loop</s>
+	<s>Spirit Mantle</s>
+	<s>Spirit Mirror</s>
+	<s>Spirit of Resistance</s>
+	<s>Spirit of the Hearth</s>
+	<s>Spirit of the Night</s>
+	<s>Spirit Shackle</s>
+	<s>Spirit Shield</s>
+	<s>Spirit Weaver</s>
+	<s>Spiritmonger</s>
+	<s>Spiritual Asylum</s>
+	<s>Spiritual Focus</s>
+	<s>Spiritual Guardian</s>
+	<s>Spiritual Sanctuary</s>
+	<s>Spiritual Visit</s>
+	<s>Spiritualize</s>
+	<s>Spite // Malice (Spite)</s>
+	<s>Spitebellows</s>
+	<s>Spiteflame Witch</s>
+	<s>Spiteful Bully</s>
+	<s>Spiteful Shadows</s>
+	<s>Spiteful Visions</s>
+	<s>Spitemare</s>
+	<s>Spitfire Handler</s>
+	<s>Spitting Drake</s>
+	<s>Spitting Earth</s>
+	<s>Spitting Gourna</s>
+	<s>Spitting Hydra</s>
+	<s>Spitting Image</s>
+	<s>Spitting Sliver</s>
+	<s>Spitting Slug</s>
+	<s>Spitting Spider</s>
+	<s>Splinter</s>
+	<s>Splinter Twin</s>
+	<s>Splinterfright</s>
+	<s>Splintering Wind</s>
+	<s>Split-Tail Miko</s>
+	<s>Splitting Headache</s>
+	<s>Spoils of Evil</s>
+	<s>Spoils of the Vault</s>
+	<s>Spoils of Victory</s>
+	<s>Spoils of War</s>
+	<s>Spontaneous Combustion</s>
+	<s>Spontaneous Generation</s>
+	<s>Spore Burst</s>
+	<s>Spore Cloud</s>
+	<s>Spore Flower</s>
+	<s>Spore Frog</s>
+	<s>Sporeback Troll</s>
+	<s>Sporecap Spider</s>
+	<s>Sporesower Thallid</s>
+	<s>Sporogenesis</s>
+	<s>Sporoloth Ancient</s>
+	<s>Spotted Griffin</s>
+	<s>Spread the Sickness</s>
+	<s>Spreading Algae</s>
+	<s>Spreading Plague</s>
+	<s>Spreading Seas</s>
+	<s>Spring Cleaning</s>
+	<s>Spring of Eternal Peace</s>
+	<s>Springing Tiger</s>
+	<s>Springjack Knight</s>
+	<s>Springjack Pasture</s>
+	<s>Springjack Shepherd</s>
+	<s>Springleaf Drum</s>
+	<s>Sprite Noble</s>
+	<s>Sprout</s>
+	<s>Sprout Swarm</s>
+	<s>Sprouting Phytohydra</s>
+	<s>Sprouting Thrinax</s>
+	<s>Sprouting Vines</s>
+	<s>Spur Grappler</s>
+	<s>Spurnmage Advocate</s>
+	<s>Spurred Wolverine</s>
+	<s>Spy Network</s>
+	<s>Squadron Hawk</s>
+	<s>Squall</s>
+	<s>Squall Drifter</s>
+	<s>Squall Line</s>
+	<s>Squallmonger</s>
+	<s>Squandered Resources</s>
+	<s>Squeaking Pie Grubfellows</s>
+	<s>Squeaking Pie Sneak</s>
+	<s>Squealing Devil</s>
+	<s>Squee, Goblin Nabob</s>
+	<s>Squee's Embrace</s>
+	<s>Squee's Revenge</s>
+	<s>Squee's Toy</s>
+	<s>Squeeze</s>
+	<s>Squelch</s>
+	<s>Squire</s>
+	<s>Squirming Mass</s>
+	<s>Squirrel Farm</s>
+	<s>Squirrel Mob</s>
+	<s>Squirrel Nest</s>
+	<s>Squirrel token card</s>
+	<s>Squirrel Wrangler</s>
+	<s>Stabbing Pain</s>
+	<s>Stabilizer</s>
+	<s>Nezumi Shortfang (Stabwhisker the Odious)</s>
+	<s>Staff of Domination</s>
+	<s>Staff of the Ages</s>
+	<s>Staff of Zegon</s>
+	<s>Stag Beetle</s>
+	<s>Staggershock</s>
+	<s>Stalker Hag</s>
+	<s>Stalking Assassin</s>
+	<s>Stalking Bloodsucker</s>
+	<s>Stalking Stones</s>
+	<s>Stalking Tiger</s>
+	<s>Stalking Vampire</s>
+	<s>Stalking Vengeance</s>
+	<s>Stalking Yeti</s>
+	<s>Stalwart Shield-Bearers</s>
+	<s>Stamina</s>
+	<s>Stampede</s>
+	<s>Stampede Driver</s>
+	<s>Stampeding Rhino</s>
+	<s>Stampeding Serow</s>
+	<s>Stampeding Wildebeests</s>
+	<s>Stand // Deliver (Stand)</s>
+	<s>Stand Firm</s>
+	<s>Stand or Fall</s>
+	<s>Stand Together</s>
+	<s>Standard Bearer</s>
+	<s>Standardize</s>
+	<s>Standing Army</s>
+	<s>Standing Stones</s>
+	<s>Standing Troops</s>
+	<s>Standstill</s>
+	<s>Stangg</s>
+	<s>Star Compass</s>
+	<s>Starke of Rath</s>
+	<s>Starlight</s>
+	<s>Starlight Invoker</s>
+	<s>Starlit Angel</s>
+	<s>Starlit Sanctum</s>
+	<s>Starstorm</s>
+	<s>Starved Rusalka</s>
+	<s>Stasis</s>
+	<s>Stasis Cell</s>
+	<s>Stasis Cocoon</s>
+	<s>Statecraft</s>
+	<s>Static Orb</s>
+	<s>Staunch Defenders</s>
+	<s>Stave Off</s>
+	<s>Staying Power</s>
+	<s>Steadfast Guard</s>
+	<s>Steadfastness</s>
+	<s>Steady Progress</s>
+	<s>Steal Artifact</s>
+	<s>Steal Enchantment</s>
+	<s>Steal Strength</s>
+	<s>Steam Blast</s>
+	<s>Steam Catapult</s>
+	<s>Steam Frigate</s>
+	<s>Steam Spitter</s>
+	<s>Steam Vents</s>
+	<s>Steam Vines</s>
+	<s>Steamclaw</s>
+	<s>Steamcore Weird</s>
+	<s>Steamflogger Boss</s>
+	<s>Steel Golem</s>
+	<s>Steel Hellkite</s>
+	<s>Steel Leaf Paladin</s>
+	<s>Steel of the Godhead</s>
+	<s>Steel Overseer</s>
+	<s>Steel Sabotage</s>
+	<s>Steel Wall</s>
+	<s>Steelclad Serpent</s>
+	<s>Steeling Stance</s>
+	<s>Steelshaper Apprentice</s>
+	<s>Steelshaper's Gift</s>
+	<s>Steely Resolve</s>
+	<s>Stench of Decay</s>
+	<s>Stench of Evil</s>
+	<s>Stenchskipper</s>
+	<s>Stensia Bloodhall</s>
+	<s>Steppe Lynx</s>
+	<s>Sterling Grove</s>
+	<s>Stern Judge</s>
+	<s>Stern Marshal</s>
+	<s>Stern Mentor</s>
+	<s>Stern Proctor</s>
+	<s>Steward of Valeron</s>
+	<s>Stifle</s>
+	<s>Stigma Lasher</s>
+	<s>Still Life</s>
+	<s>Stillmoon Cavalier</s>
+	<s>Stingerfling Spider</s>
+	<s>Stinging Barrier</s>
+	<s>Stinging Licid</s>
+	<s>Stingmoggie</s>
+	<s>Stingscourger</s>
+	<s>Stinkdrinker Bandit</s>
+	<s>Stinkdrinker Daredevil</s>
+	<s>Stinkweed Imp</s>
+	<s>Stir the Grave</s>
+	<s>Stir the Pride</s>
+	<s>Stirring Wildwood</s>
+	<s>Stitch in Time</s>
+	<s>Stitch Together</s>
+	<s>Stitched Drake</s>
+	<s>Stitcher's Apprentice</s>
+	<s>Stoic Angel</s>
+	<s>Stoic Champion</s>
+	<s>Stoic Ephemera</s>
+	<s>Stoic Rebuttal</s>
+	<s>Stolen Goods</s>
+	<s>Stolen Grain</s>
+	<s>Stomp and Howl</s>
+	<s>Stomper Cub</s>
+	<s>Stomping Ground</s>
+	<s>Stomping Slabs</s>
+	<s>Stone Calendar</s>
+	<s>Stone Catapult</s>
+	<s>Stone Giant</s>
+	<s>Stone Golem</s>
+	<s>Stone Idol Trap</s>
+	<s>Stone Kavu</s>
+	<s>Stone Rain</s>
+	<s>Stone Spirit</s>
+	<s>Stonebrow, Krosan Hero</s>
+	<s>Stonecloaker</s>
+	<s>Stone-Cold Basilisk</s>
+	<s>Stoneforge Mystic</s>
+	<s>Stonehands</s>
+	<s>Stonehewer Giant</s>
+	<s>Stonehorn Dignitary</s>
+	<s>Stone-Seeder Hierophant</s>
+	<s>Stoneshaker Shaman</s>
+	<s>Stone-Throwing Devils</s>
+	<s>Stone-Tongue Basilisk</s>
+	<s>Stonewood Invocation</s>
+	<s>Stonewood Invoker</s>
+	<s>Stonework Puma</s>
+	<s>Stonewright</s>
+	<s>Stony Silence</s>
+	<s>Stonybrook Angler</s>
+	<s>Stonybrook Banneret</s>
+	<s>Stonybrook Schoolmaster</s>
+	<s>Stop That</s>
+	<s>Storage Matrix</s>
+	<s>Storm Cauldron</s>
+	<s>Storm Crow</s>
+	<s>Storm Elemental</s>
+	<s>Storm Entity</s>
+	<s>Storm Front</s>
+	<s>Storm Herd</s>
+	<s>Storm Seeker</s>
+	<s>Storm Shaman</s>
+	<s>Storm Spirit</s>
+	<s>Storm World</s>
+	<s>Stormbind</s>
+	<s>Stormblood Berserker</s>
+	<s>Stormbound Geist</s>
+	<s>Stormcaller's Boon</s>
+	<s>Stormcloud Djinn</s>
+	<s>Stormfront Pegasus</s>
+	<s>Stormfront Riders</s>
+	<s>Stormscale Anarch</s>
+	<s>Stormscape Apprentice</s>
+	<s>Stormscape Battlemage</s>
+	<s>Stormscape Familiar</s>
+	<s>Stormscape Master</s>
+	<s>Stormtide Leviathan</s>
+	<s>Stormwatch Eagle</s>
+	<s>Story Circle</s>
+	<s>Strafe</s>
+	<s>Strands of Night</s>
+	<s>Strands of Undeath</s>
+	<s>Strandwalker</s>
+	<s>Strange Inversion</s>
+	<s>Stranglehold</s>
+	<s>Strangleroot Geist</s>
+	<s>Strangling Soot</s>
+	<s>Strata Scythe</s>
+	<s>Stratadon</s>
+	<s>Strategic Planning</s>
+	<s>Strategy, Schmategy</s>
+	<s>Stratozeppelid</s>
+	<s>Straw Golem</s>
+	<s>Straw Soldiers</s>
+	<s>Stream Hopper</s>
+	<s>Stream of Acid</s>
+	<s>Stream of Consciousness</s>
+	<s>Stream of Life</s>
+	<s>Stream of Unconsciousness</s>
+	<s>Streambed Aquitects</s>
+	<s>Street Savvy</s>
+	<s>Street Wraith</s>
+	<s>Streetbreaker Wurm</s>
+	<s>Strength in Numbers</s>
+	<s>Strength of Cedars</s>
+	<s>Strength of Isolation</s>
+	<s>Strength of Lunacy</s>
+	<s>Strength of Night</s>
+	<s>Strength of the Tajuru</s>
+	<s>Strength of Unity</s>
+	<s>Strider Harness</s>
+	<s>Strip Bare</s>
+	<s>Strip Mine</s>
+	<s>Striped Bears</s>
+	<s>Stroke of Genius</s>
+	<s>Stromgald Cabal</s>
+	<s>Stromgald Crusader</s>
+	<s>Stromgald Spy</s>
+	<s>Stromkirk Captain</s>
+	<s>Stromkirk Noble</s>
+	<s>Stromkirk Patrol</s>
+	<s>Strongarm Tactics</s>
+	<s>Strongarm Thug</s>
+	<s>Stronghold Assassin</s>
+	<s>Stronghold Biologist</s>
+	<s>Stronghold Discipline</s>
+	<s>Stronghold Gambit</s>
+	<s>Stronghold Machinist</s>
+	<s>Stronghold Overseer</s>
+	<s>Stronghold Rats</s>
+	<s>Stronghold Taskmaster</s>
+	<s>Stronghold Zeppelin</s>
+	<s>Struggle for Sanity</s>
+	<s>Student of Elements</s>
+	<s>Student of Warfare</s>
+	<s>Stuffy Doll</s>
+	<s>Stun</s>
+	<s>Stun Sniper</s>
+	<s>Stunted Growth</s>
+	<s>Stupefying Touch</s>
+	<s>Stupor</s>
+	<s>Sturdy Hatchling</s>
+	<s>Sturmgeist</s>
+	<s>Subdue</s>
+	<s>Submerge</s>
+	<s>Subterranean Hangar</s>
+	<s>Subterranean Shambler</s>
+	<s>Subterranean Spirit</s>
+	<s>Subversion</s>
+	<s>Su-Chi</s>
+	<s>Sudden Death</s>
+	<s>Sudden Disappearance</s>
+	<s>Sudden Impact</s>
+	<s>Sudden Shock</s>
+	<s>Sudden Spoiling</s>
+	<s>Sudden Strength</s>
+	<s>Suffer the Past</s>
+	<s>Pain // Suffering (Suffering)</s>
+	<s>Suffocating Blast</s>
+	<s>Suffocation</s>
+	<s>Suicidal Charge</s>
+	<s>Sulam Djinn</s>
+	<s>Suleiman's Legacy</s>
+	<s>Sulfur Elemental</s>
+	<s>Sulfur Falls</s>
+	<s>Sulfur Vent</s>
+	<s>Sulfuric Vapors</s>
+	<s>Sulfuric Vortex</s>
+	<s>Sulfurous Blast</s>
+	<s>Sulfurous Springs</s>
+	<s>Summer Bloom</s>
+	<s>Summit Apes</s>
+	<s>Summon the School</s>
+	<s>Summoner's Bane</s>
+	<s>Summoner's Egg</s>
+	<s>Summoner's Pact</s>
+	<s>Summoning Station</s>
+	<s>Summoning Trap</s>
+	<s>Sun Ce, Young Conquerer</s>
+	<s>Sun Clasp</s>
+	<s>Sun Droplet</s>
+	<s>Sun Quan, Lord of Wu</s>
+	<s>Sun Titan</s>
+	<s>Sunastian Falconer</s>
+	<s>Sunbeam Spellbomb</s>
+	<s>Sunblast Angel</s>
+	<s>Suncrusher</s>
+	<s>Sunder</s>
+	<s>Sunder from Within</s>
+	<s>Sundering Titan</s>
+	<s>Sundering Vitae</s>
+	<s>Sundial of the Infinite</s>
+	<s>Sunfire Balm</s>
+	<s>Sunflare Shaman</s>
+	<s>Sunforger</s>
+	<s>Sunglasses of Urza</s>
+	<s>Sungrass Egg</s>
+	<s>Sungrass Prairie</s>
+	<s>Sunhome Enforcer</s>
+	<s>Sunhome, Fortress of the Legion</s>
+	<s>Sunken City</s>
+	<s>Sunken Field</s>
+	<s>Sunken Hope</s>
+	<s>Sunken Ruins</s>
+	<s>Sunlance</s>
+	<s>Sunpetal Grove</s>
+	<s>Sunrise Sovereign</s>
+	<s>Sun's Bounty</s>
+	<s>Sunscape Apprentice</s>
+	<s>Sunscape Battlemage</s>
+	<s>Sunscape Familiar</s>
+	<s>Sunscape Master</s>
+	<s>Sunscour</s>
+	<s>Sunseed Nurturer</s>
+	<s>Sunspear Shikari</s>
+	<s>Sunspring Expedition</s>
+	<s>Sunstone</s>
+	<s>Sunstrike Legionnaire</s>
+	<s>Suntail Hawk</s>
+	<s>Suntouched Myr</s>
+	<s>Sunweb</s>
+	<s>Super Secret Tech</s>
+	<s>Superior Numbers</s>
+	<s>Supersize</s>
+	<s>Supply // Demand (Supply)</s>
+	<s>Suppress</s>
+	<s>Suppression Field</s>
+	<s>Supreme Exemplar</s>
+	<s>Supreme Inquisitor</s>
+	<s>Suq'Ata Assassin</s>
+	<s>Suq'Ata Firewalker</s>
+	<s>Suq'Ata Lancer</s>
+	<s>Surestrike Trident</s>
+	<s>Surge Node</s>
+	<s>Surge of Strength</s>
+	<s>Surge of Thoughtweft</s>
+	<s>Surge of Zeal</s>
+	<s>Surgespanner</s>
+	<s>Surgical Extraction</s>
+	<s>Surging Aether</s>
+	<s>Surging Dementia</s>
+	<s>Surging Flame</s>
+	<s>Surging Might</s>
+	<s>Surging Sentinels</s>
+	<s>Surprise Deployment</s>
+	<s>Surrakar Banisher</s>
+	<s>Surrakar Marauder</s>
+	<s>Surrakar Spellblade</s>
+	<s>Surreal Memoir</s>
+	<s>Surveilling Sprite</s>
+	<s>Survival Cache</s>
+	<s>Survival of the Fittest</s>
+	<s>Survivor of the Unseen</s>
+	<s>Sustainer of the Realm</s>
+	<s>Sustaining Spirit</s>
+	<s>Sustenance</s>
+	<s>Suture Priest</s>
+	<s>Suture Spirit</s>
+	<s>Sutured Ghoul</s>
+	<s>Svogthos, the Restless Tomb</s>
+	<s>Svyelunite Priest</s>
+	<s>Svyelunite Temple</s>
+	<s>Swallowing Plague</s>
+	<s>Swamp</s>
+	<s>Swamp Mosquito</s>
+	<s>Swans of Bryn Argoll</s>
+	<s>Swarm of Rats</s>
+	<s>Swarmyard</s>
+	<s>Swat</s>
+	<s>Sway of Illusion</s>
+	<s>Sway of the Stars</s>
+	<s>Swell of Courage</s>
+	<s>Swelter</s>
+	<s>Swerve</s>
+	<s>Swift Maneuver</s>
+	<s>Swift Silence</s>
+	<s>Swiftfoot Boots</s>
+	<s>Swirl the Mists</s>
+	<s>Swirling Sandstorm</s>
+	<s>Swirling Spriggan</s>
+	<s>Swooping Talon</s>
+	<s>Sword Dancer</s>
+	<s>Sword of Body and Mind</s>
+	<s>Sword of Feast and Famine</s>
+	<s>Sword of Fire and Ice</s>
+	<s>Sword of Kaldra</s>
+	<s>Sword of Light and Shadow</s>
+	<s>Sword of the Ages</s>
+	<s>Sword of the Chosen</s>
+	<s>Sword of the Meek</s>
+	<s>Sword of the Paruns</s>
+	<s>Sword of Vengeance</s>
+	<s>Sword of War and Peace</s>
+	<s>Swords to Plowshares</s>
+	<s>Sworn Defender</s>
+	<s>Sygg, River Cutthroat</s>
+	<s>Sygg, River Guide</s>
+	<s>Sylvan Basilisk</s>
+	<s>Sylvan Bounty</s>
+	<s>Sylvan Echoes</s>
+	<s>Sylvan Hierophant</s>
+	<s>Sylvan Library</s>
+	<s>Sylvan Messenger</s>
+	<s>Sylvan Might</s>
+	<s>Sylvan Paradise</s>
+	<s>Sylvan Ranger</s>
+	<s>Sylvan Safekeeper</s>
+	<s>Sylvan Scrying</s>
+	<s>Sylvan Tutor</s>
+	<s>Sylvan Yeti</s>
+	<s>Sylvok Explorer</s>
+	<s>Sylvok Lifestaff</s>
+	<s>Sylvok Replica</s>
+	<s>Symbiosis</s>
+	<s>Symbiotic Beast</s>
+	<s>Symbiotic Deployment</s>
+	<s>Symbiotic Elf</s>
+	<s>Symbiotic Wurm</s>
+	<s>Symbol of Unsummoning</s>
+	<s>Symbol Status</s>
+	<s>Synapse Sliver</s>
+	<s>Synchronous Sliver</s>
+	<s>Syncopate</s>
+	<s>Synod Artificer</s>
+	<s>Synod Centurion</s>
+	<s>Synod Sanctum</s>
+	<s>Syphon Flesh</s>
+	<s>Syphon Life</s>
+	<s>Syphon Mind</s>
+	<s>Syphon Soul</s>
+	<s>Szadek, Lord of Secrets</s>
+	<s>Tablet of Epityr</s>
+	<s>Tahngarth, Talruum Hero</s>
+	<s>Tahngarth's Glare</s>
+	<s>Tahngarth's Rage</s>
+	<s>Taiga</s>
+	<s>Tainted Aether</s>
+	<s>Tainted Field</s>
+	<s>Tainted Isle</s>
+	<s>Tainted Monkey</s>
+	<s>Tainted Pact</s>
+	<s>Tainted Peak</s>
+	<s>Tainted Sigil</s>
+	<s>Tainted Specter</s>
+	<s>Tainted Strike</s>
+	<s>Tainted Well</s>
+	<s>Tainted Wood</s>
+	<s>Taj-Nar Swordsmith</s>
+	<s>Tajuru Archer</s>
+	<s>Tajuru Preserver</s>
+	<s>Take Possession</s>
+	<s>Takeno, Samurai General</s>
+	<s>Takeno's Cavalry</s>
+	<s>Takenuma Bleeder</s>
+	<s>Takklemaggot</s>
+	<s>Talara's Bane</s>
+	<s>Talara's Battalion</s>
+	<s>Talas Air Ship</s>
+	<s>Talas Explorer</s>
+	<s>Talas Merchant</s>
+	<s>Talas Researcher</s>
+	<s>Talas Scout</s>
+	<s>Talas Warrior</s>
+	<s>Talisman of Dominance</s>
+	<s>Talisman of Impulse</s>
+	<s>Talisman of Indulgence</s>
+	<s>Talisman of Progress</s>
+	<s>Talisman of Unity</s>
+	<s>Tallowisp</s>
+	<s>Talon of Pain</s>
+	<s>Talon Sliver</s>
+	<s>Talon Trooper</s>
+	<s>Talonrend</s>
+	<s>Talons of Falkenrath</s>
+	<s>Talruum Champion</s>
+	<s>Talruum Minotaur</s>
+	<s>Talruum Piper</s>
+	<s>Talus Paladin</s>
+	<s>Tamanoa</s>
+	<s>Tamiyo, the Moon Sage</s>
+	<s>Tandem Lookout</s>
+	<s>Tangle</s>
+	<s>Tangle Angler</s>
+	<s>Tangle Asp</s>
+	<s>Tangle Golem</s>
+	<s>Tangle Hulk</s>
+	<s>Tangle Kelp</s>
+	<s>Tangle Mantis</s>
+	<s>Tangle Spider</s>
+	<s>Tangle Wire</s>
+	<s>Tanglebloom</s>
+	<s>Tangleroot</s>
+	<s>Tanglesap</s>
+	<s>Tanglewalker</s>
+	<s>Taniwha</s>
+	<s>Taoist Hermit</s>
+	<s>Taoist Mystic</s>
+	<s>Tar Fiend</s>
+	<s>Tar Pit Warrior</s>
+	<s>Tar Pitcher</s>
+	<s>Tarfire</s>
+	<s>Tariel, Reckoner of Souls</s>
+	<s>Tariff</s>
+	<s>Tarmogoyf</s>
+	<s>Tarnished Citadel</s>
+	<s>Tarox Bladewing</s>
+	<s>Tarpan</s>
+	<s>Task Force</s>
+	<s>Task Mage Assembly</s>
+	<s>Taste for Mayhem</s>
+	<s>Taste of Blood</s>
+	<s>Taste of Paradise</s>
+	<s>Tatsumasa, the Dragon's Fang</s>
+	<s>Tattered Drake</s>
+	<s>Tatterkite</s>
+	<s>Tattermunge Duo</s>
+	<s>Tattermunge Maniac</s>
+	<s>Tattermunge Witch</s>
+	<s>Tattoo Ward</s>
+	<s>Taunt</s>
+	<s>Taunting Challenge</s>
+	<s>Taunting Elf</s>
+	<s>Taurean Mauler</s>
+	<s>Tawnos's Coffin</s>
+	<s>Tawnos's Wand</s>
+	<s>Tawnos's Weaponry</s>
+	<s>Team Spirit</s>
+	<s>Teardrop Kami</s>
+	<s>Tears of Rage</s>
+	<s>Tectonic Break</s>
+	<s>Tectonic Edge</s>
+	<s>Tectonic Fiend</s>
+	<s>Tectonic Instability</s>
+	<s>Tectonic Rift</s>
+	<s>Teeka's Dragon</s>
+	<s>Teetering Peaks</s>
+	<s>Teferi, Mage of Zhalfir</s>
+	<s>Teferi's Care</s>
+	<s>Teferi's Curse</s>
+	<s>Teferi's Drake</s>
+	<s>Teferi's Honor Guard</s>
+	<s>Teferi's Imp</s>
+	<s>Teferi's Isle</s>
+	<s>Teferi's Moat</s>
+	<s>Teferi's Puzzle Box</s>
+	<s>Teferi's Realm</s>
+	<s>Teferi's Response</s>
+	<s>Teferi's Veil</s>
+	<s>Tek</s>
+	<s>Telekinesis</s>
+	<s>Telekinetic Bonds</s>
+	<s>Telekinetic Sliver</s>
+	<s>Telemin Performance</s>
+	<s>Telepathic Spies</s>
+	<s>Telepathy</s>
+	<s>Teleport</s>
+	<s>Telethopter</s>
+	<s>Telim'Tor</s>
+	<s>Telim'Tor's Darts</s>
+	<s>Telim'Tor's Edict</s>
+	<s>Tel-Jilad Archers</s>
+	<s>Tel-Jilad Chosen</s>
+	<s>Tel-Jilad Defiance</s>
+	<s>Tel-Jilad Exile</s>
+	<s>Tel-Jilad Fallen</s>
+	<s>Tel-Jilad Justice</s>
+	<s>Tel-Jilad Lifebreather</s>
+	<s>Tel-Jilad Outrider</s>
+	<s>Tel-Jilad Stylus</s>
+	<s>Tel-Jilad Wolf</s>
+	<s>Teller of Tales</s>
+	<s>Telling Time</s>
+	<s>Temp of the Damned</s>
+	<s>Temper</s>
+	<s>Tempered Steel</s>
+	<s>Tempest Drake</s>
+	<s>Tempest Efreet</s>
+	<s>Tempest of Light</s>
+	<s>Tempest Owl</s>
+	<s>Temple Acolyte</s>
+	<s>Temple Bell</s>
+	<s>Temple Elder</s>
+	<s>Temple Garden</s>
+	<s>Temple of the False God</s>
+	<s>Temporal Adept</s>
+	<s>Temporal Aperture</s>
+	<s>Temporal Cascade</s>
+	<s>Temporal Distortion</s>
+	<s>Temporal Eddy</s>
+	<s>Temporal Extortion</s>
+	<s>Temporal Fissure</s>
+	<s>Temporal Isolation</s>
+	<s>Temporal Manipulation</s>
+	<s>Temporal Mastery</s>
+	<s>Temporal Spring</s>
+	<s>Temporary Insanity</s>
+	<s>Temporary Truce</s>
+	<s>Tempting Licid</s>
+	<s>Tempting Wurm</s>
+	<s>Tendo Ice Bridge</s>
+	<s>Tendrils of Agony</s>
+	<s>Tendrils of Corruption</s>
+	<s>Tendrils of Despair</s>
+	<s>Teneb, the Harvester</s>
+	<s>Tenza, Godo's Maul</s>
+	<s>Tephraderm</s>
+	<s>Terashi's Cry</s>
+	<s>Terashi's Grasp</s>
+	<s>Terashi's Verdict</s>
+	<s>Terastodon</s>
+	<s>Teremko Griffin</s>
+	<s>Terminal Moraine</s>
+	<s>Terminate</s>
+	<s>Terminus</s>
+	<s>Teroh's Faithful</s>
+	<s>Teroh's Vanguard</s>
+	<s>Terra Eternal</s>
+	<s>Terra Stomper</s>
+	<s>Terraformer</s>
+	<s>Terrain Generator</s>
+	<s>Terramorphic Expanse</s>
+	<s>Terrarion</s>
+	<s>Terravore</s>
+	<s>Terrifying Presence</s>
+	<s>Territorial Baloth</s>
+	<s>Territorial Dispute</s>
+	<s>Terror</s>
+	<s>Terror of Kruin Pass</s>
+	<s>Test of Endurance</s>
+	<s>Test of Faith</s>
+	<s>Testament of Faith</s>
+	<s>Tethered Griffin</s>
+	<s>Tethered Skirge</s>
+	<s>Tetravus</s>
+	<s>Tetsuo Umezawa</s>
+	<s>Teysa, Orzhov Scion</s>
+	<s>Tezzeret the Seeker</s>
+	<s>Tezzeret, Agent of Bolas</s>
+	<s>Tezzeret's Gambit</s>
+	<s>Thada Adel, Acquisitor</s>
+	<s>Thalakos Deceiver</s>
+	<s>Thalakos Dreamsower</s>
+	<s>Thalakos Drifters</s>
+	<s>Thalakos Lowlands</s>
+	<s>Thalakos Mistfolk</s>
+	<s>Thalakos Scout</s>
+	<s>Thalakos Seer</s>
+	<s>Thalakos Sentry</s>
+	<s>Thalia, Guardian of Thraben</s>
+	<s>Thallid</s>
+	<s>Thallid Devourer</s>
+	<s>Thallid Germinator</s>
+	<s>Thallid Shell-Dweller</s>
+	<s>That Which Was Taken</s>
+	<s>Thatcher Revolt</s>
+	<s>Thaumatog</s>
+	<s>Thawing Glaciers</s>
+	<s>The Abyss</s>
+	<s>The Brute</s>
+	<s>The Cheese Stands Alone</s>
+	<s>The Fallen</s>
+	<s>The Fallen Apart</s>
+	<s>The Hive</s>
+	<s>The Lady of the Mountain</s>
+	<s>The Mimeoplasm</s>
+	<s>The Rack</s>
+	<s>The Tabernacle at Pendrell Vale</s>
+	<s>The Ultimate Nightmare of Wizards of the Coast® Customer Service</s>
+	<s>The Unspeakable</s>
+	<s>The Wretched</s>
+	<s>Theft of Dreams</s>
+	<s>Thelon of Havenwood</s>
+	<s>Thelonite Druid</s>
+	<s>Thelonite Hermit</s>
+	<s>Thelonite Monk</s>
+	<s>Thelon's Chant</s>
+	<s>Thelon's Curse</s>
+	<s>Thermal Blast</s>
+	<s>Thermal Flux</s>
+	<s>Thermal Glider</s>
+	<s>Thermal Navigator</s>
+	<s>Thermokarst</s>
+	<s>Thermopod</s>
+	<s>Thicket Basilisk</s>
+	<s>Thicket Elemental</s>
+	<s>Thick-Skinned Goblin</s>
+	<s>Thief of Hope</s>
+	<s>Thieves' Auction</s>
+	<s>Thieves' Fortune</s>
+	<s>Thieving Magpie</s>
+	<s>Thieving Sprite</s>
+	<s>Thing from the Deep</s>
+	<s>Think Tank</s>
+	<s>Think Twice</s>
+	<s>Thirst</s>
+	<s>Thirst for Knowledge</s>
+	<s>Thistledown Duo</s>
+	<s>Thistledown Liege</s>
+	<s>Thopter Assembly</s>
+	<s>Thopter Foundry</s>
+	<s>Thopter Squadron</s>
+	<s>Thorn Elemental</s>
+	<s>Thorn of Amethyst</s>
+	<s>Thorn Thallid</s>
+	<s>Thornbite Staff</s>
+	<s>Thornling</s>
+	<s>Thornscape Apprentice</s>
+	<s>Thornscape Battlemage</s>
+	<s>Thornscape Familiar</s>
+	<s>Thornscape Master</s>
+	<s>Thorn-Thrash Viashino</s>
+	<s>Thorntooth Witch</s>
+	<s>Thornwatch Scarecrow</s>
+	<s>Thornweald Archer</s>
+	<s>Thornwind Faeries</s>
+	<s>Thought Courier</s>
+	<s>Thought Devourer</s>
+	<s>Thought Dissector</s>
+	<s>Thought Eater</s>
+	<s>Thought Gorger</s>
+	<s>Thought Hemorrhage</s>
+	<s>Thought Lash</s>
+	<s>Thought Nibbler</s>
+	<s>Thought Prison</s>
+	<s>Thought Reflection</s>
+	<s>Thought Scour</s>
+	<s>Thoughtbind</s>
+	<s>Thoughtbound Primoc</s>
+	<s>Thoughtcast</s>
+	<s>Thoughtcutter Agent</s>
+	<s>Thoughtlace</s>
+	<s>Thoughtleech</s>
+	<s>Thoughtpicker Witch</s>
+	<s>Thoughts of Ruin</s>
+	<s>Thoughtseize</s>
+	<s>Thoughtweft Gambit</s>
+	<s>Thoughtweft Trio</s>
+	<s>Thousand-legged Kami</s>
+	<s>Thousand-Year Elixir</s>
+	<s>Thraben Doomsayer</s>
+	<s>Thraben Heretic</s>
+	<s>Thraben Militia</s>
+	<s>Thraben Purebloods</s>
+	<s>Thraben Sentry</s>
+	<s>Thraben Valiant</s>
+	<s>Thran Dynamo</s>
+	<s>Thran Forge</s>
+	<s>Thran Foundry</s>
+	<s>Thran Golem</s>
+	<s>Thran Lens</s>
+	<s>Thran Quarry</s>
+	<s>Thran Tome</s>
+	<s>Thran Turbine</s>
+	<s>Thran War Machine</s>
+	<s>Thran Weaponry</s>
+	<s>Thrashing Mudspawn</s>
+	<s>Thrashing Wumpus</s>
+	<s>Thraximundar</s>
+	<s>Threads of Disloyalty</s>
+	<s>Threaten</s>
+	<s>Three Dreams</s>
+	<s>Three Tragedies</s>
+	<s>Three Visits</s>
+	<s>Three Wishes</s>
+	<s>Thresher Beast</s>
+	<s>Thrill of the Hunt</s>
+	<s>Thriss, Nantuko Primus</s>
+	<s>Thrive</s>
+	<s>Throat Slitter</s>
+	<s>Throne of Bone</s>
+	<s>Throne of Empires</s>
+	<s>Throne of Geth</s>
+	<s>Through the Breach</s>
+	<s>Thrull</s>
+	<s>Thrull Champion</s>
+	<s>Thrull Retainer</s>
+	<s>Thrull Surgeon</s>
+	<s>Thrull Wizard</s>
+	<s>Thrumming Stone</s>
+	<s>Thrummingbird</s>
+	<s>Thrun, the Last Troll</s>
+	<s>Thumbscrews</s>
+	<s>Thunder Dragon</s>
+	<s>Thunder of Hooves</s>
+	<s>Thunder Spirit</s>
+	<s>Thunder Strike</s>
+	<s>Thunder Totem</s>
+	<s>Thunder Wall</s>
+	<s>Thunderblade Charge</s>
+	<s>Thunderblust</s>
+	<s>Thunderbolt</s>
+	<s>Thunderclap</s>
+	<s>Thundercloud Elemental</s>
+	<s>Thundercloud Shaman</s>
+	<s>Thunderheads</s>
+	<s>Thundering Giant</s>
+	<s>Thundering Tanadon</s>
+	<s>Thundering Wurm</s>
+	<s>Thundermare</s>
+	<s>Thunderous Wrath</s>
+	<s>Thunderscape Apprentice</s>
+	<s>Thunderscape Battlemage</s>
+	<s>Thunderscape Familiar</s>
+	<s>Thunderscape Master</s>
+	<s>Thundersong Trumpeter</s>
+	<s>Thunderstaff</s>
+	<s>Thunder-Thrash Elder</s>
+	<s>Thwart</s>
+	<s>Tibalt, the Fiend-Blooded</s>
+	<s>Tibor and Lumia</s>
+	<s>Ticking Gnomes</s>
+	<s>Tidal Bore</s>
+	<s>Tidal Control</s>
+	<s>Tidal Courier</s>
+	<s>Tidal Flats</s>
+	<s>Tidal Influence</s>
+	<s>Tidal Kraken</s>
+	<s>Tidal Surge</s>
+	<s>Tidal Visionary</s>
+	<s>Tidal Warrior</s>
+	<s>Tidal Wave</s>
+	<s>Tide of War</s>
+	<s>Tideforce Elemental</s>
+	<s>Tidehollow Sculler</s>
+	<s>Tidehollow Strix</s>
+	<s>Tideshaper Mystic</s>
+	<s>Tidespout Tyrant</s>
+	<s>Tidewalker</s>
+	<s>Tidewater Minion</s>
+	<s>Tidings</s>
+	<s>Tiger Claws</s>
+	<s>Tigereye Cameo</s>
+	<s>Tilling Treefolk</s>
+	<s>Timber Protector</s>
+	<s>Timber Wolves</s>
+	<s>Timberland Guide</s>
+	<s>Timberland Ruins</s>
+	<s>Timberline Ridge</s>
+	<s>Timbermare</s>
+	<s>Timbermaw Larva</s>
+	<s>Timberwatch Elf</s>
+	<s>Time and Tide</s>
+	<s>Time Bomb</s>
+	<s>Time Ebb</s>
+	<s>Time Elemental</s>
+	<s>Time Machine</s>
+	<s>Time of Heroes</s>
+	<s>Time of Need</s>
+	<s>Time Reversal</s>
+	<s>Time Sieve</s>
+	<s>Time Spiral</s>
+	<s>Time Stop</s>
+	<s>Time Stretch</s>
+	<s>Time Vault</s>
+	<s>Time Walk</s>
+	<s>Time Warp</s>
+	<s>Timebender</s>
+	<s>Timecrafting</s>
+	<s>Timely Reinforcements</s>
+	<s>Timesifter</s>
+	<s>Timetwister</s>
+	<s>Timid Drake</s>
+	<s>Timmerian Fiends</s>
+	<s>Timmy, Power Gamer</s>
+	<s>Tin Street Hooligan</s>
+	<s>Tinder Farm</s>
+	<s>Tinder Wall</s>
+	<s>Tine Shrike</s>
+	<s>Tinker</s>
+	<s>Tin-Wing Chimera</s>
+	<s>Tireless Missionaries</s>
+	<s>Tireless Tribe</s>
+	<s>Titan Forge</s>
+	<s>Titania's Boon</s>
+	<s>Titania's Chosen</s>
+	<s>Titania's Song</s>
+	<s>Titanic Bulvox</s>
+	<s>Titanic Growth</s>
+	<s>Titanic Ultimatum</s>
+	<s>Titanium Golem</s>
+	<s>Titan's Revenge</s>
+	<s>Tithe</s>
+	<s>Tivadar of Thorn</s>
+	<s>Tivadar's Crusade</s>
+	<s>To Arms!</s>
+	<s>Tobias Andrion</s>
+	<s>Student of Elements (Tobita, Master of Winds)</s>
+	<s>Togglodyte</s>
+	<s>Toil to Renown</s>
+	<s>Toils of Night and Day</s>
+	<s>Akki Lavarunner (Tok-Tok, Volcano Born)</s>
+	<s>Tolaria</s>
+	<s>Tolaria West</s>
+	<s>Tolarian Academy</s>
+	<s>Tolarian Drake</s>
+	<s>Tolarian Emissary</s>
+	<s>Tolarian Entrancer</s>
+	<s>Tolarian Sentinel</s>
+	<s>Tolarian Serpent</s>
+	<s>Tolarian Winds</s>
+	<s>Tolsimir Wolfblood</s>
+	<s>Tomb Hex</s>
+	<s>Tomb of Urami</s>
+	<s>Tombfire</s>
+	<s>Tombstalker</s>
+	<s>Tombstone Stairwell</s>
+	<s>Tome Scour</s>
+	<s>Tomorrow, Azami's Familiar</s>
+	<s>Jushi Apprentice (Tomoya the Revealer)</s>
+	<s>Tonic Peddler</s>
+	<s>Tooth and Claw</s>
+	<s>Tooth and Nail</s>
+	<s>Tooth of Chiss-Goria</s>
+	<s>Tooth of Ramos</s>
+	<s>Topan Ascetic</s>
+	<s>Topple</s>
+	<s>Topsy Turvy</s>
+	<s>Tor Giant</s>
+	<s>Tor Wauki</s>
+	<s>Torch Drake</s>
+	<s>Torch Fiend</s>
+	<s>Torch Slinger</s>
+	<s>Torch Song</s>
+	<s>Torchling</s>
+	<s>Torii Watchward</s>
+	<s>Torment</s>
+	<s>Tormented Angel</s>
+	<s>Tormented Pariah</s>
+	<s>Tormented Soul</s>
+	<s>Tormentor Exarch</s>
+	<s>Tormentor's Trident</s>
+	<s>Tormod's Crypt</s>
+	<s>Tornado</s>
+	<s>Tornado Elemental</s>
+	<s>Torpid Moloch</s>
+	<s>Torpor Dust</s>
+	<s>Torpor Orb</s>
+	<s>Torrent of Fire</s>
+	<s>Torrent of Lava</s>
+	<s>Torrent of Souls</s>
+	<s>Torrent of Stone</s>
+	<s>Torsten Von Ursus</s>
+	<s>Tortoise Formation</s>
+	<s>Torture</s>
+	<s>Torture Chamber</s>
+	<s>Tortured Existence</s>
+	<s>Toshiro Umezawa</s>
+	<s>Total War</s>
+	<s>Totem Speaker</s>
+	<s>Totem-Guide Hartebeest</s>
+	<s>Touch and Go</s>
+	<s>Touch of Brilliance</s>
+	<s>Touch of Darkness</s>
+	<s>Touch of Death</s>
+	<s>Touch of Invisibility</s>
+	<s>Touch of Vitae</s>
+	<s>Touchstone</s>
+	<s>Tourach's Chant</s>
+	<s>Tourach's Gate</s>
+	<s>Tovolar's Magehunter</s>
+	<s>Tower Above</s>
+	<s>Tower Drake</s>
+	<s>Tower Gargoyle</s>
+	<s>Tower Geist</s>
+	<s>Tower of Calamities</s>
+	<s>Tower of Champions</s>
+	<s>Tower of Coireall</s>
+	<s>Tower of Eons</s>
+	<s>Tower of Fortunes</s>
+	<s>Tower of Murmurs</s>
+	<s>Tower of the Magistrate</s>
+	<s>Towering Baloth</s>
+	<s>Town Sentry</s>
+	<s>Toxic Iguanar</s>
+	<s>Toxic Nim</s>
+	<s>Toxic Stench</s>
+	<s>Toxin Sliver</s>
+	<s>Toy Boat</s>
+	<s>Toymaker</s>
+	<s>Trace of Abundance</s>
+	<s>Tracker</s>
+	<s>Tracker's Instincts</s>
+	<s>Trade Caravan</s>
+	<s>Trade Routes</s>
+	<s>Trade Secrets</s>
+	<s>Tradewind Rider</s>
+	<s>Tragic Poet</s>
+	<s>Tragic Slip</s>
+	<s>Trailblazer</s>
+	<s>Trailblazer's Boots</s>
+	<s>Train of Thought</s>
+	<s>Trained Armodon</s>
+	<s>Trained Cheetah</s>
+	<s>Trained Jackal</s>
+	<s>Trained Orgg</s>
+	<s>Trained Pronghorn</s>
+	<s>Training Drone</s>
+	<s>Training Grounds</s>
+	<s>Traitorous Blood</s>
+	<s>Traitorous Instinct</s>
+	<s>Traitor's Clutch</s>
+	<s>Traitor's Roar</s>
+	<s>Tranquil Domain</s>
+	<s>Tranquil Garden</s>
+	<s>Tranquil Grove</s>
+	<s>Tranquil Path</s>
+	<s>Tranquil Thicket</s>
+	<s>Tranquility</s>
+	<s>Transcendence</s>
+	<s>Transcendent Master</s>
+	<s>Transguild Courier</s>
+	<s>Transluminant</s>
+	<s>Transmogrifying Licid</s>
+	<s>Transmutation</s>
+	<s>Transmute Artifact</s>
+	<s>Trap Digger</s>
+	<s>Trap Runner</s>
+	<s>Trapfinder's Trick</s>
+	<s>Trapjaw Kelpie</s>
+	<s>Trapmaker's Snare</s>
+	<s>Traproot Kami</s>
+	<s>Trash for Treasure</s>
+	<s>Traumatic Visions</s>
+	<s>Traumatize</s>
+	<s>Travel Preparations</s>
+	<s>Traveler's Amulet</s>
+	<s>Traveler's Cloak</s>
+	<s>Traveling Plague</s>
+	<s>Treacherous Link</s>
+	<s>Treacherous Pit-Dweller</s>
+	<s>Treacherous Urge</s>
+	<s>Treacherous Vampire</s>
+	<s>Treacherous Werewolf</s>
+	<s>Treachery</s>
+	<s>Treasure Hunt</s>
+	<s>Treasure Hunter</s>
+	<s>Treasure Mage</s>
+	<s>Treasure Trove</s>
+	<s>Tree Monkey</s>
+	<s>Tree of Redemption</s>
+	<s>Tree of Tales</s>
+	<s>Treefolk Harbinger</s>
+	<s>Treefolk Healer</s>
+	<s>Treefolk Mystic</s>
+	<s>Treefolk Seedlings</s>
+	<s>Treespring Lorian</s>
+	<s>Treetop Bracers</s>
+	<s>Treetop Defense</s>
+	<s>Treetop Rangers</s>
+	<s>Treetop Scout</s>
+	<s>Treetop Sentinel</s>
+	<s>Treetop Village</s>
+	<s>Tremble</s>
+	<s>Tremor</s>
+	<s>Trench Gorger</s>
+	<s>Trench Wurm</s>
+	<s>Trenching Steed</s>
+	<s>Trepanation Blade</s>
+	<s>Trespasser il-Vec</s>
+	<s>Trespassing Souleater</s>
+	<s>Tresserhorn Sinks</s>
+	<s>Tresserhorn Skyknight</s>
+	<s>Treva, the Renewer</s>
+	<s>Treva's Attendant</s>
+	<s>Treva's Charm</s>
+	<s>Treva's Ruins</s>
+	<s>Trial // Error (Trial)</s>
+	<s>Triangle of War</s>
+	<s>Triassic Egg</s>
+	<s>Tribal Flames</s>
+	<s>Tribal Forcemage</s>
+	<s>Tribal Golem</s>
+	<s>Tribal Unity</s>
+	<s>Tribute to Hunger</s>
+	<s>Tribute to the Wild</s>
+	<s>Trickbind</s>
+	<s>Trickery Charm</s>
+	<s>Trickster Mage</s>
+	<s>Triclopean Sight</s>
+	<s>Trigon of Corruption</s>
+	<s>Trigon of Infestation</s>
+	<s>Trigon of Mending</s>
+	<s>Trigon of Rage</s>
+	<s>Trigon of Thought</s>
+	<s>Trinisphere</s>
+	<s>Trinket Mage</s>
+	<s>Trip Noose</s>
+	<s>Trip Wire</s>
+	<s>Triskelavus</s>
+	<s>Triskelion</s>
+	<s>Triumph of Cruelty</s>
+	<s>Triumph of Ferocity</s>
+	<s>Triumph of the Hordes</s>
+	<s>Trokin High Guard</s>
+	<s>Troll Ascetic</s>
+	<s>Trollhide</s>
+	<s>Troll-Horn Cameo</s>
+	<s>Trolls of Tel-Jilad</s>
+	<s>Tromp the Domains</s>
+	<s>Trophy Hunter</s>
+	<s>Tropical Island</s>
+	<s>Tropical Storm</s>
+	<s>Troubled Healer</s>
+	<s>Troublesome Spirit</s>
+	<s>Truce</s>
+	<s>True Believer</s>
+	<s>True Conviction</s>
+	<s>Trumpet Blast</s>
+	<s>Trumpeting Armodon</s>
+	<s>Trusted Advisor</s>
+	<s>Trusted Forcemage</s>
+	<s>Trusty Machete</s>
+	<s>Truth or Tale</s>
+	<s>Trygon Predator</s>
+	<s>Tsabo Tavoc</s>
+	<s>Tsabo's Assassin</s>
+	<s>Tsabo's Decree</s>
+	<s>Tsabo's Web</s>
+	<s>Tsunami</s>
+	<s>Tukatongue Thallid</s>
+	<s>Tuknir Deathlock</s>
+	<s>Tuktuk Grunts</s>
+	<s>Tuktuk Scrapper</s>
+	<s>Tuktuk the Explorer</s>
+	<s>Rough // Tumble (Tumble)</s>
+	<s>Tumble Magnet</s>
+	<s>Tundra</s>
+	<s>Tundra Kavu</s>
+	<s>Tundra Wolves</s>
+	<s>Tunnel</s>
+	<s>Tunnel Ignus</s>
+	<s>Tunnel Vision</s>
+	<s>Tunneler Wurm</s>
+	<s>Turbulent Dreams</s>
+	<s>Turf Wound</s>
+	<s>Turn Aside</s>
+	<s>Turn the Tables</s>
+	<s>Turn the Tide</s>
+	<s>Turn to Dust</s>
+	<s>Turn to Frog</s>
+	<s>Turn to Mist</s>
+	<s>Turn to Slag</s>
+	<s>Turnabout</s>
+	<s>Turntimber Basilisk</s>
+	<s>Turntimber Grove</s>
+	<s>Turntimber Ranger</s>
+	<s>Turtleshell Changeling</s>
+	<s>Twiddle</s>
+	<s>Twigwalker</s>
+	<s>Twilight Drover</s>
+	<s>Twilight Mire</s>
+	<s>Twilight Shepherd</s>
+	<s>Twilight's Call</s>
+	<s>Twinblade Slasher</s>
+	<s>Twincast</s>
+	<s>Twinning Glass</s>
+	<s>Twinstrike</s>
+	<s>Twist Allegiance</s>
+	<s>Twisted Abomination</s>
+	<s>Twisted Experiment</s>
+	<s>Twisted Image</s>
+	<s>Twisted Justice</s>
+	<s>Twitch</s>
+	<s>Two-Headed Dragon</s>
+	<s>Two-Headed Giant of Foriys</s>
+	<s>Two-Headed Sliver</s>
+	<s>Typhoid Rats</s>
+	<s>Typhoon</s>
+	<s>Tyrannize</s>
+	<s>Tyrant of Discord</s>
+	<s>Tyrranax</s>
+	<s>Uba Mask</s>
+	<s>Uktabi Drake</s>
+	<s>Uktabi Efreet</s>
+	<s>Uktabi Faerie</s>
+	<s>Uktabi Kong</s>
+	<s>Uktabi Orangutan</s>
+	<s>Uktabi Wildcats</s>
+	<s>Ulamog, the Infinite Gyre</s>
+	<s>Ulamog's Crusher</s>
+	<s>Ulasht, the Hate Seed</s>
+	<s>Ulvenwald Bear</s>
+	<s>Ulvenwald Mystics</s>
+	<s>Ulvenwald Primordials</s>
+	<s>Ulvenwald Tracker</s>
+	<s>Umara Raptor</s>
+	<s>Umbilicus</s>
+	<s>Umbra Mystic</s>
+	<s>Umbra Stalker</s>
+	<s>Umbral Mantle</s>
+	<s>Umezawa's Jitte</s>
+	<s>Unbender Tine</s>
+	<s>Unblinking Bleb</s>
+	<s>Unbreathing Horde</s>
+	<s>Unburden</s>
+	<s>Unburial Rites</s>
+	<s>Uncanny Speed</s>
+	<s>Unchecked Growth</s>
+	<s>Uncle Istvan</s>
+	<s>Uncontrollable Anger</s>
+	<s>Uncontrolled Infestation</s>
+	<s>Undead Alchemist</s>
+	<s>Undead Executioner</s>
+	<s>Undead Gladiator</s>
+	<s>Undead Leotau</s>
+	<s>Undead Slayer</s>
+	<s>Undead Warchief</s>
+	<s>Undercity Shade</s>
+	<s>Underground River</s>
+	<s>Underground Sea</s>
+	<s>Undergrowth</s>
+	<s>Undermine</s>
+	<s>Undertaker</s>
+	<s>Undertow</s>
+	<s>Underworld Dreams</s>
+	<s>Undiscovered Paradise</s>
+	<s>Undo</s>
+	<s>Undying Beast</s>
+	<s>Undying Evil</s>
+	<s>Undying Flames</s>
+	<s>Undying Rage</s>
+	<s>Unearth</s>
+	<s>Unearthly Blizzard</s>
+	<s>Unerring Sling</s>
+	<s>Unforge</s>
+	<s>Unfulfilled Desires</s>
+	<s>Unhallowed Cathar</s>
+	<s>Unhallowed Pact</s>
+	<s>Unhinge</s>
+	<s>Unholy Citadel</s>
+	<s>Unholy Fiend</s>
+	<s>Unholy Grotto</s>
+	<s>Unholy Strength</s>
+	<s>Unified Strike</s>
+	<s>Unified Will</s>
+	<s>Unifying Theory</s>
+	<s>Unlikely Alliance</s>
+	<s>Unliving Psychopath</s>
+	<s>Unmake</s>
+	<s>Unmask</s>
+	<s>Unnatural Hunger</s>
+	<s>Unnatural Predation</s>
+	<s>Unnatural Selection</s>
+	<s>Unnatural Speed</s>
+	<s>Unnerve</s>
+	<s>Unnerving Assault</s>
+	<s>Unquestioned Authority</s>
+	<s>Unruly Mob</s>
+	<s>Unscythe, Killer of Kings</s>
+	<s>Unseen Walker</s>
+	<s>Unspeakable Symbol</s>
+	<s>Unstable Footing</s>
+	<s>Unstable Frontier</s>
+	<s>Unstable Hulk</s>
+	<s>Unstable Mutation</s>
+	<s>Unstable Shapeshifter</s>
+	<s>Unstoppable Ash</s>
+	<s>Unsummon</s>
+	<s>Untaidake, the Cloud Keeper</s>
+	<s>Untamed Might</s>
+	<s>Untamed Wilds</s>
+	<s>Unwilling Recruit</s>
+	<s>Unwinding Clock</s>
+	<s>Unworthy Dead</s>
+	<s>Unyaro Bee Sting</s>
+	<s>Unyaro Bees</s>
+	<s>Unyaro Griffin</s>
+	<s>Updraft</s>
+	<s>Upheaval</s>
+	<s>Uphill Battle</s>
+	<s>Uproot</s>
+	<s>Upwelling</s>
+	<s>Urabrask the Hidden</s>
+	<s>Urborg</s>
+	<s>Urborg Drake</s>
+	<s>Urborg Elf</s>
+	<s>Urborg Emissary</s>
+	<s>Urborg Justice</s>
+	<s>Urborg Mindsucker</s>
+	<s>Urborg Panther</s>
+	<s>Urborg Phantom</s>
+	<s>Urborg Shambler</s>
+	<s>Urborg Skeleton</s>
+	<s>Urborg Stalker</s>
+	<s>Urborg Syphon-Mage</s>
+	<s>Urborg Uprising</s>
+	<s>Urborg Volcano</s>
+	<s>Urborg, Tomb of Yawgmoth</s>
+	<s>Ur-Drago</s>
+	<s>Urge to Feed</s>
+	<s>Urgent Exorcism</s>
+	<s>Ur-Golem's Eye</s>
+	<s>Uril, the Miststalker</s>
+	<s>Ursapine</s>
+	<s>Ursine Fylgja</s>
+	<s>Urza's Armor</s>
+	<s>Urza's Avenger</s>
+	<s>Urza's Bauble</s>
+	<s>Urza's Blueprints</s>
+	<s>Urza's Chalice</s>
+	<s>Urza's Contact Lenses</s>
+	<s>Urza's Engine</s>
+	<s>Urza's Factory</s>
+	<s>Urza's Filter</s>
+	<s>Urza's Guilt</s>
+	<s>Urza's Hot Tub</s>
+	<s>Urza's Incubator</s>
+	<s>Urza's Mine</s>
+	<s>Urza's Miter</s>
+	<s>Urza's Power Plant</s>
+	<s>Urza's Rage</s>
+	<s>Urza's Science Fair Project</s>
+	<s>Urza's Tower</s>
+	<s>Uthden Troll</s>
+	<s>Utopia Mycon</s>
+	<s>Utopia Sprawl</s>
+	<s>Utopia Tree</s>
+	<s>Utopia Vow</s>
+	<s>Utvara Scalper</s>
+	<s>Uyo, Silent Prophet</s>
+	<s>Vacuumelt</s>
+	<s>Vaevictis Asmadi</s>
+	<s>Vagrant Plowbeasts</s>
+	<s>Valakut Fireboar</s>
+	<s>Valakut, the Molten Pinnacle</s>
+	<s>Valeron Outlander</s>
+	<s>Valiant Guard</s>
+	<s>Valley Rannet</s>
+	<s>Valleymaker</s>
+	<s>Valor</s>
+	<s>Valor Made Real</s>
+	<s>Valorous Charge</s>
+	<s>Vampire Aristocrat</s>
+	<s>Vampire Bats</s>
+	<s>Vampire Hexmage</s>
+	<s>Vampire Hounds</s>
+	<s>Vampire Interloper</s>
+	<s>Vampire Lacerator</s>
+	<s>Vampire Nighthawk</s>
+	<s>Vampire Nocturnus</s>
+	<s>Vampire Outcasts</s>
+	<s>Vampire's Bite</s>
+	<s>Vampiric Dragon</s>
+	<s>Vampiric Embrace</s>
+	<s>Vampiric Feast</s>
+	<s>Vampiric Fury</s>
+	<s>Vampiric Link</s>
+	<s>Vampiric Sliver</s>
+	<s>Vampiric Spirit</s>
+	<s>Vampiric Touch</s>
+	<s>Vampiric Tutor</s>
+	<s>Vampirism</s>
+	<s>Vanguard's Shield</s>
+	<s>Vanish into Memory</s>
+	<s>Vanishing</s>
+	<s>Vanishment</s>
+	<s>Vanquish</s>
+	<s>Vapor Snag</s>
+	<s>Vapor Snare</s>
+	<s>Vaporous Djinn</s>
+	<s>Varchild's Crusader</s>
+	<s>Varchild's War-Riders</s>
+	<s>Vassal's Duty</s>
+	<s>Vastwood Animist</s>
+	<s>Vastwood Gorger</s>
+	<s>Vastwood Zendikon</s>
+	<s>Vault of the Archangel</s>
+	<s>Vault of Whispers</s>
+	<s>Vault Skirge</s>
+	<s>Vault Skyward</s>
+	<s>Vebulid</s>
+	<s>Vec Townships</s>
+	<s>Vectis Agents</s>
+	<s>Vectis Dominator</s>
+	<s>Vectis Silencers</s>
+	<s>Vector Asp</s>
+	<s>Vedalken Aethermage</s>
+	<s>Vedalken Anatomist</s>
+	<s>Vedalken Archmage</s>
+	<s>Vedalken Certarch</s>
+	<s>Vedalken Dismisser</s>
+	<s>Vedalken Engineer</s>
+	<s>Vedalken Entrancer</s>
+	<s>Vedalken Ghoul</s>
+	<s>Vedalken Heretic</s>
+	<s>Vedalken Infuser</s>
+	<s>Vedalken Mastermind</s>
+	<s>Vedalken Orrery</s>
+	<s>Vedalken Outlander</s>
+	<s>Vedalken Plotter</s>
+	<s>Vedalken Shackles</s>
+	<s>Veil of Birds</s>
+	<s>Veil of Secrecy</s>
+	<s>Veiled Apparition</s>
+	<s>Veiled Crocodile</s>
+	<s>Veiled Sentry</s>
+	<s>Veiled Serpent</s>
+	<s>Veiling Oddity</s>
+	<s>Veilstone Amulet</s>
+	<s>Vein Drinker</s>
+	<s>Veinfire Borderpost</s>
+	<s>Veldrane of Sengir</s>
+	<s>Veldt</s>
+	<s>Venarian Glimmer</s>
+	<s>Venarian Gold</s>
+	<s>Vendetta</s>
+	<s>Vendilion Clique</s>
+	<s>Venerable Kumo</s>
+	<s>Venerable Monk</s>
+	<s>Venerated Teacher</s>
+	<s>Vengeance</s>
+	<s>Vengeful Archon</s>
+	<s>Vengeful Dead</s>
+	<s>Vengeful Dreams</s>
+	<s>Vengeful Firebrand</s>
+	<s>Vengeful Pharaoh</s>
+	<s>Vengeful Rebirth</s>
+	<s>Vengeful Vampire</s>
+	<s>Vengevine</s>
+	<s>Venom</s>
+	<s>Venomous Breath</s>
+	<s>Venomous Dragonfly</s>
+	<s>Venomous Fangs</s>
+	<s>Venomous Vines</s>
+	<s>Venomspout Brackus</s>
+	<s>Venser, Shaper Savant</s>
+	<s>Venser, the Sojourner</s>
+	<s>Venser's Diffusion</s>
+	<s>Venser's Journal</s>
+	<s>Venser's Sliver</s>
+	<s>Vent Sentinel</s>
+	<s>Ventifact Bottle</s>
+	<s>Verdant Catacombs</s>
+	<s>Verdant Eidolon</s>
+	<s>Verdant Embrace</s>
+	<s>Verdant Field</s>
+	<s>Verdant Force</s>
+	<s>Verdant Succession</s>
+	<s>Verdant Touch</s>
+	<s>Verdeloth the Ancient</s>
+	<s>Verdigris</s>
+	<s>Verduran Emissary</s>
+	<s>Verduran Enchantress</s>
+	<s>Vermiculos</s>
+	<s>Vernal Bloom</s>
+	<s>Vernal Equinox</s>
+	<s>Vertigo</s>
+	<s>Vertigo Spawn</s>
+	<s>Vesper Ghoul</s>
+	<s>Vessel of Endless Rest</s>
+	<s>Vesuva</s>
+	<s>Vesuvan Doppelganger</s>
+	<s>Vesuvan Shapeshifter</s>
+	<s>Veteran Armorer</s>
+	<s>Veteran Armorsmith</s>
+	<s>Veteran Bodyguard</s>
+	<s>Veteran Brawlers</s>
+	<s>Veteran Cavalier</s>
+	<s>Veteran Explorer</s>
+	<s>Veteran of the Depths</s>
+	<s>Veteran Swordsmith</s>
+	<s>Veteran's Armaments</s>
+	<s>Veteran's Reflexes</s>
+	<s>Veteran's Voice</s>
+	<s>Vex</s>
+	<s>Vexing Arcanix</s>
+	<s>Vexing Beetle</s>
+	<s>Vexing Devil</s>
+	<s>Vexing Shusher</s>
+	<s>Vexing Sphinx</s>
+	<s>Vhati il-Dal</s>
+	<s>Viashino Bey</s>
+	<s>Viashino Bladescout</s>
+	<s>Viashino Cutthroat</s>
+	<s>Viashino Fangtail</s>
+	<s>Viashino Grappler</s>
+	<s>Viashino Heretic</s>
+	<s>Viashino Outrider</s>
+	<s>Viashino Runner</s>
+	<s>Viashino Sandscout</s>
+	<s>Viashino Sandstalker</s>
+	<s>Viashino Sandswimmer</s>
+	<s>Viashino Skeleton</s>
+	<s>Viashino Slasher</s>
+	<s>Viashino Slaughtermaster</s>
+	<s>Viashino Spearhunter</s>
+	<s>Viashino Warrior</s>
+	<s>Viashino Weaponsmith</s>
+	<s>Viashivan Dragon</s>
+	<s>Vibrating Sphere</s>
+	<s>Vicious Betrayal</s>
+	<s>Vicious Hunger</s>
+	<s>Vicious Kavu</s>
+	<s>Vicious Shadows</s>
+	<s>Victim of Night</s>
+	<s>Victimize</s>
+	<s>Victorious Destruction</s>
+	<s>Victory's Herald</s>
+	<s>Victual Sliver</s>
+	<s>View from Above</s>
+	<s>Vigean Graftmage</s>
+	<s>Vigean Hydropon</s>
+	<s>Vigean Intuition</s>
+	<s>Vigil for the Lost</s>
+	<s>Vigilance</s>
+	<s>Vigilant Drake</s>
+	<s>Vigilant Martyr</s>
+	<s>Vigilant Sentry</s>
+	<s>Vigilante Justice</s>
+	<s>Vigor</s>
+	<s>Vigor Mortis</s>
+	<s>Vigorous Charge</s>
+	<s>Vile Bile</s>
+	<s>Vile Consumption</s>
+	<s>Vile Deacon</s>
+	<s>Vile Requiem</s>
+	<s>Village Bell-Ringer</s>
+	<s>Village Cannibals</s>
+	<s>Village Elder</s>
+	<s>Village Ironsmith</s>
+	<s>Village Survivors</s>
+	<s>Villagers of Estwald</s>
+	<s>Villainous Ogre</s>
+	<s>Vindicate</s>
+	<s>Vindictive Mob</s>
+	<s>Vine Dryad</s>
+	<s>Vine Kami</s>
+	<s>Vine Trellis</s>
+	<s>Vinelasher Kudzu</s>
+	<s>Vines of Vastwood</s>
+	<s>Vintara Elephant</s>
+	<s>Vintara Snapper</s>
+	<s>Violent Eruption</s>
+	<s>Violent Outburst</s>
+	<s>Violent Ultimatum</s>
+	<s>Violet Pall</s>
+	<s>Viral Drake</s>
+	<s>Viridescent Wisps</s>
+	<s>Viridian Acolyte</s>
+	<s>Viridian Betrayers</s>
+	<s>Viridian Claw</s>
+	<s>Viridian Corrupter</s>
+	<s>Viridian Emissary</s>
+	<s>Viridian Harvest</s>
+	<s>Viridian Joiner</s>
+	<s>Viridian Longbow</s>
+	<s>Viridian Lorebearers</s>
+	<s>Viridian Revel</s>
+	<s>Viridian Scout</s>
+	<s>Viridian Shaman</s>
+	<s>Viridian Zealot</s>
+	<s>Virtue's Ruin</s>
+	<s>Virtuous Charge</s>
+	<s>Virulent Sliver</s>
+	<s>Virulent Swipe</s>
+	<s>Virulent Wound</s>
+	<s>Visara the Dreadful</s>
+	<s>Viscera Dragger</s>
+	<s>Viscera Seer</s>
+	<s>Viscerid Armor</s>
+	<s>Viscerid Deepwalker</s>
+	<s>Viscerid Drone</s>
+	<s>Viscid Lemures</s>
+	<s>Viseling</s>
+	<s>Vish Kal, Blood Arbiter</s>
+	<s>Vision Charm</s>
+	<s>Vision Skeins</s>
+	<s>Visions</s>
+	<s>Visions of Beyond</s>
+	<s>Vital Splicer</s>
+	<s>Vital Surge</s>
+	<s>Vitality Charm</s>
+	<s>Vitalize</s>
+	<s>Vitalizing Cascade</s>
+	<s>Vitalizing Wind</s>
+	<s>Vitaspore Thallid</s>
+	<s>Vithian Renegades</s>
+	<s>Vithian Stinger</s>
+	<s>Vitu-Ghazi, the City-Tree</s>
+	<s>Vivid Crag</s>
+	<s>Vivid Creek</s>
+	<s>Vivid Grove</s>
+	<s>Vivid Marsh</s>
+	<s>Vivid Meadow</s>
+	<s>Vivify</s>
+	<s>Vivisection</s>
+	<s>Vizzerdrix</s>
+	<s>Vodalian Hypnotist</s>
+	<s>Vodalian Illusionist</s>
+	<s>Vodalian Knights</s>
+	<s>Vodalian Mage</s>
+	<s>Vodalian Merchant</s>
+	<s>Vodalian Mystic</s>
+	<s>Vodalian Serpent</s>
+	<s>Vodalian Soldiers</s>
+	<s>Vodalian War Machine</s>
+	<s>Vodalian Zombie</s>
+	<s>Voice of All</s>
+	<s>Voice of Duty</s>
+	<s>Voice of Grace</s>
+	<s>Voice of Law</s>
+	<s>Voice of Reason</s>
+	<s>Voice of the Provinces</s>
+	<s>Voice of the Woods</s>
+	<s>Voice of Truth</s>
+	<s>Voiceless Spirit</s>
+	<s>Voices from the Void</s>
+	<s>Void</s>
+	<s>Void Maw</s>
+	<s>Voidmage Apprentice</s>
+	<s>Voidmage Husher</s>
+	<s>Voidmage Prodigy</s>
+	<s>Voidslime</s>
+	<s>Voidstone Gargoyle</s>
+	<s>Volcanic Awakening</s>
+	<s>Volcanic Dragon</s>
+	<s>Volcanic Eruption</s>
+	<s>Volcanic Fallout</s>
+	<s>Volcanic Geyser</s>
+	<s>Volcanic Hammer</s>
+	<s>Volcanic Island</s>
+	<s>Volcanic Spray</s>
+	<s>Volcanic Strength</s>
+	<s>Volcanic Submersion</s>
+	<s>Volcanic Wind</s>
+	<s>Volcano Hellion</s>
+	<s>Volcano Imp</s>
+	<s>Volition Reins</s>
+	<s>Volley of Boulders</s>
+	<s>Volrath the Fallen</s>
+	<s>Volrath's Curse</s>
+	<s>Volrath's Dungeon</s>
+	<s>Volrath's Gardens</s>
+	<s>Volrath's Laboratory</s>
+	<s>Volrath's Motion Sensor</s>
+	<s>Volrath's Shapeshifter</s>
+	<s>Volrath's Stronghold</s>
+	<s>Volt Charge</s>
+	<s>Voltaic Construct</s>
+	<s>Voltaic Key</s>
+	<s>Volunteer Militia</s>
+	<s>Volunteer Reserves</s>
+	<s>Voodoo Doll</s>
+	<s>Voracious Cobra</s>
+	<s>Voracious Dragon</s>
+	<s>Voracious Hatchling</s>
+	<s>Vorapede</s>
+	<s>Vorinclex, Voice of Hunger</s>
+	<s>Vorosh, the Hunter</s>
+	<s>Vorrac Battlehorns</s>
+	<s>Vorstclaw</s>
+	<s>Votary of the Conclave</s>
+	<s>Vow of Duty</s>
+	<s>Vow of Flight</s>
+	<s>Vow of Lightning</s>
+	<s>Vow of Malice</s>
+	<s>Vow of Wildness</s>
+	<s>Voyager Drake</s>
+	<s>Voyager Staff</s>
+	<s>Vug Lizard</s>
+	<s>Vulshok Battlegear</s>
+	<s>Vulshok Battlemaster</s>
+	<s>Vulshok Berserker</s>
+	<s>Vulshok Gauntlets</s>
+	<s>Vulshok Heartstoker</s>
+	<s>Vulshok Morningstar</s>
+	<s>Vulshok Refugee</s>
+	<s>Vulshok Replica</s>
+	<s>Vulshok Sorcerer</s>
+	<s>Vulshok War Boar</s>
+	<s>Vulturous Zombie</s>
+	<s>Wail of the Nim</s>
+	<s>Waiting in the Weeds</s>
+	<s>Wake of Destruction</s>
+	<s>Wake of Vultures</s>
+	<s>Wake Thrasher</s>
+	<s>Wakedancer</s>
+	<s>Wakestone Gargoyle</s>
+	<s>Waking Nightmare</s>
+	<s>Walk the Aeons</s>
+	<s>Walker of Secret Ways</s>
+	<s>Walker of the Grove</s>
+	<s>Walking Archive</s>
+	<s>Walking Atlas</s>
+	<s>Walking Corpse</s>
+	<s>Walking Dead</s>
+	<s>Walking Desecration</s>
+	<s>Walking Dream</s>
+	<s>Walking Sponge</s>
+	<s>Walking Wall</s>
+	<s>Wall of Air</s>
+	<s>Wall of Blood</s>
+	<s>Wall of Blossoms</s>
+	<s>Wall of Bone</s>
+	<s>Wall of Brambles</s>
+	<s>Wall of Caltrops</s>
+	<s>Wall of Corpses</s>
+	<s>Wall of Deceit</s>
+	<s>Wall of Denial</s>
+	<s>Wall of Diffusion</s>
+	<s>Wall of Distortion</s>
+	<s>Wall of Dust</s>
+	<s>Wall of Earth</s>
+	<s>Wall of Essence</s>
+	<s>Wall of Faith</s>
+	<s>Wall of Fire</s>
+	<s>Wall of Frost</s>
+	<s>Wall of Glare</s>
+	<s>Wall of Granite</s>
+	<s>Wall of Heat</s>
+	<s>Wall of Hope</s>
+	<s>Wall of Ice</s>
+	<s>Wall of Junk</s>
+	<s>Wall of Kelp</s>
+	<s>Wall of Lava</s>
+	<s>Wall of Light</s>
+	<s>Wall of Mulch</s>
+	<s>Wall of Nets</s>
+	<s>Wall of Omens</s>
+	<s>Wall of Opposition</s>
+	<s>Wall of Pine Needles</s>
+	<s>Wall of Putrid Flesh</s>
+	<s>Wall of Razors</s>
+	<s>Wall of Resistance</s>
+	<s>Wall of Reverence</s>
+	<s>Wall of Roots</s>
+	<s>Wall of Shadows</s>
+	<s>Wall of Shards</s>
+	<s>Wall of Shields</s>
+	<s>Wall of Souls</s>
+	<s>Wall of Spears</s>
+	<s>Wall of Stone</s>
+	<s>Wall of Swords</s>
+	<s>Wall of Tanglecord</s>
+	<s>Wall of Tears</s>
+	<s>Wall of Tombstones</s>
+	<s>Wall of Torches</s>
+	<s>Wall of Vapor</s>
+	<s>Wall of Vines</s>
+	<s>Wall of Vipers</s>
+	<s>Wall of Water</s>
+	<s>Wall of Wonder</s>
+	<s>Wall of Wood</s>
+	<s>Wallop</s>
+	<s>Wand of Denial</s>
+	<s>Wand of Ith</s>
+	<s>Wand of the Elements</s>
+	<s>Wanderbrine Rootcutters</s>
+	<s>Wanderer's Twig</s>
+	<s>Wanderguard Sentry</s>
+	<s>Wandering Eye</s>
+	<s>Wandering Goblins</s>
+	<s>Wandering Graybeard</s>
+	<s>Wandering Mage</s>
+	<s>Wandering Ones</s>
+	<s>Wandering Stream</s>
+	<s>Wandering Wolf</s>
+	<s>Wanderlust</s>
+	<s>Wanderwine Hub</s>
+	<s>Wanderwine Prophets</s>
+	<s>Wax // Wane (Wane)</s>
+	<s>Waning Wurm</s>
+	<s>War Barge</s>
+	<s>War Cadence</s>
+	<s>War Chariot</s>
+	<s>War Dance</s>
+	<s>War Elemental</s>
+	<s>War Elephant</s>
+	<s>War Mammoth</s>
+	<s>War Priest of Thune</s>
+	<s>War Report</s>
+	<s>War Tax</s>
+	<s>Warbreak Trumpeter</s>
+	<s>Ward of Bones</s>
+	<s>Ward of Lights</s>
+	<s>Ward of Piety</s>
+	<s>Ward Sliver</s>
+	<s>Warden of the Wall</s>
+	<s>Wargate</s>
+	<s>Warlord's Axe</s>
+	<s>Warmonger</s>
+	<s>Warmonger's Chariot</s>
+	<s>Warmth</s>
+	<s>Warning</s>
+	<s>Warp Artifact</s>
+	<s>Warp World</s>
+	<s>Warpath</s>
+	<s>Warpath Ghoul</s>
+	<s>Warped Devotion</s>
+	<s>Warped Researcher</s>
+	<s>Warping Wurm</s>
+	<s>Warren Instigator</s>
+	<s>Warren Pilferers</s>
+	<s>Warren Weirding</s>
+	<s>Warren-Scourge Elf</s>
+	<s>Warrior Angel</s>
+	<s>Warrior en-Kor</s>
+	<s>Warrior's Charge</s>
+	<s>Warrior's Honor</s>
+	<s>Warrior's Oath</s>
+	<s>Warrior's Stand</s>
+	<s>War's Toll</s>
+	<s>War-Spike Changeling</s>
+	<s>Warstorm Surge</s>
+	<s>Warthog</s>
+	<s>War-Torch Goblin</s>
+	<s>Wash Out</s>
+	<s>Wasp Lancer</s>
+	<s>Waste Away</s>
+	<s>Wasteland</s>
+	<s>Watchdog</s>
+	<s>Watcher Sliver</s>
+	<s>Watchwing Scarecrow</s>
+	<s>Watchwolf</s>
+	<s>Water Elemental</s>
+	<s>Water Gun Balloon Game</s>
+	<s>Water Servant</s>
+	<s>Water Wurm</s>
+	<s>Waterfront Bouncer</s>
+	<s>Waterspout Djinn</s>
+	<s>Waterspout Elemental</s>
+	<s>Waterspout Weavers</s>
+	<s>Waterveil Cavern</s>
+	<s>Watery Grave</s>
+	<s>Wave Elemental</s>
+	<s>Wave of Indifference</s>
+	<s>Wave of Reckoning</s>
+	<s>Wave of Terror</s>
+	<s>Waves of Aggression</s>
+	<s>Waveskimmer Aven</s>
+	<s>Wax // Wane (Wax)</s>
+	<s>Waxmane Baku</s>
+	<s>Wayfarer's Bauble</s>
+	<s>Wayfaring Giant</s>
+	<s>Waylay</s>
+	<s>Wayward Angel</s>
+	<s>Wayward Soul</s>
+	<s>Weakness</s>
+	<s>Weakstone</s>
+	<s>Wear Away</s>
+	<s>Weathered Bodyguards</s>
+	<s>Weathered Wayfarer</s>
+	<s>Weatherseed Elf</s>
+	<s>Weatherseed Faeries</s>
+	<s>Weatherseed Totem</s>
+	<s>Weatherseed Treefolk</s>
+	<s>Weaver of Lies</s>
+	<s>Web</s>
+	<s>Web of Inertia</s>
+	<s>Wee Dragonauts</s>
+	<s>Weed Strangle</s>
+	<s>Weed-Pruner Poplar</s>
+	<s>Wei Ambush Force</s>
+	<s>Wei Assassins</s>
+	<s>Wei Elite Companions</s>
+	<s>Wei Infantry</s>
+	<s>Wei Night Raiders</s>
+	<s>Wei Scout</s>
+	<s>Wei Strike Force</s>
+	<s>Weight of Conscience</s>
+	<s>Weight of Spires</s>
+	<s>Weird Harvest</s>
+	<s>Weirding Shaman</s>
+	<s>Welding Jar</s>
+	<s>Welkin Guide</s>
+	<s>Welkin Hawk</s>
+	<s>Welkin Tern</s>
+	<s>Well of Discovery</s>
+	<s>Well of Knowledge</s>
+	<s>Well of Life</s>
+	<s>Well of Lost Dreams</s>
+	<s>Wellgabber Apothecary</s>
+	<s>Well-Laid Plans</s>
+	<s>Wellspring</s>
+	<s>Wellwisher</s>
+	<s>Werebear</s>
+	<s>Werewolf Ransacker</s>
+	<s>Western Paladin</s>
+	<s>Wet Willie of the Damned</s>
+	<s>Whalebone Glider</s>
+	<s>Wheel and Deal</s>
+	<s>Wheel of Fate</s>
+	<s>Wheel of Fortune</s>
+	<s>Wheel of Sun and Moon</s>
+	<s>Wheel of Torture</s>
+	<s>When Fluffy Bunnies Attack</s>
+	<s>Where Ancients Tread</s>
+	<s>Whetstone</s>
+	<s>Whetwheel</s>
+	<s>Whim of Volrath</s>
+	<s>Whimwader</s>
+	<s>Whip Sergeant</s>
+	<s>Whip Silk</s>
+	<s>Whip Vine</s>
+	<s>Whipcorder</s>
+	<s>Whipflare</s>
+	<s>Whipgrass Entangler</s>
+	<s>Whipkeeper</s>
+	<s>Whiplash Trap</s>
+	<s>Whippoorwill</s>
+	<s>Whip-Spine Drake</s>
+	<s>Whipstitched Zombie</s>
+	<s>Whiptail Moloch</s>
+	<s>Whiptail Wurm</s>
+	<s>Whiptongue Frog</s>
+	<s>Whirling Catapult</s>
+	<s>Whirling Dervish</s>
+	<s>Whirlpool Drake</s>
+	<s>Whirlpool Rider</s>
+	<s>Whirlpool Warrior</s>
+	<s>Whirlpool Whelm</s>
+	<s>Whirlwind</s>
+	<s>Whispering Shade</s>
+	<s>Whispering Specter</s>
+	<s>Whispers of the Muse</s>
+	<s>Whispersilk Cloak</s>
+	<s>White Knight</s>
+	<s>White Mana Battery</s>
+	<s>White Scarab</s>
+	<s>White Shield Crusader</s>
+	<s>White Sun's Zenith</s>
+	<s>White Ward</s>
+	<s>Whitemane Lion</s>
+	<s>Whiteout</s>
+	<s>Whitesun's Passage</s>
+	<s>Who/What/When/Where/Why</s>
+	<s>Wicked Akuba</s>
+	<s>Wicked Pact</s>
+	<s>Wicked Reward</s>
+	<s>Wicker Warcrawler</s>
+	<s>Wickerbough Elder</s>
+	<s>Wielding the Green Dragon</s>
+	<s>Wiitigo</s>
+	<s>Wild Aesthir</s>
+	<s>Wild Cantor</s>
+	<s>Wild Colos</s>
+	<s>Wild Defiance</s>
+	<s>Wild Dogs</s>
+	<s>Wild Elephant</s>
+	<s>Wild Evocation</s>
+	<s>Wild Griffin</s>
+	<s>Wild Growth</s>
+	<s>Wild Hunger</s>
+	<s>Wild Jhovall</s>
+	<s>Wild Leotau</s>
+	<s>Wild Mammoth</s>
+	<s>Wild Might</s>
+	<s>Wild Mongrel</s>
+	<s>Wild Nacatl</s>
+	<s>Wild Ox</s>
+	<s>Wild Pair</s>
+	<s>Wild Research</s>
+	<s>Wild Ricochet</s>
+	<s>Wild Swing</s>
+	<s>Wild Wurm</s>
+	<s>Wildblood Pack</s>
+	<s>Wilderness Elemental</s>
+	<s>Wilderness Hypnotist</s>
+	<s>Wildfield Borderpost</s>
+	<s>Wildfire</s>
+	<s>Wildfire Emissary</s>
+	<s>Wildheart Invoker</s>
+	<s>Wildsize</s>
+	<s>Wildslayer Elves</s>
+	<s>Wildwood Geist</s>
+	<s>Willbender</s>
+	<s>Will-o'-the-Wisp</s>
+	<s>Willow Dryad</s>
+	<s>Willow Elf</s>
+	<s>Willow Faerie</s>
+	<s>Willow Priestess</s>
+	<s>Willow Satyr</s>
+	<s>Wilt-Leaf Cavaliers</s>
+	<s>Wilt-Leaf Liege</s>
+	<s>Wind Dancer</s>
+	<s>Wind Drake</s>
+	<s>Wind Sail</s>
+	<s>Wind Shear</s>
+	<s>Wind Spirit</s>
+	<s>Wind Zendikon</s>
+	<s>Windborn Muse</s>
+	<s>Windborne Charge</s>
+	<s>Windbrisk Heights</s>
+	<s>Windbrisk Raptor</s>
+	<s>Windfall</s>
+	<s>Winding Canyons</s>
+	<s>Winding Wurm</s>
+	<s>Windreaper Falcon</s>
+	<s>Windreaver</s>
+	<s>Windrider Eel</s>
+	<s>Winds of Change</s>
+	<s>Winds of Rath</s>
+	<s>Windscouter</s>
+	<s>Windseeker Centaur</s>
+	<s>Windstorm</s>
+	<s>Windswept Heath</s>
+	<s>Windwright Mage</s>
+	<s>Wine of Blood and Iron</s>
+	<s>Wing Puncture</s>
+	<s>Wing Shards</s>
+	<s>Wing Snare</s>
+	<s>Wing Splicer</s>
+	<s>Wing Storm</s>
+	<s>Wingbeat Warrior</s>
+	<s>Wingcrafter</s>
+	<s>Winged Coatl</s>
+	<s>Winged Sliver</s>
+	<s>Wingrattle Scarecrow</s>
+	<s>Wings of Aesthir</s>
+	<s>Wings of Hope</s>
+	<s>Wings of Velis Vel</s>
+	<s>Winnow</s>
+	<s>Winnower Patrol</s>
+	<s>Winter Blast</s>
+	<s>Winter Orb</s>
+	<s>Winter Sky</s>
+	<s>Wintermoon Mesa</s>
+	<s>Winter's Chill</s>
+	<s>Winter's Grasp</s>
+	<s>Winter's Night</s>
+	<s>Wipe Away</s>
+	<s>Wipe Clean</s>
+	<s>Wirecat</s>
+	<s>Wirefly Hive</s>
+	<s>Wirewood Channeler</s>
+	<s>Wirewood Elf</s>
+	<s>Wirewood Guardian</s>
+	<s>Wirewood Herald</s>
+	<s>Wirewood Hivemaster</s>
+	<s>Wirewood Lodge</s>
+	<s>Wirewood Pride</s>
+	<s>Wirewood Savage</s>
+	<s>Wirewood Symbiote</s>
+	<s>Wishmonger</s>
+	<s>Wispmare</s>
+	<s>Wistful Selkie</s>
+	<s>Wistful Thinking</s>
+	<s>Witch Engine</s>
+	<s>Witch Hunter</s>
+	<s>Witchbane Orb</s>
+	<s>Witch-Maw Nephilim</s>
+	<s>Witch's Mist</s>
+	<s>Withdraw</s>
+	<s>Withengar Unbound</s>
+	<s>Withered Wretch</s>
+	<s>Withering Boon</s>
+	<s>Withering Gaze</s>
+	<s>Withering Hex</s>
+	<s>Withering Wisps</s>
+	<s>Witherscale Wurm</s>
+	<s>Withstand</s>
+	<s>Withstand Death</s>
+	<s>Wit's End</s>
+	<s>Wizard Mentor</s>
+	<s>Wizard Replica</s>
+	<s>Wizards' School</s>
+	<s>Wizened Cenn</s>
+	<s>Wizened Snitches</s>
+	<s>Woebearer</s>
+	<s>Woebringer Demon</s>
+	<s>Woeleecher</s>
+	<s>Wojek Apothecary</s>
+	<s>Wojek Embermage</s>
+	<s>Wojek Siren</s>
+	<s>Wolf Pack</s>
+	<s>Wolfbitten Captive</s>
+	<s>Wolfbriar Elemental</s>
+	<s>Wolfhunter's Quiver</s>
+	<s>Wolfir Avenger</s>
+	<s>Wolfir Silverheart</s>
+	<s>Wolf-Skull Shaman</s>
+	<s>Wolverine Pack</s>
+	<s>Wonder</s>
+	<s>Wood Elemental</s>
+	<s>Wood Elves</s>
+	<s>Wood Sage</s>
+	<s>Woodcloaker</s>
+	<s>Wooded Bastion</s>
+	<s>Wooded Foothills</s>
+	<s>Wooden Sphere</s>
+	<s>Wooden Stake</s>
+	<s>Woodfall Primus</s>
+	<s>Woodland Cemetery</s>
+	<s>Woodland Changeling</s>
+	<s>Woodland Druid</s>
+	<s>Woodland Guidance</s>
+	<s>Woodland Sleuth</s>
+	<s>Woodlurker Mimic</s>
+	<s>Woodripper</s>
+	<s>Woodwraith Corrupter</s>
+	<s>Woodwraith Strangler</s>
+	<s>Woolly Mammoths</s>
+	<s>Woolly Razorback</s>
+	<s>Woolly Spider</s>
+	<s>Woolly Thoctar</s>
+	<s>Word of Binding</s>
+	<s>Word of Blasting</s>
+	<s>Word of Command</s>
+	<s>Word of Seizing</s>
+	<s>Word of Undoing</s>
+	<s>Wordmail</s>
+	<s>Words of War</s>
+	<s>Words of Waste</s>
+	<s>Words of Wilding</s>
+	<s>Words of Wind</s>
+	<s>Words of Wisdom</s>
+	<s>Words of Worship</s>
+	<s>Workhorse</s>
+	<s>Working Stiff</s>
+	<s>World at War</s>
+	<s>World Queller</s>
+	<s>World-Bottling Kit</s>
+	<s>Worldgorger Dragon</s>
+	<s>Worldheart Phoenix</s>
+	<s>Worldly Counsel</s>
+	<s>Worldly Tutor</s>
+	<s>Worldpurge</s>
+	<s>Worldslayer</s>
+	<s>Worm Harvest</s>
+	<s>Wormfang Behemoth</s>
+	<s>Wormfang Crab</s>
+	<s>Wormfang Drake</s>
+	<s>Wormfang Manta</s>
+	<s>Wormfang Newt</s>
+	<s>Wormfang Turtle</s>
+	<s>Worms of the Earth</s>
+	<s>Wormwood Dryad</s>
+	<s>Wormwood Treefolk</s>
+	<s>Worn Powerstone</s>
+	<s>Worry Beads</s>
+	<s>Worship</s>
+	<s>Wort, Boggart Auntie</s>
+	<s>Wort, the Raidmother</s>
+	<s>Worthy Cause</s>
+	<s>Wound Reflection</s>
+	<s>Wrack with Madness</s>
+	<s>Wrap in Flames</s>
+	<s>Wrap in Vigor</s>
+	<s>Wrath of God</s>
+	<s>Wrath of Marit Lage</s>
+	<s>Wreak Havoc</s>
+	<s>Wreath of Geists</s>
+	<s>Wrecking Ball</s>
+	<s>Wrench Mind</s>
+	<s>Wren's Run Packmaster</s>
+	<s>Wren's Run Vanquisher</s>
+	<s>Wretched Anurid</s>
+	<s>Wretched Banquet</s>
+	<s>Wrexial, the Risen Deep</s>
+	<s>Wring Flesh</s>
+	<s>Writ of Passage</s>
+	<s>Wu Admiral</s>
+	<s>Wu Elite Cavalry</s>
+	<s>Wu Infantry</s>
+	<s>Wu Light Cavalry</s>
+	<s>Wu Longbowman</s>
+	<s>Wu Scout</s>
+	<s>Wu Spy</s>
+	<s>Wu Warship</s>
+	<s>Wurmcalling</s>
+	<s>Wurmcoil Engine</s>
+	<s>Wurm's Tooth</s>
+	<s>Wurmskin Forger</s>
+	<s>Wurmweaver Coil</s>
+	<s>Wydwen, the Biting Gale</s>
+	<s>Wyluli Wolf</s>
+	<s>Xanthic Statue</s>
+	<s>Xantid Swarm</s>
+	<s>Xathrid Demon</s>
+	<s>Xenic Poltergeist</s>
+	<s>Xenograft</s>
+	<s>Xiahou Dun, the One-Eyed</s>
+	<s>Xira Arien</s>
+	<s>Xun Yu, Wei Advisor</s>
+	<s>Yamabushi's Flame</s>
+	<s>Yamabushi's Storm</s>
+	<s>Yare</s>
+	<s>Yavimaya Ancients</s>
+	<s>Yavimaya Ants</s>
+	<s>Yavimaya Barbarian</s>
+	<s>Yavimaya Coast</s>
+	<s>Yavimaya Dryad</s>
+	<s>Yavimaya Elder</s>
+	<s>Yavimaya Enchantress</s>
+	<s>Yavimaya Gnats</s>
+	<s>Yavimaya Granger</s>
+	<s>Yavimaya Hollow</s>
+	<s>Yavimaya Kavu</s>
+	<s>Yavimaya Scion</s>
+	<s>Yavimaya Wurm</s>
+	<s>Yavimaya's Embrace</s>
+	<s>Yawgmoth Demon</s>
+	<s>Yawgmoth's Agenda</s>
+	<s>Yawgmoth's Bargain</s>
+	<s>Yawgmoth's Edict</s>
+	<s>Yawgmoth's Will</s>
+	<s>Yawning Fissure</s>
+	<s>Ydwen Efreet</s>
+	<s>Yellow Scarves Cavalry</s>
+	<s>Yellow Scarves General</s>
+	<s>Yellow Scarves Troops</s>
+	<s>Yet Another Aether Vortex</s>
+	<s>Yew Spirit</s>
+	<s>Yixlid Jailer</s>
+	<s>Yoke of the Damned</s>
+	<s>Yoked Plowbeast</s>
+	<s>Yomiji, Who Bars the Way</s>
+	<s>Yore-Tiller Nephilim</s>
+	<s>Yosei, the Morning Star</s>
+	<s>Yotian Soldier</s>
+	<s>Young Wei Recruits</s>
+	<s>Young Wolf</s>
+	<s>Youthful Knight</s>
+	<s>Yuan Shao, the Indecisive</s>
+	<s>Yuan Shao's Infantry</s>
+	<s>Yuki-Onna</s>
+	<s>Yukora, the Prisoner</s>
+	<s>Zanam Djinn</s>
+	<s>Zap</s>
+	<s>Zealot il-Vec</s>
+	<s>Zealots en-Dal</s>
+	<s>Zealous Conscripts</s>
+	<s>Zealous Guardian</s>
+	<s>Zealous Inquisitor</s>
+	<s>Zealous Persecution</s>
+	<s>Zealous Strike</s>
+	<s>Zebra Unicorn</s>
+	<s>Zedruu the Greathearted</s>
+	<s>Zektar Shrine Expedition</s>
+	<s>Zelyon Sword</s>
+	<s>Zendikar Farguide</s>
+	<s>Zephid</s>
+	<s>Zephid's Embrace</s>
+	<s>Zephyr Falcon</s>
+	<s>Zephyr Net</s>
+	<s>Zephyr Spirit</s>
+	<s>Zephyr Sprite</s>
+	<s>Zerapa Minotaur</s>
+	<s>Zhalfirin Commander</s>
+	<s>Zhalfirin Crusader</s>
+	<s>Zhalfirin Knight</s>
+	<s>Zhang Fei, Fierce Warrior</s>
+	<s>Zhang He, Wei General</s>
+	<s>Zhang Liao, Hero of Hefei</s>
+	<s>Zhao Zilong, Tiger General</s>
+	<s>Zhou Yu, Chief Commander</s>
+	<s>Zhuge Jin, Wu Strategist</s>
+	<s>Zirilan of the Claw</s>
+	<s>Zodiac Dog</s>
+	<s>Zodiac Dragon</s>
+	<s>Zodiac Goat</s>
+	<s>Zodiac Horse</s>
+	<s>Zodiac Monkey</s>
+	<s>Zodiac Ox</s>
+	<s>Zodiac Pig</s>
+	<s>Zodiac Rabbit</s>
+	<s>Zodiac Rat</s>
+	<s>Zodiac Rooster</s>
+	<s>Zodiac Snake</s>
+	<s>Zodiac Tiger</s>
+	<s>Zoetic Cavern</s>
+	<s>Zof Shade</s>
+	<s>Zombie Apocalypse</s>
+	<s>Zombie Assassin</s>
+	<s>Zombie Boa</s>
+	<s>Zombie Brute</s>
+	<s>Zombie Cannibal</s>
+	<s>Zombie Cutthroat</s>
+	<s>Zombie Fanboy</s>
+	<s>Zombie Goliath</s>
+	<s>Zombie Infestation</s>
+	<s>Zombie Master</s>
+	<s>Zombie Mob</s>
+	<s>Zombie Musher</s>
+	<s>Zombie Outlander</s>
+	<s>Zombie Scavengers</s>
+	<s>Zombie token card</s>
+	<s>Zombie Trailblazer</s>
+	<s>Zombify</s>
+	<s>Zoologist</s>
+	<s>Zo-Zu the Punisher</s>
+	<s>Zuberi, Golden Feather</s>
+	<s>Zulaport Enforcer</s>
+	<s>Zuo Ci, the Mocking Sage</s>
+	<s>Zur the Enchanter</s>
+	<s>Zuran Enchanter</s>
+	<s>Zuran Orb</s>
+	<s>Zuran Spellcaster</s>
+	<s>Zur's Weirding</s>
+	<s>Zzzyxas's Abyss</s>
+</array>
+</plist>
