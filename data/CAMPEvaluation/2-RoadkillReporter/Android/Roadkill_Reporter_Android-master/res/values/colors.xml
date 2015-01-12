@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ics_blue_bright">#38C0F4</color>
+    <color name="ics_blue_dark">#0099CC</color>
+    <color name="ics_blue_light">#33B5E5</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

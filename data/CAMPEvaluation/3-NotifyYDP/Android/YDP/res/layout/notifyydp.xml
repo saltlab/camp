@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:orientation="vertical"
+        android:weightSum="7" >
+
+        <Button
+            android:id="@+id/callydp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#6A8FB0"
+            android:text="@string/call_ydp"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/emailydp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="48dp"
+            android:background="#6A8FB0"
+            android:text="@string/email_ydp"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/moreaboutydp"
+            android:layout_width="197dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="0.07"
+            android:background="#6A8FB0"
+            android:text="@string/more_about_ydp" 
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignRight="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/logo1" 
+        android:contentDescription="@string/ydp_logo"/>
+
+</RelativeLayout>

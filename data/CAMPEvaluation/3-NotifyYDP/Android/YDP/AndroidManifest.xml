@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alakinfotech.ydpandroid"
+    android:versionCode="3"
+    android:versionName="1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="8" 
+                android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET"/> 
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+         >
+        <activity
+            android:name="com.alakinfotech.ydpandroid.Splashscreen"
+            android:label="@string/icon_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"
+                     android:screenOrientation="portrait" 
+                     android:noHistory="true"
+                     android:configChanges="keyboardHidden|orientation|screenSize" />
+				<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alakinfotech.ydpandroid.HOMESCREEN" 	android:screenOrientation="portrait"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.YDPCAREPLAN"   	android:screenOrientation="portrait"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.NOTIFYYDP" 		android:screenOrientation="portrait"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.YDPWEBVIEW" 	android:screenOrientation="portrait"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.EMAILYDP"		android:screenOrientation="portrait"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.UIFORALLERGESDETAILVIEW" android:theme="@style/CustomTheme" 	android:screenOrientation="landscape"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.UIFORCAREPLAN"  		 android:theme="@style/CustomTheme" 	android:screenOrientation="landscape"></activity>
+        <activity android:name="com.alakinfotech.ydpandroid.Careplandetailview" 	 android:theme="@style/CustomTheme"  	android:screenOrientation="landscape"></activity>
+        
+    </application>
+  
+</manifest>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reporter</string>
+    <string name="app_name_long">Roadkill Reporter</string>
+
+    <string name="raccoon">Raccoon</string>
+
+    <string name="about">About</string>
+    <string name="about_roadkill_reporter">About Roadkill Reporter</string>
+
+    <string name="report">Report</string>
+    <string name="click_raccoon_to_report">Click Raccoon to Report</string>
+
+    <string name="past_reports">Past Reports</string>
+    <string name="your_past_reports">Your Past Reports</string>
+
+    <string name="finding_location">Still Finding your location…</string>
+    <string name="found_location">Found your location</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="point_pin_to_raccoon">Aim At The Raccoon</string>
+    <string name="refine_location">Please refine the location of any reports with this icon</string>
+
+    <!--<string name="about_screen_text">About Information</string>-->
+    <string name="about_screen_text">\nThank you for participating!\n\nRoadkill Reporter is a mobile app that allows you to participate in a parasitology project exploring the genetics and distribution of the raccoon roundworm, an intestinal parasite infecting 60&#8211;80% of raccoons in the Midwest.  Specimens for this project come primarily from road&#8211;killed raccoons, and this app allows you to pinpoint and report the location of a roadkill.  The principal investigators of this project will see the location of your entry on a map, and be able to retrieve the specimen for analysis.\n\nThings to consider\n• Please do NOT use this app while driving! Please pull over before reporting.\n• You will have the option later of refining the location of the roadkill you saw.\n• Don’t touch the roadkill! That’s our job.\n• Raccoons only please.\n• Your participation is completely anonymous\n• This project is based on samples obtained from West Michigan only, so reports out of that location will not be monitored.\n\nCredits\nDeveloper: Caleb Gomer\nArtwork: Jen Gagne\nAdvisors:\n• Doug Graham, Biomedical Sciences\n• Greg Wolffe, Computer Science\nTab Icons: www.icons8.com</string>
+</resources>

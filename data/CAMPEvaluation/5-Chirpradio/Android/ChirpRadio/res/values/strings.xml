@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CHIRP Radio</string>
+	<string name="playlist_label">Playlist</string>
+	<string name="playlist_title">Playlist</string>	
+	<string name="request_label">Make a Request</string>
+	<string name="request_title">Make a Request</string>
+	<string name="schedule_label">On-Air Schedule</string>
+	<string name="schedule_title">On-Air Schedule</string>
+	<string name="playing_label">CHIRP Radio</string>
+	<string name="playing_title">CHIRP Radio</string>
+	<string name="current_track">Current Track</string>	
+</resources>

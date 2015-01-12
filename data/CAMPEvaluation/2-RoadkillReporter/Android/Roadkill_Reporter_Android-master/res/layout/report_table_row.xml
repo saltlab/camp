@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="64dip"
+    android:layout_margin="1dp">
+
+  <TextView
+      android:id="@+id/txt_animal_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:padding="6dip"
+      android:layout_margin="1dip"
+      android:textSize="12pt"
+      android:textColor="@color/white"
+      android:layout_centerVertical="true"
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+  <TextView
+      android:id="@+id/txt_report_age"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/txt_animal_name"
+      android:layout_centerVertical="true"
+      android:padding="6dip"
+      android:layout_margin="1dip"
+      android:textColor="#777777"
+      android:textSize="8pt"
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+  <ImageView
+      android:id="@+id/img_needs_refinement"
+      android:layout_width="wrap_content"
+      android:layout_height="fill_parent"
+      android:layout_alignParentRight="true"
+      android:src="@drawable/alert"/>
+
+</RelativeLayout>
