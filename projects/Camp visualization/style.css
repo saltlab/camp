@@ -1,0 +1,24 @@
+body { 
+  font: 14px helvetica neue, helvetica, arial, sans-serif;
+}
+
+#cy {
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #EDF1FA;
+}
+
+
+
+
+#cy2 {
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  left: 55%;
+  top:0;
+  background-color: #edfaf6;
+}
