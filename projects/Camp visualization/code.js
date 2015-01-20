@@ -114,8 +114,9 @@ var cy2 = cytoscape({
 //Add state 0
 cy.add({
     group: "nodes",
-    data: { weight: 75, id:'S0',name:'intial State: iPhone' },
-    position: { x: 200, y: 200 }
+    data: { weight: 5, id:'S0'   },
+    position: { x: 200, y: 200 },
+    css: {'width':'30px', 'height':'30px','shape':'ellipse','background-color':'#00308f'}
 });
 
 //Add states or nodes
@@ -175,8 +176,9 @@ for (var i = 0; i < edgesIphone.length; i++) {
 //Add state 0
 cy2.add({
     group: "nodes",
-    data: { weight: 75, id:'S0', name:'intial State: Android' },
-    position: { x: 200, y: 200 }
+    data: { weight: 75, id:'S0'},
+    position: { x: 200, y: 200 },
+    css: {'width':'30px', 'height':'30px','shape':'ellipse','background-color':'#005502'}
 });
 
 //Add states or nodes

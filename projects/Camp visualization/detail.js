@@ -30,8 +30,22 @@
           var divUI=document.createElement("div");
           divUI.style.fontSize="medium";
           var UIElements = document.createElement("b");
-          UIElements.innerHTML = "UI Elements:";
+          UIElements.innerHTML = "UI Elements";
           UIElements.style.fontSize="xx-large";
+          var inconsIphone = document.createElement("b");
+          inconsIphone.innerHTML = "Inconsistencies";
+          inconsIphone.style.fontSize="xx-large";
+          divUI.appendChild(inconsIphone);
+          divUI.appendChild(document.createElement("br"));
+
+          //append mapping report to div
+          var mappingReportIphone=statesIphone[i].children[8].innerHTML;
+          divUI.appendChild(document.createTextNode("Inconsistency in label Total: 0 (+0) vs Total: 0")); 
+          divUI.appendChild(document.createElement("br"));
+          divUI.appendChild(document.createElement("br"));
+          divUI.appendChild(document.createElement("br"));
+          divUI.appendChild(document.createElement("br"));
+
           divUI.appendChild(UIElements);
           divUI.appendChild(document.createElement("br"));
           var UIElementsSyntax = document.createElement("b");
@@ -49,14 +63,14 @@
           
           };
 
-          //Sstate info
+          //state info
 
           var br = document.createElement("br");
           var br2 = document.createElement("br");
           var divElement2=document.createElement("div");
 
           var stateInfo = document.createElement("b");
-          stateInfo.innerHTML = "State Information:";
+          stateInfo.innerHTML = "State Info";
            stateInfo.style.fontSize="xx-large";
            divElement2.style.fontSize="medium";
           divElement2.appendChild(stateInfo)
@@ -84,7 +98,7 @@
           
           { type: 'left', size: 320, style: pstyle, content: img},
           { type: 'main', style: pstyle, content: divUI },
-          { type: 'preview', style: pstyle, content: divElement2 }
+          { type: 'preview',size: 125, style: pstyle, content: divElement2 }
 
           ]
         });
@@ -121,8 +135,23 @@
           var divUIAndroid=document.createElement("div");
           divUIAndroid.style.fontSize="medium";
           var UIElements = document.createElement("b");
-          UIElements.innerHTML = "UI Elements:";
+          UIElements.innerHTML = "UI Elements";
           UIElements.style.fontSize="xx-large";
+          var inconsAndroid = document.createElement("b");
+          inconsAndroid.innerHTML = "Inconsistencies";
+          inconsAndroid.style.fontSize="xx-large";
+          divUIAndroid.appendChild(inconsAndroid); 
+          divUIAndroid.appendChild(document.createElement("br"));
+
+          //append mapping report to div
+          var mappingReportAndroid=statesAndroid[i].children[8].innerHTML;
+          divUIAndroid.appendChild(document.createTextNode("Inconsistency in label Total: 0 (+0) vs Total: 0")); 
+          divUIAndroid.appendChild(document.createElement("br"));
+          divUIAndroid.appendChild(document.createElement("br"));
+          divUIAndroid.appendChild(document.createElement("br"));
+          divUIAndroid.appendChild(document.createElement("br"));
+
+
           divUIAndroid.appendChild(UIElements);
           divUIAndroid.appendChild(document.createElement("br"));
           var UIElementsSyntax = document.createElement("b");
@@ -147,7 +176,7 @@
           var divElement=document.createElement("div");
           divElement.style.fontSize="medium";
           var stateInfo = document.createElement("b");
-          stateInfo.innerHTML = "State Information:";
+          stateInfo.innerHTML = "State Info";
           stateInfo.style.fontSize="xx-large";
           divElement.appendChild(stateInfo)
           divElement.appendChild(br);
@@ -170,7 +199,7 @@
           
           { type: 'left', size: 320, style: pstyle, content: imgAndroid},
           { type: 'main', style: pstyle, content: divUIAndroid },
-          { type: 'preview', style: pstyle, content: divElement }
+          { type: 'preview',size: 125, style: pstyle, content: divElement }
 
           ]
         });
