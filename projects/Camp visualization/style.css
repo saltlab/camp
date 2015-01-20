@@ -4,7 +4,7 @@ body {
 
 #cy {
   height: 100%;
-  width: 45%;
+  width: 48%;
   position: absolute;
   left: 0;
   top: 0;
@@ -16,9 +16,9 @@ body {
 
 #cy2 {
   height: 100%;
-  width: 45%;
+  width: 48%;
   position: absolute;
-  left: 55%;
+  left: 52%;
   top:0;
   background-color: #edfaf6;
 }
