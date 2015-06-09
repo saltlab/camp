@@ -739,7 +739,7 @@
     [self compareiPhoneState:iPhoneIntialState withAndroidState:androidIntialState];
     
     //get the initial edges
-    self.edgePairs = [self compare5EdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
+    self.edgePairs = [self compare1EdgePairsForiPhoneState:iPhoneIntialState andAndroidState:androidIntialState];
     
     //loop through all states, edges
     for (int i=0;i<self.edgePairs.count;i++){
@@ -805,7 +805,7 @@
     
     if (iPhoneState && androidState) {
         [self compareiPhoneState:iPhoneState withAndroidState:androidState];
-        NSMutableArray* thisEdgePairs = [self compare5EdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
+        NSMutableArray* thisEdgePairs = [self compare1EdgePairsForiPhoneState:iPhoneState andAndroidState:androidState];
         return thisEdgePairs;
     }
     else
@@ -1907,7 +1907,7 @@
     }
     return thisEdgePairs;
 }
-
+            
 -(NSMutableArray*)calculateElementsPairSimilarityE1:(NSMutableArray*)iphoneElements withE2:(NSMutableArray*)androidElements
 {
     NSMutableArray *thisElPairs = [NSMutableArray array];
@@ -1917,9 +1917,8 @@
     if (iphoneElements.count <= androidElements.count) {
         for (NSMutableDictionary* element1 in iphoneElements) {
             
-            if (![element1[@"UIElement_Action"] isEqualToString:@""] ||
-                ![element1[@"UIElement_Label"]isEqualToString:@""] ||
-                ![element1[@"UIElement_Type"]isEqualToString:@""]) {
+            if (![element1[@"UIElement_Label"]isEqualToString:@""] ||
+                ![element1[@"UIElement_Details"]isEqualToString:@""]) {
                 
                 NSMutableDictionary* elPair = [NSMutableDictionary dictionary];
                 NSInteger maxDif=100;
@@ -1927,14 +1926,13 @@
                 for (NSMutableDictionary* element2 in androidElements) {
                     
                     if (!element2[@"MappingLabel"] &&
-                        (![element2[@"UIElement_Action"] isEqualToString:@""] ||
-                         ![element2[@"UIElement_Label"]isEqualToString:@""] ||
-                         ![element2[@"UIElement_Type"]isEqualToString:@""])) {
+                        (![element2[@"UIElement_Label"]isEqualToString:@""] ||
+                         ![element2[@"UIElement_Details"]isEqualToString:@""])) {
                             
                             if(![self mappedTypeE1:element1[@"UIElement_Type"] withE2:element2[@"UIElement_Type"]]){
                             
                                 [report setString:@""];
-                                float rr1;
+                                float rr1 = 0;
                                 NSInteger max;
                                 //heuristic for number of cells in tabels
                                 if([element1[@"UIElement_Type"] isEqualToString:@"UITableView"] &&
@@ -1951,19 +1949,19 @@
                                 else if ([element2[@"UIElement_Action"] isEqualToString:@"MenuButtonClicked"])
                                     rr1 = 400;
                                 
-                                else {
-                                    rr1 = 0;
-                                    if ([element1[@"UIElement_Action"] length]>0 || [element2[@"UIElement_Action"] length]>0) {
-                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
-                                    max=[element1[@"UIElement_Action"] length];
-                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
-                                        max=[element2[@"UIElement_Action"] length];
-                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
-                                    }
-                                }
+//                                else {
+//                                    rr1 = 0;
+//                                    if ([element1[@"UIElement_Action"] length]>0 && [element2[@"UIElement_Action"] length]>0) {
+//                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
+//                                    max=[element1[@"UIElement_Action"] length];
+//                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
+//                                        max=[element2[@"UIElement_Action"] length];
+//                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+//                                    }
+//                                }
 
                                 float rr2 = 0;
-                                if ([element1[@"UIElement_Label"] length]>0 || [element2[@"UIElement_Label"] length]>0) {
+                                if ([element1[@"UIElement_Label"] length]>0 && [element2[@"UIElement_Label"] length]>0) {
                                 NSInteger r2 = [element1[@"UIElement_Label"] levenshteinDistanceToString:element2[@"UIElement_Label"]];
                                 max=[element1[@"UIElement_Label"] length];
                                 if([element2[@"UIElement_Label"] length]>[element1[@"UIElement_Label"] length])
@@ -1977,6 +1975,8 @@
                                     elPair[@"Sum"]=[NSNumber numberWithInteger:sum];
                                     elPair[@"Mapped"]=@0;
                                     maxDif = sum;
+                                    if (sum==0)
+                                        break;
                                 }
                         }
                     }
@@ -1989,7 +1989,7 @@
                         elPair[@"Sum"] = [NSNumber numberWithInteger:[elPair[@"Android"][@"UIElement_Label"] levenshteinDistanceToString:elPair[@"iPhone"][@"UIElement_Label"]]];
                         
                         if ([elPair[@"Sum"] intValue]>0) {
-                            [report appendString:[NSString stringWithFormat:@"Inconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)\n", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
+                            [report appendString:[NSString stringWithFormat:@"\nInconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)\n", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
                         }
                     }
                     
@@ -2013,9 +2013,8 @@
     else {
         for (NSMutableDictionary* element1 in androidElements) {
             
-            if (![element1[@"TouchedElement_Action"] isEqualToString:@""] ||
-                ![element1[@"TouchedElement_Label"]isEqualToString:@""] ||
-                ![element1[@"TouchedElement_Type"]isEqualToString:@""]) {
+            if (![element1[@"UIElement_Label"]isEqualToString:@""] ||
+                ![element1[@"UIElement_Details"]isEqualToString:@""]) {
                 
                 NSMutableDictionary* elPair = [NSMutableDictionary dictionary];
                 NSInteger maxDif=100;
@@ -2024,14 +2023,13 @@
                 for (NSMutableDictionary* element2 in iphoneElements) {
                     
                     if (!element2[@"MappingLabel"] &&
-                        (![element2[@"TouchedElement_Action"] isEqualToString:@""] ||
-                         ![element2[@"TouchedElement_Label"]isEqualToString:@""] ||
-                         ![element2[@"TouchedElement_Type"]isEqualToString:@""])) {
+                        (![element2[@"UIElement_Label"]isEqualToString:@""] ||
+                         ![element2[@"UIElement_Details"]isEqualToString:@""])) {
                             
                             if(![self mappedTypeE1:element2[@"UIElement_Type"] withE2:element1[@"UIElement_Type"]]){
                                 
                                 [report setString:@""];
-                                float rr1;
+                                float rr1= 0;
                                 NSInteger max;
                                 //heuristic for number of cells in tabels
                                 if([element2[@"UIElement_Type"] isEqualToString:@"UITableView"] &&
@@ -2048,16 +2046,19 @@
                                 else if ([element1[@"UIElement_Action"] isEqualToString:@"MenuButtonClicked"])
                                     rr1 = 400;
                                 
-                                else {
-                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
-                                    max=[element1[@"UIElement_Action"] length];
-                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
-                                        max=[element2[@"UIElement_Action"] length];
-                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
-                                }
+//                                else {
+//                                    rr1 = 0;
+//                                    if ([element1[@"UIElement_Action"] length]>0 && [element2[@"UIElement_Action"] length]>0) {
+//                                    NSInteger r1 = [element1[@"UIElement_Action"] levenshteinDistanceToString:element2[@"UIElement_Action"]];
+//                                    max=[element1[@"UIElement_Action"] length];
+//                                    if([element2[@"UIElement_Action"] length]>[element1[@"UIElement_Action"] length])
+//                                        max=[element2[@"UIElement_Action"] length];
+//                                    rr1 = (WEIGHT_E_CLASS*((float)r1/(float)max));
+//                                    }
+//                                }
 
                                 float rr2 = 0;
-                                if ([element1[@"UIElement_Label"] length]>0 || [element2[@"UIElement_Label"] length]>0) {
+                                if ([element1[@"UIElement_Label"] length]>0 && [element2[@"UIElement_Label"] length]>0) {
                                     NSInteger r2 = [element1[@"UIElement_Label"] levenshteinDistanceToString:element2[@"UIElement_Label"]];
                                     max=[element1[@"UIElement_Label"] length];
                                     if([element2[@"UIElement_Label"] length]>[element1[@"UIElement_Label"] length])
@@ -2071,6 +2072,8 @@
                                     elPair[@"Sum"]=[NSNumber numberWithInteger:sum];
                                     elPair[@"Mapped"]=@0;
                                     maxDif = sum;
+                                    if (sum==0)
+                                        break;
                                 }
                             }
                         }
@@ -2083,7 +2086,7 @@
                         elPair[@"Sum"] = [NSNumber numberWithInteger:[elPair[@"Android"][@"UIElement_Label"] levenshteinDistanceToString:elPair[@"iPhone"][@"UIElement_Label"]]];
                         
                         if ([elPair[@"Sum"] intValue]>0) {
-                            [report appendString:[NSString stringWithFormat:@"Inconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
+                            [report appendString:[NSString stringWithFormat:@"\nInconsistency in the element: iPhone (%@,%@,%@) vs. Android (%@,%@,%@)", elPair[@"iPhone"][@"UIElement_Type"],elPair[@"iPhone"][@"UIElement_Label"],elPair[@"iPhone"][@"UIElement_Action"],elPair[@"Android"][@"UIElement_Type"],elPair[@"Android"][@"UIElement_Label"],elPair[@"Android"][@"UIElement_Action"]]];
                         }
                     }
                     
@@ -2915,21 +2918,21 @@
 
 -(void)outputAndroidCsvFiles
 {
-    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
     //[fileHandler1 seekToEndOfFile];
     [fileHandler1 writeData:[self.androidStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler1 closeFile];
 
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
     //[fileHandler2 seekToEndOfFile];
     [fileHandler2 writeData:[self.androidElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler2 closeFile];
 
-    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidEdges.csv"]];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidEdges.csv"]];
     freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
     //[fileHandler3 seekToEndOfFile];
@@ -2939,21 +2942,21 @@
 
 -(void)outputAndroidOriginalCsvFiles
 {
-    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
     //[fileHandler1 seekToEndOfFile];
     [fileHandler1 writeData:[self.androidStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler1 closeFile];
     
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
     //[fileHandler2 seekToEndOfFile];
     [fileHandler2 writeData:[self.androidElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler2 closeFile];
     
-    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
     freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
     //[fileHandler3 seekToEndOfFile];
@@ -2963,21 +2966,21 @@
 
 -(void)outputiPhoneCsvFile
 {
-    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
     //[fileHandler1 seekToEndOfFile];
     [fileHandler1 writeData:[self.iphoneStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler1 closeFile];
 
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
     //[fileHandler2 seekToEndOfFile];
     [fileHandler2 writeData:[self.iphoneElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler2 closeFile];
 
-    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneEdges.csv"]];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneEdges.csv"]];
     freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
     //[fileHandler3 seekToEndOfFile];
@@ -2987,21 +2990,21 @@
 
 -(void)outputiPhoneOriginalCsvFile
 {
-    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
     //[fileHandler1 seekToEndOfFile];
     [fileHandler1 writeData:[self.iphoneStatesCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler1 closeFile];
     
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
     //[fileHandler2 seekToEndOfFile];
     [fileHandler2 writeData:[self.iphoneElementsCsv dataUsingEncoding:NSUTF8StringEncoding]];
     [fileHandler2 closeFile];
     
-    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
     freopen([path3 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler3 = [NSFileHandle fileHandleForUpdatingAtPath:path3];
     //[fileHandler3 seekToEndOfFile];
@@ -3012,7 +3015,7 @@
 
 -(void)outputSimilarityCsvFile
 {
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"SimilarityMapping.txt"]];
+    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"SimilarityMapping.txt"]];
     freopen([path cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
     NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:path];
     //[fileHandler seekToEndOfFile];
@@ -3022,7 +3025,7 @@
 
 - (void)outputiPhoneMappedFile:(NSMutableString*)outputString {
 	// Create paths to State Graph output txt file
-	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
+	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
     freopen([path1 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
 	NSFileHandle *fileHandler1 = [NSFileHandle fileHandleForUpdatingAtPath:path1];
 	[fileHandler1 seekToEndOfFile];
@@ -3032,7 +3035,7 @@
 
 - (void)outputAndroidMappedFile:(NSMutableString*)outputString {
     // Create paths to State Graph output txt file
-	NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
+	NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
     freopen([path2 cStringUsingEncoding:NSASCIIStringEncoding],"a+",stdout);
 	NSFileHandle *fileHandler2 = [NSFileHandle fileHandleForUpdatingAtPath:path2];
 	[fileHandler2 seekToEndOfFile];
@@ -3044,43 +3047,43 @@
 
 - (void)setupOutputFiles {
 	//Grab and empty a reference to the output files
-    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"SimilarityMapping.txt"]];
+    NSString *path = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"SimilarityMapping.txt"]];
 	[@"" writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneEdges.csv"]];
+    NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneEdges.csv"]];
 	[@"" writeToFile:path1 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneElements.csv"]];
 	[@"" writeToFile:path2 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
+    NSString *path3 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneStates.csv"]];
 	[@"" writeToFile:path3 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path4 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidEdges.csv"]];
+    NSString *path4 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidEdges.csv"]];
 	[@"" writeToFile:path4 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path5 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
+    NSString *path5 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidElements.csv"]];
 	[@"" writeToFile:path5 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path6 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
+    NSString *path6 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidStates.csv"]];
 	[@"" writeToFile:path6 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 
-    NSString *path7 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
+    NSString *path7 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalEdges.csv"]];
 	[@"" writeToFile:path7 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path8 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
+    NSString *path8 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalElements.csv"]];
 	[@"" writeToFile:path8 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path9 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
+    NSString *path9 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneOriginalStates.csv"]];
 	[@"" writeToFile:path9 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path10 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
+    NSString *path10 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalEdges.csv"]];
 	[@"" writeToFile:path10 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path11 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
+    NSString *path11 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalElements.csv"]];
 	[@"" writeToFile:path11 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path12 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
+    NSString *path12 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidOriginalStates.csv"]];
 	[@"" writeToFile:path12 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 
     [self setupOutputStateGraphFile];
@@ -3088,22 +3091,17 @@
 
 - (void)setupOutputStateGraphFile {
 	//Grab and empty a reference to the output txt file
-	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
+	NSString *path1 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"iPhoneMapped.xml"]];
 	[@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?> \n\
      <!DOCTYPE document SYSTEM \"\" > \n \
      <Model>" writeToFile:path1 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
-    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/Mona/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
+    NSString *path2 = [[NSString alloc] initWithFormat:@"%@",[@"/Users/monaerfani/Desktop/mapping-projects/CAMPChecker/outputFiles/" stringByAppendingPathComponent:@"AndroidMapped.xml"]];
 	[@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?> \n\
      <!DOCTYPE document SYSTEM \"\" > \n \
      <Model>" writeToFile:path2 atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 }
 
 @end
-
-
-
-
-
 
 
