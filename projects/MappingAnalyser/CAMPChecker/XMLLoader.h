@@ -2,9 +2,6 @@
 //  XMLLoader.h
 //  PhoCusWright
 //
-//  Created by Gavin Heer on 20/08/09.
-//  Copyright 2009 QuickMobile. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
